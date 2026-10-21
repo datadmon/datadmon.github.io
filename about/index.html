@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About Daemon Data | Daemon Data</title>
+<meta name="description" content="Who publishes these data APIs, what they read, what they leave out, and how to reach us.">
+<link rel="canonical" href="https://datadmon.github.io/about/">
+<meta property="og:title" content="About Daemon Data | Daemon Data">
+<meta property="og:description" content="Who publishes these data APIs, what they read, what they leave out, and how to reach us.">
+<meta property="og:url" content="https://datadmon.github.io/about/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Daemon Data">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<link rel="alternate" type="text/plain" href="https://datadmon.github.io/llms.txt" title="llms.txt">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%2322D3EE'/%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://datadmon.github.io/#org", "name": "Daemon Data", "url": "https://datadmon.github.io", "sameAs": ["https://apify.com/data_daemon", "https://github.com/datadmon/apify-data-actors-examples"], "description": "Publisher of pay-per-record data APIs (Apify Actors) for Indian job boards, Oracle HCM career sites, Indian IPOs and stocks, Dubai Land Department transactions, UK insolvency notices and Luma events."}, {"@type": "WebSite", "@id": "https://datadmon.github.io/#website", "url": "https://datadmon.github.io", "name": "Daemon Data", "publisher": {"@id": "https://datadmon.github.io/#org"}}, {"@type": "WebPage", "@id": "https://datadmon.github.io/about/", "url": "https://datadmon.github.io/about/", "name": "About Daemon Data", "description": "Who publishes these data APIs, what they read, what they leave out, and how to reach us.", "dateModified": "2026-10-21", "isPartOf": {"@id": "https://datadmon.github.io/#website"}, "publisher": {"@id": "https://datadmon.github.io/#org"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://datadmon.github.io/"}, {"@type": "ListItem", "position": 2, "name": "About Daemon Data"}]}]}</script>
+<style>
+:root{--ink:#0b1020;--muted:#5b6478;--line:#e5e7eb;--accent:#0e7490;--bg:#fff;--soft:#f6f8fa}
+*{box-sizing:border-box}body{margin:0;font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg)}
+header{border-bottom:1px solid var(--line)}header .wrap,main,footer .wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header .wrap{display:flex;gap:18px;align-items:center;height:56px}header a{color:var(--ink);text-decoration:none}header a.brand{font-weight:700}
+header nav a{color:var(--muted);margin-right:14px}main{padding:24px 20px 48px}h1{font-size:1.9rem;line-height:1.2;margin:.2em 0 .4em}h2{margin-top:2em;font-size:1.35rem}
+h3{font-size:1.1rem}a{color:var(--accent)}p.lead{font-size:1.1rem}table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95rem}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}th{background:var(--soft)}
+pre{background:var(--soft);padding:12px;overflow:auto;border-radius:6px;font-size:.88rem}code{font-size:.92em;background:var(--soft);padding:1px 4px;border-radius:3px}pre code{padding:0;background:none}
+.meta{color:var(--muted);font-size:.9rem}.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin:1em 0}
+.card{border:1px solid var(--line);border-radius:8px;padding:14px}.card h3{margin:.2em 0 .4em}.card p{margin:.3em 0;font-size:.95rem}
+.cta{display:inline-block;background:var(--accent);color:#fff;padding:9px 14px;border-radius:6px;text-decoration:none;font-weight:600}
+dl.faq dt{font-weight:600;margin-top:1em}dl.faq dd{margin:.3em 0 0}footer{border-top:1px solid var(--line);color:var(--muted);font-size:.9rem;padding:20px 0 40px}
+.breadcrumbs{font-size:.9rem;color:var(--muted)}.breadcrumbs a{color:var(--muted)}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="brand" href="/">Daemon Data</a><nav><a href="/actors/">Data APIs</a><a href="/guides/">Guides</a><a href="/docs/">How to call</a><a href="/about/">About</a></nav></div></header>
+<main>
+<div class="breadcrumbs"><a href="/">Home</a> › About Daemon Data</div>
+<h1 id="about-daemon-data">About Daemon Data</h1>
+<p>Daemon Data is the publisher behind the Apify Store account <a href="https://apify.com/data_daemon"><code>data_daemon</code></a>. It builds and maintains pay-per-record data APIs for sources that buyers ask for and that have no official API: Indian recruiter job boards, employer career sites on Oracle Recruiting Cloud, Indian IPO and stock-market figures, the Dubai Land Department transaction register, UK insolvency notices from The Gazette and Luma event calendars.</p>
+<h2 id="how-the-apis-work">How the APIs work</h2>
+<p>Each API is an Apify Actor: a hosted program that reads the source website's own public JSON endpoints or pages, normalises the records (ISO dates, numeric values, stable ids) and writes them to a dataset you can download as JSON, CSV or Excel or read over the Apify API. Runs take seconds to a few minutes. There is no login to the source site, no proxy to manage and no browser automation; the Actors use plain HTTP, which is why they are cheap and rarely break.</p>
+<h2 id="what-is-and-is-not-collected">What is and is not collected</h2>
+<p>The Actors return the data the source publishes to every visitor: job postings, company profiles, IPO figures, registered property transactions, insolvency notices, public events. They deliberately leave out personal contact details that some sources expose (recruiter names and phone numbers, event guest lists). Dubai Land Department data is published for reuse by the department; Gazette notices are Crown copyright under the Open Government Licence; the other sources are read as public web pages and should be used in line with their terms of use and with data-protection law. Grey-market premium figures are unofficial indicators and not investment advice.</p>
+<h2 id="prices">Prices</h2>
+<p>Every API is priced per record returned, from $0.80 per 1,000 records. Apify's free plan includes $5 of usage a month, which covers a trial and several small daily feeds. Prices on this site are FREE-plan list prices read from the live listings on the date shown in the footer; Scale and Business plans pay 15% to 30% less. Scheduled price changes are shown on the API's page.</p>
+<h2 id="support-and-contact">Support and contact</h2>
+<p>Bug reports and field requests: the Issues tab of the Actor on Apify (fastest) or <a href="https://github.com/datadmon/apify-data-actors-examples/issues">GitHub issues</a>. Issues are usually answered within a day. Custom variants of an Actor, or a new source in the same style, are available on request through the same channels.</p>
+<h2 id="not-affiliated">Not affiliated</h2>
+<p>Daemon Data is not affiliated with IIMJobs, Hirist, foundit, Instahyre, Oracle, Tickertape, Chittorgarh, InvestorGain, the Dubai Land Department, The Gazette or Luma. Product names belong to their owners.</p>
+</main>
+<footer><div class="wrap"><p>Daemon Data publishes pay-per-record data APIs as <a href="https://apify.com/data_daemon">Actors on Apify Store</a> (account <code>data_daemon</code>). Prices and facts on this site were last checked on 2026-10-21. Not affiliated with the websites the data comes from. <a href="https://github.com/datadmon/apify-data-actors-examples">Code examples on GitHub</a> · <a href="/llms.txt">llms.txt</a></p></div></footer>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dubai Land Department transactions as JSON | Daemon Data</title>
+<meta name="description" content="What the Dubai Land Department transaction register contains (sales, off-plan, mortgages, gifts), how many transactions it records a week in October 2026, ">
+<link rel="canonical" href="https://datadmon.github.io/guides/dubai-land-department-transactions-json/">
+<meta property="og:title" content="Dubai Land Department transactions as JSON | Daemon Data">
+<meta property="og:description" content="What the Dubai Land Department transaction register contains (sales, off-plan, mortgages, gifts), how many transactions it records a week in October 2026, ">
+<meta property="og:url" content="https://datadmon.github.io/guides/dubai-land-department-transactions-json/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Daemon Data">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<link rel="alternate" type="text/plain" href="https://datadmon.github.io/llms.txt" title="llms.txt">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%2322D3EE'/%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://datadmon.github.io/#org", "name": "Daemon Data", "url": "https://datadmon.github.io", "sameAs": ["https://apify.com/data_daemon", "https://github.com/datadmon/apify-data-actors-examples"], "description": "Publisher of pay-per-record data APIs (Apify Actors) for Indian job boards, Oracle HCM career sites, Indian IPOs and stocks, Dubai Land Department transactions, UK insolvency notices and Luma events."}, {"@type": "TechArticle", "@id": "https://datadmon.github.io/guides/dubai-land-department-transactions-json/", "headline": "Dubai Land Department transactions as JSON: registered sold prices, weekly volumes and how to pull them", "description": "What the Dubai Land Department transaction register contains (sales, off-plan, mortgages, gifts), how many transactions it records a week in October 2026, what the free portals give you, and how to get the register as JSON or CSV for $1 per 1,000 transactions.", "url": "https://datadmon.github.io/guides/dubai-land-department-transactions-json/", "datePublished": "2026-10-21", "dateModified": "2026-10-21", "author": {"@id": "https://datadmon.github.io/#org"}, "publisher": {"@id": "https://datadmon.github.io/#org"}, "isPartOf": {"@id": "https://datadmon.github.io/#website"}, "about": [{"@id": "https://apify.com/data_daemon/dubai-property-transactions#software"}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://datadmon.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://datadmon.github.io/guides/"}, {"@type": "ListItem", "position": 3, "name": "Dubai Land Department transactions as JSON: registered sold prices, weekly volumes and how to pull them"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is this official Dubai Land Department data?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The API reads the Dubai Land Department's own open-data transactions service, the same register that paid DLD data products resell. It is published by the department for reuse."}}, {"@type": "Question", "name": "Are these asking prices or sold prices?", "acceptedAnswer": {"@type": "Answer", "text": "Registered transaction values, that is what buyers actually paid or what was registered for a mortgage or gift. Asking prices come from listing portals and are not in the register."}}, {"@type": "Question", "name": "How do I tell an off-plan pre-registration from a completed sale?", "acceptedAnswer": {"@type": "Answer", "text": "Use the procedure field: Sell - Pre registration is a developer pre-registration, Sale and Delayed Sell are completed sales. The offPlan input filter and the boolean flag in each record do the same split."}}, {"@type": "Question", "name": "Does the register include owner names?", "acceptedAnswer": {"@type": "Answer", "text": "No. The open-data service carries no personal data, and the API adds none."}}, {"@type": "Question", "name": "How far back can I go?", "acceptedAnswer": {"@type": "Answer", "text": "Any date range the DLD service holds; the input accepts fromDate and toDate, or daysBack up to 365."}}]}</script>
+<style>
+:root{--ink:#0b1020;--muted:#5b6478;--line:#e5e7eb;--accent:#0e7490;--bg:#fff;--soft:#f6f8fa}
+*{box-sizing:border-box}body{margin:0;font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg)}
+header{border-bottom:1px solid var(--line)}header .wrap,main,footer .wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header .wrap{display:flex;gap:18px;align-items:center;height:56px}header a{color:var(--ink);text-decoration:none}header a.brand{font-weight:700}
+header nav a{color:var(--muted);margin-right:14px}main{padding:24px 20px 48px}h1{font-size:1.9rem;line-height:1.2;margin:.2em 0 .4em}h2{margin-top:2em;font-size:1.35rem}
+h3{font-size:1.1rem}a{color:var(--accent)}p.lead{font-size:1.1rem}table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95rem}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}th{background:var(--soft)}
+pre{background:var(--soft);padding:12px;overflow:auto;border-radius:6px;font-size:.88rem}code{font-size:.92em;background:var(--soft);padding:1px 4px;border-radius:3px}pre code{padding:0;background:none}
+.meta{color:var(--muted);font-size:.9rem}.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin:1em 0}
+.card{border:1px solid var(--line);border-radius:8px;padding:14px}.card h3{margin:.2em 0 .4em}.card p{margin:.3em 0;font-size:.95rem}
+.cta{display:inline-block;background:var(--accent);color:#fff;padding:9px 14px;border-radius:6px;text-decoration:none;font-weight:600}
+dl.faq dt{font-weight:600;margin-top:1em}dl.faq dd{margin:.3em 0 0}footer{border-top:1px solid var(--line);color:var(--muted);font-size:.9rem;padding:20px 0 40px}
+.breadcrumbs{font-size:.9rem;color:var(--muted)}.breadcrumbs a{color:var(--muted)}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="brand" href="/">Daemon Data</a><nav><a href="/actors/">Data APIs</a><a href="/guides/">Guides</a><a href="/docs/">How to call</a><a href="/about/">About</a></nav></div></header>
+<main>
+<div class="breadcrumbs"><a href="/">Home</a> › <a href="/guides/">Guides</a> › Dubai Land Department transactions as JSON: registered sold prices, weekly volumes and how to pull them</div>
+<h1>Dubai Land Department transactions as JSON: registered sold prices, weekly volumes and how to pull them</h1><p>The Dubai Land Department (DLD) publishes every registered property transaction in Dubai as open data: each sale, off-plan pre-registration, mortgage registration and gift, with the transaction date, the value in AED, the area, project and master project, property type, rooms, parking and size. It is the only source of <strong>actual registered prices</strong> for Dubai; listing portals show asking prices. This guide explains what the register contains, how much data it produces and how to pull it as JSON.</p>
+<h2 id="what-a-week-of-dld-data-looks-like-measured-11-to-18-october-2026">What a week of DLD data looks like (measured 11 to 18 October 2026)</h2>
+<table>
+<thead>
+<tr>
+<th>Transaction group</th>
+<th>Transactions per week</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sales</td>
+<td>about 2,600</td>
+<td>1,650 off-plan (developer pre-registrations), 950 ready properties</td>
+</tr>
+<tr>
+<td>Mortgages</td>
+<td>about 1,300</td>
+<td>registrations and modifications, separated by the <code>procedure</code> field</td>
+</tr>
+<tr>
+<td>Gifts</td>
+<td>about 160</td>
+<td>transfers between family members</td>
+</tr>
+<tr>
+<td>Land plots</td>
+<td>about 220 of the sales</td>
+<td><code>propertyType: "land"</code></td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>about 4,100</strong></td>
+<td>a typical week is 3,000 to 6,000</td>
+</tr>
+</tbody>
+</table>
+<p>Roughly 2,500 of the 2,600 weekly sales are residential; the rest are commercial.</p>
+<h2 id="fields-in-each-record">Fields in each record</h2>
+<p>Every record carries the transaction date (ISO), transaction number, <code>procedure</code> (for example <code>Sale</code>, <code>Delayed Sell</code>, <code>Sell - Pre registration</code>, mortgage registration or modification), transaction group, property type and sub-type, usage (residential or commercial), area, project and master project names, rooms, parking, actual area in square metres, value in AED and a precomputed <code>pricePerSqmAed</code>, plus boolean off-plan and freehold flags. Arabic names are available as an optional object. The register contains no owner names or contact details.</p>
+<h2 id="free-portals-versus-the-register-as-data">Free portals versus the register as data</h2>
+<p>Dubai Pulse (the government open-data portal) and DXB Interact (DLD's dashboard) let you look up transactions and download extracts by hand. They are the right tools for a one-off question. They are the wrong tools for a daily feed into a database, a valuation model that needs price per square metre by project, or an app that shows registered prices next to listings, because each extract is manual and the files need cleaning. The Daemon Data API reads the same DLD open-data service, pages through the whole date range 500 rows at a time and returns analysis-ready records.</p>
+<h2 id="how-to-pull-it">How to pull it</h2>
+<p>One call returns last week's residential unit sales (about 2,500 rows, about $2.50):</p>
+<pre><code class="language-bash">curl -X POST &quot;https://api.apify.com/v2/acts/data_daemon~dubai-property-transactions/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{&quot;daysBack&quot;: 7, &quot;transactionGroup&quot;: &quot;sales&quot;, &quot;usage&quot;: &quot;residential&quot;, &quot;propertyType&quot;: &quot;unit&quot;, &quot;maxItems&quot;: 0}'
+</code></pre>
+<p>For a daily feed, save the input with <code>daysBack: 1</code> as a task and schedule it; the ready-made example page "Dubai DLD property transactions, last 24 hours, as JSON" returned 1,000 transactions in 6 seconds on 21 October 2026. For a date range use <code>fromDate</code> and <code>toDate</code> (<code>YYYY-MM-DD</code>). To filter by area, read the <code>area</code> and <code>project</code> fields of the output; the service's own area id filter returns no rows at present.</p>
+<h2 id="what-it-costs">What it costs</h2>
+<p>$1 per 1,000 transactions, nothing else. A month of all sales (about 11,000 rows) costs about $11; a weekly residential feed about $2.50 a week; a daily feed of everything about $17 a month. Apify's free plan includes $5 of usage every month.</p>
+<h2 id="questions-and-answers">Questions and answers</h2>
+<p><strong>Is this official Dubai Land Department data?</strong></p>
+<p>Yes. The API reads the Dubai Land Department's own open-data transactions service, the same register that paid DLD data products resell. It is published by the department for reuse.</p>
+<p><strong>Are these asking prices or sold prices?</strong></p>
+<p>Registered transaction values, that is what buyers actually paid or what was registered for a mortgage or gift. Asking prices come from listing portals and are not in the register.</p>
+<p><strong>How do I tell an off-plan pre-registration from a completed sale?</strong></p>
+<p>Use the <code>procedure</code> field: <code>Sell - Pre registration</code> is a developer pre-registration, <code>Sale</code> and <code>Delayed Sell</code> are completed sales. The <code>offPlan</code> input filter and the boolean flag in each record do the same split.</p>
+<p><strong>Does the register include owner names?</strong></p>
+<p>No. The open-data service carries no personal data, and the API adds none.</p>
+<p><strong>How far back can I go?</strong></p>
+<p>Any date range the DLD service holds; the input accepts <code>fromDate</code> and <code>toDate</code>, or <code>daysBack</code> up to 365.</p><h2>Related data APIs</h2><ul><li><a href="/actors/dubai-property-transactions/">Dubai DLD transactions</a>: Dubai Land Department sales, mortgages and gifts with AED value and price/sqm ($1.00 per 1,000)</li></ul><p class="meta">Written 2026-10-21, facts checked 2026-10-21. Numbers come from the actors' own runs and the source websites on the dates stated.</p>
+</main>
+<footer><div class="wrap"><p>Daemon Data publishes pay-per-record data APIs as <a href="https://apify.com/data_daemon">Actors on Apify Store</a> (account <code>data_daemon</code>). Prices and facts on this site were last checked on 2026-10-21. Not affiliated with the websites the data comes from. <a href="https://github.com/datadmon/apify-data-actors-examples">Code examples on GitHub</a> · <a href="/llms.txt">llms.txt</a></p></div></footer>
+</body>
+</html>

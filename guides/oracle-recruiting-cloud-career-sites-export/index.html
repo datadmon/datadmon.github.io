@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Export Oracle Recruiting Cloud career sites as JSON | Daemon Data</title>
+<meta name="description" content="How to recognise an Oracle Recruiting Cloud (Oracle HCM) career site, how many jobs large employers list on them (Kotak 16,521, Marriott 13,286, JPMorgan 7">
+<link rel="canonical" href="https://datadmon.github.io/guides/oracle-recruiting-cloud-career-sites-export/">
+<meta property="og:title" content="Export Oracle Recruiting Cloud career sites as JSON | Daemon Data">
+<meta property="og:description" content="How to recognise an Oracle Recruiting Cloud (Oracle HCM) career site, how many jobs large employers list on them (Kotak 16,521, Marriott 13,286, JPMorgan 7">
+<meta property="og:url" content="https://datadmon.github.io/guides/oracle-recruiting-cloud-career-sites-export/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Daemon Data">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<link rel="alternate" type="text/plain" href="https://datadmon.github.io/llms.txt" title="llms.txt">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%2322D3EE'/%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://datadmon.github.io/#org", "name": "Daemon Data", "url": "https://datadmon.github.io", "sameAs": ["https://apify.com/data_daemon", "https://github.com/datadmon/apify-data-actors-examples"], "description": "Publisher of pay-per-record data APIs (Apify Actors) for Indian job boards, Oracle HCM career sites, Indian IPOs and stocks, Dubai Land Department transactions, UK insolvency notices and Luma events."}, {"@type": "TechArticle", "@id": "https://datadmon.github.io/guides/oracle-recruiting-cloud-career-sites-export/", "headline": "Oracle Recruiting Cloud career sites: how to export every job of an employer as JSON", "description": "How to recognise an Oracle Recruiting Cloud (Oracle HCM) career site, how many jobs large employers list on them (Kotak 16,521, Marriott 13,286, JPMorgan 7,262 in October 2026), and how to export all of them, or only the new ones each day, as JSON for $2 per 1,000.", "url": "https://datadmon.github.io/guides/oracle-recruiting-cloud-career-sites-export/", "datePublished": "2026-10-21", "dateModified": "2026-10-21", "author": {"@id": "https://datadmon.github.io/#org"}, "publisher": {"@id": "https://datadmon.github.io/#org"}, "isPartOf": {"@id": "https://datadmon.github.io/#website"}, "about": [{"@id": "https://apify.com/data_daemon/oracle-hcm-jobs-scraper#software"}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://datadmon.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://datadmon.github.io/guides/"}, {"@type": "ListItem", "position": 3, "name": "Oracle Recruiting Cloud career sites: how to export every job of an employer as JSON"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does this work for Taleo, Workday, Greenhouse or SuccessFactors sites?", "acceptedAnswer": {"@type": "Answer", "text": "No. It reads Oracle Recruiting Cloud sites only (oraclecloud.com/hcmUI/CandidateExperience). Oracle Taleo is a different product with different pages."}}, {"@type": "Question", "name": "Can I get only new requisitions every morning?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Save the input as a task with onlyNewSinceLastRun: true, schedule it daily, and connect the task to Slack, Google Sheets or a webhook. Skipped jobs are not charged."}}, {"@type": "Question", "name": "How do I find the right site number?", "acceptedAnswer": {"@type": "Answer", "text": "Paste any URL from the employer's careers page. If it has no site number, the API picks the employer's active public site; if the number is retired, the run log lists the sites on that tenant."}}, {"@type": "Question", "name": "Does it include the employer's internal-only jobs?", "acceptedAnswer": {"@type": "Answer", "text": "No. It returns what the public career site shows to any visitor."}}]}</script>
+<style>
+:root{--ink:#0b1020;--muted:#5b6478;--line:#e5e7eb;--accent:#0e7490;--bg:#fff;--soft:#f6f8fa}
+*{box-sizing:border-box}body{margin:0;font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg)}
+header{border-bottom:1px solid var(--line)}header .wrap,main,footer .wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header .wrap{display:flex;gap:18px;align-items:center;height:56px}header a{color:var(--ink);text-decoration:none}header a.brand{font-weight:700}
+header nav a{color:var(--muted);margin-right:14px}main{padding:24px 20px 48px}h1{font-size:1.9rem;line-height:1.2;margin:.2em 0 .4em}h2{margin-top:2em;font-size:1.35rem}
+h3{font-size:1.1rem}a{color:var(--accent)}p.lead{font-size:1.1rem}table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95rem}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}th{background:var(--soft)}
+pre{background:var(--soft);padding:12px;overflow:auto;border-radius:6px;font-size:.88rem}code{font-size:.92em;background:var(--soft);padding:1px 4px;border-radius:3px}pre code{padding:0;background:none}
+.meta{color:var(--muted);font-size:.9rem}.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin:1em 0}
+.card{border:1px solid var(--line);border-radius:8px;padding:14px}.card h3{margin:.2em 0 .4em}.card p{margin:.3em 0;font-size:.95rem}
+.cta{display:inline-block;background:var(--accent);color:#fff;padding:9px 14px;border-radius:6px;text-decoration:none;font-weight:600}
+dl.faq dt{font-weight:600;margin-top:1em}dl.faq dd{margin:.3em 0 0}footer{border-top:1px solid var(--line);color:var(--muted);font-size:.9rem;padding:20px 0 40px}
+.breadcrumbs{font-size:.9rem;color:var(--muted)}.breadcrumbs a{color:var(--muted)}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="brand" href="/">Daemon Data</a><nav><a href="/actors/">Data APIs</a><a href="/guides/">Guides</a><a href="/docs/">How to call</a><a href="/about/">About</a></nav></div></header>
+<main>
+<div class="breadcrumbs"><a href="/">Home</a> › <a href="/guides/">Guides</a> › Oracle Recruiting Cloud career sites: how to export every job of an employer as JSON</div>
+<h1>Oracle Recruiting Cloud career sites: how to export every job of an employer as JSON</h1><p>Thousands of large employers run their careers page on <strong>Oracle Recruiting Cloud</strong>, part of Oracle Fusion Cloud HCM: banks, hotel groups, hospitals, universities, manufacturers and governments. These jobs are often posted nowhere else, so job boards, aggregators, talent-intelligence teams and B2B sales teams tracking hiring signals need to read the career sites directly. This guide explains how to recognise such a site, what it exposes and how to export it.</p>
+<h2 id="how-to-recognise-an-oracle-recruiting-cloud-career-site">How to recognise an Oracle Recruiting Cloud career site</h2>
+<p>The URL contains <code>oraclecloud.com/hcmUI/CandidateExperience</code>, for example <code>https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001</code>. The first part is the employer's tenant, the <code>sites/CX...</code> part is the career site number (an employer may run several, for example one per region or one for internal candidates). Every such site is backed by the same JSON endpoints, which is why one API can read any of them.</p>
+<h2 id="sizes-verified-18-october-2026">Sizes (verified 18 October 2026)</h2>
+<table>
+<thead>
+<tr>
+<th>Employer</th>
+<th>Career site</th>
+<th>Open jobs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kotak Mahindra Bank</td>
+<td><code>hcbt.fa.em2.oraclecloud.com/.../sites/CX</code></td>
+<td>16,521</td>
+</tr>
+<tr>
+<td>Marriott International</td>
+<td><code>ejwl.fa.us2.oraclecloud.com/.../sites/CX</code></td>
+<td>13,286</td>
+</tr>
+<tr>
+<td>JPMorgan Chase</td>
+<td><code>jpmc.fa.oraclecloud.com/.../sites/CX_1001</code></td>
+<td>7,262</td>
+</tr>
+<tr>
+<td>EXL Service</td>
+<td><code>fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/.../sites/CX_2</code></td>
+<td>2,841</td>
+</tr>
+<tr>
+<td>Oracle</td>
+<td><code>eeho.fa.us2.oraclecloud.com/.../sites/CX_45001</code></td>
+<td>2,372</td>
+</tr>
+<tr>
+<td>DTCC</td>
+<td><code>ebxr.fa.us2.oraclecloud.com/.../sites/CX_1</code></td>
+<td>452</td>
+</tr>
+</tbody>
+</table>
+<h2 id="what-each-job-record-contains">What each job record contains</h2>
+<p>Requisition id (stable across runs), title, posting date, locations, job family and function, workplace type where the employer tags it (remote, hybrid, on-site), the direct apply URL, and with details on: the full description, qualifications, responsibilities, skills and the employer's custom fields. Posting-date filters use Oracle's own two buckets (last 7 days, last 30 days). Keyword and location filters behave like the career site's own search box.</p>
+<h2 id="how-to-export">How to export</h2>
+<p>Paste any URL from the site, even a single job's URL or just the host name; the API works out the tenant and the employer's active site, and lists the sites that exist if the number is wrong.</p>
+<pre><code class="language-bash">curl -X POST &quot;https://api.apify.com/v2/acts/data_daemon~oracle-hcm-jobs-scraper/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{&quot;careerSiteUrls&quot;: [&quot;https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001&quot;], &quot;location&quot;: &quot;India&quot;, &quot;postedWithinDays&quot;: 7, &quot;includeDetails&quot;: true, &quot;maxJobsPerSite&quot;: 200}'
+</code></pre>
+<p>Several employers go in one list; the ready-made example "Jobs from several Oracle Recruiting Cloud career sites" reads Oracle's and Marriott's sites in one run (80 jobs found in 15 seconds on 21 October 2026). For a daily hiring-signal feed, switch on <code>onlyNewSinceLastRun</code>: the API remembers delivered requisition ids per search and later runs return only new postings, without charging for the rest.</p>
+<h2 id="what-it-costs">What it costs</h2>
+<p>$2 per 1,000 jobs plus $2 per 1,000 full detail records, so a 500-job site with details costs $2. Apify's free plan ($5 a month) covers about 1,250 jobs with details. From 2 November 2026 the listing moves to $2 per 1,000 jobs with the details included plus $0.001 per run.</p>
+<h2 id="questions-and-answers">Questions and answers</h2>
+<p><strong>Does this work for Taleo, Workday, Greenhouse or SuccessFactors sites?</strong></p>
+<p>No. It reads Oracle Recruiting Cloud sites only (<code>oraclecloud.com/hcmUI/CandidateExperience</code>). Oracle Taleo is a different product with different pages.</p>
+<p><strong>Can I get only new requisitions every morning?</strong></p>
+<p>Yes. Save the input as a task with <code>onlyNewSinceLastRun: true</code>, schedule it daily, and connect the task to Slack, Google Sheets or a webhook. Skipped jobs are not charged.</p>
+<p><strong>How do I find the right site number?</strong></p>
+<p>Paste any URL from the employer's careers page. If it has no site number, the API picks the employer's active public site; if the number is retired, the run log lists the sites on that tenant.</p>
+<p><strong>Does it include the employer's internal-only jobs?</strong></p>
+<p>No. It returns what the public career site shows to any visitor.</p><h2>Related data APIs</h2><ul><li><a href="/actors/oracle-hcm-jobs-scraper/">Oracle HCM career sites</a>: every requisition on any Oracle Recruiting Cloud career site ($2.00 per 1,000)</li></ul><p class="meta">Written 2026-10-21, facts checked 2026-10-21. Numbers come from the actors' own runs and the source websites on the dates stated.</p>
+</main>
+<footer><div class="wrap"><p>Daemon Data publishes pay-per-record data APIs as <a href="https://apify.com/data_daemon">Actors on Apify Store</a> (account <code>data_daemon</code>). Prices and facts on this site were last checked on 2026-10-21. Not affiliated with the websites the data comes from. <a href="https://github.com/datadmon/apify-data-actors-examples">Code examples on GitHub</a> · <a href="/llms.txt">llms.txt</a></p></div></footer>
+</body>
+</html>

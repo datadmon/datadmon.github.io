@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>India IPO GMP and subscription data as JSON | Daemon Data</title>
+<meta name="description" content="Grey market premium, QIB/NII/retail subscription, the IPO calendar and listing performance for Indian mainboard and SME IPOs: what each figure means, how o">
+<link rel="canonical" href="https://datadmon.github.io/guides/india-ipo-gmp-subscription-data-json/">
+<meta property="og:title" content="India IPO GMP and subscription data as JSON | Daemon Data">
+<meta property="og:description" content="Grey market premium, QIB/NII/retail subscription, the IPO calendar and listing performance for Indian mainboard and SME IPOs: what each figure means, how o">
+<meta property="og:url" content="https://datadmon.github.io/guides/india-ipo-gmp-subscription-data-json/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Daemon Data">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<link rel="alternate" type="text/plain" href="https://datadmon.github.io/llms.txt" title="llms.txt">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%2322D3EE'/%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://datadmon.github.io/#org", "name": "Daemon Data", "url": "https://datadmon.github.io", "sameAs": ["https://apify.com/data_daemon", "https://github.com/datadmon/apify-data-actors-examples"], "description": "Publisher of pay-per-record data APIs (Apify Actors) for Indian job boards, Oracle HCM career sites, Indian IPOs and stocks, Dubai Land Department transactions, UK insolvency notices and Luma events."}, {"@type": "TechArticle", "@id": "https://datadmon.github.io/guides/india-ipo-gmp-subscription-data-json/", "headline": "India IPO GMP and subscription data as JSON: what the numbers mean and how to get them", "description": "Grey market premium, QIB/NII/retail subscription, the IPO calendar and listing performance for Indian mainboard and SME IPOs: what each figure means, how often it changes, and how to pull all of it as JSON for $3 per 1,000 rows.", "url": "https://datadmon.github.io/guides/india-ipo-gmp-subscription-data-json/", "datePublished": "2026-10-21", "dateModified": "2026-10-21", "author": {"@id": "https://datadmon.github.io/#org"}, "publisher": {"@id": "https://datadmon.github.io/#org"}, "isPartOf": {"@id": "https://datadmon.github.io/#website"}, "about": [{"@id": "https://apify.com/data_daemon/india-ipo-tracker#software"}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://datadmon.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://datadmon.github.io/guides/"}, {"@type": "ListItem", "position": 3, "name": "India IPO GMP and subscription data as JSON: what the numbers mean and how to get them"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the grey market premium of an IPO?", "acceptedAnswer": {"@type": "Answer", "text": "The unofficial premium over the issue price at which IPO shares are traded before listing, quoted by grey-market dealers and published by IPO tracking sites. A GMP of ₹60 on a ₹300 issue price means dealers expect a listing near ₹360 (20%). It is sentiment, not a guarantee, and the GMP-performance report shows how often it was right."}}, {"@type": "Question", "name": "Where does the subscription data come from?", "acceptedAnswer": {"@type": "Answer", "text": "From the bid data BSE and NSE publish while an issue is open, as compiled by the IPO report sites the API reads. The API returns QIB, sNII, bNII, NII, retail, employee, shareholder and total multiples plus application counts."}}, {"@type": "Question", "name": "Does it cover SME IPOs?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, mainboard and SME issues on both exchanges, with a category filter for either."}}, {"@type": "Question", "name": "Is there an official API for GMP?", "acceptedAnswer": {"@type": "Answer", "text": "No. Exchanges do not publish grey-market data. Official broker APIs (for example Upstox's) publish the IPO calendar and some subscription figures, but not GMP; this API joins GMP and subscription in one feed with a common key."}}, {"@type": "Question", "name": "Is this investment advice?", "acceptedAnswer": {"@type": "Answer", "text": "No. GMP is an unofficial indicator; the data is provided for information and research."}}]}</script>
+<style>
+:root{--ink:#0b1020;--muted:#5b6478;--line:#e5e7eb;--accent:#0e7490;--bg:#fff;--soft:#f6f8fa}
+*{box-sizing:border-box}body{margin:0;font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg)}
+header{border-bottom:1px solid var(--line)}header .wrap,main,footer .wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header .wrap{display:flex;gap:18px;align-items:center;height:56px}header a{color:var(--ink);text-decoration:none}header a.brand{font-weight:700}
+header nav a{color:var(--muted);margin-right:14px}main{padding:24px 20px 48px}h1{font-size:1.9rem;line-height:1.2;margin:.2em 0 .4em}h2{margin-top:2em;font-size:1.35rem}
+h3{font-size:1.1rem}a{color:var(--accent)}p.lead{font-size:1.1rem}table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95rem}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}th{background:var(--soft)}
+pre{background:var(--soft);padding:12px;overflow:auto;border-radius:6px;font-size:.88rem}code{font-size:.92em;background:var(--soft);padding:1px 4px;border-radius:3px}pre code{padding:0;background:none}
+.meta{color:var(--muted);font-size:.9rem}.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin:1em 0}
+.card{border:1px solid var(--line);border-radius:8px;padding:14px}.card h3{margin:.2em 0 .4em}.card p{margin:.3em 0;font-size:.95rem}
+.cta{display:inline-block;background:var(--accent);color:#fff;padding:9px 14px;border-radius:6px;text-decoration:none;font-weight:600}
+dl.faq dt{font-weight:600;margin-top:1em}dl.faq dd{margin:.3em 0 0}footer{border-top:1px solid var(--line);color:var(--muted);font-size:.9rem;padding:20px 0 40px}
+.breadcrumbs{font-size:.9rem;color:var(--muted)}.breadcrumbs a{color:var(--muted)}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="brand" href="/">Daemon Data</a><nav><a href="/actors/">Data APIs</a><a href="/guides/">Guides</a><a href="/docs/">How to call</a><a href="/about/">About</a></nav></div></header>
+<main>
+<div class="breadcrumbs"><a href="/">Home</a> › <a href="/guides/">Guides</a> › India IPO GMP and subscription data as JSON: what the numbers mean and how to get them</div>
+<h1>India IPO GMP and subscription data as JSON: what the numbers mean and how to get them</h1><p>Indian IPO coverage runs on two numbers that no exchange publishes: the <strong>grey market premium (GMP)</strong>, the unofficial price at which IPO shares change hands before listing, and the <strong>subscription multiple</strong>, how many times each investor category has bid for the shares on offer. Both are published by independent IPO sites and change many times a day while an issue is open. This guide explains what the figures mean, where they come from and how to pull them, together with the IPO calendar and listing results, as structured JSON.</p>
+<h2 id="the-figures-explained">The figures, explained</h2>
+<ul>
+<li><strong>GMP (grey market premium)</strong>: the premium in rupees over the issue price that grey-market traders quote for the shares before listing, also expressed as a percentage. It is an unofficial indicator of listing-day sentiment, not an exchange figure and not investment advice. The report also carries the estimated listing price and the IPO's status (upcoming, open, closing today, closed, listing today, listed above or below the issue price).</li>
+<li><strong>Subscription</strong>: the number of times the shares reserved for each category were bid for, as published by BSE and NSE: QIB (qualified institutional buyers), NII split into small and big non-institutional investors, retail, employee and shareholder quotas, and the total, plus application counts.</li>
+<li><strong>Calendar</strong>: open, close, allotment, refund and listing dates for every upcoming issue, day by day, with exchange holidays marked.</li>
+<li><strong>Listing performance and GMP performance</strong>: issue price versus listing-day open and close and the current price, and the last GMP before listing versus the actual listing price, which is the data for "how accurate was the GMP".</li>
+<li><strong>IPO list and details</strong>: every mainboard and SME IPO of the year with issue size, fresh and offer-for-sale split, lead manager, ISIN, BSE scrip code and NSE symbol, and an optional full detail page per IPO (reservation, anchor investors, financials, valuation, objects of the issue).</li>
+</ul>
+<h2 id="volumes-measured-18-october-2026">Volumes (measured 18 October 2026)</h2>
+<p>A live GMP report has about 30 to 50 rows (every upcoming, open and recently listed IPO), the calendar about 30, and the year-to-date subscription, IPO-list, current-IPO and listing-performance reports about 280 to 300 rows each. GMP moves most during bidding hours (9:00 to 15:30 IST) and is worth polling every 30 minutes then; the calendar changes daily.</p>
+<h2 id="how-to-pull-it">How to pull it</h2>
+<pre><code class="language-bash">curl -X POST &quot;https://api.apify.com/v2/acts/data_daemon~india-ipo-tracker/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{&quot;reports&quot;: [&quot;gmp&quot;, &quot;subscription&quot;], &quot;category&quot;: &quot;all&quot;}'
+</code></pre>
+<p>Every record carries the same stable <code>slug</code> (for example <code>paras-healthcare-ipo</code>), so GMP, subscription, calendar and listing rows join without fuzzy name matching; subscription, list and listing rows also carry ISIN and exchange symbols for joining to a security master. The <code>category</code> filter restricts to mainboard or SME issues. Runs finish in under 30 seconds.</p>
+<h2 id="what-it-costs">What it costs</h2>
+<p>$3 per 1,000 report rows and $15 per 1,000 IPO detail pages. The default run (live GMP plus calendar, about 80 rows) costs about $0.25; a full year-to-date snapshot with subscription and current IPOs about $2; a broker app polling GMP every 30 minutes during bidding hours about $2 per trading day.</p>
+<h2 id="questions-and-answers">Questions and answers</h2>
+<p><strong>What is the grey market premium of an IPO?</strong></p>
+<p>The unofficial premium over the issue price at which IPO shares are traded before listing, quoted by grey-market dealers and published by IPO tracking sites. A GMP of ₹60 on a ₹300 issue price means dealers expect a listing near ₹360 (20%). It is sentiment, not a guarantee, and the GMP-performance report shows how often it was right.</p>
+<p><strong>Where does the subscription data come from?</strong></p>
+<p>From the bid data BSE and NSE publish while an issue is open, as compiled by the IPO report sites the API reads. The API returns QIB, sNII, bNII, NII, retail, employee, shareholder and total multiples plus application counts.</p>
+<p><strong>Does it cover SME IPOs?</strong></p>
+<p>Yes, mainboard and SME issues on both exchanges, with a <code>category</code> filter for either.</p>
+<p><strong>Is there an official API for GMP?</strong></p>
+<p>No. Exchanges do not publish grey-market data. Official broker APIs (for example Upstox's) publish the IPO calendar and some subscription figures, but not GMP; this API joins GMP and subscription in one feed with a common key.</p>
+<p><strong>Is this investment advice?</strong></p>
+<p>No. GMP is an unofficial indicator; the data is provided for information and research.</p><h2>Related data APIs</h2><ul><li><a href="/actors/india-ipo-tracker/">India IPO GMP</a>: live IPO GMP, QIB/NII/retail subscription, calendar, listing data ($3.00 per 1,000)</li></ul><p class="meta">Written 2026-10-21, facts checked 2026-10-21. Numbers come from the actors' own runs and the source websites on the dates stated.</p>
+</main>
+<footer><div class="wrap"><p>Daemon Data publishes pay-per-record data APIs as <a href="https://apify.com/data_daemon">Actors on Apify Store</a> (account <code>data_daemon</code>). Prices and facts on this site were last checked on 2026-10-21. Not affiliated with the websites the data comes from. <a href="https://github.com/datadmon/apify-data-actors-examples">Code examples on GitHub</a> · <a href="/llms.txt">llms.txt</a></p></div></footer>
+</body>
+</html>

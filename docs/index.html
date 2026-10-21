@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to call any Daemon Data API | Daemon Data</title>
+<meta name="description" content="One HTTP call, a Python or Node.js snippet, an n8n node, or an MCP connector: the four ways to get records out of a Daemon Data API on Apify.">
+<link rel="canonical" href="https://datadmon.github.io/docs/">
+<meta property="og:title" content="How to call any Daemon Data API | Daemon Data">
+<meta property="og:description" content="One HTTP call, a Python or Node.js snippet, an n8n node, or an MCP connector: the four ways to get records out of a Daemon Data API on Apify.">
+<meta property="og:url" content="https://datadmon.github.io/docs/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Daemon Data">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<link rel="alternate" type="text/plain" href="https://datadmon.github.io/llms.txt" title="llms.txt">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%2322D3EE'/%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://datadmon.github.io/#org", "name": "Daemon Data", "url": "https://datadmon.github.io", "sameAs": ["https://apify.com/data_daemon", "https://github.com/datadmon/apify-data-actors-examples"], "description": "Publisher of pay-per-record data APIs (Apify Actors) for Indian job boards, Oracle HCM career sites, Indian IPOs and stocks, Dubai Land Department transactions, UK insolvency notices and Luma events."}, {"@type": "WebSite", "@id": "https://datadmon.github.io/#website", "url": "https://datadmon.github.io", "name": "Daemon Data", "publisher": {"@id": "https://datadmon.github.io/#org"}}, {"@type": "WebPage", "@id": "https://datadmon.github.io/docs/", "url": "https://datadmon.github.io/docs/", "name": "How to call any Daemon Data API", "description": "One HTTP call, a Python or Node.js snippet, an n8n node, or an MCP connector: the four ways to get records out of a Daemon Data API on Apify.", "dateModified": "2026-10-21", "isPartOf": {"@id": "https://datadmon.github.io/#website"}, "publisher": {"@id": "https://datadmon.github.io/#org"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://datadmon.github.io/"}, {"@type": "ListItem", "position": 2, "name": "How to call any Daemon Data API"}]}]}</script>
+<style>
+:root{--ink:#0b1020;--muted:#5b6478;--line:#e5e7eb;--accent:#0e7490;--bg:#fff;--soft:#f6f8fa}
+*{box-sizing:border-box}body{margin:0;font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg)}
+header{border-bottom:1px solid var(--line)}header .wrap,main,footer .wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header .wrap{display:flex;gap:18px;align-items:center;height:56px}header a{color:var(--ink);text-decoration:none}header a.brand{font-weight:700}
+header nav a{color:var(--muted);margin-right:14px}main{padding:24px 20px 48px}h1{font-size:1.9rem;line-height:1.2;margin:.2em 0 .4em}h2{margin-top:2em;font-size:1.35rem}
+h3{font-size:1.1rem}a{color:var(--accent)}p.lead{font-size:1.1rem}table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95rem}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}th{background:var(--soft)}
+pre{background:var(--soft);padding:12px;overflow:auto;border-radius:6px;font-size:.88rem}code{font-size:.92em;background:var(--soft);padding:1px 4px;border-radius:3px}pre code{padding:0;background:none}
+.meta{color:var(--muted);font-size:.9rem}.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin:1em 0}
+.card{border:1px solid var(--line);border-radius:8px;padding:14px}.card h3{margin:.2em 0 .4em}.card p{margin:.3em 0;font-size:.95rem}
+.cta{display:inline-block;background:var(--accent);color:#fff;padding:9px 14px;border-radius:6px;text-decoration:none;font-weight:600}
+dl.faq dt{font-weight:600;margin-top:1em}dl.faq dd{margin:.3em 0 0}footer{border-top:1px solid var(--line);color:var(--muted);font-size:.9rem;padding:20px 0 40px}
+.breadcrumbs{font-size:.9rem;color:var(--muted)}.breadcrumbs a{color:var(--muted)}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="brand" href="/">Daemon Data</a><nav><a href="/actors/">Data APIs</a><a href="/guides/">Guides</a><a href="/docs/">How to call</a><a href="/about/">About</a></nav></div></header>
+<main>
+<div class="breadcrumbs"><a href="/">Home</a> › How to call any Daemon Data API</div>
+<h1 id="how-to-call-any-daemon-data-api">How to call any Daemon Data API</h1>
+<p>Every Daemon Data API is an Apify Actor. An Actor is a hosted program with a JSON input; a run produces a dataset of records you can download or read over the API. You need an Apify account (the free plan includes $5 of usage a month) and its API token from <a href="https://console.apify.com/account/integrations">console.apify.com/account/integrations</a>. The Actor id is <code>data_daemon~&lt;actor-name&gt;</code> in URLs, for example <code>data_daemon~iimjobs-jobs-scraper</code>.</p>
+<h2 id="one-http-call-synchronous">One HTTP call (synchronous)</h2>
+<p>The <code>run-sync-get-dataset-items</code> endpoint starts a run, waits up to 300 seconds and returns the records. Add <code>format=csv</code> for CSV, <code>clean=1</code> to drop empty fields, <code>limit=N</code> to cap the rows.</p>
+<pre><code class="language-bash">curl -X POST &quot;https://api.apify.com/v2/acts/data_daemon~iimjobs-jobs-scraper/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN&amp;clean=1&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{&quot;queries&quot;: [&quot;product manager&quot;], &quot;locations&quot;: [&quot;Bangalore&quot;], &quot;postedWithinDays&quot;: 7, &quot;maxJobsPerQuery&quot;: 50}'
+</code></pre>
+<p>Runs longer than 300 seconds (big exports): start the run with <code>POST /v2/acts/{id}/runs</code>, poll <code>GET /v2/actor-runs/{runId}</code> until <code>status</code> is <code>SUCCEEDED</code>, then read <code>GET /v2/datasets/{defaultDatasetId}/items</code>. Ready-made scripts: <a href="https://github.com/datadmon/apify-data-actors-examples/blob/main/examples/run-sync/run_sync.py">run_sync.py</a>, <a href="https://github.com/datadmon/apify-data-actors-examples/blob/main/examples/run-sync/run_sync.mjs">run_sync.mjs</a>, <a href="https://github.com/datadmon/apify-data-actors-examples/blob/main/examples/run-sync/curl.sh">curl.sh</a>.</p>
+<h2 id="python-and-nodejs">Python and Node.js</h2>
+<pre><code class="language-python">from apify_client import ApifyClient
+
+client = ApifyClient(&quot;YOUR_APIFY_TOKEN&quot;)
+run = client.actor(&quot;data_daemon/india-ipo-tracker&quot;).call(run_input={&quot;reports&quot;: [&quot;gmp&quot;, &quot;subscription&quot;], &quot;category&quot;: &quot;all&quot;})
+rows = list(client.dataset(run[&quot;defaultDatasetId&quot;]).iterate_items())
+</code></pre>
+<pre><code class="language-javascript">import { ApifyClient } from 'apify-client';
+
+const client = new ApifyClient({ token: process.env.APIFY_TOKEN });
+const run = await client.actor('data_daemon/dubai-property-transactions').call({ transactionGroup: 'sales', daysBack: 7, maxItems: 2000 });
+const { items } = await client.dataset(run.defaultDatasetId).listItems();
+</code></pre>
+<p>One file per API, with the verified example input, is in the <a href="https://github.com/datadmon/apify-data-actors-examples">examples repository</a> (<code>python/</code>, <code>node/</code>, <code>n8n/</code>).</p>
+<h2 id="schedules-and-daily-feeds">Schedules and daily feeds</h2>
+<p>Save an input as a task in the Apify console, add a schedule (for example 08:00 IST daily) and connect the task's Integrations tab to Google Sheets, Slack, email or a webhook. The job-board and Gazette APIs have an only-new mode (<code>onlyNewSinceLastRun: true</code>): each run remembers what it delivered, in a key-value store inside your own account, and later runs return and charge only the records you have not received before. The <a href="https://github.com/datadmon/apify-data-actors-examples/tree/main/examples/only-new-jobs">only-new-jobs</a> example is a complete daily loop in Python and Node.js.</p>
+<h2 id="n8n-make-zapier">n8n, Make, Zapier</h2>
+<p>Use the platform's Apify node or module with the Actor id or a saved task id. Because synchronous runs are capped at 300 seconds (and some platforms cap a step at 30 seconds), start the run asynchronously and use the "run finished" trigger to fetch the dataset. Importable n8n workflows: one per API in the examples repository, plus <a href="https://github.com/datadmon/apify-data-actors-examples/blob/main/n8n/iimjobs-new-jobs-to-google-sheets-and-slack.json">a Google Sheets and Slack feed</a>.</p>
+<h2 id="ai-assistants-and-agents-mcp">AI assistants and agents (MCP)</h2>
+<p>Apify's hosted MCP server exposes each Actor as a tool. Add a remote MCP server with the URL <code>https://mcp.apify.com/?tools=data_daemon/&lt;actor-name&gt;</code> (several actors: separate them with commas) and the header <code>Authorization: Bearer YOUR_APIFY_TOKEN</code> in Claude Desktop, ChatGPT, Cursor or VS Code, then ask in plain words: "new Python jobs in Hyderabad at startups posted this week", "which IPOs are open today and what is their GMP?". The agent reads the input schema, fills it in and runs the Actor; you pay the same per-record price. Each listing is also available as plain text for agents at <code>https://apify.com/data_daemon/&lt;actor-name&gt;.md</code>, and the <a href="https://github.com/datadmon/apify-data-actors-examples/tree/main/mcp">mcp/</a> folder of the examples repository holds a registry entry per actor.</p>
+<h2 id="cost-control">Cost control</h2>
+<p>Every API has a cap field (<code>maxJobs</code>, <code>maxItems</code>, <code>maxEvents</code>, <code>maxJobsPerSite</code>). Set a maximum cost per run on the task as well; the Actor stops cleanly at the limit and says so in its status message. Records left out by your filters, by de-duplication or by only-new mode are never charged.</p>
+</main>
+<footer><div class="wrap"><p>Daemon Data publishes pay-per-record data APIs as <a href="https://apify.com/data_daemon">Actors on Apify Store</a> (account <code>data_daemon</code>). Prices and facts on this site were last checked on 2026-10-21. Not affiliated with the websites the data comes from. <a href="https://github.com/datadmon/apify-data-actors-examples">Code examples on GitHub</a> · <a href="/llms.txt">llms.txt</a></p></div></footer>
+</body>
+</html>

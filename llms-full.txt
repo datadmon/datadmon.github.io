@@ -1,0 +1,1742 @@
+# Daemon Data
+
+> Daemon Data publishes pay-per-record data APIs as Actors on Apify Store (https://apify.com/data_daemon). Each API reads a public website's own JSON endpoints or pages, returns structured records (JSON, CSV, Excel), charges only per record returned, and can be called over REST, from Python/Node.js, in n8n/Make/Zapier, or by an AI agent through MCP (`https://mcp.apify.com/?tools=data_daemon/<actor>`, header `Authorization: Bearer <APIFY_TOKEN>`). Prices below are FREE-plan list prices checked on 2026-10-21.
+
+## Data APIs
+
+- [IIMJobs jobs](https://datadmon.github.io/actors/iimjobs-jobs-scraper/): India MBA, finance, consulting and management jobs with full descriptions. $2.00 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/iimjobs-jobs-scraper (plain text: https://apify.com/data_daemon/iimjobs-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/iimjobs-jobs-scraper
+- [Hirist jobs](https://datadmon.github.io/actors/hirist-jobs-scraper/): India IT and tech jobs with full descriptions, skills, salary when disclosed. $2.00 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/hirist-jobs-scraper (plain text: https://apify.com/data_daemon/hirist-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/hirist-jobs-scraper
+- [Oracle HCM career sites](https://datadmon.github.io/actors/oracle-hcm-jobs-scraper/): every requisition on any Oracle Recruiting Cloud career site. $2.00 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/oracle-hcm-jobs-scraper (plain text: https://apify.com/data_daemon/oracle-hcm-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/oracle-hcm-jobs-scraper
+- [India IPO GMP](https://datadmon.github.io/actors/india-ipo-tracker/): live IPO GMP, QIB/NII/retail subscription, calendar, listing data. $3.00 per 1,000 ipo report rows. Apify listing: https://apify.com/data_daemon/india-ipo-tracker (plain text: https://apify.com/data_daemon/india-ipo-tracker.md). MCP: https://mcp.apify.com/?tools=data_daemon/india-ipo-tracker
+- [NSE/BSE stocks (Tickertape)](https://datadmon.github.io/actors/tickertape-stocks-scraper/): NSE/BSE index constituents, ratio screener, full stock profiles. $20.00 per 1,000 stock profiles. Apify listing: https://apify.com/data_daemon/tickertape-stocks-scraper (plain text: https://apify.com/data_daemon/tickertape-stocks-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/tickertape-stocks-scraper
+- [Dubai DLD transactions](https://datadmon.github.io/actors/dubai-property-transactions/): Dubai Land Department sales, mortgages and gifts with AED value and price/sqm. $1.00 per 1,000 transactions. Apify listing: https://apify.com/data_daemon/dubai-property-transactions (plain text: https://apify.com/data_daemon/dubai-property-transactions.md). MCP: https://mcp.apify.com/?tools=data_daemon/dubai-property-transactions
+- [UK insolvency notices](https://datadmon.github.io/actors/uk-gazette-insolvency-notices/): winding-up petitions, administrations, liquidations from The Gazette. $2.00 per 1,000 notices. Apify listing: https://apify.com/data_daemon/uk-gazette-insolvency-notices (plain text: https://apify.com/data_daemon/uk-gazette-insolvency-notices.md). MCP: https://mcp.apify.com/?tools=data_daemon/uk-gazette-insolvency-notices
+- [Foundit jobs](https://datadmon.github.io/actors/foundit-jobs-scraper/): foundit.in jobs by keyword, city, experience and freshness, full descriptions included. $0.80 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/foundit-jobs-scraper (plain text: https://apify.com/data_daemon/foundit-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/foundit-jobs-scraper
+- [Instahyre jobs](https://datadmon.github.io/actors/instahyre-jobs-scraper/): India tech jobs from product companies and startups by skill, city, experience and company size, full descriptions included. $0.80 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/instahyre-jobs-scraper (plain text: https://apify.com/data_daemon/instahyre-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/instahyre-jobs-scraper
+- [Luma events](https://datadmon.github.io/actors/luma-events-scraper/): lu.ma events by city, category, keyword or calendar: dates, venue, tickets, hosts. $1.50 per 1,000 events. Apify listing: https://apify.com/data_daemon/luma-events-scraper (plain text: https://apify.com/data_daemon/luma-events-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/luma-events-scraper
+
+## Guides
+
+- [Dubai Land Department transactions as JSON: registered sold prices, weekly volumes and how to pull them](https://datadmon.github.io/guides/dubai-land-department-transactions-json/): What the Dubai Land Department transaction register contains (sales, off-plan, mortgages, gifts), how many transactions it records a week in October 2026, what the free portals give you, and how to get the register as JSON or CSV for $1 per 1,000 transactions.
+- [India IPO GMP and subscription data as JSON: what the numbers mean and how to get them](https://datadmon.github.io/guides/india-ipo-gmp-subscription-data-json/): Grey market premium, QIB/NII/retail subscription, the IPO calendar and listing performance for Indian mainboard and SME IPOs: what each figure means, how often it changes, and how to pull all of it as JSON for $3 per 1,000 rows.
+- [India job board data compared: IIMJobs, Hirist, Foundit and Instahyre as APIs](https://datadmon.github.io/guides/india-job-boards-data-compared/): Which Indian job board to pull data from for recruiters, aggregators and hiring-signal research: coverage, fields (salary, applicants, company profile), freshness and price per 1,000 jobs, measured in October 2026.
+- [Oracle Recruiting Cloud career sites: how to export every job of an employer as JSON](https://datadmon.github.io/guides/oracle-recruiting-cloud-career-sites-export/): How to recognise an Oracle Recruiting Cloud (Oracle HCM) career site, how many jobs large employers list on them (Kotak 16,521, Marriott 13,286, JPMorgan 7,262 in October 2026), and how to export all of them, or only the new ones each day, as JSON for $2 per 1,000.
+- [UK winding-up petitions and insolvency notices as a daily JSON feed from The Gazette](https://datadmon.github.io/guides/uk-winding-up-petitions-daily-feed/): How many winding-up petitions and administrations The Gazette publishes each week (October 2026), which notice-type codes to use, what the linked-data record adds (company number, registered office), and how to run a daily feed for about $3 a month.
+
+## Docs
+
+- [How to call any API](https://datadmon.github.io/docs/): REST run-sync call, Python, Node.js, n8n, MCP.
+- [About](https://datadmon.github.io/about/): publisher, data handling, contact.
+- [Code examples](https://github.com/datadmon/apify-data-actors-examples): Python, Node.js, curl, n8n, only-new feeds, per-actor MCP registry files.
+
+
+
+---
+
+# IIMJobs jobs data API | Daemon Data
+
+Source: https://datadmon.github.io/actors/iimjobs-jobs-scraper/
+
+IIMJobs jobs: pay-per-record data API
+
+IIMJobs Jobs Scraper – MBA, Finance & Management Jobs India is a pay-per-record data API on Apify that returns India MBA, finance, consulting and management jobs with full descriptions as JSON, CSV or Excel. It costs $0.002 per job ($2.00 per 1,000) and runs on a schedule, from code, or from an AI assistant through MCP.
+
+Run it on Apify   Listing as plain text for agents
+
+Live check
+Live check, 18 Oct 2026: product manager matched 4,097 open IIMJobs listings and investment banking matched 652. On the first page of product manager, the median job already had about 170 applicants.
+
+What you get
+Turn IIMJobs.com into a clean, scheduled job feed. IIMJobs is India's job board for MBA, finance, consulting, CA/CFA, sales, marketing, HR and senior management roles, the mid-to-senior hiring that general boards bury under fresher listings. This Actor searches IIMJobs by keyword, city, experience band and posting date and returns one JSON row per job with the full job description (HTML + plain text), salary in LPA when the recruiter discloses it, mandatory vs optional skills, applicant and view counts, and the employer's AmbitionBox profile (rating, review count, industry, size, HQ) when it has one.
+
+Who uses it
+You areWhat you get
+Executive search and staffing firmsA daily list of new mid-senior openings by function, city and experience band, plus applicant counts, so you know which mandates are crowded before you pitch.
+HR-tech products and job aggregatorsIIMJobs as a source with stable job IDs (dedupKey), full JD text, de-duplication across keywords and runs, and an API you can call on a schedule.
+Compensation and salary-benchmark teamsLPA ranges by role, experience band and city on every posting that discloses pay, with an explicit salaryHidden flag on the ones that don't.
+B2B sales and lead generationCompanies hiring a CFO, finance controller or CHRO are about to buy finance or HR software. Each row includes the company name, domain, industry, size band and AmbitionBox profile.
+Workforce and market analystsDemand for MBA, CA and CFA skills over time, hiring by city, and competition per role from applicant counts.
+AI agents (MCP)Ask Claude or ChatGPT "VP finance roles in Mumbai posted this week" and let it call this Actor through Apify's MCP server.
+
+Price
+$0.002 per job ($2.00 per 1,000); $0.002 per job description ($2.00 per 1,000). List prices for Apify Free and Starter plans; Scale and Business plans pay 15% to 30% less.
+EventPricePer 1,000Charged when
+Job$0.002$2.00One job returned from search (title, company, salary, skills, locations, applicants, AmbitionBox rating).
+Job description$0.002$2.00Full job description and company profile for one job (when includeDescription is on).
+
+Scheduled change from 2026-11-02: job $0.002 ($2.00 per 1,000), actor start $0.001.
+
+Apify's free plan includes $5 of usage every month; the Actor's own run compute is included in the per-record price. Records skipped by filters or only-new mode are not charged.
+
+How to call it
+
+One HTTP call starts a run, waits for it and returns the records. Replace the token with yours from console.apify.com.
+
+curl -X POST "https://api.apify.com/v2/acts/data_daemon~iimjobs-jobs-scraper/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"queries": ["product manager"], "locations": ["Bangalore", "Mumbai"], "postedWithinDays": 7, "includeDescription": true, "maxJobsPerQuery": 50}'
+
+From an AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daemon/iimjobs-jobs-scraper with header Authorization: Bearer YOUR_APIFY_TOKEN in Claude, ChatGPT, Cursor or VS Code, then ask for the data in plain words.
+Python, Node.js and n8n: python/iimjobs-jobs-scraper.py, node/iimjobs-jobs-scraper.mjs, n8n/iimjobs-jobs-scraper.json.
+
+Input fields
+FieldTypeMeaning
+queriesarrayOne IIMJobs search per keyword, e.g. product manager, chartered accountant, investment banking, CFO, brand manager. Use role or skill words; put cities in locations. Several specific keywords beat one broad one. A job found by two keywords is saved and charged once.
+locationsarrayOptional. Cities as IIMJobs lists them: Mumbai, Bangalore, Delhi NCR, Gurgaon, Pune, Hyderabad, Chennai, Remote, Anywhere in India. Case-insensitive substring match on the job's listed locations; a single known city is also applied server-side for speed. Leave empty for all of India.
+minExperienceintegerOnly jobs whose experience range reaches at least this many years. Integer 0-40.
+maxExperienceintegerOnly jobs whose experience range starts at or below this many years. Integer 0-40.
+postedWithinDaysintegerOnly jobs posted in the last N days. Integer 1-365, e.g. 1 with a daily schedule or 7 for a weekly report. Leave empty for all open jobs.
+includeDescriptionbooleanOn (default): full description as HTML and plain text, plus the company profile. Adds $0.002 per job. Off: listing fields only, at half the price, which is enough for counting jobs or sizing a market.
+maxJobsPerQueryintegerStop a keyword after this many new jobs (default 40). Cost: $0.002 per job plus $0.002 per full description, so 40 jobs with descriptions = $0.16. Raise it for full exports: product manager alone has about 4,000 open jobs.
+maxJobsintegerHard cap on saved jobs for the whole run across all keywords (0 = no cap).
+onlyNewSinceLastRunbooleanOn: deliver only jobs that an earlier run with the same stateName has not already delivered, and skip the rest without charging. If postedWithinDays is empty it is set to 3 so each run stays small. Off (default): return every matching job.
+stateNamestringOptional name for this search's memory when onlyNewSinceLastRun is on, e.g. pm-bangalore-daily. Leave empty to derive it from the keywords, locations and experience filters. Use a new key to start over.
+skipJobIdsarrayJob IDs you already have (the id field from earlier runs). They are skipped before any detail fetch and never charged. Large lists are fine.
+sitestringKeep iimjobs (default) for management, finance, consulting and MBA jobs. Set hirist only for IT and tech jobs from Hirist.tech; the output format is the same, and the dedicated Hirist Jobs Scraper documents it.
+
+Output fields
+Each record has these top-level fields (see the listing for per-field notes): id, dedupKey, site, url, title, designation, company, recruiter, experienceMinYears, experienceMaxYears, salaryHidden, locations, remote, skills, mandatorySkills, industryIds, functionalAreaId, categoryId, premium, brandedJd, applicants, views, postedAt, descriptionHtml, description, query, scrapedAt, salaryMinLpa, salaryMaxLpa, otherLocation.
+
+Example record{
+    "id": 1739557,
+    "dedupKey": "iimjobs:1739557",
+    "site": "iimjobs",
+    "url": "https://www.iimjobs.com/j/khatabook-senior-product-manager-1739557",
+    "title": "Khatabook - Senior Product Manager",
+    "designation": "Product Manager",
+    "company": {
+        "name": "ADJ UTILITY APPS PRIVATE LIMITED",
+        "domain": "khatabook.com",
+        "confidential": false,
+        "ambitionBoxRating": 3.7,
+        "ambitionBoxReviews": 272,
+        "ambitionBoxUrl": "https://www.ambitionbox.com/reviews/khatabook-office-reviews",
+        "industry": "FinTech",
+        "companyType": "Startup",
+        "employeesIndia": "501-1000",
+        "headquarters": "Bangalore,Karnataka",
+        "foundedYear": "2018",
+        "about": "At Khatabook, we're building utility solutions for the nation's 6.3 crore-strong MSME sector…"
+    },
+    "recruiter": { "name": null, "designation": "NA" },
+    "experienceMinYears": 4,
+    "experienceMaxYears": 6,
+    "salaryHidden": true,
+    "locations": ["Bangalore"],
+    "remote": false,
+    "skills": ["IT Product Management", "Online Product Management", "Consumer Internet"],
+    "mandatorySkills": ["IT Product Management"],
+    "premium": true,
+    "applicants": 270,
+    "views": 459,
+    "postedAt": "2026-10-14T05:10:13.127Z",
+    "descriptionHtml": "<p><b>Responsibilities:</b><br/><br/>- You'll help us scale our lending product…",
+    "description": "Responsibilities:\n\n- You'll help us scale our lending product (platform and user experience)…",
+    "query": "product manager",
+    "scrapedAt": "2026-10-17T17:35:10.489Z"
+}
+
+Ready-made example pages
+Each example is a saved input you can run with one click on Apify (Examples tab):
+Product manager jobs in India (IIMJobs): Product management roles on IIMJobs with full descriptions, experience range, salary when disclosed and applicant count. {"queries": ["product manager"], "postedWithinDays": 15, "includeDescription": true, "maxJobsPerQuery": 100}
+Investment banking and finance jobs in India (IIMJobs): Investment banking, private equity, corporate finance and CA roles from IIMJobs with descriptions and applicant counts. {"queries": ["investment banking", "private equity", "corporate finance"], "postedWithinDays": 30, "includeDescription": true, "maxJobsPerQuery": 60}
+Management consulting jobs for MBAs (IIMJobs): Strategy and management consulting openings on IIMJobs, filtered to 2–8 years of experience, with full descriptions. {"queries": ["management consulting", "strategy consultant"], "minExperience": 2, "maxExperience": 8, "postedWithinDays": 30, "includeDescription": true, "maxJo
+FP&A jobs in India posted in the last 3 days (IIMJobs): Financial planning & analysis (FP&A) roles posted on IIMJobs in the last 3 days, with the full job description, salary band when disclosed, experience range, skills and applicant count. {"site": "iimjobs", "queries": ["financial planning and analysis", "fp&a"], "postedWithinDays": 3, "includeDescription": true, "maxJobsPerQuery": 50}
+Category manager jobs in Bangalore (IIMJobs): Category management roles in Bangalore from IIMJobs (e-commerce, FMCG, quick commerce) posted in the last 15 days, with salary when disclosed, experience band, skills and the full job description. {"site": "iimjobs", "queries": ["category manager"], "locations": ["Bangalore"], "postedWithinDays": 15, "includeDescription": true, "maxJobsPerQuery": 60}
+Chief of staff and founder's office jobs in India (IIMJobs): Chief of staff and founder's office roles at Indian startups and corporates posted on IIMJobs in the last 30 days, with company, salary band, experience range and the full job description. {"site": "iimjobs", "queries": ["chief of staff", "founder's office"], "postedWithinDays": 30, "includeDescription": true, "maxJobsPerQuery": 50}
+HR business partner and talent acquisition jobs (IIMJobs): HRBP and talent acquisition roles posted on IIMJobs in the last 7 days, with company, location, experience range, salary when disclosed and applicant count. Useful for HR job alerts and hiring-trend tracking. {"site": "iimjobs", "queries": ["hr business partner", "talent acquisition"], "postedWithinDays": 7, "includeDescription": true, "maxJobsPerQuery": 50}
+Brand and marketing manager jobs in India this week (IIMJobs): Brand manager and marketing manager roles posted on IIMJobs in the last 7 days (FMCG, D2C, consumer tech), with company, city, salary band, experience and the full job description. {"site": "iimjobs", "queries": ["brand manager", "marketing manager"], "postedWithinDays": 7, "includeDescription": true, "maxJobsPerQuery": 50}
+Private equity and equity research jobs in Mumbai (IIMJobs): Private equity, fund and equity research roles in Mumbai posted on IIMJobs in the last 30 days, with firm, experience band, salary when disclosed, skills and the full job description. {"site": "iimjobs", "queries": ["private equity", "equity research"], "locations": ["Mumbai"], "postedWithinDays": 30, "includeDescription": true, "maxJobsPerQu
+Product manager jobs in Bangalore posted this week (IIMJobs): Product manager, senior PM and associate PM roles in Bangalore posted on IIMJobs in the last 7 days, with company, salary band, experience range, skills and applicant count. {"site": "iimjobs", "queries": ["product manager"], "locations": ["Bangalore"], "postedWithinDays": 7, "includeDescription": true, "maxJobsPerQuery": 60}
+
+Questions and answers
+How much does it cost to scrape IIMJobs?
+$0.002 per job plus $0.002 per full description, so 100 jobs with descriptions cost $0.40 and a 50-jobs-a-day feed about $6 a month.
+
+Is there an official IIMJobs API?
+No public one. This Actor reads the JSON that the iimjobs.com website itself loads and exposes it as a REST API with schedules, webhooks and only-new-jobs runs.
+
+Which roles does IIMJobs cover?
+Management, consulting, finance, CA/CFA, sales, marketing, HR and MBA-track roles at Indian and global companies, mostly 2 to 25 years of experience.
+
+Does it return the full job description?
+Yes, as HTML and plain text, plus skills, applicant and view counts, salary in LPA when disclosed and the AmbitionBox company profile when one exists.
+
+Why is recruiter.name null?
+IIMJobs shows recruiter names only to logged-in users. The Actor keeps the recruiter's designation and does not work around the site's choice. Company name, domain and profile are always included.
+
+IIMJobs vs Naukri: which should I scrape?
+IIMJobs is curated mid-to-senior management, finance and consulting hiring. Naukri is all levels. For CXO, VP, CA/CFA and MBA roles, IIMJobs has far less noise.
+
+Can I get IIMJobs and Hirist jobs together?
+Yes. Hirist.tech Jobs Scraper uses the same output schema and the same onlyNewSinceLastRun mode, so one pipeline handles both boards.
+
+Do I need a proxy or login?
+No.
+
+
+Facts, prices and example pages on this page were read from the live Apify listing on 2026-10-21. Source website: the data belongs to its publisher; this API reads public pages and endpoints and leaves out personal contact details.
+
+
+---
+
+# Hirist jobs data API | Daemon Data
+
+Source: https://datadmon.github.io/actors/hirist-jobs-scraper/
+
+Hirist jobs: pay-per-record data API
+
+Hirist.tech Jobs Scraper – India IT & Tech Jobs, Full JD is a pay-per-record data API on Apify that returns India IT and tech jobs with full descriptions, skills, salary when disclosed as JSON, CSV or Excel. It costs $0.002 per job ($2.00 per 1,000) and runs on a schedule, from code, or from an AI assistant through MCP.
+
+Run it on Apify   Listing as plain text for agents
+
+Live check
+Live check, 18 Oct 2026: data engineer matched 3,420 open Hirist jobs (239 posted in the last 7 days), python developer 1,884 and java 730. Most rows carry an AmbitionBox company profile, and the median python developer job had about 240 applicants.
+
+What you get
+Turn Hirist.tech into a clean, scheduled feed of India tech jobs. Hirist.tech (formerly hirist.com) is India's tech-only job board: backend, frontend, data, DevOps, QA, AI/ML, SAP and security roles posted by product companies, GCCs and IT services firms. This Actor searches it by keyword, city, experience band and posting date and returns one JSON row per job with the complete job description (HTML + plain text, not truncated), mandatory vs optional skills, applicant and view counts, the employer's AmbitionBox profile (rating, review count, industry, size, HQ) when it has one, and salary in LPA on the postings that show it.
+
+Who uses it
+You areWhat you get
+IT staffing and tech recruiting firmsEvery new Java, data or DevOps opening by city and experience band, with applicant counts, so you can see which roles are under-supplied.
+HR-tech products and job aggregatorsHirist as a source with stable job IDs (dedupKey), full JD text and de-duplication across keywords and runs, on the same schema as our IIMJobs scraper: one integration covers India tech and management hiring.
+Skills-demand and salary analystsCount skill tags across thousands of postings (mandatory vs nice-to-have) and track demand for Kafka, Snowflake, GenAI or SAP by city and seniority.
+B2B sales (tech-stack intent)A company hiring three Snowflake engineers is a Snowflake account. Rows include the company name, domain, industry, size band, AmbitionBox profile and skills.
+Job-alert and career productsFresh roles from the last 24 hours, filtered by experience, for alert bots and newsletters.
+AI agents (MCP)Ask Claude or ChatGPT for "remote senior Python roles posted this week" and let it call this Actor through Apify's MCP server.
+
+Price
+$0.002 per job ($2.00 per 1,000); $0.002 per job description ($2.00 per 1,000). List prices for Apify Free and Starter plans; Scale and Business plans pay 15% to 30% less.
+EventPricePer 1,000Charged when
+Job$0.002$2.00One job returned from search (title, company, salary, skills, locations, applicants, AmbitionBox rating).
+Job description$0.002$2.00Full job description and company profile for one job (when includeDescription is on).
+
+Scheduled change from 2026-11-02: job $0.002 ($2.00 per 1,000), actor start $0.001.
+
+Apify's free plan includes $5 of usage every month; the Actor's own run compute is included in the per-record price. Records skipped by filters or only-new mode are not charged.
+
+How to call it
+
+One HTTP call starts a run, waits for it and returns the records. Replace the token with yours from console.apify.com.
+
+curl -X POST "https://api.apify.com/v2/acts/data_daemon~hirist-jobs-scraper/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"queries": ["python developer"], "locations": ["Bangalore"], "postedWithinDays": 7, "includeDescription": true, "maxJobsPerQuery": 50}'
+
+From an AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daemon/hirist-jobs-scraper with header Authorization: Bearer YOUR_APIFY_TOKEN in Claude, ChatGPT, Cursor or VS Code, then ask for the data in plain words.
+Python, Node.js and n8n: python/hirist-jobs-scraper.py, node/hirist-jobs-scraper.mjs, n8n/hirist-jobs-scraper.json.
+
+Input fields
+FieldTypeMeaning
+queriesarrayOne Hirist.tech search per keyword, e.g. python developer, data engineer, devops, react native, sap abap. Use role or skill words; put cities in locations. Several specific keywords beat one broad one. A job found by two keywords is saved and charged once.
+locationsarrayOptional. Cities as Hirist lists them: Bangalore, Hyderabad, Pune, Chennai, Gurgaon, Noida, Mumbai, Remote, Anywhere in India. Case-insensitive substring match on the job's listed locations; a single known city is also applied server-side for speed. Leave empty for all of India.
+minExperienceintegerOnly jobs whose experience range reaches at least this many years. Integer 0-40.
+maxExperienceintegerOnly jobs whose experience range starts at or below this many years. Integer 0-40.
+postedWithinDaysintegerOnly jobs posted in the last N days. Integer 1-365, e.g. 1 with a daily schedule or 7 for a weekly report. Leave empty for all open jobs.
+includeDescriptionbooleanOn (default): full, untruncated description as HTML and plain text, plus the company profile. Adds $0.002 per job. Off: listing fields only, at half the price, which is enough for counting jobs or sizing a market.
+maxJobsPerQueryintegerStop a keyword after this many new jobs (default 40). Cost: $0.002 per job plus $0.002 per full description, so 40 jobs with descriptions = $0.16. Raise it for full exports: data engineer alone has about 3,400 open jobs.
+maxJobsintegerHard cap on saved jobs for the whole run across all keywords (0 = no cap).
+onlyNewSinceLastRunbooleanOn: deliver only jobs that an earlier run with the same stateName has not already delivered, and skip the rest without charging. If postedWithinDays is empty it is set to 3 so each run stays small. Off (default): return every matching job.
+stateNamestringOptional name for this search's memory when onlyNewSinceLastRun is on, e.g. python-bangalore-daily. Leave empty to derive it from the keywords, locations and experience filters. Use a new key to start over.
+skipJobIdsarrayJob IDs you already have (the id field from earlier runs). They are skipped before any detail fetch and never charged. Large lists are fine.
+sitestringKeep hirist (default) for IT and tech jobs. Set iimjobs only for management, finance and MBA jobs from IIMJobs.com; the output format is the same, and the dedicated IIMJobs Jobs Scraper documents it.
+
+Output fields
+Each record has these top-level fields (see the listing for per-field notes): id, dedupKey, site, url, title, designation, company, recruiter, experienceMinYears, experienceMaxYears, salaryHidden, locations, remote, skills, mandatorySkills, industryIds, functionalAreaId, categoryId, premium, brandedJd, applicants, views, postedAt, descriptionHtml, description, query, scrapedAt, salaryMinLpa, salaryMaxLpa, otherLocation.
+
+Example record{
+    "id": 1677571,
+    "dedupKey": "hirist:1677571",
+    "site": "hirist",
+    "url": "https://www.hirist.tech/j/evalueserve-python-developer-data-structure-algorithm-1677571",
+    "title": "Evalueserve - Python Developer - Data Structure & Algorithm",
+    "designation": "Python Developer",
+    "company": {
+        "name": "Evalueserve",
+        "domain": "evalueserve.com",
+        "confidential": false,
+        "ambitionBoxRating": 3,
+        "ambitionBoxReviews": 1615,
+        "ambitionBoxUrl": "https://www.ambitionbox.com/reviews/evalueserve-reviews",
+        "industry": "Analytics & KPO",
+        "companyType": "Foreign MNC",
+        "employeesIndia": "1001-5000",
+        "headquarters": "Switzerland",
+        "foundedYear": "2000",
+        "about": "We're Evalueserve, the leading technology-enhanced managed services provider…"
+    },
+    "recruiter": { "name": null, "designation": "Assistant Manager TA" },
+    "experienceMinYears": 5,
+    "experienceMaxYears": 9,
+    "salaryHidden": true,
+    "locations": ["Delhi NCR"],
+    "remote": false,
+    "skills": ["Python", "Data Structure", "Algorithm", "REST API", "System Design", "OOPS", "PostgreSQL", "Django", "Flask", "FastAPI", "AWS"],
+    "mandatorySkills": ["Python", "Data Structure", "Algorithm", "System Design", "OOPS", "Django", "Flask", "FastAPI"],
+    "premium": true,
+    "applicants": 269,
+    "views": 687,
+    "postedAt": "2026-10-09T05:03:22.829Z",
+    "descriptionHtml": "<p><b>About the Role : </b><br/><br/>We are looking for an experienced Python Developer…",
+    "description": "About the Role :\n\nWe are looking for an experienced Python Developer with strong expertise in Data Structures & Algorithms…",
+    "query": "python developer",
+    "scrapedAt": "2026-10-17T17:40:04.535Z"
+}
+
+Ready-made example pages
+Each example is a saved input you can run with one click on Apify (Examples tab):
+Python developer jobs in Bangalore posted this week (Hirist): Fresh Python developer openings in Bangalore from Hirist with full descriptions, skills, salary when shown and applicant count. {"queries": ["python developer"], "locations": ["Bangalore"], "postedWithinDays": 7, "includeDescription": true, "maxJobsPerQuery": 100}
+Remote tech jobs in India (Hirist): Remote software, data and DevOps jobs on Hirist with full job descriptions, skills, applicant count and salary when shown. {"queries": ["software engineer", "data engineer", "devops"], "locations": ["Remote"], "postedWithinDays": 15, "includeDescription": true, "maxJobsPerQuery": 60
+Fresher and entry-level IT jobs in India (0–2 years): Entry-level developer, QA and support roles on Hirist for 0–2 years of experience, with descriptions and applicant counts. {"queries": ["software developer", "qa engineer", "support engineer"], "minExperience": 0, "maxExperience": 2, "postedWithinDays": 15, "includeDescription": tru
+DevOps engineer jobs in India, last 3 days (Hirist): DevOps, SRE and cloud-infrastructure engineer roles posted on Hirist.tech in the last 3 days, with company, city, experience band, salary when disclosed, skills and the full job description. {"site": "hirist", "queries": ["devops engineer"], "postedWithinDays": 3, "includeDescription": true, "maxJobsPerQuery": 50}
+
+Questions and answers
+How much does it cost to scrape Hirist jobs?
+$0.002 per job plus $0.002 per full description, so 100 jobs with descriptions cost $0.40 and a 34-jobs-a-day feed about $4 a month.
+
+Is there a Hirist API?
+Not a public one. This Actor reads the JSON the hirist.tech site itself loads and exposes it as a REST API with schedules, webhooks and only-new-jobs runs.
+
+Is Hirist.tech real or fake?
+Hirist.tech is a legitimate Indian tech job board owned by Info Edge, the Naukri group. Every row links to the original posting, so you can verify it.
+
+Can I filter by city and experience?
+Yes: locations, minExperience, maxExperience and postedWithinDays. A single city is passed to Hirist's own search; several cities are matched on our side.
+
+Does it return the full job description?
+Yes, as HTML and plain text, untruncated, plus skills, applicant and view counts, salary in LPA when shown and the AmbitionBox company profile when one exists.
+
+Why is recruiter.name null?
+Hirist shows recruiter names only to logged-in users. The Actor keeps the recruiter's designation and does not work around the site's choice. Company name, domain and profile are always included.
+
+Hirist vs Naukri?
+Hirist is tech-only and every posting carries skill tags and an experience band, which makes it cleaner for skills analytics. Naukri is broader and noisier.
+
+Can I get Hirist and IIMJobs jobs together?
+Yes. IIMJobs Jobs Scraper uses the same output schema and the same onlyNewSinceLastRun mode, so one pipeline handles both boards.
+
+
+Facts, prices and example pages on this page were read from the live Apify listing on 2026-10-21. Source website: the data belongs to its publisher; this API reads public pages and endpoints and leaves out personal contact details.
+
+
+---
+
+# Oracle HCM career sites data API | Daemon Data
+
+Source: https://datadmon.github.io/actors/oracle-hcm-jobs-scraper/
+
+Oracle HCM career sites: pay-per-record data API
+
+Oracle Jobs Scraper – Oracle HCM & Recruiting Cloud Career Site is a pay-per-record data API on Apify that returns every requisition on any Oracle Recruiting Cloud career site as JSON, CSV or Excel. It costs $0.002 per job ($2.00 per 1,000) and runs on a schedule, from code, or from an AI assistant through MCP.
+
+Run it on Apify   Listing as plain text for agents
+
+What you get
+Get every open job from any Oracle Recruiting Cloud career site as clean JSON. Thousands of large employers (banks, hotel groups, hospitals, universities, manufacturers, governments) run their careers page on Oracle Recruiting Cloud, part of Oracle Fusion Cloud HCM. You can recognise it by URLs like *.oraclecloud.com/hcmUI/CandidateExperience/.... The career site is the employer's own source of truth, with every requisition and the full posting text. This Actor reads the career site's own JSON API and returns every open requisition (the default run stops at 50 jobs per site; set Max jobs per site to 0 for the whole site): title, all locations, country, posted date, job function and family, schedule, and, with details on, the full description, qualifications, responsibilities, skills and the employer's own custom fields (job type, years of experience, visa sponsorship and whatever else they configured).
+
+Who uses it
+You areWhat you get
+Job boards and aggregatorsEnterprise employers that only post on their own Oracle site, with stable requisition IDs, posted dates and direct apply URLs. One run can walk many tenants.
+Talent-intelligence and recruiting teamsTrack competitors' hiring by job family, function, country and city, and get only the new requisitions every day with Only new jobs since the last run.
+B2B sales (hiring signals)A bank opening 40 data-engineering roles in Bengaluru is a buying signal. Get it the morning it posts.
+Workforce and labour-market researchersHiring trends at Fortune-500-scale employers, including full JD text for skills extraction.
+AI agents (MCP)"What remote engineering roles did JPMorgan Chase post this week?" Connect https://mcp.apify.com/?tools=data_daemon/oracle-hcm-jobs-scraper in Claude, ChatGPT or Cursor.
+
+Price
+$0.002 per job ($2.00 per 1,000); $0.002 per job details ($2.00 per 1,000). List prices for Apify Free and Starter plans; Scale and Business plans pay 15% to 30% less.
+EventPricePer 1,000Charged when
+Job$0.002$2.00One requisition from an Oracle Cloud HCM career site.
+Job details$0.002$2.00Full description, qualifications, responsibilities and flex fields for one requisition (when includeDetails is on).
+
+Scheduled change from 2026-11-02: job $0.002 ($2.00 per 1,000), actor start $0.001.
+
+Apify's free plan includes $5 of usage every month; the Actor's own run compute is included in the per-record price. Records skipped by filters or only-new mode are not charged.
+
+How to call it
+
+One HTTP call starts a run, waits for it and returns the records. Replace the token with yours from console.apify.com.
+
+curl -X POST "https://api.apify.com/v2/acts/data_daemon~oracle-hcm-jobs-scraper/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"careerSiteUrls": ["https://eeho.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_45001/requisitions"], "keyword": "engineer", "postedWithinDays": 30, "includeDetails": true, "maxJobsPerSite": 50}'
+
+From an AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daemon/oracle-hcm-jobs-scraper with header Authorization: Bearer YOUR_APIFY_TOKEN in Claude, ChatGPT, Cursor or VS Code, then ask for the data in plain words.
+Python, Node.js and n8n: python/oracle-hcm-jobs-scraper.py, node/oracle-hcm-jobs-scraper.mjs, n8n/oracle-hcm-jobs-scraper.json.
+
+Input fields
+FieldTypeMeaning
+careerSiteUrlsarrayOne or more Oracle Recruiting Cloud (Oracle HCM) career site URLs. They look like https://{tenant}.fa.{region}.oraclecloud.com/hcmUI/CandidateExperience/en/sites/{siteNumber}; any page of the site works, including a single job URL. Example: JPMorgan Chase = https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001. To find a company's site, web-search: site:oraclecloud.com CandidateExperience "". Taleo and Workday sites are not supported.
+keywordstringOptional. Searched the way the career site's own search box does, e.g. data, nurse, sales manager. Leave empty to export every open job.
+locationstringOptional country, state or city, e.g. India, United Kingdom, London, Bengaluru, Karnataka, India. Countries always work. States and cities are resolved through the site's own location filter; if the site does not list the place, jobs are matched on their location text instead and only matching jobs are delivered and charged. The run log lists the locations a site offers.
+postedWithinDaysintegerOnly jobs posted recently. Integer 1-30; Oracle supports two buckets, so 1-7 means the last 7 days and 8-30 the last 30 days. Leave empty for all open jobs.
+workplaceTypesarrayOptional: only remote, hybrid or on-site jobs. Works only on career sites that tag workplace type; some tag every job on-site (Oracle's own site does), and then Remote returns 0 jobs.
+includeDetailsbooleanOn (default): full description, qualifications, responsibilities, skills and the employer's custom fields. Adds $0.002 per job. Off: list fields only, at half the price.
+maxJobsPerSiteintegerStop after this many jobs per career site (default 50, about $0.20 with details at FREE prices). Set 0 to export the whole site; large employers list 2,000-13,000 open jobs.
+onlyNewSinceLastRunbooleanDeliver only jobs that an earlier run with the same search (or the same State key) has not already delivered. Skipped jobs are not charged. Made for daily schedules: the Actor remembers delivered job IDs in a key-value store named oracle-hcm-jobs-state in your account. When this is on and Posted within is empty, the last 7 days are searched.
+stateNamestringOptional name for this saved search's memory when Only new jobs is on, e.g. jpmc-india. Leave empty to derive it from the career site URLs, keyword, location and workplace types. Use a new key to start over.
+skipJobIdsarrayOptional requisition IDs to leave out, e.g. the id values from an earlier run. Skipped jobs are not charged. Large lists are fine.
+maxJobsintegerHard cap for the whole run across all sites (0 = no cap).
+
+Output fields
+Each record has these top-level fields (see the listing for per-field notes): id, dedupKey, title, url, applyUrl, company, companySource, tenantHost, careerSite, postedDate, language, primaryLocation, country, locations, remote, jobFunction, hotJob, trending, beFirstToApply, mediaThumbnail, shortDescription, description, descriptionHtml, qualifications, responsibilities, corporateDescription, category, externalPostedStartDate, skills, flexFields, scrapedAt, workplaceType, workplaceTypeCode, jobFamily, organizationDescription, jobSchedule, businessUnit, externalPostedEndDate, jobShift, studyLevel.
+
+Example record{
+    "id": "210800903",
+    "dedupKey": "jpmc.fa.oraclecloud.com/210800903",
+    "title": "Software Engineer III - Java E-Trading Developer",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210800903",
+    "applyUrl": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210800903/apply",
+    "company": "JPMorgan Chase",
+    "companySource": "tenant",
+    "tenantHost": "jpmc.fa.oraclecloud.com",
+    "careerSite": { "origin": "https://jpmc.fa.oraclecloud.com", "siteNumber": "CX_1001", "name": "JPMC Candidate Experience page", "status": "active" },
+    "postedDate": "2026-10-16",
+    "externalPostedStartDate": "2026-10-16T15:38:50+00:00",
+    "primaryLocation": "LONDON, LONDON, United Kingdom",
+    "country": "GB",
+    "locations": ["LONDON, LONDON, United Kingdom"],
+    "remote": false,
+    "jobFamily": "Software Engineering",
+    "jobFunction": "Technology",
+    "jobSchedule": "Full time",
+    "businessUnit": "Commercial & Investment Bank",
+    "category": "Software Engineering",
+    "shortDescription": "Software Engineer III - Macro eTrading",
+    "description": "We are searching for world-class technologists to join our team building solutions for the J.P. Morgan Macro e-trading platform, which streams real-time prices ...",
+    "descriptionHtml": "<div><p>We are searching for world-class technologists ...",
+    "corporateDescription": "J.P. Morgan is a global leader in financial services, providing strategic advice and products to the world's most prominent corporations ...",
+    "organizationDescription": "J.P. Morgan's Commercial & Investment Bank is a global leader across banking, markets, securities services and payments ...",
+    "hotJob": false,
+    "trending": false,
+    "scrapedAt": "2026-10-17T17:31:39.497Z"
+}
+
+Ready-made example pages
+Each example is a saved input you can run with one click on Apify (Examples tab):
+All open jobs on Oracle's career site: Every open requisition on Oracle's own Oracle Cloud HCM career site with full descriptions, locations, job function and posting dates. {"careerSiteUrls": ["https://eeho.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_45001/requisitions"], "includeDetails": true, "maxJobsPerSite": 3
+Remote jobs on an Oracle HCM career site (EXL example): Requisitions flagged remote on an Oracle Cloud HCM career site (EXL Service's site as the example), with full descriptions. Replace the URL with any Oracle career site that publishes remote roles. {"careerSiteUrls": ["https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/requisitions"], "workplaceTypes": ["ORA_REMOTE"]
+New engineering jobs this week on an Oracle HCM site: Keyword-filtered engineering requisitions posted in the last 7 days on an Oracle Cloud HCM career site, with full details. {"careerSiteUrls": ["https://eeho.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_45001/requisitions"], "keyword": "engineer", "postedWithinDays": 
+JPMorgan Chase jobs in India posted this week (Oracle HCM): New JPMorgan Chase requisitions located in India (Bengaluru, Mumbai, Hyderabad) posted in the last 7 days, pulled from JPMC's Oracle Cloud HCM career site with job family, business unit, full description and apply link. {"careerSiteUrls": ["https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/requisitions"], "location": "India", "postedWithinDays": 7, "inc
+JPMorgan Chase software engineer jobs this week (Oracle HCM): Software engineer requisitions posted in the last 7 days on JPMorgan Chase's Oracle Cloud HCM career site, worldwide, with location, job family, business unit, full description and apply link. {"careerSiteUrls": ["https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/requisitions"], "keyword": "software engineer", "postedWithinDay
+Kotak Mahindra Bank jobs posted this week (Oracle HCM): Kotak Mahindra Bank openings posted in the last 7 days (branch banking, relationship managers, sales, operations), pulled from Kotak's Oracle Cloud HCM career site with city or state, the description where the bank publi {"careerSiteUrls": ["https://hcbt.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/requisitions"], "postedWithinDays": 7, "includeDetails": true, "m
+Marriott hotel jobs in India posted this week (Oracle HCM): Marriott International openings in India (front office, F&B, sales, engineering, management) posted in the last 7 days, pulled from Marriott's Oracle Cloud HCM career site with hotel city, full description and apply link {"careerSiteUrls": ["https://ejwl.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/requisitions"], "location": "India", "postedWithinDays": 7, "incl
+EXL jobs in India posted in the last 7 days (Oracle HCM): New EXL Service requisitions in India (analytics, operations, healthcare coding, finance & accounting) posted in the last 7 days, from EXL's Oracle Cloud HCM career site with workplace type, full description and apply li {"careerSiteUrls": ["https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/requisitions"], "location": "India", "postedWith
+Weekly hiring tracker: JPMorgan, Kotak, DTCC (Oracle HCM): One run, three employers: the 50 newest requisitions from the last 7 days on each of the Oracle Cloud HCM career sites of JPMorgan Chase, Kotak Mahindra Bank and DTCC, in one dataset. Swap in any Oracle career-site URLs  {"careerSiteUrls": ["https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/requisitions", "https://hcbt.fa.em2.oraclecloud.com/hcmUI/Candid
+Jobs from several Oracle Recruiting Cloud career sites (API): One run reads two Oracle Recruiting Cloud (Oracle HCM) career sites, Oracle's own and Marriott's, and returns every job posted in the last 7 days as JSON with the full description. Add any *.oraclecloud.com/hcmUI/Candida {"careerSiteUrls": ["https://eeho.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_45001/requisitions", "https://ejwl.fa.us2.oraclecloud.com/hcmUI/C
+
+Questions and answers
+How much does it cost to scrape an Oracle career site?
+$0.002 per job plus $0.002 per full detail record. A 500-job site with details costs $2.00; the same site without details costs $1.00.
+
+Does Oracle Recruiting Cloud have a public API for job postings?
+The documented Oracle HCM REST API needs customer credentials. Public career sites load their jobs from an unauthenticated candidate-experience endpoint (/hcmRestApi/resources/latest/recruitingCEJobRequisitions), which is what this Actor reads, with the same filters the careers page uses.
+
+What is the difference between Oracle HCM, Oracle Fusion and Oracle Recruiting Cloud?
+Oracle Fusion Cloud HCM is the suite. Oracle Recruiting Cloud (ORC) is its recruiting module. The public careers page is called Candidate Experience, which is why the URLs contain CandidateExperience.
+
+Does it read Taleo or Workday sites?
+No. Taleo is Oracle's older, separate ATS and Workday is a different vendor. This Actor covers Oracle Recruiting Cloud (oraclecloud.com/hcmUI/CandidateExperience) sites only. Other hosts are skipped with a warning, not an error.
+
+Why do I see several sites (CX_1, CX_1001, CX_45001) for one employer?
+Tenants keep backup, campus and alumni sites. Use the one in the table above, or the one your browser shows on the employer's careers page. Oracle's own retired CX_1 still answers, but the live site is CX_45001.
+
+Can I filter by city?
+Yes. Cities and states are matched against the site's own location filter (for example LONDON, United Kingdom on JPMorgan Chase or Dubai, United Arab Emirates on Marriott). If a site only lists states, as Kotak does, the Actor matches the city against each job's location text instead, and only matching jobs are charged.
+
+Which companies use Oracle Cloud HCM career sites?
+Thousands of large employers: banks, hospitals, universities, manufacturers, retailers, hotel groups and governments. Their career pages live under oraclecloud.com/hcmUI/CandidateExperience/.
+
+Do I need a proxy or login?
+No.
+
+
+Facts, prices and example pages on this page were read from the live Apify listing on 2026-10-21. Source website: the data belongs to its publisher; this API reads public pages and endpoints and leaves out personal contact details.
+
+
+---
+
+# India IPO GMP data API | Daemon Data
+
+Source: https://datadmon.github.io/actors/india-ipo-tracker/
+
+India IPO GMP: pay-per-record data API
+
+India IPO Tracker API – Live GMP, Subscription & SME IPOs is a pay-per-record data API on Apify that returns live IPO GMP, QIB/NII/retail subscription, calendar, listing data as JSON, CSV or Excel. It costs $0.003 per ipo report row ($3.00 per 1,000) and runs on a schedule, from code, or from an AI assistant through MCP.
+
+Run it on Apify   Listing as plain text for agents
+
+What you get
+An Indian IPO data feed you can plug into a broker app, fintech dashboard, research workflow or alert service without maintaining scrapers. Each run returns structured JSON for upcoming, open and recently listed mainboard and SME IPOs on BSE and NSE: live grey market premium (GMP), live QIB / NII / Retail subscription, the IPO calendar (open, close, allotment, refund, listing), listing-day gains, GMP vs actual listing price, and optionally the full IPO detail page (price band, lot size, reservation, anchor investors, financials, objects of the issue).
+
+Why use it
+Two sources joined for you. GMP and subscription come from different public IPO reports. Every record carries the same stable slug (e.g. paras-healthcare-ipo), so you can join reports without fuzzy name matching.
+Mainboard and SME in one feed, with ISIN, BSE scrip code and NSE symbol on subscription, IPO-list and listing-performance rows for joining to your security master.
+Cheap to poll. Plain HTTP, no browser: a GMP refresh costs about 15 cents.
+Never fails on input. Unknown options are ignored with a warning and the run still succeeds, so schedules and webhooks keep working.
+No contract. Pay per row, cancel by stopping the schedule.
+
+Price
+$0.003 per ipo report row ($3.00 per 1,000); $0.015 per ipo detail page ($15.00 per 1,000). List prices for Apify Free and Starter plans; Scale and Business plans pay 15% to 30% less.
+EventPricePer 1,000Charged when
+IPO report row$0.003$3.00One record from any IPO report (current IPOs, GMP, subscription, list, listing performance, GMP performance, calendar).
+IPO detail page$0.015$15.00One full IPO detail record (price band, lot size, timetable, reservation, anchors, financials, objects).
+
+Apify's free plan includes $5 of usage every month; the Actor's own run compute is included in the per-record price. Records skipped by filters or only-new mode are not charged.
+
+How to call it
+
+One HTTP call starts a run, waits for it and returns the records. Replace the token with yours from console.apify.com.
+
+curl -X POST "https://api.apify.com/v2/acts/data_daemon~india-ipo-tracker/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"reports": ["gmp", "subscription"], "category": "all"}'
+
+From an AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daemon/india-ipo-tracker with header Authorization: Bearer YOUR_APIFY_TOKEN in Claude, ChatGPT, Cursor or VS Code, then ask for the data in plain words.
+Python, Node.js and n8n: python/india-ipo-tracker.py, node/india-ipo-tracker.mjs, n8n/india-ipo-tracker.json.
+
+Input fields
+FieldTypeMeaning
+reportsarrayWhich IPO datasets to extract. Each produces its own reportType records. Default: live GMP (gmp) plus the IPO event calendar (calendar), about 80 rows, about $0.25 at $0.003 per row. Add subscription for QIB/NII/Retail multiples (every IPO of the current calendar year so far, about 300 rows) and currentIpos for status, price band, lot size and dates (about 300 rows). gmpPerformance compares the last GMP with the actual listing price (about 280 rows per year).
+categorystringMainboard IPOs, SME IPOs, or both (all). Applies to every report except the event calendar.
+yearintegerCalendar year (YYYY, 2000 to next year) for the year-scoped reports. Leave empty for the current year (recommended). Only gmpPerformance has full history for past years (2025 returns about 380 rows); ipoList, subscription, listingPerformance and currentIpos return only a handful of rows for past years because the sources publish them for the current calendar year. gmp and calendar are always live and ignore this field. Invalid values are ignored with a warning, the run does not fail.
+includeIpoDetailsbooleanAlso fetch each IPO's detail page (price band, lot size, timetable, reservation, anchor investors, financials, objects of the issue). Emits one extra ipoDetail record per IPO, charged $0.015 per detail page on top of the rows.
+maxItemsintegerStop after this many records (0 = no limit). Each record costs $0.003; each IPO detail page $0.015.
+
+Output fields
+Each record has these top-level fields (see the listing for per-field notes): reportType, source, sourceReportId, ipoName, slug, url, category, status, statusLabel, gmp, gmpPercent, gmpText, rating, subscriptionText, issuePrice, issueSizeCr, lotSize, priceToEarnings, openDate, closeDate, allotmentDate, listingDate, updatedOn, anchorInvestors, fields, meta, scrapedAt, date, dateLabel, opening, closing, allotment, refundUnblock, listing, holiday, statusText, exchange, listingPrice, listingGainPercent, qibX, sNiiX, bNiiX, niiX, retailX, employeeX, totalX, applications, subscriptionAsOn, isin, bseScripCode, nseSymbol, shareholderX, listingAt, listingOpenPrice, listingOpenGainPercent, listingClosePrice, currentPriceBse, currentPriceNse, currentGainPercent, symbol, subscriptionX, estimatedListingPrice, listingDayClosePrice, closingGainPercent, lastTradedPrice, lastTradedGainPercent, listingVsEstimate, lastUpdated.
+
+Example record{
+    "reportType": "gmp",
+    "ipoName": "Paras Healthcare",
+    "slug": "paras-healthcare-ipo",
+    "url": "https://www.investorgain.com/gmp/paras-healthcare-ipo/1728/",
+    "category": "Mainboard",
+    "status": "U",
+    "statusLabel": "Upcoming",
+    "gmp": 96,
+    "gmpPercent": 13.85,
+    "rating": "🔥🔥🔥",
+    "subscriptionText": "-",
+    "issuePrice": 693,
+    "issueSizeCr": 1450,
+    "lotSize": 21,
+    "priceToEarnings": 159.68,
+    "openDate": "2026-10-21",
+    "closeDate": "2026-10-23",
+    "allotmentDate": "2026-10-26",
+    "listingDate": "2026-10-28",
+    "anchorInvestors": true,
+    "updatedOn": "17-Oct 22:02"
+}
+
+Ready-made example pages
+Each example is a saved input you can run with one click on Apify (Examples tab):
+Live IPO GMP today (mainboard and SME): Today's grey market premium for every upcoming, open and recently listed Indian IPO, with status, price, lot size, subscription and key dates. {"reports": ["gmp"], "category": "all"}
+Live IPO subscription status (QIB, NII, Retail): Live subscription multiples (QIB, sNII, bNII, NII, Retail, Employee, Total) and application counts from BSE/NSE for every mainboard and SME IPO of the current year, from the first day of bidding through listing. {"reports": ["subscription"], "category": "all"}
+Upcoming IPO calendar India: Every mainboard and SME IPO of the current year with status (upcoming, open, closed, listed), open, close, allotment and listing dates, price and lot size, plus the day-by-day IPO event calendar for the coming weeks. {"reports": ["currentIpos", "calendar"], "category": "all"}
+SME IPO GMP today (grey market premium list): Today's grey market premium for every upcoming, open and recently listed SME IPO in India, with issue price, GMP in rupees and as % of issue price, subscription multiple and open, close and listing dates. {"reports": ["gmp"], "category": "sme"}
+IPO GMP vs listing price tracker (GMP accuracy history): How the last grey market premium compared with the actual listing price for recent Indian IPOs: issue price, last GMP, estimated vs actual listing price and listing-day gain, mainboard and SME. {"reports": ["gmpPerformance"], "category": "all"}
+
+Questions and answers
+How much does it cost to get Indian IPO GMP and subscription data?
+The default run (live GMP + calendar, about 80 rows) costs about $0.25 at $0.003 per row. A GMP-only poll is about $0.15. Full IPO detail pages cost $0.015 per IPO.
+
+How often is the data updated?
+Every run reads the sources live. Schedule it every 30 minutes during IPO bidding hours for a near-real-time feed.
+
+Does it cover SME IPOs?
+Yes. Set category to sme, mainboard or all. Every record carries category so you can also filter afterwards.
+
+Can I get past years?
+Only for gmpPerformance (GMP vs listing price), which has full history per calendar year through the year field. The other year-scoped reports are published by the sources for the current calendar year only, so past years return just a few rows.
+
+Do I need a proxy or login?
+No. The sources answer plain HTTP requests, so runs finish in seconds.
+
+What happens if a source is down?
+Reports that cannot be fetched are logged and skipped; the run still succeeds with whatever was collected. Only when every requested report is unreachable and nothing was collected does the run fail with a clear message, so your webhook can alert you.
+
+
+Facts, prices and example pages on this page were read from the live Apify listing on 2026-10-21. Source website: the data belongs to its publisher; this API reads public pages and endpoints and leaves out personal contact details.
+
+
+---
+
+# NSE/BSE stocks (Tickertape) data API | Daemon Data
+
+Source: https://datadmon.github.io/actors/tickertape-stocks-scraper/
+
+NSE/BSE stocks (Tickertape): pay-per-record data API
+
+Indian Stock Market API – NSE/BSE Fundamentals (Tickertape) is a pay-per-record data API on Apify that returns NSE/BSE index constituents, ratio screener, full stock profiles as JSON, CSV or Excel. It costs $0.02 per stock profile ($20.00 per 1,000) and runs on a schedule, from code, or from an AI assistant through MCP.
+
+Run it on Apify   Listing as plain text for agents
+
+What you get
+NSE and BSE fundamentals as an API, without an exchange data licence and without fighting NSE's bot protection. Built on Tickertape's public stock pages. One record per stock gives you the live quote, key ratios, Tickertape's scorecard, 10 years of income statement, balance sheet and cash flow, quarterly results, promoter / pledged / FII / DII / mutual-fund shareholding history, dividends, corporate actions, analyst forecasts, top mutual-fund holders and peers. It also returns index constituents (NIFTY 50, NIFTY NEXT 50, NIFTY 500, NIFTY BANK, NIFTY IT, SENSEX …) with price, market cap, P/E, P/B and dividend yield, and runs a custom ratio stock screener.
+
+Why use it
+The whole stock page in one record. Statement lines come with readable names (Total Revenue, Net Income, EPS, Free Cash Flow), not just codes.
+Shareholding as a trend. Six quarters of promoter, pledged, FII, DII, MF, insurance and retail percentages: compare quarters to spot FII exits or rising promoter pledges.
+Screener plus enrichment. Filter on market cap, P/E, P/B, dividend yield, ROE, ROCE, debt/equity, 1-week to 1-year returns, beta, promoter pledge and FII/DII holding, then pull the full profile for every match in the same run.
+Never a failed run on a typo. An unknown index name, a stock that does not exist or a screener with no matches finishes successfully with 0 rows and a status message that says why, so schedules and webhooks keep working.
+Fast. Index and screener rows arrive in seconds; a 50-stock full-profile run finishes in about a minute. Plain HTTP, no browser.
+From an AI assistant:* add the MCP connector https://mcp.apify.com/?tools=data_daemon/tickertape-stocks-scraper in Claude, ChatGPT, Cursor or VS Code and ask for the data in plain words.
+
+Price
+$0.02 per stock profile ($20.00 per 1,000); $0.002 per quote / screener row ($2.00 per 1,000). List prices for Apify Free and Starter plans; Scale and Business plans pay 15% to 30% less.
+EventPricePer 1,000Charged when
+Stock profile$0.02$20.00One complete stock profile: quote, ratios, scorecard, 10-year financials, quarterly results, shareholding history, dividends, corporate actions, forecasts, MF holders, peers, checklist.
+Quote / screener row$0.002$2.00One lightweight index constituent or screener row.
+
+Apify's free plan includes $5 of usage every month; the Actor's own run compute is included in the per-record price. Records skipped by filters or only-new mode are not charged.
+
+How to call it
+
+One HTTP call starts a run, waits for it and returns the records. Replace the token with yours from console.apify.com.
+
+curl -X POST "https://api.apify.com/v2/acts/data_daemon~tickertape-stocks-scraper/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"mode": "index", "indexSid": "NIFTY 50"}'
+
+From an AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daemon/tickertape-stocks-scraper with header Authorization: Bearer YOUR_APIFY_TOKEN in Claude, ChatGPT, Cursor or VS Code, then ask for the data in plain words.
+Python, Node.js and n8n: python/tickertape-stocks-scraper.py, node/tickertape-stocks-scraper.mjs, n8n/tickertape-stocks-scraper.json.
+
+Input fields
+FieldTypeMeaning
+modestringstocks (default): full profiles for the tickers in stocks. index: all constituents of the index in indexSid. screener: rows matching screenerMatch. Set mode explicitly when you use indexSid or screenerMatch; when it is empty, the mode follows whichever of stocks, screenerMatch or indexSid you filled in.
+stocksarrayNSE tickers, company names or Tickertape URLs, e.g. RELIANCE, TCS, Infosys, https://www.tickertape.in/stocks/hdfc-bank-HDBK. Each full profile costs $0.02. Leave empty when you use index or screener mode.
+indexSidstringFor index mode. Any index Tickertape lists (77 on 2026-10-18), by name or Tickertape id: NIFTY 50, NIFTY NEXT 50, NIFTY 100, NIFTY 200, NIFTY 500, NIFTY BANK, NIFTY IT, NIFTY AUTO, NIFTY FMCG, NIFTY PHARMA, NIFTY METAL, NIFTY REALTY, NIFTY PSU BANK, NIFTY FIN SERVICE, NIFTY MIDCAP 100, NIFTY MIDCAP 150, NIFTY SMALLCAP 100, NIFTY SMALLCAP 250, SENSEX, BSE 500, or ids such as .NSEI, .NN50, .NIFTYIT. Defaults to NIFTY 50. Each row costs $0.002 (or $0.02 with fullProfile).
+screenerMatchobjectFor screener mode. Example, large caps with P/E under 20 and ROE over 15%: {"mrktCapf": {"g": 5000}, "apef": {"l": 20}, "roe": {"g": 15}} (g = greater than, l = less than). Field codes: mrktCapf market cap in ₹ crore, apef P/E, pbr P/B, divYield dividend yield %, roe, roce, dbtEqt debt/equity, pr1w 1-week return %, 4wpct 1-month, 26wpct 6-month, 52wpct 1-year return %, beta, promShrPled pledged promoter %, forInstHldng FII %, domInstHldng DII %, sector (e.g. {"sector": "Energy"}). Each row costs $0.002.
+screenerSortBystringField code to sort screener results by (default mrktCapf). The sort field is always included in the output rows.
+screenerSortDescbooleanSort screener results descending (default) or ascending.
+screenerFieldsarrayAdditional Tickertape ratio codes to return per screener row. Every row already carries: subindustry, mrktCapf, lastPrice, apef, pbr, divYield, roe, roce, dbtEqt, pr1w, 4wpct, 26wpct, 52wpct, 52wHigh, 52wLow, beta, promShrPled, forInstHldng, domInstHldng.
+fullProfilebooleanFetch the complete profile for every stock ($0.02 each): quote, key ratios, scorecard, 10-year income statement, balance sheet, cash flow, quarterly results, shareholding history, dividends, corporate actions, announcements, analyst forecasts, mutual-fund holders, peers and checklist. Off = lightweight rows ($0.002 each) with price, market cap, P/E, P/B and dividend yield. Defaults to on in stocks mode and off in index / screener mode.
+maxItemsintegerStop after this many records (0 = no limit). Useful to cap the cost of a NIFTY 500 or screener run.
+
+Output fields
+Each record has these top-level fields (see the listing for per-field notes): sid, ticker, name, exchange, isin, sector, industry, gic, tags, description, url, lastPrice, quote, marketCapCr, marketCapLabel, marketCapRank, pe, ttmPe, pb, eps, bookValuePerShare, dividendYield, roe, beta, risk, week52High, week52Low, change4wPct, change52wPct, avgVolume3m, shareholdersCount, industryPe, industryPb, industryDividendYield, ratiosRaw, keyRatios, scorecard, analystForecast, shareholding, shareholdingInsights, financialSummary, incomeStatementAnnual, incomeStatementQuarterly, balanceSheetAnnual, cashFlowAnnual, dividends, corporateActions, announcements, legalEvents, upcomingEvents, peers, mutualFundHoldings, investmentChecklist, investorPresentations, annualReports, aiSummary, scrapedAt, subindustry, 26wpct, 4wpct, 52wHigh, 52wLow, 52wpct, pr1w, domInstHldng, forInstHldng, promShrPled, mrktCapf, dbtEqt, apef, divYield, pbr, roce, indexSid, index, change1dPct, freeFloatPct.
+
+Example record{
+    "ticker": "RELIANCE",
+    "name": "Reliance Industries Ltd",
+    "sector": "Oil & Gas - Refining & Marketing",
+    "industry": "Oil & Gas Refining & Marketing",
+    "isin": "INE002A01018",
+    "lastPrice": 1211.2,
+    "quote": { "price": 1211.2, "change": -3.8, "changePercent": -0.31, "volume": 17225283 },
+    "marketCapCr": 1639061.09,
+    "pe": 20.29,
+    "pb": 1.51,
+    "dividendYield": 0.5,
+    "roe": 7.71,
+    "week52High": 1611.8,
+    "week52Low": 1152.2,
+    "scorecard": [
+        { "name": "Performance", "tag": "Low", "colour": "red", "description": "Hasn't fared well - amongst the low performers" },
+        { "name": "Valuation", "tag": "High", "colour": "red", "description": "Seems to be overvalued vs the market average" }
+    ],
+    "shareholding": [
+        { "date": "2025-03-31", "promoter": 50.11, "promoterPledged": 0, "foreignInstitutions": 19.06, "mutualFunds": 9.21, "retail": 7.4 },
+        { "date": "2026-06-30", "promoter": 49.62, "promoterPledged": 0, "foreignInstitutions": 16.9, "mutualFunds": 9.93, "retail": 7.04 }
+    ],
+    "incomeStatementAnnual": [
+        { "period": "FY 2017", "Total Revenue": 314717, "Net Income": 29901, "EPS": 22.72 },
+        { "period": "FY 2026", "Total Revenue": 1086181, "Net Income": 80775, "EPS": 59.69 },
+        { "period": "TTM", "Total Revenue": 1143448, "Net Income": 74727, "EPS": 55.22 }
+    ],
+    "balanceSheetAnnual": [ "…" ],
+    "cashFlowAnnual": [ "…" ],
+    "incomeStatementQuarterly": [ "…" ],
+    "analystForecast": { "analystCount": 24, "buyPercent": 100 },
+    "dividends": { "past": [{ "exDate": "2026-06-05T00:00:00.000Z", "dividend": 6, "subType": "Final" }] },
+    "corporateActions": { "past": [{ "type": "bonus", "value": "1:1", "exDate": "2024-10-28T00:00:00.000Z" }] },
+    "mutualFundHoldings": [{ "fund": "ICICI Pru Large Cap Fund", "weightPercent": 5.46, "rank": 3 }],
+    "peers": [{ "ticker": "IOC", "name": "Indian Oil Corporation Limited", "ratios": { "apef": 4.37, "pbr": 0.82, "ttmPe": 5.47, "divDps": 6.33, "52wpct": -15.16 } }],
+    "investmentChecklist": [{ "title": "Intrinsic value", "state": "checked", "description": "Current price is less than the intrinsic value" }]
+}
+
+Ready-made example pages
+Each example is a saved input you can run with one click on Apify (Examples tab):
+NIFTY 50 stock list as JSON: price, market cap, P/E, P/B: All 50 NIFTY constituents with price, 1-day change, market cap, P/E, P/B, dividend yield, sector and free float as a lightweight JSON table from Tickertape. {"mode": "index", "indexSid": "NIFTY 50", "fullProfile": false}
+NIFTY Bank stocks: full fundamentals and shareholding: Complete profiles for every NIFTY Bank stock: 10-year financials, quarterly results, promoter/FII/DII shareholding history, dividends, forecasts and peers. {"mode": "index", "indexSid": "NIFTY BANK", "fullProfile": true}
+Indian stock screener: P/E under 20, dividend yield over 2%: Screen NSE stocks with market cap above ₹5,000 Cr, P/E below 20 and dividend yield above 2%, sorted by yield. {"mode": "screener", "screenerMatch": {"mrktCapf": {"g": 5000}, "apef": {"l": 20}, "divYield": {"g": 2}}, "screenerSortBy": "divYield", "fullProfile": false}
+NIFTY 500 stock list with sector, price and market cap: All NIFTY 500 constituents from Tickertape with ticker, company name, sector, last price, 1-day change, market cap, P/E, P/B, dividend yield and free float. Lightweight rows; switch on full profiles for financials and sh {"mode": "index", "indexSid": "NIFTY 500", "fullProfile": false}
+Indian stocks with ROE above 20% (screener): NSE stocks with market cap over ₹5,000 Cr, ROE above 20% and P/E under 30, sorted by ROE, with P/B, dividend yield, 1-week and 1-year returns from Tickertape's screener. {"mode": "screener", "screenerMatch": {"mrktCapf": {"g": 5000}, "roe": {"g": 20}, "apef": {"l": 30}}, "screenerSortBy": "roe"}
+NIFTY IT stocks list with price, market cap and P/E: All NIFTY IT index constituents from Tickertape with ticker, company name, last price, 1-day change, market cap, P/E, P/B, dividend yield and free float as a lightweight JSON table. {"mode": "index", "indexSid": "NIFTY IT", "fullProfile": false}
+NSE large-cap fundamentals as JSON (Tickertape, 5 stocks): Full Tickertape profiles for five NSE large caps (Reliance, TCS, Infosys, HDFC Bank, ICICI Bank) as JSON: quote, key ratios, scorecard, 10-year income statement, balance sheet, cash flow, shareholding pattern and peers.  {"mode": "stocks", "stocks": ["RELIANCE", "TCS", "INFY", "HDFCBANK", "ICICIBANK"], "fullProfile": true}
+
+Questions and answers
+How much does it cost to get Indian stock fundamentals?
+$0.02 per full stock profile (10 years of statements, quarterly results, shareholding history, dividends, forecasts, peers) and $0.002 per lightweight index or screener row. All of NIFTY 50 with full profiles costs $1.
+
+Which indices are supported?
+Any of the 77 indices Tickertape publishes, by name, Tickertape id or index URL: NIFTY 50, NIFTY NEXT 50, NIFTY 100, NIFTY 200, NIFTY 500, NIFTY BANK, NIFTY IT, NIFTY AUTO, NIFTY FMCG, NIFTY PHARMA, NIFTY METAL, NIFTY REALTY, NIFTY PSU BANK, NIFTY FIN SERVICE, NIFTY MIDCAP 100 / 150, NIFTY SMALLCAP 100 / 250, SENSEX, BSE 500 and the other NSE and BSE sector and strategy indices.
+
+What do index rows contain?
+Ticker, company name, sector, last price, 1-day change, market cap (₹ crore), P/E, P/B, dividend yield, ROE, 52-week high and low, and free float. Switch on fullProfile for statements, shareholding and forecasts.
+
+Can I run a screener?
+Yes. Pass any Tickertape filter object such as {"mrktCapf": {"g": 5000}, "apef": {"l": 20}}. A filter with no matches finishes successfully with 0 rows and a status message.
+
+Do I need a proxy or login?
+No.
+
+
+Facts, prices and example pages on this page were read from the live Apify listing on 2026-10-21. Source website: the data belongs to its publisher; this API reads public pages and endpoints and leaves out personal contact details.
+
+
+---
+
+# Dubai DLD transactions data API | Daemon Data
+
+Source: https://datadmon.github.io/actors/dubai-property-transactions/
+
+Dubai DLD transactions: pay-per-record data API
+
+Dubai DLD Property Transactions API – Sold Prices, Price/Sqm is a pay-per-record data API on Apify that returns Dubai Land Department sales, mortgages and gifts with AED value and price/sqm as JSON, CSV or Excel. It costs $0.001 per transaction ($1.00 per 1,000) and runs on a schedule, from code, or from an AI assistant through MCP.
+
+Run it on Apify   Listing as plain text for agents
+
+What you get
+Actual registered sold prices for Dubai, as a daily data feed. This Actor reads the Dubai Land Department's own open-data transaction register and returns every sale, off-plan sale, mortgage and gift with the transaction date, value in AED, price per sqm (computed), area, project and master project, property type and sub-type, rooms, parking, size, off-plan and freehold flags, and the nearest metro, mall and landmark.
+
+Why use it
+Registered prices, not asking prices. Listing portals show what sellers want; DLD shows what buyers actually paid.
+Complete. A typical week has 3,000–6,000 transactions; the Actor pages through all of them, 500 at a time.
+Analysis-ready. Numeric AED values and areas, ISO dates, boolean off-plan/freehold flags, pricePerSqmAed precomputed, optional Arabic names.
+Pre-registration vs completed sale. The procedure field separates developer pre-registrations (Sell - Pre registration) from completed sales (Sale, Delayed Sell), and mortgage registrations from modifications.
+Open data, no personal data. Published by the Dubai Land Department for reuse; no owner names or contacts are included.
+From an AI assistant:* add the MCP connector https://mcp.apify.com/?tools=data_daemon/dubai-property-transactions in Claude, ChatGPT, Cursor or VS Code and ask for the data in plain words.
+
+Price
+$0.001 per transaction ($1.00 per 1,000). List prices for Apify Free and Starter plans; Scale and Business plans pay 15% to 30% less.
+EventPricePer 1,000Charged when
+Transaction$0.001$1.00One Dubai Land Department transaction record.
+
+Apify's free plan includes $5 of usage every month; the Actor's own run compute is included in the per-record price. Records skipped by filters or only-new mode are not charged.
+
+How to call it
+
+One HTTP call starts a run, waits for it and returns the records. Replace the token with yours from console.apify.com.
+
+curl -X POST "https://api.apify.com/v2/acts/data_daemon~dubai-property-transactions/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"transactionGroup": "sales", "maxItems": 500}'
+
+From an AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daemon/dubai-property-transactions with header Authorization: Bearer YOUR_APIFY_TOKEN in Claude, ChatGPT, Cursor or VS Code, then ask for the data in plain words.
+Python, Node.js and n8n: python/dubai-property-transactions.py, node/dubai-property-transactions.mjs, n8n/dubai-property-transactions.json.
+
+Input fields
+FieldTypeMeaning
+fromDatestringStart of the transaction date range, YYYY-MM-DD (DD/MM/YYYY also accepted). Leave empty to use Days back instead, so a scheduled run never needs a date edit. An invalid date is ignored with a warning.
+toDatestringEnd of the transaction date range, YYYY-MM-DD. Defaults to today (UTC).
+daysBackintegerUsed when From date is empty: fetch the last N days up to To date (or today). Default 7, minimum 1, maximum 365; values outside that range are clamped. Set 1 for a daily scheduled feed. All transactions run about 600 rows ($0.60) per working day and 4,000 ($4) per week; DLD registers nothing on weekends, so a weekend run returns 0 rows and costs nothing.
+transactionGroupstringFilter by DLD transaction group: all, sales, mortgages or gifts. Weekly volume in Oct 2026: all about 4,000 rows ($4.00), sales about 2,600 ($2.60), mortgages about 1,300 ($1.30), gifts about 160 ($0.16).
+offPlanstringOff-plan (developer pre-registration) vs completed properties: all, offplan or ready. Of about 2,600 weekly sales, roughly 1,650 are off-plan and 950 ready.
+freeholdstringFreehold vs non-freehold tenure: all, freehold or nonfreehold.
+usagestringProperty usage: all, residential or commercial. Of about 2,600 weekly sales, roughly 2,500 are residential and 70 commercial.
+propertyTypestringProperty type: all, unit (apartments and villa units), building or land. Land plots are about 220 of the 2,600 weekly sales.
+includeArabicbooleanAdd an arabic object with the Arabic names for area, project, procedure etc. No extra charge.
+maxItemsintegerStop after this many transactions (0 = all in range). Each transaction costs $0.001, so the default 200 = $0.20 and 2,000 = $2.00. A typical week has 3,000-6,000 transactions.
+sortstringSort order by DLD transaction number: TRANSACTION_NUMBER_ASC or TRANSACTION_NUMBER_DESC. Matters only when maxItems cuts the range short.
+areaIdstringAdvanced: DLD internal area id, passed through to the gateway. The transactions feed returns areaId 0 on every row and, as of October 2026, 0 rows for any id sent here, so ids cannot be looked up from the output and this filter is not usable. Leave empty and filter on the area name in the results.
+
+Output fields
+Each record has these top-level fields (see the listing for per-field notes): transactionNumber, transactionDate, transactionDateTime, group, groupId, procedure, procedureId, usage, offPlan, freehold, area, areaId, project, masterProject, propertyType, propertySubType, rooms, parking, buildingAge, parcelId, propertyId, transactionValueAed, procedureAreaSqm, actualAreaSqm, pricePerSqmAed, nearestMetro, nearestMall, nearestLandmark, totalSellers, totalBuyers, source, scrapedAt.
+
+Example record{
+    "transactionNumber": "11-29816-2026",
+    "transactionDate": "2026-10-14",
+    "transactionDateTime": "2026-10-14T12:19:09",
+    "group": "Sales",
+    "procedure": "Sale",
+    "usage": "Residential",
+    "offPlan": false,
+    "freehold": true,
+    "area": "BURJ KHALIFA",
+    "project": "BURJ KHALIFA TOWERS",
+    "masterProject": null,
+    "propertyType": "Unit",
+    "propertySubType": "Flat",
+    "rooms": "2 B/R",
+    "parking": "B2-7328,B2-7328T",
+    "parcelId": 3450829,
+    "actualAreaSqm": 146.6,
+    "transactionValueAed": 6175000,
+    "pricePerSqmAed": 42121.42,
+    "nearestMetro": "Buj Khalifa Dubai Mall Metro Station",
+    "nearestMall": "Dubai Mall",
+    "nearestLandmark": "Burj Khalifa",
+    "source": "Dubai Land Department open data"
+}
+
+Ready-made example pages
+Each example is a saved input you can run with one click on Apify (Examples tab):
+Dubai property sales in the last 7 days (DLD): Every Dubai property sale registered with the Dubai Land Department in the last 7 days: price in AED, price per sqm, area, project, rooms and off-plan/ready flag. Official DLD open data. {"transactionGroup": "sales", "maxItems": 5000}
+Dubai off-plan transactions this week: Off-plan property sales registered with the Dubai Land Department this week: developer project, area, unit type, AED price and price per sqm. Official DLD open data. {"transactionGroup": "sales", "offPlan": "offplan", "maxItems": 5000}
+Dubai mortgages registered this week (DLD): Mortgage registrations recorded by the Dubai Land Department in the last 7 days: mortgage value in AED, area, project, property type and procedure. Official DLD open data. {"transactionGroup": "mortgages", "maxItems": 5000}
+Dubai land plot sales in the last 7 days (DLD): Every land plot sale registered with the Dubai Land Department in the last 7 days: price in AED, plot area, price per sqm, area, master project and freehold flag. Official DLD open data. {"transactionGroup": "sales", "propertyType": "land", "maxItems": 2000}
+Dubai ready (secondary) property sales, last 7 days (DLD): Ready (completed, non-off-plan) property sales registered with the Dubai Land Department in the last 7 days: AED price, price per sqm, area, project, rooms and property type. Official DLD open data. {"transactionGroup": "sales", "offPlan": "ready", "maxItems": 3000}
+Dubai commercial property sales this week (DLD): Offices, shops and other commercial units sold in Dubai and registered with the Dubai Land Department in the last 7 days: AED value, price per sqm, area, project and size. {"transactionGroup": "sales", "usage": "commercial", "maxItems": 5000}
+Latest Dubai property transactions, last 3 days (DLD): The newest sales, mortgages and gifts registered with the Dubai Land Department in the last 3 days (3 days so that weekends are covered): AED value, price per sqm, area, project, rooms and size. Official DLD open data. S {"daysBack": 3, "sort": "TRANSACTION_NUMBER_DESC", "maxItems": 3000}
+Dubai DLD property transactions, last 24 hours, as JSON: Every Dubai Land Department transaction registered in the last day: sales, mortgages and gifts with area, project, property type, size and AED value, as JSON or CSV. Schedule it daily for a transaction feed. {"daysBack": 1, "transactionGroup": "all", "sort": "TRANSACTION_NUMBER_DESC", "maxItems": 1000}
+
+Questions and answers
+How much does it cost to get Dubai property transactions?
+$0.001 per transaction. A full week of all DLD transactions (about 4,100 rows) costs about $4.10; a week of sales alone about $2.60.
+
+Is this the official DLD data?
+Yes. It reads the Dubai Land Department's open-data transactions service, the same register that paid DLD data products resell.
+
+Can I filter by area or off-plan?
+Off-plan vs ready, sales / mortgages / gifts, freehold, usage and property type are input filters. For areas, filter the output on the area and project names: DLD's area-id parameter returns no rows and areaId is 0 on every row, so that field is hidden under Advanced.
+
+Does it include price per square metre?
+Yes, pricePerSqmAed is computed from the transaction value and the actual area.
+
+Can I run it every day without editing dates?
+Yes. Leave fromDate empty and set daysBack to 1; the window moves with the run date.
+
+
+Facts, prices and example pages on this page were read from the live Apify listing on 2026-10-21. Source website: the data belongs to its publisher; this API reads public pages and endpoints and leaves out personal contact details.
+
+
+---
+
+# UK insolvency notices data API | Daemon Data
+
+Source: https://datadmon.github.io/actors/uk-gazette-insolvency-notices/
+
+UK insolvency notices: pay-per-record data API
+
+UK Gazette Insolvency Notices Scraper – Winding-Up Petitions is a pay-per-record data API on Apify that returns winding-up petitions, administrations, liquidations from The Gazette as JSON, CSV or Excel. It costs $0.002 per notice ($2.00 per 1,000) and runs on a schedule, from code, or from an AI assistant through MCP.
+
+Run it on Apify   Listing as plain text for agents
+
+What you get
+A daily feed of UK companies entering insolvency, structured for prospecting and risk screening. The Gazette is where every winding-up petition, administration, liquidation and creditors' meeting must be published. This Actor reads its notice feed and each notice's linked-data record and returns the company name and number, registered office and trading address, postcode, nature of business (the SIC description stated in the notice), who presented the petition (for example HMRC, with a ready-made petitionerIsHmrc flag), court and case number, hearing date and the deadline to appear, and the insolvency practitioner's or solicitor's name, firm, email and phone.
+
+Why use it
+Structured, joinable fields. Company number for Companies House, postcode, nature of business, petitioner, court, case number, practitioner firm. No copy-pasting notice text.
+Earlier than Companies House. Petitions are advertised before the hearing; the company record often changes weeks later.
+Any notice type, any date range. Petitions, winding-up orders, administrations, liquidator appointments, creditors' meetings, bankruptcy orders, or personal insolvency.
+Built for schedules. publishedWithinDays gives a rolling window, onlyNewSinceLastRun delivers only notices you have not received before, and skipped notices are never charged.
+Open Government Licence. Gazette notices are Crown copyright under OGL v3.0; company-level data can be reused with attribution (see "Licence and personal data" below).
+From an AI assistant:* add the MCP connector https://mcp.apify.com/?tools=data_daemon/uk-gazette-insolvency-notices in Claude, ChatGPT, Cursor or VS Code and ask for the data in plain words.
+
+Price
+$0.002 per notice ($2.00 per 1,000); $0.003 per notice details ($3.00 per 1,000). List prices for Apify Free and Starter plans; Scale and Business plans pay 15% to 30% less.
+EventPricePer 1,000Charged when
+Notice$0.002$2.00One Gazette notice from the feed.
+Notice details$0.003$3.00Structured linked-data record for one notice: company number, addresses, court, case, dates, practitioners.
+
+Apify's free plan includes $5 of usage every month; the Actor's own run compute is included in the per-record price. Records skipped by filters or only-new mode are not charged.
+
+How to call it
+
+One HTTP call starts a run, waits for it and returns the records. Replace the token with yours from console.apify.com.
+
+curl -X POST "https://api.apify.com/v2/acts/data_daemon~uk-gazette-insolvency-notices/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"noticeTypes": ["2450"], "includeLinkedData": true, "maxItems": 40}'
+
+From an AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daemon/uk-gazette-insolvency-notices with header Authorization: Bearer YOUR_APIFY_TOKEN in Claude, ChatGPT, Cursor or VS Code, then ask for the data in plain words.
+Python, Node.js and n8n: python/uk-gazette-insolvency-notices.py, node/uk-gazette-insolvency-notices.mjs, n8n/uk-gazette-insolvency-notices.json.
+
+Input fields
+FieldTypeMeaning
+servicestringWhich Gazette search to query. Default insolvency.
+noticeTypesarrayOptional Gazette notice type codes (verified Oct 2026): 2450 petitions to wind up (companies), 2451 petitions to wind up (partnerships), 2452 winding-up orders, 2441 resolutions for winding up, 2432 and 2443 appointment of liquidators, 2442 meetings of creditors, 2433 notices to creditors, 2410 appointment of administrators, 2503 bankruptcy orders. Default is petitions and administrations (2450, 2410); pass an empty list for every type in the section.
+categoryCodestringOptional Gazette category code, e.g. G205000000 corporate insolvency, G206000000 personal insolvency, G205010000 companies.
+textstringOptional free-text search, e.g. Revenue and Customs for HMRC petitions, a company name, a town, or an insolvency practitioner firm.
+publishedWithinDaysintegerRelative date window for schedules: only notices published in the last N days, counted back from today (UTC). 1 = since yesterday, 7 = the last week. Ignored when Published from is set. Combine with Only new notices for a daily feed.
+startPublishDatestringYYYY-MM-DD. Only notices published on or after this date. Leave empty to use Published within the last N days instead.
+endPublishDatestringYYYY-MM-DD. Only notices published on or before this date.
+sortBystringSort order. Default latest-date.
+includeLinkedDatabooleanFetch each notice's linked-data record and add it as top-level fields: company number, registered office and trading address, postcode, nature of business, petitioner (and an HMRC flag), court and case number, hearing, petition, appointment and resolution dates, and the insolvency practitioner's name, firm, IP number and contact details. Charged as one extra notice-details event per notice where the record was retrieved. Default on.
+onlyNewSinceLastRunbooleanDeliver only notices that an earlier run with the same search (or the same State key) has not already delivered. Skipped notices are not charged. Delivered notice ids are remembered for 180 days in a key-value store named uk-gazette-notices-state in your account. Made for daily schedules.
+stateNamestringOptional name for this saved search's memory when Only new notices is on. Leave empty to derive it from the section, notice types, category and search text. Use a different key to track several feeds separately.
+maxItemsintegerStop after this many notices have been delivered. Default 40, about $0.20 with structured details at FREE prices.
+
+Output fields
+Each record has these top-level fields (see the listing for per-field notes): noticeId, url, title, category, categories, noticeCode, published, publishedDate, updated, publisher, status, summary, contentHtml, hasDetails, companyNumber, companyName, tradingAs, companyTypes, natureOfBusiness, principalTradingAddress, postcode, courtName, caseNumber, petitioner, petitionerIsHmrc, petitionerAddress, presentedBy, subjectType, dateOfHearing, hearingDate, placeOfHearing, dateOfPetitionPresentation, dateToRequestAppearance, practitioners, practitionerFirm, noticeTypes, linkedData, source, scrapedAt, registeredOffice, courtDistrict, meetingLocation, dateOfAppointment, contactTelephone, contactEmail, previousCompanyName, meetingTime, typeOfLiquidation, dateOfResolution, appointedBy, dateWoundUp.
+
+Example record{
+    "noticeId": "5232599",
+    "url": "https://www.thegazette.co.uk/notice/5232599",
+    "category": "Petitions to Wind Up (Companies)",
+    "noticeCode": "2450",
+    "published": "2026-10-17T00:10:08",
+    "publishedDate": "2026-10-17",
+    "companyName": "DURSLEY HOTEL LIMITED",
+    "companyNumber": "10498473",
+    "tradingAs": "Dursley Hotel Limited",
+    "natureOfBusiness": "Public Houses and Bars",
+    "principalTradingAddress": "13 Long Street, Dursley, GL11 4HL",
+    "registeredOffice": "13 Long Street, Dursley, GL11 4HL",
+    "postcode": "GL11 4HL",
+    "courtName": "High Court of Justice",
+    "caseNumber": "CR-2026-007272",
+    "petitioner": "BRITISH GAS TRADING LIMITED",
+    "petitionerIsHmrc": false,
+    "petitionerAddress": "Millstream, Maidenhead Road, Windsor, SL4 5GD",
+    "presentedBy": "Creditor",
+    "dateOfPetitionPresentation": "2026-09-30T00:00:00+00:00",
+    "dateOfHearing": "Wednesday, 18-Nov-2026 10:30:00 UTC",
+    "hearingDate": "2026-11-18",
+    "placeOfHearing": "Rolls Building, Fetter Lane, London, EC4A 1NL",
+    "dateToRequestAppearance": "Tuesday, 17-Nov-2026 16:00:00 UTC",
+    "practitioners": [
+        {
+            "role": "solicitor",
+            "name": "Sian Phillips",
+            "firm": "WOMBLE BOND DICKINSON (UK) LLP",
+            "ipNumber": "SPP4/375936.07741",
+            "telephone": "01752 67 7636",
+            "address": "Ballard House, 26 West Hoe Road, Plymouth, PL1 3AE"
+        }
+    ],
+    "practitionerFirm": "WOMBLE BOND DICKINSON (UK) LLP",
+    "summary": "In the High Court of Justice CR-2026-007272 In the matter of DURSLEY HOTEL LIMITED …",
+    "hasDetails": true
+}
+
+Ready-made example pages
+Each example is a saved input you can run with one click on Apify (Examples tab):
+UK winding-up petitions published this week: Latest petitions to wind up companies published in The Gazette (notice code 2450): company name, court, case number, petitioner, hearing date and notice text. {"noticeTypes": ["2450"], "publishedWithinDays": 7, "maxItems": 300}
+UK administration appointments this week (Gazette): Latest appointments of administrators published in The Gazette (notice code 2410): company name, company number, administrators, insolvency practitioner contacts and notice text. {"noticeTypes": ["2410"], "publishedWithinDays": 7, "maxItems": 300}
+UK liquidations and creditor meetings (Gazette): Latest UK liquidation notices from The Gazette: resolutions for winding-up, appointments of liquidators and meetings of creditors (codes 2441, 2432, 2443, 2442), with company and liquidator details. {"noticeTypes": ["2441", "2432", "2443", "2442"], "maxItems": 300}
+HMRC winding-up petitions list (The Gazette): Latest petitions to wind up companies where HM Revenue and Customs is the petitioner (Gazette notice 2450), with company name and number, company address, court, case number, hearing date and petition date. {"service": "insolvency", "noticeTypes": ["2450"], "text": "Revenue and Customs", "sortBy": "latest-date", "includeLinkedData": true, "maxItems": 100}
+UK winding-up orders list (The Gazette, latest first): Latest winding-up orders made against UK companies (Gazette notice 2452), with company name and number, registered office, court, case number, order date and official receiver or liquidator. {"service": "insolvency", "noticeTypes": ["2452"], "sortBy": "latest-date", "includeLinkedData": true, "maxItems": 100}
+UK corporate insolvency notices, last 48 hours (JSON feed): Corporate insolvency notices published in The Gazette in the last two days: winding-up petitions and orders, administrations, liquidations and creditor meetings, with company number and registered office from the linked  {"service": "insolvency", "noticeTypes": ["2450", "2410", "2432", "2405"], "publishedWithinDays": 2, "includeLinkedData": true, "maxItems": 100}
+
+Questions and answers
+How much does it cost to monitor UK winding-up petitions?
+$0.002 per notice plus $0.003 for the structured details record. About 140 petitions a week means roughly $3 a month for a daily feed with details.
+
+Does it return only new notices?
+Yes. Turn on onlyNewSinceLastRun; each run delivers only notices that earlier runs with the same search have not delivered, and the skipped ones are free.
+
+Can I reuse the data commercially?
+Gazette notices are Crown copyright under the Open Government Licence v3.0, so company-level data can be reused with attribution. Personal data is excluded from the licence.
+
+Which notice types are supported?
+Any Gazette notice type code. The common corporate ones are 2450 petitions to wind up, 2452 winding-up orders, 2410 appointment of administrators, 2441 resolutions for winding up, 2432 and 2443 appointment of liquidators, 2442 meetings of creditors and 2433 notices to creditors.
+
+Do I need a proxy or login?
+No. If The Gazette rate-limits the structured-data requests, the Actor switches to Apify datacenter proxy by itself.
+
+
+Facts, prices and example pages on this page were read from the live Apify listing on 2026-10-21. Source website: the data belongs to its publisher; this API reads public pages and endpoints and leaves out personal contact details.
+
+
+---
+
+# Foundit jobs data API | Daemon Data
+
+Source: https://datadmon.github.io/actors/foundit-jobs-scraper/
+
+Foundit jobs: pay-per-record data API
+
+Foundit Jobs Scraper is a pay-per-record data API on Apify that returns foundit.in jobs by keyword, city, experience and freshness, full descriptions included as JSON, CSV or Excel. It costs $0.0008 per job ($0.80 per 1,000) and runs on a schedule, from code, or from an AI assistant through MCP.
+
+Run it on Apify   Listing as plain text for agents
+
+Live check
+Live check, 18 Oct 2026: data analyst matched 1,192 open foundit listings (354 in Bangalore, 183 in Delhi NCR, 174 in Hyderabad); 83 of them were posted in the last 7 days. The default run (50 newest data analyst jobs with descriptions) finished in 30 seconds on the Apify platform and cost $0.04 plus the $0.001 start fee.
+
+What you get
+Turn foundit.in (formerly Monster India) into a clean, scheduled job feed. foundit is one of India's largest job boards, about 223,000 open listings across IT, sales, finance, healthcare, engineering and BPO roles, from freshers to senior management, with 2,900 new postings a day (counted 18 Oct 2026). This Actor searches foundit by keyword, city, experience band, salary, job type and posting date and returns one JSON row per job with the full job description (HTML + plain text), salary band in INR and LPA when the recruiter discloses it, experience range, skills, industries, functions, applicant and view counts, company profile with coordinates, the foundit job URL and the direct apply URL (the employer's own career site for syndicated jobs).
+
+Who uses it
+You areWhat you get
+Staffing agencies and recruitersA daily list of new openings by role, city and experience band, with applicant counts, so you see which mandates are crowded and which companies are hiring right now.
+Job aggregators and HR-tech productsfoundit as a source with stable job IDs (dedupKey), full JD text, de-duplication across keywords and runs, a syndicated flag to avoid re-importing postings that originate elsewhere, and an API you can call on a schedule.
+Compensation and salary-benchmark teamsINR salary bands by role, experience and city on every posting that discloses pay, with salaryHidden on the ones that don't.
+B2B sales and lead generationCompanies hiring 20 Java developers or a finance controller are buying tooling and services. Each row carries the company name, profile, industry and foundit company page.
+Workforce and market analystsDemand by skill, city and experience band over time; fresher vs experienced hiring; share of remote and contract roles.
+AI agents (MCP)Ask Claude or ChatGPT "fresher data analyst jobs in Pune posted this week" and let it call this Actor through Apify's MCP server.
+
+Price
+$0.0008 per job ($0.80 per 1,000); $0.001 per run. List prices for Apify Free and Starter plans; Scale and Business plans pay 15% to 30% less.
+EventPricePer 1,000Charged when
+Job$0.0008$0.80One job with its full description: title, company, salary, experience, skills, locations, posted date, apply link.
+Actor Start$0.001Charged when the Actor starts running. Number of events charged depends on Actor memory (one event per GB, minimum one event).
+
+Apify's free plan includes $5 of usage every month; the Actor's own run compute is included in the per-record price. Records skipped by filters or only-new mode are not charged.
+
+How to call it
+
+One HTTP call starts a run, waits for it and returns the records. Replace the token with yours from console.apify.com.
+
+curl -X POST "https://api.apify.com/v2/acts/data_daemon~foundit-jobs-scraper/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"queries": ["data analyst"], "locations": ["Bangalore"], "postedWithinDays": 7, "includeDescription": true, "maxJobsPerQuery": 50}'
+
+From an AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daemon/foundit-jobs-scraper with header Authorization: Bearer YOUR_APIFY_TOKEN in Claude, ChatGPT, Cursor or VS Code, then ask for the data in plain words.
+Python, Node.js and n8n: python/foundit-jobs-scraper.py, node/foundit-jobs-scraper.mjs, n8n/foundit-jobs-scraper.json.
+
+Input fields
+FieldTypeMeaning
+queriesarrayOne foundit.in search per keyword, e.g. data analyst, java developer, sales manager, chartered accountant, nurse. Use role or skill words; put cities in locations. A job found by two keywords is saved and charged once. Leave the list with one item for a quick first run.
+locationsarrayOptional. Cities as foundit lists them: Bangalore, Mumbai, Delhi (covers Delhi NCR: Gurugram, Noida), Hyderabad, Chennai, Pune, Kolkata, Ahmedabad, Remote. Several cities = any of them. Applied by the site, then checked on each job. Leave empty for all of India.
+minExperienceintegerOnly jobs whose experience range reaches at least this many years (0-30). From 1 upwards this also excludes jobs that do not state an experience range; 0 keeps them.
+maxExperienceintegerOnly jobs whose experience range starts at or below this many years (0-30). 0 or 1 is a good fresher filter.
+postedWithinDaysintegerOnly jobs posted or refreshed in the last N days (1-365), e.g. 1 with a daily schedule or 7 for a weekly report. Applied by the site and checked again on each job. Leave empty for all open jobs.
+jobTypesarrayOptional. Any of Permanent Job, Contract Job, Work From Home, Internship, Temporary. Several values = any of them. Leave empty for all types.
+minSalaryLpaintegerOnly jobs whose disclosed annual salary range reaches at least this many lakh INR, e.g. 10 = 10 LPA = 1,000,000 INR. Most foundit jobs do not disclose pay and are excluded when this is set.
+maxSalaryLpaintegerOnly jobs whose disclosed annual salary range starts at or below this many lakh INR. Jobs without a disclosed salary are excluded when this is set.
+includeDescriptionbooleanOn (default): one extra request per job adds the full description (HTML and plain text), the company profile, skills with the site's own tags, view count and exact city/state/coordinates. The price per job is the same either way. Off: listing fields only, about twice as fast, enough for counting jobs or sizing a market.
+sortstringnewest (default): newest postings first, best for feeds and schedules. relevance: the site's own ranking, best when you only take the first few dozen jobs of a broad keyword.
+maxJobsPerQueryintegerStop a keyword after this many new jobs (default 50). Cost: $0.0008 per job with its description, so 50 jobs = $0.04. Raise it for full exports: data analyst alone has about 1,200 open jobs and the site serves 100 per page.
+maxJobsintegerHard cap on saved jobs for the whole run across all keywords (0 = no cap).
+onlyNewSinceLastRunbooleanOn: deliver only jobs that an earlier run with the same stateName has not already delivered, and skip the rest without charging. If postedWithinDays is empty it is set to 3 so each run stays small. Off (default): return every matching job.
+stateNamestringOptional name for this search's memory when onlyNewSinceLastRun is on, e.g. analyst-bangalore-daily. Leave empty to derive it from the keywords, cities and filters. Use a new key to start over.
+skipJobIdsarrayArray of job IDs you already have (the id field from earlier runs), e.g. ["69495391", "69497219"]. They are skipped before any detail fetch and never charged. Large arrays are fine.
+
+Output fields
+Each record has these top-level fields (see the listing for per-field notes): id, dedupKey, url, applyUrl, title, company, locations, locationDetails, remote, experienceMinYears, experienceMaxYears, salaryMinInr, salaryMaxInr, salaryMinLpa, salaryMaxLpa, salaryCurrency, salaryHidden, jobTypes, employmentTypes, industries, functions, designations, skills, applicants, views, postedAt, createdAt, updatedAt, closesAt, isActive, syndicated, urgentlyHiring, descriptionHtml, description, query, scrapedAt.
+
+Example record{
+    "id": 69497289,
+    "dedupKey": "foundit:69497289",
+    "url": "https://www.foundit.in/job/senior-data-analyst-microchip-technology-bengaluru-bangalore-india-69497289",
+    "applyUrl": "https://wd5.myworkdaysite.com/en-US/recruiting/microchiphr/External/job/India---Bangalore/Senior-Data-Analyst_R4051-26",
+    "title": "Senior Data Analyst",
+    "company": {
+        "id": 488097,
+        "name": "Microchip Technology",
+        "confidential": false,
+        "logo": null,
+        "url": "https://www.foundit.in/search/microchip-technology-488097-jobs-career",
+        "employerType": "company",
+        "about": "Microchip Technology Inc. is a publicly-listed American corporation that manufactures microcontroller, mixed-signal, analog and Flash-IP integrated circuits.",
+        "greatPlaceToWork": false
+    },
+    "locations": ["Bengaluru / Bangalore"],
+    "locationDetails": [{ "city": "Bengaluru / Bangalore", "state": "Karnataka", "country": "India", "lat": 12.971599, "lon": 77.594563 }],
+    "remote": false,
+    "experienceMinYears": null,
+    "experienceMaxYears": null,
+    "salaryMinInr": null,
+    "salaryMaxInr": null,
+    "salaryMinLpa": null,
+    "salaryMaxLpa": null,
+    "salaryCurrency": "INR",
+    "salaryHidden": false,
+    "jobTypes": ["Permanent Job"],
+    "employmentTypes": ["Full time"],
+    "industries": ["Electronic Components/Semiconductors"],
+    "functions": ["Marketing Analytics"],
+    "designations": ["Data Analyst"],
+    "skills": ["Tableau", "Adobe Analytics", "Python", "Sql"],
+    "applicants": 7,
+    "views": 10,
+    "postedAt": "2026-10-17T10:46:38.000Z",
+    "createdAt": "2026-10-17T10:46:38.000Z",
+    "updatedAt": "2026-10-17T10:46:38.000Z",
+    "closesAt": "2026-11-30T18:30:00.000Z",
+    "isActive": true,
+    "syndicated": true,
+    "urgentlyHiring": false,
+    "descriptionHtml": "<div><p>Are you looking for a unique opportunity to be a part of something great…",
+    "description": "Are you looking for a unique opportunity to be a part of something great…",
+    "query": "data analyst",
+    "scrapedAt": "2026-10-18T03:24:22.175Z"
+}
+
+Ready-made example pages
+Each example is a saved input you can run with one click on Apify (Examples tab):
+Data analyst jobs in Bangalore, last 7 days (foundit.in): The data analyst jobs posted on foundit.in (Monster India) in Bangalore during the last 7 days, newest first, with full descriptions, salary band, experience, skills and apply links. Save it, then schedule it daily with  {"queries": ["data analyst"], "locations": ["Bangalore"], "postedWithinDays": 7, "maxJobsPerQuery": 100}
+Fresher jobs in India, last 7 days (foundit.in): Entry-level (0-1 years) jobs posted on foundit.in (Monster India) across India in the last 7 days, newest first, with full descriptions, skills, salary band when disclosed and apply links. Change the keyword to your fiel {"queries": ["fresher"], "minExperience": 0, "maxExperience": 1, "postedWithinDays": 7, "maxJobsPerQuery": 100}
+Sales jobs in Mumbai posted today (foundit.in): Sales jobs posted on foundit.in (Monster India) in Mumbai during the last 24 hours, newest first, with full descriptions, experience band, salary when disclosed and apply links. Schedule it every morning with onlyNewSinc {"queries": ["sales"], "locations": ["Mumbai"], "postedWithinDays": 1, "maxJobsPerQuery": 100}
+foundit.in jobs posted today in Mumbai: export to JSON or CSV: Sales, accounting, customer-service and marketing jobs posted on foundit.in (Monster India) in Mumbai in the last 24 hours, with full descriptions, experience band, salary when disclosed and the apply link. Change the ke {"queries": ["sales", "accountant", "customer service", "marketing"], "locations": ["Mumbai"], "postedWithinDays": 1, "includeDescription": true, "maxJobsPerQue
+
+Questions and answers
+How much does it cost to scrape foundit?
+$0.0008 per job with its full description plus $0.001 per run, so 100 jobs cost about $0.08 and a 50-jobs-a-day feed about $1.25 a month.
+
+Is there an official foundit API?
+No public one. This Actor reads the JSON that the foundit.in website itself loads and exposes it as a REST API with schedules, webhooks and only-new-jobs runs.
+
+Does it return the full job description?
+Yes, as HTML and plain text, plus skills, industries, functions, applicant and view counts, salary band when disclosed, the company profile and the direct apply URL.
+
+Why are so many salaries and experience ranges null?
+Most postings on foundit are syndicated from employers' career sites without a salary or stated experience band. When the recruiter hides a salary the site does too, and the Actor keeps it hidden (salaryHidden: true). Filter on salaryHidden: false and non-null salaryMinLpa for benchmarking.
+
+Is foundit the same as Monster India?
+Yes. Monster India was renamed foundit in 2022; the site is foundit.in and the data is the same board.
+
+Does it cover foundit Gulf, Singapore, Malaysia or Indonesia?
+Not yet; this Actor covers foundit.in (India, including remote and the occasional overseas posting listed there). Open an issue if you need another region.
+
+Why does a city return remote jobs only?
+foundit answers an unknown city name with its remote jobs. The Actor drops those rows, charges nothing and tells you in the status message; use the spelling foundit uses (Bangalore, Delhi, Mumbai, Hyderabad, Chennai, Pune, Kolkata, Ahmedabad, Remote).
+
+Do I need a proxy or login?
+No.
+
+
+Facts, prices and example pages on this page were read from the live Apify listing on 2026-10-21. Source website: the data belongs to its publisher; this API reads public pages and endpoints and leaves out personal contact details.
+
+
+---
+
+# Instahyre jobs data API | Daemon Data
+
+Source: https://datadmon.github.io/actors/instahyre-jobs-scraper/
+
+Instahyre jobs: pay-per-record data API
+
+Instahyre Jobs Scraper is a pay-per-record data API on Apify that returns India tech jobs from product companies and startups by skill, city, experience and company size, full descriptions included as JSON, CSV or Excel. It costs $0.0008 per job ($0.80 per 1,000) and runs on a schedule, from code, or from an AI assistant through MCP.
+
+Run it on Apify   Listing as plain text for agents
+
+Live check
+Live check, 21 Oct 2026: python matched 4,300 open Instahyre jobs (2,600 in Bangalore), react 1,600, data science 8,000 (title and skill-tag matching is broad), devops work-from-home 134. A 50-job run with descriptions takes well under a minute on the Apify platform and costs $0.04 plus the $0.001 start fee.
+
+What you get
+Turn Instahyre into a clean, scheduled feed of India tech jobs. Instahyre is the hiring platform Indian product companies and startups use for engineering, data, product and design roles: about 12,700 open tech jobs (counted 21 Oct 2026), 6,800 of them in Bangalore, 1,700 in Gurgaon, 1,200 in Hyderabad and 1,100 work-from-home, posted by employers from 10-person startups to Accenture and Amazon. This Actor searches Instahyre by skill or role, city, experience, company and company size and returns one JSON row per job with the full job description (HTML + plain text), experience range, skills, job functions, posting date, the company profile (headcount, founding year, tagline, website, logo) and the job URL.
+
+Who uses it
+You areWhat you get
+Tech recruiters and staffing agenciesA daily list of new openings by skill, city, experience band and company size, with the hiring company's headcount and founding year, so you know which startups and product companies are hiring right now.
+Job aggregators and HR-tech productsInstahyre as a source with stable job IDs (dedupKey), full JD text, de-duplication across keywords and runs, and an API you can call on a schedule. Same conventions as the IIMJobs, Hirist and Foundit Actors by the same publisher.
+B2B sales and lead generationA company hiring five backend engineers is buying cloud, tooling and services. Each row carries the company name, size, tagline, website and logo.
+Workforce and market analystsDemand by skill, city, experience band and company size over time; share of remote roles; which skills large companies ask for versus startups.
+Candidates and job-alert buildersYour own alert for golang jobs at small companies in Bangalore, delivered to a sheet, Slack or email the moment they appear.
+AI agents (MCP)Ask Claude or ChatGPT "new Python jobs in Hyderabad at startups posted this week" and let it call this Actor through Apify's MCP server.
+
+Price
+$0.0008 per job ($0.80 per 1,000); $0.001 per run. List prices for Apify Free and Starter plans; Scale and Business plans pay 15% to 30% less.
+EventPricePer 1,000Charged when
+Job$0.0008$0.80One job with its full description: title, company profile, experience range, skills, functions, locations, posted date, job URL.
+Actor Start$0.001Charged when the Actor starts running. Number of events charged depends on Actor memory (one event per GB, minimum one event).
+
+Apify's free plan includes $5 of usage every month; the Actor's own run compute is included in the per-record price. Records skipped by filters or only-new mode are not charged.
+
+How to call it
+
+One HTTP call starts a run, waits for it and returns the records. Replace the token with yours from console.apify.com.
+
+curl -X POST "https://api.apify.com/v2/acts/data_daemon~instahyre-jobs-scraper/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"queries": ["python"], "locations": ["Bangalore"], "companySizes": ["small", "medium"], "includeDescription": true, "maxJobsPerQuery": 50}'
+
+From an AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daemon/instahyre-jobs-scraper with header Authorization: Bearer YOUR_APIFY_TOKEN in Claude, ChatGPT, Cursor or VS Code, then ask for the data in plain words.
+Python, Node.js and n8n: python/instahyre-jobs-scraper.py, node/instahyre-jobs-scraper.mjs, n8n/instahyre-jobs-scraper.json.
+
+Input fields
+FieldTypeMeaning
+queriesarrayOne Instahyre search per item, matched against job titles and skill tags, e.g. python, react, data science, devops, product management, java developer. Put cities in locations. A job found by two keywords is saved and charged once. Leave the list with one item for a quick first run.
+locationsarrayOptional. Cities as Instahyre lists them: Bangalore, Mumbai, Delhi, Gurgaon, Noida, Hyderabad, Chennai, Pune, Kolkata, Ahmedabad, or Work From Home for remote roles; regions such as South India and about 300 smaller cities also work. Several cities = any of them. Common alternative spellings (Bengaluru, Gurugram, Bombay, Remote) are mapped; an unknown name is ignored with a note in the status message. Leave empty for all of India.
+minExperienceintegerOnly jobs whose stated experience range reaches at least this many years (0-30). Checked on each job page; jobs that state no range are kept.
+maxExperienceintegerOnly jobs whose stated experience range starts at or below this many years (0-30). 1 or 2 is a good early-career filter.
+experienceYearsintegerInstahyre's own experience filter: only jobs open to a candidate with exactly this many years (the job's range must cover it). Applied by the site before anything is fetched, so it is the cheapest way to narrow a search; combine with minExperience/maxExperience for a band.
+postedWithinDaysintegerOnly jobs posted in the last N days (1-365). Instahyre keeps jobs open for months and its search has no date filter, so the Actor reads the posting date from each job page and leaves out older jobs without charging. In only-new mode the jobs that are left out are remembered too, so later runs do not re-check them.
+companySizesarrayOptional. Any of small (under 100 employees), medium (100-1,000) and large (over 1,000). Several values = any of them. Applied by the site.
+jobTypestringall (default), full-time or internship. Applied by the site.
+companiesarrayOptional. Only jobs posted by these companies, e.g. Amazon, Deutsche Telekom Digital Labs. Several names = any of them. Applied by the site; combine with an empty keyword list to watch everything a company posts.
+includeDescriptionbooleanOn (default): one extra request per job reads the public job page and adds the full description (HTML and plain text), posting date, experience range, employment type, job functions and the company website. The price per job is the same either way. Off: listing fields only (title, company profile, cities, skills, URL), about three times as fast, enough for counting jobs or sizing a market.
+maxJobsPerQueryintegerStop a keyword after this many new jobs (default 50). Cost: $0.0008 per job with its description, so 50 jobs = $0.04. Raise it for full exports: python alone matches about 4,300 open jobs and the site serves 35 per page.
+maxJobsintegerHard cap on saved jobs for the whole run across all keywords (0 = no cap).
+onlyNewSinceLastRunbooleanOn: deliver only jobs that an earlier run with the same stateName has not already delivered, and skip the rest without charging. Set maxJobsPerQuery high enough for the first run to take the whole result list (or add postedWithinDays), so later runs really return only new postings. Off (default): return every matching job.
+stateNamestringOptional name for this search's memory when onlyNewSinceLastRun is on, e.g. python-bangalore-daily. Leave empty to derive it from the keywords, cities and filters. Use a new name to start over.
+skipJobIdsarrayArray of job IDs you already have (the id field from earlier runs), e.g. ["424473", "441980"]. They are skipped before any page fetch and never charged. Large arrays are fine.
+
+Output fields
+Each record has these top-level fields (see the listing for per-field notes): id, dedupKey, url, applyUrl, title, company, locations, remote, acceptsOutstation, experienceMinYears, experienceMaxYears, employmentType, skills, functions, postedAt, descriptionHtml, description, query, scrapedAt.
+
+Example record{
+    "id": 446412,
+    "dedupKey": "instahyre:446412",
+    "url": "https://www.instahyre.com/job-446412-python-engineer-at-nineleaps-2-bangalore-hyderabad/",
+    "applyUrl": "https://www.instahyre.com/job-446412-python-engineer-at-nineleaps-2-bangalore-hyderabad/",
+    "title": "Python Engineer",
+    "company": {
+        "id": 5003,
+        "name": "Nineleaps",
+        "tagline": "We build high performance solutions",
+        "about": "Nineleaps are enablers of Digital Transformation across industries, helping partner companies become future ready…",
+        "founded": 2014,
+        "employeeCount": 200,
+        "size": "medium",
+        "logo": "https://media.instahyre.com/images/profile/base/employer/5003/dcac758458/nineleaps.webp",
+        "website": "https://www.nineleaps.com/",
+        "featured": false,
+        "diversityEmployer": false
+    },
+    "locations": ["Bangalore", "Hyderabad"],
+    "remote": false,
+    "acceptsOutstation": true,
+    "experienceMinYears": 2,
+    "experienceMaxYears": 4,
+    "employmentType": "FULL_TIME",
+    "skills": ["FastAPI", "MySQL", "PostgreSQL", "Python", "SQL"],
+    "functions": ["Backend Development", "Full-Stack Development", "Other Software Development"],
+    "postedAt": "2026-10-09T00:00:00.000Z",
+    "descriptionHtml": "<p><strong>Responsibilities: </strong></p><ul><li>Backend Development: Design, develop, and maintain robust, scalable…",
+    "description": "Responsibilities:\nBackend Development: Design, develop, and maintain robust, scalable, and high-performance backend systems using Python and FastAPI…",
+    "query": "python",
+    "scrapedAt": "2026-10-21T05:42:36.132Z"
+}
+
+Ready-made example pages
+Each example is a saved input you can run with one click on Apify (Examples tab):
+Python jobs in Bangalore at startups (Instahyre): Open Python jobs on Instahyre in Bangalore at companies with under 1,000 employees, with the full description, experience range, skills and the company's headcount, founding year and website. Save as a task and switch on {"queries": ["python"], "locations": ["Bangalore"], "companySizes": ["small", "medium"], "includeDescription": true, "maxJobsPerQuery": 50}
+Work-from-home tech jobs in India (Instahyre): Remote (work from home) engineering, data and product jobs on Instahyre, with the full description, experience range, skills and company profile. Change the keywords to your stack; switch on only-new mode for a daily fee {"queries": ["react", "node.js", "data engineer"], "locations": ["Work From Home"], "includeDescription": true, "maxJobsPerQuery": 30}
+Early-career software jobs in India, 0-2 years (Instahyre): Software engineering jobs on Instahyre open to candidates with up to 2 years of experience, with the full description, skills and company profile. Internships are listed separately with jobType = internship. {"queries": ["software engineer"], "maxExperience": 2, "includeDescription": true, "maxJobsPerQuery": 50}
+
+Questions and answers
+How much does it cost to scrape Instahyre?
+$0.0008 per job with its full description plus $0.001 per run, so 100 jobs cost about $0.08 and a 50-jobs-a-day feed about $1.25 a month.
+
+Is there an official Instahyre API?
+No public one. This Actor reads the JSON that the Instahyre website itself loads for its job search, plus the public job pages, and exposes them as a REST API with schedules, webhooks and only-new-jobs runs.
+
+Does it return the full job description?
+Yes, as HTML and plain text, plus the experience range, posting date, job functions, skills and the company profile with headcount, founding year and website.
+
+Why is the posting date old on many jobs?
+Instahyre keeps a job open until the employer closes it, so a feed without postedWithinDays includes jobs posted months ago. Use postedWithinDays for recent postings, or only-new mode, which after the first run delivers only jobs that are new on the site.
+
+Does it include salaries or applicant counts?
+No. Instahyre does not publish salary ranges or applicant counts on public job pages, and this Actor only reads public data.
+
+Why does a city return nothing?
+The site only accepts the location names it lists; the Actor maps the common alternative spellings and names any location it had to ignore in the status message. Use Bangalore, Delhi, Gurgaon, Noida, Mumbai, Hyderabad, Chennai, Pune, Kolkata, Ahmedabad or Work From Home.
+
+Do I need a proxy or login?
+No.
+
+
+Facts, prices and example pages on this page were read from the live Apify listing on 2026-10-21. Source website: the data belongs to its publisher; this API reads public pages and endpoints and leaves out personal contact details.
+
+
+---
+
+# Luma events data API | Daemon Data
+
+Source: https://datadmon.github.io/actors/luma-events-scraper/
+
+Luma events: pay-per-record data API
+
+Luma Events Scraper is a pay-per-record data API on Apify that returns lu.ma events by city, category, keyword or calendar: dates, venue, tickets, hosts as JSON, CSV or Excel. It costs $0.0015 per event ($1.50 per 1,000) and runs on a schedule, from code, or from an AI assistant through MCP.
+
+Run it on Apify   Listing as plain text for agents
+
+Live check
+Live check, 19 Oct 2026, on the Apify platform: San Francisco listed 105 upcoming events; three cities (San Francisco, New York, London) gave 100 events with full details in 36 seconds for $0.15 plus the $0.001 start fee. The default run (the 25 soonest San Francisco events with details) takes about 10 seconds and costs $0.04.
+
+What you get
+Turn Luma (lu.ma / luma.com) into a clean, scheduled event feed. Luma is where tech meetups, AI hackathons, founder dinners, run clubs and conference side events get published first: 87 discover cities (San Francisco, New York, London, Berlin, Bengaluru, Tokyo, Singapore ...) and 12 categories with about 18,000 upcoming events between them (AI 3,783, Tech 4,187, Arts & Culture 3,441, counted 19 Oct 2026). This Actor reads Luma's own JSON API and returns one row per event with start and end time (UTC, local and timezone), venue and full address with GPS, in-person or online, free or paid with price range and currency, sold-out and spots-remaining flags, guest count, the organiser calendar with website and social handles, every host's public profile (name, bio, profile URL, website, LinkedIn, X, Instagram), Luma categories, cover image, full description (text + HTML) and all public ticket types.
+
+Who uses it
+You areWhat you get
+Sponsorship, developer-relations and field-marketing teamsEvery upcoming AI, crypto or tech event in your target cities with guest counts, hosts and organiser calendars, so you know which meetups to sponsor, speak at or send a team to.
+B2B sales and lead generationHosts and organiser calendars are companies and community leaders with their website and LinkedIn / X / Instagram handles on the event page: a weekly list of who is running events in your market.
+Event aggregators, newsletters and city guidesA JSON feed of Luma events by city or category with stable ids (dedupKey), local times, venues with coordinates, prices and cover images, de-duplicated across cities and runs.
+Founders, investors and community managersTrack what the ecosystem is doing this week: founder dinners, demo days, hackathons, workshops; follow specific calendars (lu.ma/<organiser>) and get new events the morning they are published.
+Researchers and analystsEvent volume by city, category, price and format over time; which organisers are most active; how fast events sell out.
+AI agents (MCP)Ask Claude or ChatGPT "free AI meetups in London this week" and let it call this Actor through Apify's MCP server.
+
+Price
+$0.0015 per event ($1.50 per 1,000); $0.001 per run. List prices for Apify Free and Starter plans; Scale and Business plans pay 15% to 30% less.
+EventPricePer 1,000Charged when
+Event$0.0015$1.50One Luma event saved to the dataset: id, URL, name, start/end (UTC + local + timezone), in-person/online, venue, address, city, region, country, GPS, free/paid, price range and currency, sold-out, spots remaining, approval, guest count, organiser calendar (name, URL, website, socials), hosts (name, bio, profile URL, website, LinkedIn/X/Instagram handles), categories, cover image, full description (text + HTML) and ticket types. Details included in the price; skipped or filtered events are never charged.
+Actor Start$0.001Charged when the Actor starts running. Number of events charged depends on Actor memory (one event per GB, minimum one event).
+
+Apify's free plan includes $5 of usage every month; the Actor's own run compute is included in the per-record price. Records skipped by filters or only-new mode are not charged.
+
+How to call it
+
+One HTTP call starts a run, waits for it and returns the records. Replace the token with yours from console.apify.com.
+
+curl -X POST "https://api.apify.com/v2/acts/data_daemon~luma-events-scraper/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"cities": ["London"], "categories": ["ai"], "daysAhead": 30, "includeDetails": true, "maxEvents": 50}'
+
+From an AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daemon/luma-events-scraper with header Authorization: Bearer YOUR_APIFY_TOKEN in Claude, ChatGPT, Cursor or VS Code, then ask for the data in plain words.
+Python, Node.js and n8n: python/luma-events-scraper.py, node/luma-events-scraper.mjs, n8n/luma-events-scraper.json.
+
+Input fields
+FieldTypeMeaning
+citiesarrayLuma discover cities, e.g. San Francisco, New York, London, Berlin, Bengaluru, Tokyo, Singapore (87 cities; a lu.ma/<city> URL or a discplace-... id works too). One upcoming-events feed per city, newest start date last. An event found in two feeds is saved and charged once. Leave one city for a quick first run; set the list empty to search worldwide with a keyword.
+categoriesarrayOptional. Luma categories: ai, tech, arts, climate, crypto, fitness, wellness, running, books, games, family, fooddrink. Each category is scraped around each city above (Luma lists category events by location). Several categories = any of them.
+querystringOptional keyword searched by Luma in event names and descriptions, e.g. hackathon, founders, yoga, web3. Applied inside each city, category and calendar feed (Luma returns the 50 best matches per feed). With cities set to an empty list and no other source, it searches worldwide.
+startUrlsarrayOptional. Any public lu.ma / luma.com link: an organiser calendar (https://lu.ma/planetscale), a single event (https://lu.ma/qjw9i5a9), a city (https://lu.ma/sf) or a category (https://lu.ma/ai); cal-..., evt-..., discplace-... ids too. Calendars return their upcoming events. When only URLs are given, the default city is not scraped.
+daysAheadintegerOnly events starting within the next N days (1-365), e.g. 7 for this week's events. Leave empty for all upcoming events (feeds are ordered by start date, so maxEvents takes the soonest ones).
+startDateFromstringOptional earliest start date, YYYY-MM-DD or ISO date-time (UTC), e.g. 2026-11-01. Applied by Luma's own date cursor, so later pages are not fetched for nothing.
+startDateTostringOptional latest start date, YYYY-MM-DD (inclusive) or ISO date-time. Each feed stops at the first event after this date.
+priceTypestringany (default), free (ticket price 0 / no ticket) or paid (at least one paid ticket type). Checked on every event before it is saved or charged.
+eventFormatstringany (default), in-person (events with a physical venue) or online (no venue or a meeting link as the venue, incl. events whose location is not announced).
+includeDetailsbooleanOn (default): one extra request per new event adds the full description (plain text and HTML), every public ticket type with its price, the event's Luma categories and the sold-out flag. The price per event is the same either way. Off: feed fields only (name, dates, venue, GPS, price range, hosts, calendar, guest count), roughly twice as fast.
+maxEventsintegerStop after this many saved events (default 25). Cost: $0.0015 per event with details, so 25 events = $0.04. A city has 50-150 upcoming events; raise this for full exports.
+maxEventsPerSourceintegerOptional cap per feed so one busy city does not use up maxEvents (0 = no cap).
+onlyNewSinceLastRunbooleanOn: deliver only events that an earlier run with the same stateName has not already delivered, and skip the rest without charging. Off (default): return every matching event.
+stateNamestringOptional name for this search's memory when onlyNewSinceLastRun is on, e.g. sf-ai-daily. Leave empty to derive it from the cities, categories, keyword and URLs. Use a new key to start over.
+skipEventIdsarrayEvent ids you already have (the id field from earlier runs, e.g. evt-Dgnnl0IoUmK5Se1; lu.ma/<slug> URLs are accepted too). Skipped before any detail fetch and never charged. Large lists are fine.
+
+Output fields
+Each record has these top-level fields (see the listing for per-field notes): id, dedupKey, url, name, startAt, endAt, timezone, startAtLocal, endAtLocal, format, venue, address, city, region, country, countryCode, lat, lng, addressHidden, isFree, price, maxPrice, currency, soldOut, spotsRemaining, nearCapacity, requireApproval, registration, waitlist, guestCount, eventType, seriesId, visibility, discoverCity, calendar, hosts, hostNames, categories, coverUrl, description, descriptionHtml, ticketTypes, source, scrapedAt.
+
+Example record{
+    "id": "evt-Dgnnl0IoUmK5Se1",
+    "dedupKey": "luma:evt-Dgnnl0IoUmK5Se1",
+    "url": "https://lu.ma/qjw9i5a9",
+    "name": "PlanetScale Movie Night: You Can See Everything",
+    "startAt": "2026-10-18T00:30:00.000Z",
+    "endAt": "2026-10-18T05:30:00.000Z",
+    "timezone": "America/Los_Angeles",
+    "startAtLocal": "2026-10-17T17:30:00-07:00",
+    "endAtLocal": "2026-10-17T22:30:00-07:00",
+    "format": "in-person",
+    "venue": "AMC Kabuki 8",
+    "address": "AMC Kabuki 8, 1881 Post St, San Francisco, CA 94115, USA",
+    "city": "San Francisco",
+    "region": "California",
+    "country": "United States",
+    "countryCode": "US",
+    "lat": 37.7849354,
+    "lng": -122.4325232,
+    "addressHidden": false,
+    "isFree": true,
+    "price": 0,
+    "maxPrice": null,
+    "currency": null,
+    "soldOut": false,
+    "spotsRemaining": 3,
+    "nearCapacity": true,
+    "requireApproval": true,
+    "registration": "open",
+    "waitlist": true,
+    "guestCount": 0,
+    "eventType": "independent",
+    "seriesId": null,
+    "visibility": "public",
+    "discoverCity": "San Francisco",
+    "calendar": {
+        "id": "cal-5vct8djci1YNWY3",
+        "name": "PlanetScale",
+        "slug": "planetscale",
+        "url": "https://lu.ma/planetscale",
+        "description": null,
+        "avatarUrl": "https://images.lumacdn.com/uploads/we/48d47801-3975-4805-a0a7-3b6a998c0870.png",
+        "website": "https://planetscale.com",
+        "isVerified": false,
+        "isPersonal": false,
+        "twitter": "planetscale",
+        "instagram": "planetscale",
+        "linkedin": "/company/planetscale",
+        "youtube": "planetscale",
+        "tiktok": "planetscale",
+        "city": "San Francisco",
+        "country": "United States"
+    },
+    "hosts": [
+        {
+            "id": "usr-fTgO1tTlScvZImG",
+            "name": "PlanetScale",
+            "bio": "The fastest MySQL and Postgres in the cloud.",
+            "username": "planetscale",
+            "profileUrl": "https://lu.ma/user/planetscale",
+            "avatarUrl": "https://images.lumacdn.com/avatars/9i/3c3e5d91-3678-4033-8ac2-aec2807f2153.png",
+            "website": "https://planetscale.com",
+            "linkedin": "/company/planetscale",
+            "twitter": "planetscale",
+            "instagram": null,
+            "tiktok": null,
+            "youtube": "PlanetScale",
+            "isVerified": false
+        },
+        {
+            "id": "usr-AxQcBZZ4CCJf061",
+            "name": "Sam Lambert",
+            "bio": null,
+            "username": "samlambert",
+            "profileUrl": "https://lu.ma/user/samlambert",
+            "avatarUrl": "https://images.lumacdn.com/avatars/aj/a0582378-525a-40bd-a77a-e769f1394326.jpg",
+            "website": null,
+            "linkedin": "/in/isamlambert",
+            "twitter": "samlambert",
+            "instagram": null,
+            "tiktok": null,
+            "youtube": null,
+            "isVerified": false
+        }
+    ],
+    "hostNames": ["PlanetScale", "Sam Lambert", "Christian Glassiognon"],
+    "categories": ["Arts & Culture"],
+    "coverUrl": "https://images.lumacdn.com/uploads/mz/2609393e-5edb-465f-9332-b682c62032a7.png",
+    "description": "Nathan Fielder made a documentary about Elizabeth Holmes, we got a bunch of tickets to watch it with you.\n\nJoin us at AMC Kabuki 8 to watch You Can See Everything (https://a24films.com/films/you-can-see-everything)…",
+    "descriptionHtml": "<p>Nathan Fielder made a documentary about Elizabeth Holmes, we got a bunch of tickets to watch it with you.</p>\n<p>Join us at AMC Kabuki 8 to watch <a href=\"https://a24films.com/films/you-can-see-everything\"><em>You Can See Everything</em></a>…</p>",
+    "ticketTypes": [
+        {
+            "id": "ttype-EHfmkHRsAiH7SWz",
+            "name": "Standard",
+            "isFree": true,
+            "price": 0,
+            "currency": null,
+            "description": null,
+            "capacity": null,
+            "spotsRemaining": null,
+            "requireApproval": true,
+            "validFrom": null,
+            "validUntil": null
+        }
+    ],
+    "source": { "type": "city", "name": "San Francisco" },
+    "scrapedAt": "2026-10-19T04:18:09.449Z"
+}
+
+Ready-made example pages
+Each example is a saved input you can run with one click on Apify (Examples tab):
+Tech events in San Francisco this week (Luma): Every Luma (lu.ma) Tech-category event in and around San Francisco starting in the next 7 days, with venue, GPS, prices, hosts, organiser calendar and full description. Save it as your own task and schedule it weekly. {"cities": ["San Francisco"], "categories": ["tech"], "daysAhead": 7, "maxEvents": 100}
+AI events in London - next 30 days (Luma): Upcoming Luma (lu.ma) AI events in and around London over the next 30 days: meetups, hackathons, talks and workshops with venue, GPS, free/paid, hosts with LinkedIn/X handles and full descriptions. {"cities": ["London"], "categories": ["ai"], "daysAhead": 30, "maxEvents": 100}
+Startup & tech events in Bengaluru (Bangalore) - Luma: Upcoming Luma (lu.ma) Tech and AI events in Bengaluru (Bangalore): founder meetups, demo days, hackathons and builder nights with venue, GPS, prices, hosts and organiser calendars. {"cities": ["Bengaluru"], "categories": ["tech", "ai"], "maxEvents": 100}
+Luma (lu.ma) events in New York, next 14 days, as JSON: Upcoming public events on Luma in New York over the next two weeks with date, venue, hosts, ticket types and prices, as JSON or CSV. Change the city or add categories such as ai, tech or crypto. {"cities": ["New York"], "daysAhead": 14, "includeDetails": true, "maxEvents": 50}
+
+Questions and answers
+How much does it cost to scrape Luma?
+$0.0015 per event with its full details plus $0.001 per run, so 100 events cost about $0.15 and a daily feed of 20 new events about $1 a month.
+
+Is there an official Luma API?
+Luma has a paid API for calendar owners (their own events). This Actor reads the public JSON that the lu.ma website itself loads for discover, category, calendar and event pages, and exposes it as a REST API with schedules, webhooks and only-new runs. No login or API key is needed.
+
+Does it collect attendees or guest lists?
+No. The Actor never requests or outputs guest lists, guest names, e-mails or phone numbers, including the "N going" avatars shown on event pages. It outputs the hosts' and organiser calendar's public profile information exactly as the event page shows it (name, bio, profile URL, website and social handles).
+
+Why is the address missing on some events?
+Hosts can show the exact address only to registered guests. Luma then shows the city and neighbourhood, and so does the Actor: address and venue are null, addressHidden is true, and the coordinates are rounded to about 1 km. City, region and country are still filled in.
+
+Why does an online-only run of a city return nothing?
+Luma's city and category pages list events with a physical location near that city. Online events are found through organiser calendars (startUrls) and keyword searches with cities: [], and are marked format: "online".
+
+Which cities and categories exist?
+The 87 cities on lu.ma/discover (any lu.ma/<city> page; the Actor also resolves new cities live) and the 12 categories ai, tech, arts, climate, crypto, fitness, wellness, running, books, games, family, fooddrink. A city or category Luma does not know ends the run with Saved 0 events and the known examples in the status message.
+
+Can I scrape past events?
+Not in this version: Luma's public feeds list upcoming events. Open an issue if you need an organiser's past events.
+
+Does it work for luma.com links?
+Yes. lu.ma and luma.com are the same site; paste either form in startUrls.
+
+
+Facts, prices and example pages on this page were read from the live Apify listing on 2026-10-21. Source website: the data belongs to its publisher; this API reads public pages and endpoints and leaves out personal contact details.
+
+
+---
+
+# Dubai Land Department transactions as JSON: registered sold prices, weekly volumes and how to pull them
+
+Source: https://datadmon.github.io/guides/dubai-land-department-transactions-json/
+
+The Dubai Land Department (DLD) publishes every registered property transaction in Dubai as open data: each sale, off-plan pre-registration, mortgage registration and gift, with the transaction date, the value in AED, the area, project and master project, property type, rooms, parking and size. It is the only source of **actual registered prices** for Dubai; listing portals show asking prices. This guide explains what the register contains, how much data it produces and how to pull it as JSON.
+
+## What a week of DLD data looks like (measured 11 to 18 October 2026)
+
+| Transaction group | Transactions per week | Notes |
+|---|---|---|
+| Sales | about 2,600 | 1,650 off-plan (developer pre-registrations), 950 ready properties |
+| Mortgages | about 1,300 | registrations and modifications, separated by the `procedure` field |
+| Gifts | about 160 | transfers between family members |
+| Land plots | about 220 of the sales | `propertyType: "land"` |
+| **Total** | **about 4,100** | a typical week is 3,000 to 6,000 |
+
+Roughly 2,500 of the 2,600 weekly sales are residential; the rest are commercial.
+
+## Fields in each record
+
+Every record carries the transaction date (ISO), transaction number, `procedure` (for example `Sale`, `Delayed Sell`, `Sell - Pre registration`, mortgage registration or modification), transaction group, property type and sub-type, usage (residential or commercial), area, project and master project names, rooms, parking, actual area in square metres, value in AED and a precomputed `pricePerSqmAed`, plus boolean off-plan and freehold flags. Arabic names are available as an optional object. The register contains no owner names or contact details.
+
+## Free portals versus the register as data
+
+Dubai Pulse (the government open-data portal) and DXB Interact (DLD's dashboard) let you look up transactions and download extracts by hand. They are the right tools for a one-off question. They are the wrong tools for a daily feed into a database, a valuation model that needs price per square metre by project, or an app that shows registered prices next to listings, because each extract is manual and the files need cleaning. The Daemon Data API reads the same DLD open-data service, pages through the whole date range 500 rows at a time and returns analysis-ready records.
+
+## How to pull it
+
+One call returns last week's residential unit sales (about 2,500 rows, about $2.50):
+
+```bash
+curl -X POST "https://api.apify.com/v2/acts/data_daemon~dubai-property-transactions/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"daysBack": 7, "transactionGroup": "sales", "usage": "residential", "propertyType": "unit", "maxItems": 0}'
+```
+
+For a daily feed, save the input with `daysBack: 1` as a task and schedule it; the ready-made example page "Dubai DLD property transactions, last 24 hours, as JSON" returned 1,000 transactions in 6 seconds on 21 October 2026. For a date range use `fromDate` and `toDate` (`YYYY-MM-DD`). To filter by area, read the `area` and `project` fields of the output; the service's own area id filter returns no rows at present.
+
+## What it costs
+
+$1 per 1,000 transactions, nothing else. A month of all sales (about 11,000 rows) costs about $11; a weekly residential feed about $2.50 a week; a daily feed of everything about $17 a month. Apify's free plan includes $5 of usage every month.
+
+## Questions and answers
+
+**Is this official Dubai Land Department data?**
+
+Yes. The API reads the Dubai Land Department's own open-data transactions service, the same register that paid DLD data products resell. It is published by the department for reuse.
+
+**Are these asking prices or sold prices?**
+
+Registered transaction values, that is what buyers actually paid or what was registered for a mortgage or gift. Asking prices come from listing portals and are not in the register.
+
+**How do I tell an off-plan pre-registration from a completed sale?**
+
+Use the `procedure` field: `Sell - Pre registration` is a developer pre-registration, `Sale` and `Delayed Sell` are completed sales. The `offPlan` input filter and the boolean flag in each record do the same split.
+
+**Does the register include owner names?**
+
+No. The open-data service carries no personal data, and the API adds none.
+
+**How far back can I go?**
+
+Any date range the DLD service holds; the input accepts `fromDate` and `toDate`, or `daysBack` up to 365.
+
+
+---
+
+# India IPO GMP and subscription data as JSON: what the numbers mean and how to get them
+
+Source: https://datadmon.github.io/guides/india-ipo-gmp-subscription-data-json/
+
+Indian IPO coverage runs on two numbers that no exchange publishes: the **grey market premium (GMP)**, the unofficial price at which IPO shares change hands before listing, and the **subscription multiple**, how many times each investor category has bid for the shares on offer. Both are published by independent IPO sites and change many times a day while an issue is open. This guide explains what the figures mean, where they come from and how to pull them, together with the IPO calendar and listing results, as structured JSON.
+
+## The figures, explained
+
+- **GMP (grey market premium)**: the premium in rupees over the issue price that grey-market traders quote for the shares before listing, also expressed as a percentage. It is an unofficial indicator of listing-day sentiment, not an exchange figure and not investment advice. The report also carries the estimated listing price and the IPO's status (upcoming, open, closing today, closed, listing today, listed above or below the issue price).
+- **Subscription**: the number of times the shares reserved for each category were bid for, as published by BSE and NSE: QIB (qualified institutional buyers), NII split into small and big non-institutional investors, retail, employee and shareholder quotas, and the total, plus application counts.
+- **Calendar**: open, close, allotment, refund and listing dates for every upcoming issue, day by day, with exchange holidays marked.
+- **Listing performance and GMP performance**: issue price versus listing-day open and close and the current price, and the last GMP before listing versus the actual listing price, which is the data for "how accurate was the GMP".
+- **IPO list and details**: every mainboard and SME IPO of the year with issue size, fresh and offer-for-sale split, lead manager, ISIN, BSE scrip code and NSE symbol, and an optional full detail page per IPO (reservation, anchor investors, financials, valuation, objects of the issue).
+
+## Volumes (measured 18 October 2026)
+
+A live GMP report has about 30 to 50 rows (every upcoming, open and recently listed IPO), the calendar about 30, and the year-to-date subscription, IPO-list, current-IPO and listing-performance reports about 280 to 300 rows each. GMP moves most during bidding hours (9:00 to 15:30 IST) and is worth polling every 30 minutes then; the calendar changes daily.
+
+## How to pull it
+
+```bash
+curl -X POST "https://api.apify.com/v2/acts/data_daemon~india-ipo-tracker/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"reports": ["gmp", "subscription"], "category": "all"}'
+```
+
+Every record carries the same stable `slug` (for example `paras-healthcare-ipo`), so GMP, subscription, calendar and listing rows join without fuzzy name matching; subscription, list and listing rows also carry ISIN and exchange symbols for joining to a security master. The `category` filter restricts to mainboard or SME issues. Runs finish in under 30 seconds.
+
+## What it costs
+
+$3 per 1,000 report rows and $15 per 1,000 IPO detail pages. The default run (live GMP plus calendar, about 80 rows) costs about $0.25; a full year-to-date snapshot with subscription and current IPOs about $2; a broker app polling GMP every 30 minutes during bidding hours about $2 per trading day.
+
+## Questions and answers
+
+**What is the grey market premium of an IPO?**
+
+The unofficial premium over the issue price at which IPO shares are traded before listing, quoted by grey-market dealers and published by IPO tracking sites. A GMP of ₹60 on a ₹300 issue price means dealers expect a listing near ₹360 (20%). It is sentiment, not a guarantee, and the GMP-performance report shows how often it was right.
+
+**Where does the subscription data come from?**
+
+From the bid data BSE and NSE publish while an issue is open, as compiled by the IPO report sites the API reads. The API returns QIB, sNII, bNII, NII, retail, employee, shareholder and total multiples plus application counts.
+
+**Does it cover SME IPOs?**
+
+Yes, mainboard and SME issues on both exchanges, with a `category` filter for either.
+
+**Is there an official API for GMP?**
+
+No. Exchanges do not publish grey-market data. Official broker APIs (for example Upstox's) publish the IPO calendar and some subscription figures, but not GMP; this API joins GMP and subscription in one feed with a common key.
+
+**Is this investment advice?**
+
+No. GMP is an unofficial indicator; the data is provided for information and research.
+
+
+---
+
+# India job board data compared: IIMJobs, Hirist, Foundit and Instahyre as APIs
+
+Source: https://datadmon.github.io/guides/india-job-boards-data-compared/
+
+India has no single job board. Recruiters post management roles on IIMJobs, software roles on Hirist, mass-market and syndicated roles on foundit (formerly Monster India) and product-company tech roles on Instahyre, and none of the four offers a public API. This guide compares the four boards as **data sources**: what each one covers, which fields it exposes, how fresh the postings are and what it costs to pull them through the Daemon Data APIs on Apify. All counts were measured on 18 to 21 October 2026 with the APIs themselves.
+
+## Coverage, measured
+
+| Board | What it lists | Size signal (Oct 2026) | Best for |
+|---|---|---|---|
+| **IIMJobs** | Management, consulting, finance, CA/CFA, sales, marketing, HR and MBA-track roles, 2 to 25 years of experience | `product manager` matched 4,097 open listings; `investment banking` 652 | Senior and mid-management hiring, salary benchmarks, who-is-hiring signals |
+| **Hirist** | Software, data, DevOps and product-tech roles at IT companies and startups | `data engineer` 3,420 open jobs (239 posted in the last 7 days); `python developer` 1,884 | Tech recruiting, skills demand, tech salary bands |
+| **foundit** | Every function and level: IT, sales, BPO, nursing, accounting, operations, freshers; many postings syndicated from employers' career sites | about 223,000 open listings and 2,900 new postings a day; `data analyst` 1,192 | Volume, freshers, non-tech roles, employer apply links |
+| **Instahyre** | Engineering, data, product and design roles at Indian product companies and startups, curated by the platform | 12,743 open jobs: 6,764 in Bangalore, 1,700 Gurgaon, 1,228 Hyderabad, 1,095 work from home; `python` 4,300 | Startup hiring signals, company-size filters, remote tech roles |
+
+## Fields: what each board gives you
+
+| Field | IIMJobs | Hirist | foundit | Instahyre |
+|---|---|---|---|---|
+| Full job description (HTML and text) | yes | yes | yes | yes |
+| Salary band | when the recruiter discloses it (INR LPA) | when disclosed | when disclosed; `salaryHidden` flag | not published by the site |
+| Applicant and view counts | yes | yes | yes | not published |
+| Experience range | yes | yes | yes | yes (from the job page) |
+| Company profile | AmbitionBox profile when one exists | AmbitionBox profile | name, logo, employer vs staffing agency, GPTW flag | name, tagline, founding year, headcount, size band, website, logo |
+| Skills tags | yes | yes | yes, with the site's normalised IT-skill tags | yes |
+| Recruiter contact | not output (privacy) | not output | not output | not output |
+| Posting date | exact timestamp | exact timestamp | exact timestamp; reposts refresh it | day precision; jobs stay open for months |
+| Apply link | board page | board page | employer's own site for syndicated jobs | board page |
+
+## Freshness and feeds
+
+IIMJobs, Hirist and foundit let the API ask the site for postings from the last N days, so a daily feed is cheap: a `postedWithinDays: 1` run only touches new jobs. Instahyre's search has no date filter, so the API reads the posting date from each job page; in practice you run it in **only-new mode**, where the API remembers the job ids it has already delivered (in a key-value store in your own Apify account) and later runs return only what is new on the site. All four APIs share that only-new mode, the `skipJobIds` field and the same `queries` / `locations` input, so one pipeline can read all four boards.
+
+## Price per 1,000 jobs (FREE-plan list prices, October 2026)
+
+| Board | Price |
+|---|---|
+| IIMJobs | $2 per 1,000 jobs plus $2 per 1,000 descriptions until 1 November 2026; from 2 November 2026 $2 per 1,000 jobs with the description included, plus $0.001 per run |
+| Hirist | same as IIMJobs |
+| foundit | $0.80 per 1,000 jobs, description included, plus $0.001 per run |
+| Instahyre | $0.80 per 1,000 jobs, description included, plus $0.001 per run |
+
+A 50-job daily feed therefore costs between about $1.25 and $6 a month depending on the board. Jobs skipped by only-new mode or by your filters are never charged.
+
+## Which board for which question
+
+- **"Which companies are hiring finance or product leaders in India this week?"** IIMJobs; filter on experience and read the applicant counts to see which mandates are crowded.
+- **"What skills do Indian tech employers ask for, and what do they pay?"** Hirist, which carries disclosed salary bands and skill tags on most rows; add Instahyre for startup roles with company headcount.
+- **"Fresher or non-tech roles, or the largest possible volume."** foundit, with its 2,900 new postings a day and fresher filters by experience band.
+- **"Startups and product companies hiring engineers, by company size or remote."** Instahyre, the only board here that publishes employer headcount and founding year and lets you filter by company size.
+
+## Questions and answers
+
+**Is there an official API for IIMJobs, Hirist, foundit or Instahyre?**
+
+No. None of the four publishes a public API. The Daemon Data APIs read the JSON endpoints and public pages the boards' own websites load, and expose them as Apify Actors with schedules, webhooks and only-new runs.
+
+**Can I get the same fields from all four boards in one pipeline?**
+
+Mostly. All four return `id`, `title`, `company.name`, `locations`, `skills`, `postedAt`, `url` and a `description`, and accept the same `queries`, `locations`, `onlyNewSinceLastRun` and `skipJobIds` input. Salary and applicant counts exist on IIMJobs, Hirist and foundit but not on Instahyre; company headcount exists on Instahyre and on Hirist/IIMJobs through AmbitionBox.
+
+**How fresh is the data?**
+
+As fresh as the run: each run reads the live site. The job-board APIs finish a 50-job run in well under a minute. IIMJobs, Hirist and foundit filter by posting date on the server; Instahyre needs only-new mode or a per-job date check.
+
+**Why are recruiter names missing?**
+
+The APIs leave out recruiter names and phone numbers on purpose, even where a board exposes them, and keep the recruiter's designation only where the board shows it to every visitor.
+
+
+---
+
+# Oracle Recruiting Cloud career sites: how to export every job of an employer as JSON
+
+Source: https://datadmon.github.io/guides/oracle-recruiting-cloud-career-sites-export/
+
+Thousands of large employers run their careers page on **Oracle Recruiting Cloud**, part of Oracle Fusion Cloud HCM: banks, hotel groups, hospitals, universities, manufacturers and governments. These jobs are often posted nowhere else, so job boards, aggregators, talent-intelligence teams and B2B sales teams tracking hiring signals need to read the career sites directly. This guide explains how to recognise such a site, what it exposes and how to export it.
+
+## How to recognise an Oracle Recruiting Cloud career site
+
+The URL contains `oraclecloud.com/hcmUI/CandidateExperience`, for example `https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001`. The first part is the employer's tenant, the `sites/CX...` part is the career site number (an employer may run several, for example one per region or one for internal candidates). Every such site is backed by the same JSON endpoints, which is why one API can read any of them.
+
+## Sizes (verified 18 October 2026)
+
+| Employer | Career site | Open jobs |
+|---|---|---|
+| Kotak Mahindra Bank | `hcbt.fa.em2.oraclecloud.com/.../sites/CX` | 16,521 |
+| Marriott International | `ejwl.fa.us2.oraclecloud.com/.../sites/CX` | 13,286 |
+| JPMorgan Chase | `jpmc.fa.oraclecloud.com/.../sites/CX_1001` | 7,262 |
+| EXL Service | `fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/.../sites/CX_2` | 2,841 |
+| Oracle | `eeho.fa.us2.oraclecloud.com/.../sites/CX_45001` | 2,372 |
+| DTCC | `ebxr.fa.us2.oraclecloud.com/.../sites/CX_1` | 452 |
+
+## What each job record contains
+
+Requisition id (stable across runs), title, posting date, locations, job family and function, workplace type where the employer tags it (remote, hybrid, on-site), the direct apply URL, and with details on: the full description, qualifications, responsibilities, skills and the employer's custom fields. Posting-date filters use Oracle's own two buckets (last 7 days, last 30 days). Keyword and location filters behave like the career site's own search box.
+
+## How to export
+
+Paste any URL from the site, even a single job's URL or just the host name; the API works out the tenant and the employer's active site, and lists the sites that exist if the number is wrong.
+
+```bash
+curl -X POST "https://api.apify.com/v2/acts/data_daemon~oracle-hcm-jobs-scraper/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"careerSiteUrls": ["https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001"], "location": "India", "postedWithinDays": 7, "includeDetails": true, "maxJobsPerSite": 200}'
+```
+
+Several employers go in one list; the ready-made example "Jobs from several Oracle Recruiting Cloud career sites" reads Oracle's and Marriott's sites in one run (80 jobs found in 15 seconds on 21 October 2026). For a daily hiring-signal feed, switch on `onlyNewSinceLastRun`: the API remembers delivered requisition ids per search and later runs return only new postings, without charging for the rest.
+
+## What it costs
+
+$2 per 1,000 jobs plus $2 per 1,000 full detail records, so a 500-job site with details costs $2. Apify's free plan ($5 a month) covers about 1,250 jobs with details. From 2 November 2026 the listing moves to $2 per 1,000 jobs with the details included plus $0.001 per run.
+
+## Questions and answers
+
+**Does this work for Taleo, Workday, Greenhouse or SuccessFactors sites?**
+
+No. It reads Oracle Recruiting Cloud sites only (`oraclecloud.com/hcmUI/CandidateExperience`). Oracle Taleo is a different product with different pages.
+
+**Can I get only new requisitions every morning?**
+
+Yes. Save the input as a task with `onlyNewSinceLastRun: true`, schedule it daily, and connect the task to Slack, Google Sheets or a webhook. Skipped jobs are not charged.
+
+**How do I find the right site number?**
+
+Paste any URL from the employer's careers page. If it has no site number, the API picks the employer's active public site; if the number is retired, the run log lists the sites on that tenant.
+
+**Does it include the employer's internal-only jobs?**
+
+No. It returns what the public career site shows to any visitor.
+
+
+---
+
+# UK winding-up petitions and insolvency notices as a daily JSON feed from The Gazette
+
+Source: https://datadmon.github.io/guides/uk-winding-up-petitions-daily-feed/
+
+Every UK winding-up petition, winding-up order, administration appointment, liquidation and creditors' meeting must be advertised in The Gazette, usually before the court hearing and weeks before Companies House records the change. That makes the Gazette notice feed the earliest structured signal that a company is in trouble, which is why insolvency practitioners, credit-risk and trade-credit teams, lenders and asset buyers read it daily. This guide explains the volumes, the notice-type codes and how to turn the feed into JSON.
+
+## Volumes (measured for the week of 11 to 17 October 2026)
+
+| Notice type | Gazette code | Per week |
+|---|---|---|
+| Petitions to wind up a company | 2450 | about 140 (138 that week) |
+| Appointment of administrators | 2410 | about 40 (43 that week) |
+| Appointment of liquidators | 2432, 2443 | tens |
+| Winding-up orders | 2452 | tens |
+| Meetings of creditors, notices to creditors | 2442, 2433 | tens |
+
+HMRC is the petitioner in about half of all winding-up petitions (56% of the 620 published in the 30 days to 17 October 2026). Other codes: 2451 petitions against partnerships, 2441 resolutions for winding up, 2503 bankruptcy orders; category `G205000000` is corporate insolvency and `G206000000` personal insolvency.
+
+## What each record contains
+
+The notice itself (title, type, publication date, court, case number, hearing details, petitioner, practitioner firm, notice text and URL) and, with `includeLinkedData` on, the structured record behind it: **company name and number** for joining to Companies House, registered office and trading address, postcode, nature of business and the people and firms named. Gazette notices are Crown copyright under the Open Government Licence v3.0, so company-level data can be reused with attribution.
+
+## How to run a daily feed
+
+```bash
+curl -X POST "https://api.apify.com/v2/acts/data_daemon~uk-gazette-insolvency-notices/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"service": "insolvency", "noticeTypes": ["2450", "2410"], "publishedWithinDays": 1, "onlyNewSinceLastRun": true, "includeLinkedData": true, "maxItems": 300}'
+```
+
+`publishedWithinDays: 1` is a rolling window counted from today; `onlyNewSinceLastRun` makes the API remember the notice ids it has delivered (for 180 days, in a key-value store in your own Apify account) so a daily schedule returns each notice once and never charges for the rest. Add `text: "Revenue and Customs"` for HMRC petitions only, a town name for a region, or a practitioner firm. The ready-made example "UK corporate insolvency notices, last 48 hours" returned 100 notices with 98 structured records in seconds on 21 October 2026.
+
+## What it costs
+
+$2 per 1,000 notices plus $3 per 1,000 linked-data records, so $5 per 1,000 notices with full structure. A daily petitions feed (about 140 a week) costs about $3 a month; petitions plus administrations plus liquidations about $5 a month; a one-year back-fill of petitions (about 7,000) about $35.
+
+## Questions and answers
+
+**Why read The Gazette instead of Companies House?**
+
+Timing. A winding-up petition is advertised in The Gazette before the hearing; Companies House usually shows the change weeks later, after the order. For early warning the Gazette is the source.
+
+**Which notice codes should a credit team watch?**
+
+2450 (petitions to wind up companies) for the earliest signal, 2410 (administrators appointed) and 2432/2443 (liquidators appointed) for confirmed insolvency, 2452 (winding-up orders) for the court outcome.
+
+**Can I filter to one region or one petitioner?**
+
+Yes. Use the `text` field for a town, a company name, a practitioner firm or `Revenue and Customs`; then filter the output on postcode or address for finer regions.
+
+**Is the data free to reuse?**
+
+Gazette notices are Crown copyright under the Open Government Licence v3.0; reuse company-level data with attribution and handle the personal data in personal-insolvency notices under data-protection law.
