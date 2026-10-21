@@ -308,6 +308,9 @@ Oracle Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns 
 
 Daemon Data Oracle Jobs Scraper on Apify   Listing as plain text
 
+Checked on 18 Oct 2026
+Open jobs on verified career sites: Kotak Mahindra Bank 16,521, Marriott International 13,286, JPMorgan Chase 7,262, EXL Service 2,841, Oracle 2,372, DTCC 452. On 21 Oct 2026 one run read Oracle's and Marriott's sites together and returned 80 jobs posted in the last 7 days in 15 seconds.
+
 Who uses it, for what
 You areWhat you get
 Job boards and aggregatorsEnterprise employers that only post on their own Oracle site, with stable requisition IDs, posted dates and direct apply URLs. One run can walk many tenants.
@@ -436,6 +439,9 @@ India IPO Tracker API is a pay-per-record Apify Actor by Daemon Data that return
 
 Daemon Data India IPO Tracker API on Apify   Listing as plain text
 
+Checked on 18 Oct 2026
+A live GMP report had about 50 rows (every upcoming, open and recently listed IPO), the calendar about 30, and the year-to-date subscription, IPO-list and listing-performance reports about 280 to 300 rows each. The default run (GMP plus calendar, about 80 rows) costs about $0.25 and finishes in under 30 seconds.
+
 Why teams use it
 Two sources joined for you. GMP and subscription come from different public IPO reports. Every record carries the same stable slug (e.g. paras-healthcare-ipo), so you can join reports without fuzzy name matching.
 Mainboard and SME in one feed, with ISIN, BSE scrip code and NSE symbol on subscription, IPO-list and listing-performance rows for joining to your security master.
@@ -543,6 +549,9 @@ NSE/BSE stock fundamentals API (Tickertape)
 Indian Stock Market API is a pay-per-record Apify Actor by Daemon Data that returns NSE/BSE index constituents, ratio screener, full stock profiles as JSON, CSV or Excel. It costs $0.02 per stock profile ($20.00 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
 
 Daemon Data Indian Stock Market API on Apify   Listing as plain text
+
+Checked on 18 Oct 2026
+Tickertape listed 77 indices; a NIFTY 500 constituent run returns 500 rows for $1, and a full profile carries 10 years of statements plus the shareholding history. On 21 Oct 2026 five full profiles (Reliance, TCS, Infosys, HDFC Bank, ICICI Bank) took 17 seconds.
 
 Why teams use it
 The whole stock page in one record. Statement lines come with readable names (Total Revenue, Net Income, EPS, Free Cash Flow), not just codes.
@@ -653,6 +662,9 @@ Dubai Land Department transactions as JSON API
 Dubai DLD Property Transactions API is a pay-per-record Apify Actor by Daemon Data that returns Dubai Land Department sales, mortgages and gifts with AED value and price/sqm as JSON, CSV or Excel. It costs $0.001 per transaction ($1.00 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
 
 Daemon Data Dubai DLD Property Transactions API on Apify   Listing as plain text
+
+Checked on 18 Oct 2026
+In the week to 18 Oct 2026 the register recorded about 4,100 transactions: 2,600 sales (1,650 off-plan, 950 ready), 1,300 mortgages and 160 gifts; about 2,500 of the sales were residential and 220 were land plots. On 21 Oct 2026 the last-24-hours example returned 1,000 transactions in 6 seconds.
 
 Why teams use it
 Registered prices, not asking prices. Listing portals show what sellers want; DLD shows what buyers actually paid.
@@ -766,6 +778,9 @@ UK Gazette insolvency notices as JSON feed
 UK Gazette Insolvency Notices Scraper is a pay-per-record Apify Actor by Daemon Data that returns winding-up petitions, administrations, liquidations from The Gazette as JSON, CSV or Excel. It costs $0.002 per notice ($2.00 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
 
 Daemon Data UK Gazette Insolvency Notices Scraper on Apify   Listing as plain text
+
+Checked on 17 Oct 2026
+In the week of 11 to 17 Oct 2026 The Gazette published 138 winding-up petitions and 43 administration appointments; HMRC presented 56% of the 620 petitions of the prior 30 days. On 21 Oct 2026 the 48-hour corporate-insolvency example returned 100 notices with 98 structured records.
 
 Why teams use it
 Structured, joinable fields. Company number for Companies House, postcode, nature of business, petitioner, court, case number, practitioner firm. No copy-pasting notice text.
