@@ -48,7 +48,7 @@ Checked on 23 Oct 2026
 A public Python search matched 1,673 jobs on the France-focused board. Source searches expose at most 1,000 accessible hits each; narrow broad queries using country, company, contract or remote filters. Salary numbers are preserved as provided and may use inconsistent units.
 
 Output fields
-The most useful top-level fields with values from a real record; the full list is id, sourceId, dedupKey, url, applyUrl, title, slug, company, locations, offices, countryCodes, remoteMode, contractType, language, salary, experienceLevel, educationLevel, profession, sectors, postedAt, updatedAt, startDate, skills, descriptionHtml, description, candidateProfile, recruitmentProcess, query, source, scrapedAt. Per-field notes and the OpenAPI definition are on the Apify API page.
+The most useful top-level fields with values from a real record; the full list is id, sourceId, dedupKey, url, applyUrl, title, slug, company, locations, offices, countryCodes, remoteMode, contractType, language, salary, experienceLevel, educationLevel, profession, sectors, postedAt, updatedAt, startDate, skills, tools, descriptionHtml, description, candidateProfile, recruitmentProcess, query, source, scrapedAt. Per-field notes and the OpenAPI definition are on the Apify API page.
 FieldTypeExample
 idstring"WEBNE_2q66Zp5"
 dedupKeystring"wttj:WEBNE_2q66Zp5"
