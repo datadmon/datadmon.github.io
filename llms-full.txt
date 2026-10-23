@@ -19,6 +19,7 @@
 ## Guides
 
 - [Dubai Land Department transactions as JSON: registered sold prices, weekly volumes and how to pull them](https://datadmon.github.io/guides/dubai-land-department-transactions-json/): What the Dubai Land Department transaction register contains (sales, off-plan, mortgages, gifts), how many transactions it records a week in October 2026, what the free portals give you, and how to get the register as JSON or CSV for $1 per 1,000 transactions.
+- [How to get new IIMJobs postings in Google Sheets every morning](https://datadmon.github.io/guides/iimjobs-new-jobs-google-sheets/): A daily feed of new IIMJobs.com jobs (MBA, finance, consulting, product) in Google Sheets and Slack, without duplicates: the only-new mode of the IIMJobs Jobs Scraper on Apify plus a ready n8n workflow.
 - [India IPO GMP and subscription data as JSON: what the numbers mean and how to get them](https://datadmon.github.io/guides/india-ipo-gmp-subscription-data-json/): Grey market premium, QIB/NII/retail subscription, the IPO calendar and listing performance for Indian mainboard and SME IPOs: what each figure means, how often it changes, and how to pull all of it as JSON for $3 per 1,000 rows.
 - [India job board data compared: IIMJobs, Hirist, Foundit and Instahyre as APIs](https://datadmon.github.io/guides/india-job-boards-data-compared/): Which Indian job board to pull data from for recruiters, aggregators and hiring-signal research: coverage, fields (salary, applicants, company profile), freshness and price per 1,000 jobs, measured in October 2026.
 - [Oracle Recruiting Cloud career sites: how to export every job of an employer as JSON](https://datadmon.github.io/guides/oracle-recruiting-cloud-career-sites-export/): How to recognise an Oracle Recruiting Cloud (Oracle HCM) career site, how many jobs large employers list on them (Kotak 16,521, Marriott 13,286, JPMorgan 7,262 in October 2026), and how to export all of them, or only the new ones each day, as JSON for $2 per 1,000.
@@ -1436,6 +1437,67 @@ No. The open-data service carries no personal data, and the API adds none.
 **How far back can I go?**
 
 Any date range the DLD service holds; the input accepts `fromDate` and `toDate`, or `daysBack` up to 365.
+
+
+---
+
+# How to get new IIMJobs postings in Google Sheets every morning
+
+Source: https://datadmon.github.io/guides/iimjobs-new-jobs-google-sheets/
+
+Recruiters, career coaches and hiring-market analysts who follow **IIMJobs.com** usually want one thing: the jobs that appeared since yesterday, in a spreadsheet, without copying them by hand and without seeing the same posting twice. IIMJobs has no public API or export, so this guide sets up a daily feed with the **IIMJobs Jobs Scraper** on Apify and a free n8n workflow that writes the rows to Google Sheets and posts a summary to Slack.
+
+## What you get in each row
+
+Every job comes back as one row with the job ID, title, company (name, industry, size and AmbitionBox rating when available), locations, experience range, salary in LPA when the recruiter discloses it, skills, applicant count, posting date, the public job URL and, if you switch it on, the full job description. Most IIMJobs recruiters hide pay, so a `salaryHidden` flag tells you which rows have none.
+
+Demand is large enough to make a feed worthwhile: a `product manager` search matched 4,097 open IIMJobs listings and `investment banking` 652 when we measured them between 18 and 21 October 2026.
+
+## Step 1: run the Actor once with only-new mode
+
+Open the [IIMJobs Jobs Scraper on Apify](https://apify.com/data_daemon/iimjobs-jobs-scraper), click **Try for free** and paste this input:
+
+```json
+{
+  "queries": ["product manager", "investment banking"],
+  "onlyNewSinceLastRun": true,
+  "stateName": "my-daily-feed",
+  "maxJobs": 100
+}
+```
+
+`onlyNewSinceLastRun` makes the Actor remember which job IDs this feed (named by `stateName`) has already delivered. The next run returns only jobs it has not sent before, and **skipped repeats are not charged**. We checked this on 23 October 2026: two back-to-back runs with the same feed name returned six different jobs and no repeats.
+
+## Step 2: schedule it
+
+In Apify Console open **Schedules**, create a daily schedule (for example 08:00 in Asia/Kolkata) and add the Actor run or a saved task with the input above. Each morning the dataset of that run contains only the new postings.
+
+## Step 3: send the rows to Google Sheets and Slack with n8n
+
+If you use [n8n](https://n8n.io), import the ready workflow [iimjobs-new-jobs-to-google-sheets-and-slack.json](https://github.com/datadmon/apify-data-actors-examples/blob/main/n8n/iimjobs-new-jobs-to-google-sheets-and-slack.json). It runs at 08:00, calls the Actor through the Apify API with only-new mode, **upserts** each job into a `Jobs` tab (matched on `id`, so re-runs never duplicate rows) and posts the count and the first five jobs to a Slack channel. Setup:
+
+1. Create an n8n *Header Auth* credential named `Authorization` with the value `Bearer YOUR_APIFY_TOKEN` (Apify Console → Settings → API & Integrations).
+2. Connect Google Sheets and paste your sheet URL. Add a `Jobs` tab with the header row `id, title, company, locations, experience, salaryLpa, skills, applicants, postedAt, url`.
+3. Connect Slack, pick a channel, edit the `queries` and activate the workflow.
+
+The request URL already carries `maxTotalChargeUsd=0.5`, a hard cost cap per run.
+
+Prefer code? The same feed is a few lines of Python with the official `apify-client` package; a complete example is in the [examples repository](https://github.com/datadmon/apify-data-actors-examples/tree/main/examples/only-new-jobs).
+
+## Tips
+
+- **One feed per question.** Use a separate `stateName` for each search you track, for example `pm-mumbai` and `ib-all-india`. Changing the queries under the same name mixes their memory.
+- **Narrow the first run.** The first run delivers a capped baseline of open jobs; later runs add only the new ones. Add `"postedWithinDays": 1` if you never want older postings.
+- **Tech roles instead?** Point the same workflow at `data_daemon~hirist-jobs-scraper`; the input and output fields are the same.
+- **Cost.** Both Actors are pay-per-result with a free trial; the current price is on each Apify page.
+
+## FAQ
+
+**Is there an official IIMJobs API?** No public one. The Actor reads the job data the IIMJobs website itself loads, needs no login, cookies or proxy, and returns it as JSON, CSV, Excel or rows in your sheet.
+
+**Does it collect recruiter contact details?** No. Recruiter names and phone numbers are left out on purpose; the recruiter's designation is kept only where IIMJobs shows it to every visitor.
+
+**Can I get alerts in Microsoft Teams or email instead of Slack?** Yes: replace the Slack node in n8n with a Teams or Gmail node. Make and Zapier can call the same Apify Actor as well.
 
 
 ---
