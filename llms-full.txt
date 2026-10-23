@@ -40,7 +40,7 @@ Source: https://datadmon.github.io/actors/welcome-to-the-jungle-jobs-scraper/
 
 Welcome to the Jungle jobs API (JSON) | Daemon Data
 
-Welcome to the Jungle Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns France-focused public WTTJ board jobs with descriptions, company profiles and only-new feeds as JSON, CSV or Excel. It costs $0.0008 per job ($0.80 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+Welcome to the Jungle Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns France-focused public WTTJ board jobs with descriptions, company profiles and only-new feeds as JSON, CSV or Excel. It costs $0.0008 per job with the default options ($0.80 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
 
 Daemon Data Welcome to the Jungle Jobs Scraper on Apify   Listing as plain text
 
@@ -135,7 +135,7 @@ Source: https://datadmon.github.io/actors/iimjobs-jobs-scraper/
 
 IIMJobs job listings as JSON API
 
-IIMJobs Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns India MBA, finance, consulting and management jobs with full descriptions as JSON, CSV or Excel. It costs $0.002 per job ($2.00 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+IIMJobs Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns India MBA, finance, consulting and management jobs with full descriptions as JSON, CSV or Excel. It costs $0.004 per job with the default options ($4.00 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
 
 Daemon Data IIMJobs Jobs Scraper on Apify   Listing as plain text
 
@@ -271,7 +271,7 @@ Source: https://datadmon.github.io/actors/hirist-jobs-scraper/
 
 Hirist tech job listings as JSON API
 
-Hirist.tech Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns India IT and tech jobs with full descriptions, skills, salary when disclosed as JSON, CSV or Excel. It costs $0.002 per job ($2.00 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+Hirist.tech Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns India IT and tech jobs with full descriptions, skills, salary when disclosed as JSON, CSV or Excel. It costs $0.004 per job with the default options ($4.00 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
 
 Daemon Data Hirist.tech Jobs Scraper on Apify   Listing as plain text
 
@@ -400,7 +400,7 @@ Source: https://datadmon.github.io/actors/oracle-hcm-jobs-scraper/
 
 Oracle Recruiting Cloud jobs as JSON API
 
-Oracle Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns every requisition on any Oracle Recruiting Cloud career site as JSON, CSV or Excel. It costs $0.002 per job ($2.00 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+Oracle Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns every requisition on any Oracle Recruiting Cloud career site as JSON, CSV or Excel. It costs $0.004 per job with the default options ($4.00 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
 
 Daemon Data Oracle Jobs Scraper on Apify   Listing as plain text
 
@@ -531,7 +531,7 @@ Source: https://datadmon.github.io/actors/india-ipo-tracker/
 
 India IPO GMP & subscription data API (JSON)
 
-India IPO Tracker API is a pay-per-record Apify Actor by Daemon Data that returns live IPO GMP, QIB/NII/retail subscription, calendar, listing data as JSON, CSV or Excel. It costs $0.003 per ipo report row ($3.00 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+India IPO Tracker API is a pay-per-record Apify Actor by Daemon Data that returns live IPO GMP, QIB/NII/retail subscription, calendar, listing data as JSON, CSV or Excel. It costs $0.003 per ipo report row with the default options ($3.00 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
 
 Daemon Data India IPO Tracker API on Apify   Listing as plain text
 
@@ -642,7 +642,7 @@ Source: https://datadmon.github.io/actors/tickertape-stocks-scraper/
 
 NSE/BSE stock fundamentals API (Tickertape)
 
-Indian Stock Market API is a pay-per-record Apify Actor by Daemon Data that returns NSE/BSE index constituents, ratio screener, full stock profiles as JSON, CSV or Excel. It costs $0.02 per stock profile ($20.00 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+Indian Stock Market API is a pay-per-record Apify Actor by Daemon Data that returns NSE/BSE index constituents, ratio screener, full stock profiles as JSON, CSV or Excel. It costs $0.02 per stock profile with the default options ($20.00 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
 
 Daemon Data Indian Stock Market API on Apify   Listing as plain text
 
@@ -755,7 +755,7 @@ Source: https://datadmon.github.io/actors/dubai-property-transactions/
 
 Dubai Land Department transactions as JSON API
 
-Dubai DLD Property Transactions API is a pay-per-record Apify Actor by Daemon Data that returns Dubai Land Department sales, mortgages and gifts with AED value and price/sqm as JSON, CSV or Excel. It costs $0.001 per transaction ($1.00 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+Dubai DLD Property Transactions API is a pay-per-record Apify Actor by Daemon Data that returns Dubai Land Department sales, mortgages and gifts with AED value and price/sqm as JSON, CSV or Excel. It costs $0.001 per transaction with the default options ($1.00 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
 
 Daemon Data Dubai DLD Property Transactions API on Apify   Listing as plain text
 
@@ -871,7 +871,7 @@ Source: https://datadmon.github.io/actors/uk-gazette-insolvency-notices/
 
 UK Gazette insolvency notices as JSON feed
 
-UK Gazette Insolvency Notices Scraper is a pay-per-record Apify Actor by Daemon Data that returns winding-up petitions, administrations, liquidations from The Gazette as JSON, CSV or Excel. It costs $0.002 per notice ($2.00 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+UK Gazette Insolvency Notices Scraper is a pay-per-record Apify Actor by Daemon Data that returns winding-up petitions, administrations, liquidations from The Gazette as JSON, CSV or Excel. It costs $0.005 per notice with the default options ($5.00 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
 
 Daemon Data UK Gazette Insolvency Notices Scraper on Apify   Listing as plain text
 
@@ -989,7 +989,7 @@ Source: https://datadmon.github.io/actors/foundit-jobs-scraper/
 
 foundit (Monster India) jobs as JSON API
 
-Foundit Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns foundit.in jobs by keyword, city, experience and freshness, full descriptions included as JSON, CSV or Excel. It costs $0.0008 per job ($0.80 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+Foundit Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns foundit.in jobs by keyword, city, experience and freshness, full descriptions included as JSON, CSV or Excel. It costs $0.0008 per job with the default options ($0.80 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
 
 Daemon Data Foundit Jobs Scraper on Apify   Listing as plain text
 
@@ -1119,7 +1119,7 @@ Source: https://datadmon.github.io/actors/instahyre-jobs-scraper/
 
 Instahyre startup tech jobs as JSON API
 
-Instahyre Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns India tech jobs from product companies and startups by skill, city, experience and company size, full descriptions included as JSON, CSV or Excel. It costs $0.0008 per job ($0.80 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+Instahyre Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns India tech jobs from product companies and startups by skill, city, experience and company size, full descriptions included as JSON, CSV or Excel. It costs $0.0008 per job with the default options ($0.80 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
 
 Daemon Data Instahyre Jobs Scraper on Apify   Listing as plain text
 
@@ -1249,7 +1249,7 @@ Source: https://datadmon.github.io/actors/luma-events-scraper/
 
 Luma (lu.ma) events as JSON API
 
-Luma Events Scraper is a pay-per-record Apify Actor by Daemon Data that returns lu.ma events by city, category, keyword or calendar: dates, venue, tickets, hosts as JSON, CSV or Excel. It costs $0.0015 per event ($1.50 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+Luma Events Scraper is a pay-per-record Apify Actor by Daemon Data that returns lu.ma events by city, category, keyword or calendar: dates, venue, tickets, hosts as JSON, CSV or Excel. It costs $0.0015 per event with the default options ($1.50 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
 
 Daemon Data Luma Events Scraper on Apify   Listing as plain text
 
