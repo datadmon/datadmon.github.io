@@ -1498,7 +1498,7 @@ The [Foundit Jobs Scraper](https://apify.com/data_daemon/foundit-jobs-scraper) a
 
 ## Costs and limits
 
-Both Actors charge per job saved, with the price shown on their Apify pricing tabs; jobs skipped by only-new mode are free. A board-wide daily feed is roughly the number of new jobs per day from the table above. Set **Maximum cost per run** on the schedule if you want a hard ceiling; the run stops cleanly at that limit and says so.
+Each Actor charges per job saved, with the price shown on its Apify pricing tab; jobs skipped by only-new mode are free. A board-wide daily feed is roughly the number of new jobs per day from the table above. Set **Maximum cost per run** on the schedule if you want a hard ceiling; the run stops cleanly at that limit and says so.
 
 
 ---
