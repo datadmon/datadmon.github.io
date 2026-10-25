@@ -19,6 +19,7 @@
 ## Guides
 
 - [Dubai Land Department transactions as JSON: registered sold prices, weekly volumes and how to pull them](https://datadmon.github.io/guides/dubai-land-department-transactions-json/): What the Dubai Land Department transaction register contains (sales, off-plan, mortgages, gifts), how many transactions it records a week in October 2026, what the free portals give you, and how to get the register as JSON or CSV for $1 per 1,000 transactions.
+- [How to export every IIMJobs and Hirist job as a daily feed](https://datadmon.github.io/guides/iimjobs-hirist-full-board-job-feed/): A full-board export of IIMJobs.com (management, finance, consulting) and Hirist.tech (tech) jobs for job aggregators and hiring trackers: every listing in a date window, only-new mode for daily runs, full descriptions and stable job IDs.
 - [How to get new IIMJobs postings in Google Sheets every morning](https://datadmon.github.io/guides/iimjobs-new-jobs-google-sheets/): A daily feed of new IIMJobs.com jobs (MBA, finance, consulting, product) in Google Sheets and Slack, without duplicates: the only-new mode of the IIMJobs Jobs Scraper on Apify plus a ready n8n workflow.
 - [India IPO GMP and subscription data as JSON: what the numbers mean and how to get them](https://datadmon.github.io/guides/india-ipo-gmp-subscription-data-json/): Grey market premium, QIB/NII/retail subscription, the IPO calendar and listing performance for Indian mainboard and SME IPOs: what each figure means, how often it changes, and how to pull all of it as JSON for $3 per 1,000 rows.
 - [India job board data compared: IIMJobs, Hirist, Foundit and Instahyre as APIs](https://datadmon.github.io/guides/india-job-boards-data-compared/): Which Indian job board to pull data from for recruiters, aggregators and hiring-signal research: coverage, fields (salary, applicants, company profile), freshness and price per 1,000 jobs, measured in October 2026.
@@ -1443,6 +1444,55 @@ No. The open-data service carries no personal data, and the API adds none.
 **How far back can I go?**
 
 Any date range the DLD service holds; the input accepts `fromDate` and `toDate`, or `daysBack` up to 365.
+
+
+---
+
+# How to export every IIMJobs and Hirist job as a daily feed
+
+Source: https://datadmon.github.io/guides/iimjobs-hirist-full-board-job-feed/
+
+Job aggregators, HR-tech products and hiring-market trackers usually need **all** of a job board, not the results of a few keywords. IIMJobs.com (MBA, finance, consulting, sales, HR and senior management roles in India) and Hirist.tech (India's tech-only board) have no public export. Since 26 October 2026 the **IIMJobs Jobs Scraper** and the **Hirist.tech Jobs Scraper** on Apify can deliver every listing a board shows in a date window, with the same fields as a keyword search.
+
+## How much there is
+
+Measured on 26 October 2026 with the boards' own date filters:
+
+| Board | Jobs posted in the last 7 days | Last 30 days |
+|---|---:|---:|
+| IIMJobs | 1,199 (about 170 a day) | 4,602 |
+| Hirist | 959 (about 140 a day) | 4,448 |
+
+Weekends are quieter: on a Sunday IIMJobs showed 17 new listings.
+
+## Step 1: run the full board once
+
+Open the [IIMJobs Jobs Scraper](https://apify.com/data_daemon/iimjobs-jobs-scraper) (or the [Hirist.tech Jobs Scraper](https://apify.com/data_daemon/hirist-jobs-scraper)), switch on **All jobs on the board** and run it with:
+
+```json
+{
+  "allJobs": true,
+  "postedWithinDays": 3,
+  "onlyNewSinceLastRun": true,
+  "stateName": "iimjobs-full-board"
+}
+```
+
+The Actor ignores the keywords and walks every listing posted in the window, newest first. Each row has the job ID, title, company (with industry, size and AmbitionBox rating when available), locations, experience range, salary in LPA when disclosed, skills, applicant and view counts, posting time and the full job description. `locations`, the experience range and `maxJobs` still apply if you only want part of the board. Putting `*` in the keywords does the same as the switch.
+
+## Step 2: schedule it daily
+
+Create a daily Apify schedule for the run (or a saved task with this input). Because of **only-new mode**, every later run returns only jobs the feed named by `stateName` has not delivered yet; repeats are skipped and not charged. We checked this on 26 October 2026: two back-to-back runs returned 15 and then 2 jobs, with no job delivered twice.
+
+The date window counts calendar days in India time. Three days is a safe window for a daily schedule: it covers weekends and a run that starts late, and only-new mode removes the overlap.
+
+## Step 3: load it where you need it
+
+The dataset of each run is available as JSON, CSV or Excel through the Apify API, so a database loader, an n8n or Make workflow, or a Google Sheets import can pick it up. Key on `dedupKey` (for example `iimjobs:1741775`), which is stable across runs and boards.
+
+## Costs and limits
+
+Both Actors charge per job saved, with the price shown on their Apify pricing tabs; jobs skipped by only-new mode are free. A board-wide daily feed is roughly the number of new jobs per day from the table above. Set **Maximum cost per run** on the schedule if you want a hard ceiling; the run stops cleanly at that limit and says so.
 
 
 ---
