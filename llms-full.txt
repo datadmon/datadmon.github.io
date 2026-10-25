@@ -146,7 +146,7 @@ product manager matched 4,097 open IIMJobs listings and investment banking match
 Who uses it, for what
 You areWhat you get
 Executive search and staffing firmsA daily list of new mid-senior openings by function, city and experience band, plus applicant counts, so you know which mandates are crowded before you pitch.
-HR-tech products and job aggregatorsIIMJobs as a source with stable job IDs (dedupKey), full JD text, de-duplication across keywords and runs, and an API you can call on a schedule.
+HR-tech products and job aggregatorsThe whole IIMJobs board as a daily feed (All jobs on the board + only-new mode), with stable job IDs (dedupKey), full JD text and de-duplication across runs, through an API you can call on a schedule.
 Compensation and salary-benchmark teamsLPA ranges by role, experience band and city on every posting that discloses pay, with an explicit salaryHidden flag on the ones that don't.
 B2B sales and lead generationCompanies hiring a CFO, finance controller or CHRO are about to buy finance or HR software. Each row includes the company name, domain, industry, size band and AmbitionBox profile.
 Workforce and market analystsDemand for MBA, CA and CFA skills over time, hiring by city, and competition per role from applicant counts.
@@ -200,6 +200,7 @@ AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daem
 All input fields
 FieldTypeMeaning
 queriesarrayOne IIMJobs search per keyword, e.g. product manager, chartered accountant, investment banking, CFO, brand manager. Use role or skill words; put cities in locations. Several specific keywords beat one broad one. A job found by two keywords is saved and charged once.
+allJobsbooleanIgnore the keywords and deliver every job IIMJobs lists in the posting window: a full-board feed for job aggregators and market tracking. IIMJobs posts about 170 jobs a day (measured 26 Oct 2026). Uses postedWithinDays (the last 3 days when empty), locations, experience and maxJobs; the per-keyword cap does not apply. Combine with Only new jobs since the last run for a daily feed of every new job. You can also put * in the keywords.
 locationsarrayOptional. Cities as IIMJobs lists them: Mumbai, Bangalore, Delhi NCR, Gurgaon, Pune, Hyderabad, Chennai, Remote, Anywhere in India. Case-insensitive substring match on the job's listed locations; a single known city is also applied server-side for speed. Leave empty for all of India.
 minExperienceintegerOnly jobs whose experience range reaches at least this many years. Integer 0-40.
 maxExperienceintegerOnly jobs whose experience range starts at or below this many years. Integer 0-40.
@@ -235,7 +236,7 @@ Chief of staff and founder's office jobs in India (IIMJobs): Chief of staff and 
 HR business partner and talent acquisition jobs (IIMJobs): HRBP and talent acquisition roles posted on IIMJobs in the last 7 days, with company, location, experience range, salary when disclosed and applicant count. Useful for HR job alerts and hiring-trend tracking. {"site": "iimjobs", "queries": ["hr business partner", "talent acquisition"], "postedWithinDays": 7, "includeDescription": true, "maxJobsPerQuery": 50}
 Brand and marketing manager jobs in India this week (IIMJobs): Brand manager and marketing manager roles posted on IIMJobs in the last 7 days (FMCG, D2C, consumer tech), with company, city, salary band, experience and the full job description. {"site": "iimjobs", "queries": ["brand manager", "marketing manager"], "postedWithinDays": 7, "includeDescription": true, "maxJobsPerQuery": 50}
 Private equity and equity research jobs in Mumbai (IIMJobs): Private equity, fund and equity research roles in Mumbai posted on IIMJobs in the last 30 days, with firm, experience band, salary when disclosed, skills and the full job description. {"site": "iimjobs", "queries": ["private equity", "equity research"], "locations": ["Mumbai"], "postedWithinDays": 30, "includeDescription": true, "maxJobsPerQu
-Product manager jobs in Bangalore posted this week (IIMJobs): Product manager, senior PM and associate PM roles in Bangalore posted on IIMJobs in the last 7 days, with company, salary band, experience range, skills and applicant count. {"site": "iimjobs", "queries": ["product manager"], "locations": ["Bangalore"], "postedWithinDays": 7, "includeDescription": true, "maxJobsPerQuery": 60}
+Every new IIMJobs job: full-board feed (last 2 days): Every job posted on IIMJobs in the last 2 days across all functions (finance, consulting, product, sales, HR), with the full job description, salary band when disclosed, experience, skills, applicant count and AmbitionBo {"site": "iimjobs", "allJobs": true, "postedWithinDays": 2, "includeDescription": true, "maxJobs": 200}
 
 Questions buyers ask
 How much does it cost to scrape IIMJobs?
@@ -282,7 +283,7 @@ data engineer matched 3,420 open Hirist jobs (239 posted in the last 7 days), py
 Who uses it, for what
 You areWhat you get
 IT staffing and tech recruiting firmsEvery new Java, data or DevOps opening by city and experience band, with applicant counts, so you can see which roles are under-supplied.
-HR-tech products and job aggregatorsHirist as a source with stable job IDs (dedupKey), full JD text and de-duplication across keywords and runs, on the same schema as our IIMJobs scraper: one integration covers India tech and management hiring.
+HR-tech products and job aggregatorsThe whole Hirist board as a daily feed (All jobs on the board + only-new mode), with stable job IDs (dedupKey), full JD text and de-duplication across keywords and runs, on the same schema as our IIMJobs scraper: one integration covers India tech and management hiring.
 Skills-demand and salary analystsCount skill tags across thousands of postings (mandatory vs nice-to-have) and track demand for Kafka, Snowflake, GenAI or SAP by city and seniority.
 B2B sales (tech-stack intent)A company hiring three Snowflake engineers is a Snowflake account. Rows include the company name, domain, industry, size band, AmbitionBox profile and skills.
 Job-alert and career productsFresh roles from the last 24 hours, filtered by experience, for alert bots and newsletters.
@@ -335,6 +336,7 @@ AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daem
 All input fields
 FieldTypeMeaning
 queriesarrayOne Hirist.tech search per keyword, e.g. python developer, data engineer, devops, react native, sap abap. Use role or skill words; put cities in locations. Several specific keywords beat one broad one. A job found by two keywords is saved and charged once.
+allJobsbooleanIgnore the keywords and deliver every job Hirist lists in the posting window: a full-board feed for job aggregators and market tracking. Hirist posts about 140 jobs a day (measured 26 Oct 2026). Uses postedWithinDays (the last 3 days when empty), locations, experience and maxJobs; the per-keyword cap does not apply. Combine with Only new jobs since the last run for a daily feed of every new job. You can also put * in the keywords.
 locationsarrayOptional. Cities as Hirist lists them: Bangalore, Hyderabad, Pune, Chennai, Gurgaon, Noida, Mumbai, Remote, Anywhere in India. Case-insensitive substring match on the job's listed locations; a single known city is also applied server-side for speed. Leave empty for all of India.
 minExperienceintegerOnly jobs whose experience range reaches at least this many years. Integer 0-40.
 maxExperienceintegerOnly jobs whose experience range starts at or below this many years. Integer 0-40.
@@ -365,6 +367,8 @@ Python developer jobs in Bangalore posted this week (Hirist): Fresh Python devel
 Remote tech jobs in India (Hirist): Remote software, data and DevOps jobs on Hirist with full job descriptions, skills, applicant count and salary when shown. {"queries": ["software engineer", "data engineer", "devops"], "locations": ["Remote"], "postedWithinDays": 15, "includeDescription": true, "maxJobsPerQuery": 60
 Fresher and entry-level IT jobs in India (0–2 years): Entry-level developer, QA and support roles on Hirist for 0–2 years of experience, with descriptions and applicant counts. {"queries": ["software developer", "qa engineer", "support engineer"], "minExperience": 0, "maxExperience": 2, "postedWithinDays": 15, "includeDescription": tru
 DevOps engineer jobs in India, last 3 days (Hirist): DevOps, SRE and cloud-infrastructure engineer roles posted on Hirist.tech in the last 3 days, with company, city, experience band, salary when disclosed, skills and the full job description. {"site": "hirist", "queries": ["devops engineer"], "postedWithinDays": 3, "includeDescription": true, "maxJobsPerQuery": 50}
+Every new Hirist tech job: full-board feed (last 2 days): Every job posted on Hirist.tech in the last 2 days (backend, frontend, data, DevOps, QA, AI/ML, SAP and security roles), with the full job description, skills, salary in LPA when shown, experience range, applicant count  {"site": "hirist", "allJobs": true, "postedWithinDays": 2, "includeDescription": true, "maxJobs": 300}
+Data engineer jobs in India posted this week (Hirist): Data engineer jobs posted on Hirist.tech in the last 7 days: Spark, Databricks, Snowflake, Airflow, Kafka and cloud data-platform roles across Bangalore, Hyderabad, Pune, Gurgaon and remote, with the full job description {"site": "hirist", "queries": ["data engineer"], "postedWithinDays": 7, "includeDescription": true, "maxJobsPerQuery": 100}
 
 Questions buyers ask
 How much does it cost to scrape Hirist jobs?
@@ -1216,6 +1220,8 @@ Saved inputs you can run with one click on Apify (Examples tab); each has its ow
 Python jobs in Bangalore at startups (Instahyre): Open Python jobs on Instahyre in Bangalore at companies with under 1,000 employees, with the full description, experience range, skills and the company's headcount, founding year and website. Save as a task and switch on {"queries": ["python"], "locations": ["Bangalore"], "companySizes": ["small", "medium"], "includeDescription": true, "maxJobsPerQuery": 50}
 Work-from-home tech jobs in India (Instahyre): Remote (work from home) engineering, data and product jobs on Instahyre, with the full description, experience range, skills and company profile. Change the keywords to your stack; switch on only-new mode for a daily fee {"queries": ["react", "node.js", "data engineer"], "locations": ["Work From Home"], "includeDescription": true, "maxJobsPerQuery": 30}
 Early-career software jobs in India, 0-2 years (Instahyre): Software engineering jobs on Instahyre open to candidates with up to 2 years of experience, with the full description, skills and company profile. Internships are listed separately with jobType = internship. {"queries": ["software engineer"], "maxExperience": 2, "includeDescription": true, "maxJobsPerQuery": 50}
+Data analyst jobs in India (Instahyre): Data analyst and business analyst roles open on Instahyre: SQL, Python, Power BI, Tableau and analytics jobs at startups and product companies, with the full job description, posting date, experience range, company size  {"queries": ["data analyst", "business analyst"], "includeDescription": true, "maxJobsPerQuery": 50}
+Cyber security jobs in India (Instahyre): Cyber security, information security, SOC and cloud security roles open on Instahyre at Indian startups and product companies, with the full job description, posting date, experience range, skills, company size and websi {"queries": ["cyber security", "information security", "security engineer"], "includeDescription": true, "maxJobsPerQuery": 40}
 
 Questions buyers ask
 How much does it cost to scrape Instahyre?
