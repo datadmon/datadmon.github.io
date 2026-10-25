@@ -1058,6 +1058,7 @@ AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daem
 All input fields
 FieldTypeMeaning
 queriesarrayOne foundit.in search per keyword, e.g. data analyst, java developer, sales manager, chartered accountant, nurse. Use role or skill words; put cities in locations. A job found by two keywords is saved and charged once. Leave the list with one item for a quick first run.
+allJobsbooleanIgnore the keywords and deliver every job foundit lists in the posting window: a full-board feed for job aggregators and labour-market tracking. foundit posts about 2,800 jobs a day (2,815 in the last day on 26 Oct 2026), so postedWithinDays defaults to 1 here. locations, experience, salary, job types and maxJobs still apply; the per-keyword cap does not. Combine with Only new jobs since the last run for a daily feed of every new job. You can also put * in the keywords.
 locationsarrayOptional. Cities as foundit lists them: Bangalore, Mumbai, Delhi (covers Delhi NCR: Gurugram, Noida), Hyderabad, Chennai, Pune, Kolkata, Ahmedabad, Remote. Several cities = any of them. Applied by the site, then checked on each job. Leave empty for all of India.
 minExperienceintegerOnly jobs whose experience range reaches at least this many years (0-30). From 1 upwards this also excludes jobs that do not state an experience range; 0 keeps them.
 maxExperienceintegerOnly jobs whose experience range starts at or below this many years (0-30). 0 or 1 is a good fresher filter.
@@ -1191,6 +1192,7 @@ AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daem
 All input fields
 FieldTypeMeaning
 queriesarrayOne Instahyre search per item, matched against job titles and skill tags, e.g. python, react, data science, devops, product management, java developer. Put cities in locations. A job found by two keywords is saved and charged once. Leave the list with one item for a quick first run.
+allJobsbooleanIgnore the keywords and deliver every open Instahyre job: a full-board export for job aggregators and tech-hiring trackers (12,724 open jobs on 26 Oct 2026). Instahyre has no date filter, so combine it with Only new jobs since the last run: the first run exports the board and later runs open only the jobs they have not delivered. locations, company size, job type and maxJobs still apply; the per-keyword cap does not. You can also put * in the keywords.
 locationsarrayOptional. Cities as Instahyre lists them: Bangalore, Mumbai, Delhi, Gurgaon, Noida, Hyderabad, Chennai, Pune, Kolkata, Ahmedabad, or Work From Home for remote roles; regions such as South India and about 300 smaller cities also work. Several cities = any of them. Common alternative spellings (Bengaluru, Gurugram, Bombay, Remote) are mapped; an unknown name is ignored with a note in the status message. Leave empty for all of India.
 minExperienceintegerOnly jobs whose stated experience range reaches at least this many years (0-30). Checked on each job page; jobs that state no range are kept.
 maxExperienceintegerOnly jobs whose stated experience range starts at or below this many years (0-30). 1 or 2 is a good early-career filter.
@@ -1489,6 +1491,10 @@ The date window counts calendar days in India time. Three days is a safe window 
 ## Step 3: load it where you need it
 
 The dataset of each run is available as JSON, CSV or Excel through the Apify API, so a database loader, an n8n or Make workflow, or a Google Sheets import can pick it up. Key on `dedupKey` (for example `iimjobs:1741775`), which is stable across runs and boards.
+
+## The same switch on Foundit and Instahyre
+
+The [Foundit Jobs Scraper](https://apify.com/data_daemon/foundit-jobs-scraper) and the [Instahyre Jobs Scraper](https://apify.com/data_daemon/instahyre-jobs-scraper) have the same **All jobs on the board** option. foundit (formerly Monster India) is far busier: **2,815 jobs posted in the last day** on 26 October 2026, so its window defaults to one day. Instahyre had **12,724 open jobs** and no date filter on the site, so follow it with only-new mode alone: the first run exports the open jobs (about 80 minutes at roughly three jobs a second; it stops cleanly before the run timeout and the next run continues), and later runs return only jobs that are new to the feed.
 
 ## Costs and limits
 
