@@ -15,6 +15,9 @@
 - [Foundit jobs](https://datadmon.github.io/actors/foundit-jobs-scraper/): foundit.in jobs by keyword, city, experience and freshness, full descriptions included. $0.80 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/foundit-jobs-scraper (plain text: https://apify.com/data_daemon/foundit-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/foundit-jobs-scraper
 - [Instahyre jobs](https://datadmon.github.io/actors/instahyre-jobs-scraper/): India tech jobs from product companies and startups by skill, city, experience and company size, full descriptions included. $0.80 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/instahyre-jobs-scraper (plain text: https://apify.com/data_daemon/instahyre-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/instahyre-jobs-scraper
 - [Luma events](https://datadmon.github.io/actors/luma-events-scraper/): lu.ma events by city, category, keyword or calendar: dates, venue, tickets, hosts. $1.50 per 1,000 events. Apify listing: https://apify.com/data_daemon/luma-events-scraper (plain text: https://apify.com/data_daemon/luma-events-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/luma-events-scraper
+- [Apna jobs](https://datadmon.github.io/actors/apna-jobs-scraper/): Apna (apna.co) India jobs with salary, locality, department, work mode and full descriptions; full-board export. $0.80 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/apna-jobs-scraper (plain text: https://apify.com/data_daemon/apna-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/apna-jobs-scraper
+- [Shine jobs](https://datadmon.github.io/actors/shine-jobs-scraper/): Shine.com India jobs by keyword and city with full descriptions, salary range, experience, skills and industry. $0.80 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/shine-jobs-scraper (plain text: https://apify.com/data_daemon/shine-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/shine-jobs-scraper
+- [Unstop jobs, internships and hackathons](https://datadmon.github.io/actors/unstop-scraper/): Unstop jobs, internships, hackathons and competitions with salary or stipend, prizes, deadlines and eligibility. $1.50 per 1,000 opportunitys. Apify listing: https://apify.com/data_daemon/unstop-scraper (plain text: https://apify.com/data_daemon/unstop-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/unstop-scraper
 
 ## Guides
 
@@ -1377,6 +1380,336 @@ OptionWhat it gives youWhere it falls short for this job
 Luma website and iCal feedsBrowse; subscribe to one calendarNo cross-city export, no host profiles in bulk
 Eventbrite or Meetup ActorsOther event platformsDifferent events; this API reads Luma only
 Other Luma Actors on Apify StoreSame sourceCompare detail fields (hosts, tickets, GPS) and price per 1,000
+
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-26; the listing is the canonical description of the Actor.
+
+
+---
+
+# Apna (apna.co) jobs with salaries as JSON API | Daemon Data
+
+Source: https://datadmon.github.io/actors/apna-jobs-scraper/
+
+Apna (apna.co) jobs with salaries as JSON API
+
+Apna Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns Apna (apna.co) India jobs with salary, locality, department, work mode and full descriptions; full-board export as JSON, CSV or Excel. It costs $0.0008 per job with the default options ($0.80 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+
+Daemon Data Apna Jobs Scraper on Apify   Listing as plain text
+
+Checked on 26 Oct 2026
+Delhi-NCR 4,940 open jobs, Bengaluru 3,650, Mumbai 3,400, Hyderabad 1,770, Pune 1,770. By department: Sales & BD 12,540, Banking / Insurance / Financial Services 9,930, Delivery / Driver / Logistics 4,410, Software Engineering 4,280, Finance & Accounting 4,010. There were 8,930 field jobs and 2,960 part-time jobs.
+
+Who uses it, for what
+You areWhat you get
+Job aggregators and job-alert appsApna as a source: stable ids, salary, locality, department, full description and a board-wide daily feed (All jobs + Last 24 hours + only-new). Same conventions as the IIMJobs, Hirist, Foundit, Instahyre and Unstop Actors by the same publisher.
+Staffing agencies and recruitersWho is hiring telecallers, delivery riders or field sales staff in your city this week, at what salary, with how many openings.
+Labour-market and salary analystsEntry-level and frontline salaries by city, department and role, the share of field and night-shift jobs, demand trends by locality.
+B2B sales and lead generationA company posting 20 delivery openings in Pune is expanding there. Each row has the company name and Apna organisation id.
+HR-tech, skilling and government programmesWhich jobs ask for ITI, a diploma or 12th pass, and the English level required, by district.
+AI agents (MCP)Ask Claude or ChatGPT "new telecaller jobs in Jaipur posted today with salary" and let it call this Actor through Apify's MCP server.
+
+Output fields
+The most useful top-level fields with values from a real record; the full list is id, url, title, company, companyId, companyLogo, department, category, role, city, state, area, pincode, latitude, longitude, locationText, workMode, employmentType, shift, salaryMin, salaryMax, salaryCurrency, salaryPeriod, earningPotential, incentives, experienceMinYears, experienceMaxYears, experienceText, education, englishLevel, openings, tags, isExternalJob, externalApplyUrl, postedAt, updatedAt, expiresAt, description, searchTerm, scrapedAt. Per-field notes and the OpenAPI definition are on the Apify API page.
+FieldTypeExample
+idnumber149578990
+urlstring"https://apna.co/job/kolkata-calcutta/recruiter-general-staffing-14...
+titlestring"Recruiter (General Staffing )"
+companystring"2Coms Consulting Pvt Ltd."
+companyIdnumber405182
+departmentstring"Human Resources"
+categorystring"Human Resource"
+rolestring"Senior Recruiter"
+citystring"Kolkata"
+statestring"West Bengal"
+areastring"Kolkata"
+pincodestring"700073"
+latitudenumber22.5743545
+longitudenumber88.3628734
+locationTextstring"All areas in Kolkata/Calcutta Region"
+
+Input and how to call it
+
+A verified example input (it returned data on 2026-10-26):
+
+{
+  "cities": [
+    "Pune"
+  ],
+  "departments": [
+    "Delivery / Driver / Logistics"
+  ],
+  "postedWithin": "7d",
+  "maxJobsPerSearch": 50
+}
+
+One HTTP call starts a run, waits for it and returns the records (token from console.apify.com):
+
+curl -X POST "https://api.apify.com/v2/acts/data_daemon~apna-jobs-scraper/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"cities": ["Pune"], "departments": ["Delivery / Driver / Logistics"], "postedWithin": "7d", "maxJobsPerSearch": 50}'
+
+Python: ApifyClient(token).actor("data_daemon/apna-jobs-scraper").call(run_input=...), full file python/apna-jobs-scraper.py. Node.js: node/apna-jobs-scraper.mjs. n8n: importable workflow.
+AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daemon/apna-jobs-scraper with header Authorization: Bearer YOUR_APIFY_TOKEN in Claude, ChatGPT, Cursor or VS Code and ask for the data in plain words.
+
+All input fields
+FieldTypeMeaning
+searchTermsarrayJob titles or skills, e.g. telecaller, delivery boy, accountant, python developer, driver. One Apna search per keyword; Apna returns at most 500 jobs per keyword. Leave empty for the latest jobs, filtered by city, department and the options below.
+allJobsbooleanIgnore the keywords and export every open Apna job, department by department (about 71,000 of the 76,800 open jobs on 26 Oct 2026 carry a department). Combine with Only new jobs since the last run for a daily feed, or with cities / departments to export a slice. Large: set a maximum cost per run.
+citiesarrayCity names, e.g. Mumbai, Delhi, Bangalore, Hyderabad, Pune, Chennai, Kolkata, Ahmedabad, Jaipur, Lucknow. Apna filters by 74 cities; Delhi, Gurgaon, Noida and Ghaziabad all map to Delhi-NCR. Other place names are matched against each job's location. remote means work from home.
+departmentsarrayApna departments, e.g. Sales & BD, Customer Support, Delivery / Driver / Logistics, Software Engineering, Finance & Accounting, Healthcare / Doctor / Hospital Staff, Banking / Insurance / Financial Services. A word such as sales, delivery or healthcare picks the matching department. Applies to runs without keywords.
+workModesarrayOnly jobs with these work modes. Empty = any.
+workTypestringOnly full-time or only part-time jobs.
+shiftstringOnly day-shift or only night-shift jobs.
+educationstringJobs open to candidates with this highest education, as Apna filters them.
+englishLevelstringJobs open to candidates with this English level, as Apna filters them.
+postedWithinstringOnly jobs posted recently (Apna's own windows). Last 24 hours with All jobs is a daily board-wide feed of about 950 new jobs.
+includeDescriptionbooleanFull job description as plain text. Keyword searches fetch each job page for it (slower); the feed already carries it. Price is the same either way.
+maxJobsPerSearchintegerCap for each keyword (or each city / department listing). 0 = no cap. Not used with All jobs.
+maxJobsintegerStop after this many saved jobs. 0 or empty = no total cap (the run's maximum cost still applies).
+onlyNewSinceLastRunbooleanFor schedules: remember delivered job ids (in a named key-value store in your account) and save only jobs that earlier runs with the same settings did not deliver. Skipped jobs are not charged.
+stateNamestringName of the only-new memory. Empty = derived from the keywords and filters. Give two schedules the same name to share one memory.
+skipJobIdsarrayApna job ids you already have (the id field). They are neither saved nor charged.
+
+Price
+$0.0008 per job ($0.80 per 1,000); $0.001 per run. List prices for Apify Free and Starter plans; Scale and Business plans pay 15% to 30% less.
+EventPricePer 1,000Charged when
+Job$0.0008$0.80One Apna job saved to the dataset: id, URL, title, company, department, role, city, area, PIN code, coordinates, work mode, shift, salary range and earning potential, experience, education and English level asked for, openings, tags, dates and the full description. Skipped or filtered jobs are never charged.
+Actor Start$0.001Charged when the Actor starts running. Number of events charged depends on Actor memory (one event per GB, minimum one event).
+Worked example: the input above, capped at 50 jobs, costs at most $0.041. Apify's free plan includes $5 of usage a month, about 6,250 jobs; the Actor's own compute is included in the per-record price, and records skipped by filters, de-duplication or only-new mode are not charged.
+
+Questions buyers ask
+Is there an official Apna API?
+Not a public one. This Actor reads the public JSON job feed and job pages that the apna.co website loads. It exposes them as a REST API with schedules, webhooks and only-new runs.
+Does it return candidates or recruiter contacts?
+No. It returns job listings only: no candidate data, and no recruiter names, phone numbers or e-mail addresses.
+Why do some jobs have no salary?
+The employer did not disclose it, or the job is an external listing applied for on the employer's own career site.
+Do I need a proxy or login?
+No.
+
+Alternatives, honestly
+OptionWhat it gives youWhere it falls short for this job
+Apna website and appSearch and apply as a candidateNo export or API; one job at a time
+Other Apna Actors on Apify StoreSame boardCompare full-board coverage, salary and locality fields, only-new mode and price per 1,000
+Build your own scraperFull controlYou handle the 500-result keyword cap, deep-page repeats, city ids and de-duplication
+
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-26; the listing is the canonical description of the Actor.
+
+
+---
+
+# Shine.com job listings as JSON API | Daemon Data
+
+Source: https://datadmon.github.io/actors/shine-jobs-scraper/
+
+Shine.com job listings as JSON API
+
+Shine Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns Shine.com India jobs by keyword and city with full descriptions, salary range, experience, skills and industry as JSON, CSV or Excel. It costs $0.0008 per job with the default options ($0.80 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+
+Daemon Data Shine Jobs Scraper on Apify   Listing as plain text
+
+Checked on 26 Oct 2026
+data analyst in Bangalore and Pune with 2 years of experience, posted in the last 3 days, gave 20 jobs from the first few pages (98 others were older, elsewhere or for another experience band, and were not charged). 50 python jobs with descriptions take about a minute.
+
+Who uses it, for what
+You areWhat you get
+Job aggregators and job-alert appsShine as a source with stable ids, salary, experience band, full description and de-duplication across keywords and runs. Same conventions as the IIMJobs, Hirist, Foundit, Instahyre and Apna Actors by the same publisher.
+Recruiters and staffing agenciesWho is hiring accountants in Mumbai or Java developers in Pune this week, at what salary and experience.
+Salary and labour-market analystsSalary ranges by role, city, experience and industry, with dates for trend lines.
+B2B sales and lead generationCompanies with many open roles in a function are buying tools and services for it.
+AI agents (MCP)Ask Claude or ChatGPT "data analyst jobs in Pune posted this week with salary" and let it call this Actor through Apify's MCP server.
+
+Output fields
+The most useful top-level fields with values from a real record; the full list is id, url, title, company, companyId, companyLogo, locations, places, experienceText, experienceMinYears, experienceMaxYears, salaryText, salaryMin, salaryMax, salaryCurrency, salaryPeriod, skills, industry, functions, employmentType, badges, instantApply, postedAt, validThrough, description, descriptionHtml, searchTerm, searchCity, scrapedAt. Per-field notes and the OpenAPI definition are on the Apify API page.
+FieldTypeExample
+idstring"19927000"
+urlstring"https://www.shine.com/jobs/senioor-accountant/shamisha-resources-m...
+titlestring"Senioor Accountant"
+companystring"Shamisha Resources Management LLP Hiring For A leading Pharma comp...
+companyIdnumber508638
+locationsarray["Mumbai City"]
+experienceTextstring"6 to 10 Yrs"
+experienceMinYearsnumber6
+experienceMaxYearsnumber10
+salaryTextstring"8 - 18 Lakh/Yr"
+salaryMinnumber800000
+salaryMaxnumber1800000
+salaryCurrencystring"INR"
+salaryPeriodstring"yearly"
+skillsarray["accounts payable", "accounts receivable", "accountants"]
+
+Input and how to call it
+
+A verified example input (it returned data on 2026-10-26):
+
+{
+  "searchTerms": [
+    "data analyst"
+  ],
+  "cities": [
+    "Pune"
+  ],
+  "postedWithinDays": 7,
+  "includeDescription": true,
+  "maxJobsPerSearch": 50
+}
+
+One HTTP call starts a run, waits for it and returns the records (token from console.apify.com):
+
+curl -X POST "https://api.apify.com/v2/acts/data_daemon~shine-jobs-scraper/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"searchTerms": ["data analyst"], "cities": ["Pune"], "postedWithinDays": 7, "includeDescription": true, "maxJobsPerSearch": 50}'
+
+Python: ApifyClient(token).actor("data_daemon/shine-jobs-scraper").call(run_input=...), full file python/shine-jobs-scraper.py. Node.js: node/shine-jobs-scraper.mjs. n8n: importable workflow.
+AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daemon/shine-jobs-scraper with header Authorization: Bearer YOUR_APIFY_TOKEN in Claude, ChatGPT, Cursor or VS Code and ask for the data in plain words.
+
+All input fields
+FieldTypeMeaning
+searchTermsarrayJob titles or skills, one Shine search each, e.g. python, data analyst, accountant, sales executive, java developer, nurse. Leave empty to list all jobs (in the given cities, or in India). A job found by two searches is saved and charged once.
+citiesarrayCities as Shine names them, e.g. Bangalore, Mumbai, Delhi, Gurgaon, Noida, Hyderabad, Pune, Chennai, Kolkata, Ahmedabad, Navi Mumbai. Each keyword runs once per city. Shine also suggests jobs in nearby cities; the Actor keeps only jobs located in the city you asked for.
+experienceYearsintegerOnly jobs whose experience range covers this many years, e.g. 2 keeps "1 to 3 Yrs" and "0 to 4 Yrs" but not "5 to 8 Yrs".
+postedWithinDaysintegerOnly jobs posted in the last N days (e.g. 1 for a daily feed). Results are read newest first, so the search stops at the first page of older jobs. 0 or empty = any date.
+includeDescriptionbooleanOpen each job page for the full description (text + HTML), numeric salary range, industry, function, employment type and expiry date. Turn off for a fast list of titles, companies, cities, experience, salary text and skills. Price is the same either way.
+maxJobsPerSearchintegerCap for each keyword (and city). Newest jobs come first. 0 = no cap (a popular keyword can have tens of thousands of jobs; set a maximum cost per run).
+maxJobsintegerStop after this many saved jobs. 0 or empty = no total cap (the run's maximum cost still applies).
+onlyNewSinceLastRunbooleanFor schedules: remember delivered job ids (in a named key-value store in your account) and save only jobs that earlier runs with the same settings did not deliver. Skipped jobs are not charged.
+stateNamestringName of the only-new memory. Empty = derived from the keywords, cities and experience. Give two schedules the same name to share one memory.
+skipJobIdsarrayShine job ids you already have (the id field). They are neither fetched, saved nor charged.
+
+Price
+$0.0008 per job ($0.80 per 1,000); $0.001 per run. List prices for Apify Free and Starter plans; Scale and Business plans pay 15% to 30% less.
+EventPricePer 1,000Charged when
+Job$0.0008$0.80One Shine job saved to the dataset: id, URL, title, company, cities, experience range, salary (text and numbers), skills, industry, function, employment type, badges, posting and expiry dates and the full description (text + HTML). Skipped or filtered jobs are never charged.
+Actor Start$0.001Charged when the Actor starts running. Number of events charged depends on Actor memory (one event per GB, minimum one event).
+Worked example: the input above, capped at 50 jobs, costs at most $0.041. Apify's free plan includes $5 of usage a month, about 6,250 jobs; the Actor's own compute is included in the per-record price, and records skipped by filters, de-duplication or only-new mode are not charged.
+
+Questions buyers ask
+Is there an official Shine API?
+Not a public one. This Actor reads Shine's public search and job pages, which robots.txt allows, and exposes them as a REST API with schedules, webhooks and only-new runs.
+Why do some jobs have no salary numbers?
+The employer chose "Not Disclosed". salaryText then says so.
+Do I need a proxy?
+No. If Shine starts refusing direct requests, the Actor switches to Apify's anti-bot proxy by itself.
+
+Alternatives, honestly
+OptionWhat it gives youWhere it falls short for this job
+Shine.com websiteSearch and alerts for a logged-in userNo bulk export or API
+Other Shine Actors on Apify StoreSame boardCompare description and salary-range coverage, only-new mode and price per 1,000
+Build your own scraperFull controlYou parse the app's page data, follow job pages and maintain de-duplication
+
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-26; the listing is the canonical description of the Actor.
+
+
+---
+
+# Unstop jobs, internships & hackathons JSON API | Daemon Data
+
+Source: https://datadmon.github.io/actors/unstop-scraper/
+
+Unstop jobs, internships & hackathons JSON API
+
+Unstop Scraper is a pay-per-record Apify Actor by Daemon Data that returns Unstop jobs, internships, hackathons and competitions with salary or stipend, prizes, deadlines and eligibility as JSON, CSV or Excel. It costs $0.0015 per opportunity with the default options ($1.50 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+
+Daemon Data Unstop Scraper on Apify   Listing as plain text
+
+Checked on 26 Oct 2026
+137 jobs were posted in the last 3 days, 47 of them in Bangalore or remote. 60 open jobs and 309 internships are work from home, and 146 internships are unpaid. 89 hackathons are offline (in person). Results come newest first.
+
+Who uses it, for what
+You areWhat you get
+Campus recruiters, placement cells and staffing agenciesEvery fresher and graduate-trainee drive on Unstop (Reliance, Polycab, IndiGo and hundreds of startups), with deadlines, eligibility (course, passing-out year) and salary, refreshed daily.
+Job and internship aggregatorsUnstop as a source with stable ids, full description text, salary or stipend, workplace type and de-duplication across types, keywords and runs. Same conventions as the IIMJobs, Hirist, Foundit and Instahyre Actors by the same publisher.
+Student communities, college clubs and newslettersA weekly digest of hackathons and competitions: online or offline, team size, entry fee and prize pool.
+EdTech and career-platform buildersA clean, structured feed of opportunities for freshers and students to show in your app or match against profiles.
+Employer-branding and market analystsWhich companies hire freshers, at what salaries, in which cities; how many students register for each drive.
+AI agents (MCP)Ask Claude or ChatGPT "remote paid data internships on Unstop posted this week" and let it call this Actor through Apify's MCP server.
+
+Output fields
+The most useful top-level fields with values from a real record; the full list is id, type, subtype, title, url, organization, organizationUrl, organizationLogo, program, mode, locations, locationText, workplaceType, timing, paid, salaryMin, salaryMax, salaryCurrency, salaryPeriod, experienceMinYears, experienceMaxYears, eligibility, skills, jobFunctions, registrationOpen, registrationStart, registrationDeadline, daysLeft, startsAt, endsAt, teamSizeMin, teamSizeMax, entryFee, isPaidEntry, prizes, totalPrizeCashInr, registrations, views, postedAt, updatedAt, description, descriptionHtml, searchTerm, scrapedAt. Per-field notes and the OpenAPI definition are on the Apify API page.
+FieldTypeExample
+idnumber1777503
+typestring"job"
+subtypestring"jobs"
+titlestring"PEB Marketing & Business Development Executive"
+urlstring"https://unstop.com/jobs/peb-marketing-business-development-executi...
+organizationstring"Omniventra Manpower Solutions"
+organizationUrlstring"https://unstop.com/c/omniventra-manpower-solutions-2112886"
+modestring"online"
+locationsarray[{"city": "Jamshedpur", "state": "Jharkhand", "country": "India"}, ...
+locationTextstring"Jamshedpur, Jharkhand, India | Kolkata, West Bengal, India"
+workplaceTypestring"in_office"
+timingstring"full_time"
+paidbooleantrue
+salaryMinnumber35000
+salaryMaxnumber40000
+
+Input and how to call it
+
+A verified example input (it returned data on 2026-10-26):
+
+{
+  "opportunityTypes": [
+    "internships"
+  ],
+  "workplaceTypes": [
+    "wfh"
+  ],
+  "pay": "paid",
+  "maxResultsPerSearch": 50
+}
+
+One HTTP call starts a run, waits for it and returns the records (token from console.apify.com):
+
+curl -X POST "https://api.apify.com/v2/acts/data_daemon~unstop-scraper/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"opportunityTypes": ["internships"], "workplaceTypes": ["wfh"], "pay": "paid", "maxResultsPerSearch": 50}'
+
+Python: ApifyClient(token).actor("data_daemon/unstop-scraper").call(run_input=...), full file python/unstop-scraper.py. Node.js: node/unstop-scraper.mjs. n8n: importable workflow.
+AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daemon/unstop-scraper with header Authorization: Bearer YOUR_APIFY_TOKEN in Claude, ChatGPT, Cursor or VS Code and ask for the data in plain words.
+
+All input fields
+FieldTypeMeaning
+opportunityTypesarrayUnstop listing types. Each type is one search; a listing is saved and charged once. On 26 Oct 2026 Unstop had about 710 open jobs, 570 internships, 670 competitions, 210 hackathons, 110 workshops, 75 quizzes and 5 scholarships.
+searchTermsarrayOptional. Unstop matches them against listing titles and organisation names, e.g. data analyst, marketing, software engineer, Reliance. Each keyword runs once per type. Leave empty to get every open listing of the chosen types.
+workplaceTypesarrayOnly jobs and internships with these workplace types. Empty = any.
+timingstringOnly full-time or only part-time jobs and internships.
+paystringMostly useful for internships: paid (with a stipend) or unpaid.
+eligibilitystringOnly listings open to this group, as set by the organiser.
+modestringOnly online or only in-person events.
+entryFeestringOnly free or only paid-entry events.
+postedWithinDaysintegerOnly listings published on Unstop in the last N days (e.g. 1 for a daily feed, 7 for weekly). 0 or empty = any date.
+locationsarrayOnly listings whose city, state or country contains one of these words, e.g. Bangalore, Mumbai, Maharashtra. remote matches work-from-home jobs. Listings without a location (many online events) are left out when this is set.
+includeDescriptionbooleanFull description as plain text (description) and HTML (descriptionHtml). It costs the same either way; turn it off for smaller files.
+maxResultsPerSearchintegerCap for each type (and keyword). Newest listings come first. 0 = no cap: every open listing, about 2,350 across all types.
+maxResultsintegerStop after this many saved listings. 0 or empty = no total cap (the run's maximum cost still applies).
+onlyNewSinceLastRunbooleanFor schedules: remember delivered listing ids (in a named key-value store in your account) and save only listings that earlier runs with the same settings did not deliver. Skipped listings are not charged.
+stateNamestringName of the only-new memory. Empty = derived from the types, keywords and filters. Give two schedules the same name to share one memory.
+skipIdsarrayUnstop listing ids you already have (the id field). They are neither saved nor charged.
+
+Price
+$0.0015 per opportunity ($1.50 per 1,000); $0.001 per run. List prices for Apify Free and Starter plans; Scale and Business plans pay 15% to 30% less.
+EventPricePer 1,000Charged when
+Opportunity$0.0015$1.50One Unstop listing saved to the dataset (job, internship, hackathon, competition, quiz, workshop or scholarship): id, URL, title, organiser, locations, workplace type, salary or stipend, eligibility, skills, registration dates and deadline, team size, entry fee, prizes, registration and view counts, and the full description (text + HTML). Skipped or filtered listings are never charged.
+Actor Start$0.001Charged when the Actor starts running. Number of events charged depends on Actor memory (one event per GB, minimum one event).
+Worked example: the input above, capped at 50 opportunitys, costs at most $0.076. Apify's free plan includes $5 of usage a month, about 3,333 opportunitys; the Actor's own compute is included in the per-record price, and records skipped by filters, de-duplication or only-new mode are not charged.
+
+Questions buyers ask
+Is there an official Unstop API?
+Unstop does not offer a documented public API. This Actor reads the public JSON endpoints (/api/public/opportunity/...) that the unstop.com website loads, which robots.txt allows. It exposes them as a REST API with schedules, webhooks and only-new runs.
+Does it return closed listings?
+No. It returns listings that are open for registration, which is what Unstop shows by default.
+Does it include participants or applicant details?
+No. It returns listing data only: the organiser, the role or event, deadlines and counts. No personal data about candidates or participants is collected.
+Why does a salary show as empty?
+The organiser chose not to disclose it. About 80% of jobs and internships show a salary or stipend.
+Do I need a proxy or login?
+No.
+
+Alternatives, honestly
+OptionWhat it gives youWhere it falls short for this job
+Unstop website and appBrowse and register as a student or professionalNo export; one listing at a time
+Other Unstop Actors on Apify StoreSame sourceCompare listing types covered (jobs, internships, hackathons, competitions), prize and eligibility fields and price per 1,000
+Build your own clientFull controlYou map filters, paging and the listing types yourself
 
 Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-26; the listing is the canonical description of the Actor.
 
