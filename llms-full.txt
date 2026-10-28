@@ -629,6 +629,10 @@ Does it cover SME IPOs?
 Yes. Set category to sme, mainboard or all. Every record carries category so you can also filter afterwards.
 Can I get past years?
 Only for gmpPerformance (GMP vs listing price), which has full history per calendar year through the year field. The other year-scoped reports are published by the sources for the current calendar year only, so past years return just a few rows.
+Is there an IPO GMP API?
+There is no official one: GMP is an unofficial grey-market indicator, and BSE and NSE do not publish it. This Actor works as an IPO GMP API: call it through the Apify API (run-sync-get-dataset-items returns the rows in the response), from Python or Node.js, or from n8n, Make, Zapier or an AI agent, and get live GMP, subscription, calendar and listing results as JSON.
+How accurate is IPO GMP?
+In 2026 the last GMP before listing missed the actual listing gain by 8.6 percentage points on average (7.0 for mainboard, 9.6 for SME IPOs), and 69% of IPOs listed within 10 points of their GMP. See "How accurate is IPO GMP?" above; the gmpPerformance report lets you recompute it for any year.
 Do I need a proxy or login?
 No. The sources answer plain HTTP requests, so runs finish in seconds.
 What happens if a source is down?
@@ -744,6 +748,8 @@ What do index rows contain?
 Ticker, company name, sector, last price, 1-day change, market cap (₹ crore), P/E, P/B, dividend yield, ROE, 52-week high and low, and free float. Switch on fullProfile for statements, shareholding and forecasts.
 Can I run a screener?
 Yes. Pass any Tickertape filter object such as {"mrktCapf": {"g": 5000}, "apef": {"l": 20}}. A filter with no matches finishes successfully with 0 rows and a status message.
+Does Tickertape have a public API for NSE stock fundamentals?
+Tickertape does not publish a documented public API. This Actor reads the data that Tickertape's public stock pages load, without a login, and returns it as JSON: quotes, key ratios, scorecard and 10 years of financial statements for NSE and BSE stocks, plus index member lists. Call it through the Apify API, from Python or Node.js, or from an AI agent, like any Indian stock market API.
 Do I need a proxy or login?
 No.
 
@@ -978,6 +984,8 @@ Can I reuse the data commercially?
 Gazette notices are Crown copyright under the Open Government Licence v3.0, so company-level data can be reused with attribution. Personal data is excluded from the licence.
 Which notice types are supported?
 Any Gazette notice type code. The common corporate ones are 2450 petitions to wind up, 2452 winding-up orders, 2410 appointment of administrators, 2441 resolutions for winding up, 2432 and 2443 appointment of liquidators, 2442 meetings of creditors and 2433 notices to creditors.
+Is there a data feed or API for UK winding-up petitions?
+The Gazette publishes every insolvency notice in a public feed, with a structured record for each notice, but you have to page the feed, fetch each record and flatten it yourself. This Actor does that and returns one row per notice as JSON, CSV or Excel: company name and number, court and case number, petitioner, petition and hearing dates, practitioners and addresses. With Only new notices and a daily schedule it becomes a winding-up petitions data feed that delivers, and charges for, new notices only.
 Do I need a proxy or login?
 No. If The Gazette rate-limits the structured-data requests, the Actor switches to Apify datacenter proxy by itself.
 
@@ -1412,21 +1420,21 @@ AI agents (MCP)Ask Claude or ChatGPT "new telecaller jobs in Jaipur posted today
 Output fields
 The most useful top-level fields with values from a real record; the full list is id, url, title, company, companyId, companyLogo, department, category, role, city, state, area, pincode, latitude, longitude, locationText, workMode, employmentType, shift, salaryMin, salaryMax, salaryCurrency, salaryPeriod, earningPotential, incentives, experienceMinYears, experienceMaxYears, experienceText, education, englishLevel, openings, tags, isExternalJob, externalApplyUrl, postedAt, updatedAt, expiresAt, description, searchTerm, scrapedAt. Per-field notes and the OpenAPI definition are on the Apify API page.
 FieldTypeExample
-idnumber149578990
-urlstring"https://apna.co/job/kolkata-calcutta/recruiter-general-staffing-14...
-titlestring"Recruiter (General Staffing )"
-companystring"2Coms Consulting Pvt Ltd."
-companyIdnumber405182
-departmentstring"Human Resources"
-categorystring"Human Resource"
-rolestring"Senior Recruiter"
-citystring"Kolkata"
-statestring"West Bengal"
-areastring"Kolkata"
-pincodestring"700073"
-latitudenumber22.5743545
-longitudenumber88.3628734
-locationTextstring"All areas in Kolkata/Calcutta Region"
+idnumber667781330
+urlstring"https://apna.co/job/bengaluru-bangalore/casa-officer-667781330"
+titlestring"Casa Officer"
+companystring"Sprs Solutions Private Limited"
+companyIdnumber706383
+departmentstring"Banking / Insurance / Financial Services"
+categorystring"Business Development"
+rolestring"Casa Officer"
+citystring"Bengaluru"
+statestring"Karnataka"
+areastring"Kailasipalyam"
+pincodestring"560055"
+latitudenumber12.9628669
+longitudenumber77.57750899999999
+locationTextstring"Bengaluru/Bangalore"
 
 Input and how to call it
 
@@ -1963,6 +1971,10 @@ Yes, mainboard and SME issues on both exchanges, with a `category` filter for ei
 
 No. Exchanges do not publish grey-market data. Official broker APIs (for example Upstox's) publish the IPO calendar and some subscription figures, but not GMP; this API joins GMP and subscription in one feed with a common key.
 
+**How accurate is GMP as a forecast of the listing price?**
+
+For the 294 IPOs listed from 2 January to 28 October 2026, the last GMP before listing missed the actual listing gain by 8.6 percentage points on average (7.0 for mainboard, 9.6 for SME issues); 69% listed within 10 points of their GMP, and no IPO with a GMP above 25% listed below its issue price. Method and bands: [How accurate is IPO GMP? We checked all 294 Indian IPOs listed in 2026](https://dev.to/datadaemon/how-accurate-is-ipo-gmp-we-checked-all-294-indian-ipos-listed-in-2026-4bdg).
+
 **Is this investment advice?**
 
 No. GMP is an unofficial indicator; the data is provided for information and research.
@@ -2038,7 +2050,7 @@ A 50-job daily feed therefore costs between about $1.25 and $6 a month depending
 ## Which board for which question
 
 - **"Which companies are hiring finance or product leaders in India this week?"** IIMJobs; filter on experience and read the applicant counts to see which mandates are crowded.
-- **"What skills do Indian tech employers ask for, and what do they pay?"** Hirist, which carries disclosed salary bands and skill tags on most rows; add Instahyre for startup roles with company headcount.
+- **"What skills do Indian tech employers ask for, and what do they pay?"** Hirist for skills: every row carries skill tags, split into mandatory and nice-to-have. Pay is rarer than the skills: Hirist showed a salary band on 10 of 170 new jobs on 28 October 2026 and IIMJobs on 28 of 140, so salary research needs a few weeks of history. Add Instahyre for startup roles with company headcount.
 - **"Fresher or non-tech roles, or the largest possible volume."** foundit, with its 2,900 new postings a day and fresher filters by experience band.
 - **"Startups and product companies hiring engineers, by company size or remote."** Instahyre, the only board here that publishes employer headcount and founding year and lets you filter by company size.
 
@@ -2047,6 +2059,10 @@ A 50-job daily feed therefore costs between about $1.25 and $6 a month depending
 **Is there an official API for IIMJobs, Hirist, foundit or Instahyre?**
 
 No. None of the four publishes a public API. The Daemon Data APIs read the JSON endpoints and public pages the boards' own websites load, and expose them as Apify Actors with schedules, webhooks and only-new runs.
+
+**Which Indian job board shows the salary most often?**
+
+In one day of new postings (24 hours to 28 October 2026): IIMJobs showed a salary on 20% of jobs, Hirist on 6%, foundit on 2%, and Instahyre publishes none. Apna, a frontline board with its own Actor, showed a monthly salary range on every job (median ₹18,000–25,000). Volumes, applicant counts and a script for the daily feed of all five: [One day of Indian job postings: 5,600 new jobs on five boards](https://dev.to/datadaemon/one-day-of-indian-job-postings-5600-new-jobs-on-five-boards-and-how-many-show-the-salary-10nk).
 
 **Can I get the same fields from all four boards in one pipeline?**
 

@@ -197,13 +197,15 @@ dl.faq dt{font-weight:600;margin-top:1em}dl.faq dd{margin:.3em 0 0}footer{border
 <h2 id="which-board-for-which-question">Which board for which question</h2>
 <ul>
 <li><strong>"Which companies are hiring finance or product leaders in India this week?"</strong> IIMJobs; filter on experience and read the applicant counts to see which mandates are crowded.</li>
-<li><strong>"What skills do Indian tech employers ask for, and what do they pay?"</strong> Hirist, which carries disclosed salary bands and skill tags on most rows; add Instahyre for startup roles with company headcount.</li>
+<li><strong>"What skills do Indian tech employers ask for, and what do they pay?"</strong> Hirist for skills: every row carries skill tags, split into mandatory and nice-to-have. Pay is rarer than the skills: Hirist showed a salary band on 10 of 170 new jobs on 28 October 2026 and IIMJobs on 28 of 140, so salary research needs a few weeks of history. Add Instahyre for startup roles with company headcount.</li>
 <li><strong>"Fresher or non-tech roles, or the largest possible volume."</strong> foundit, with its 2,900 new postings a day and fresher filters by experience band.</li>
 <li><strong>"Startups and product companies hiring engineers, by company size or remote."</strong> Instahyre, the only board here that publishes employer headcount and founding year and lets you filter by company size.</li>
 </ul>
 <h2 id="questions-and-answers">Questions and answers</h2>
 <h3 id="is-there-an-official-api-for-iimjobs-hirist-foundit-or-instahyre">Is there an official API for IIMJobs, Hirist, foundit or Instahyre?</h3>
 <p>No. None of the four publishes a public API. The Daemon Data APIs read the JSON endpoints and public pages the boards' own websites load, and expose them as Apify Actors with schedules, webhooks and only-new runs.</p>
+<h3 id="which-indian-job-board-shows-the-salary-most-often">Which Indian job board shows the salary most often?</h3>
+<p>In one day of new postings (24 hours to 28 October 2026): IIMJobs showed a salary on 20% of jobs, Hirist on 6%, foundit on 2%, and Instahyre publishes none. Apna, a frontline board with its own Actor, showed a monthly salary range on every job (median ₹18,000–25,000). Volumes, applicant counts and a script for the daily feed of all five: <a href="https://dev.to/datadaemon/one-day-of-indian-job-postings-5600-new-jobs-on-five-boards-and-how-many-show-the-salary-10nk">One day of Indian job postings: 5,600 new jobs on five boards</a>.</p>
 <h3 id="can-i-get-the-same-fields-from-all-four-boards-in-one-pipeline">Can I get the same fields from all four boards in one pipeline?</h3>
 <p>Mostly. All four return <code>id</code>, <code>title</code>, <code>company.name</code>, <code>locations</code>, <code>skills</code>, <code>postedAt</code>, <code>url</code> and a <code>description</code>, and accept the same <code>queries</code>, <code>locations</code>, <code>onlyNewSinceLastRun</code> and <code>skipJobIds</code> input. Salary and applicant counts exist on IIMJobs, Hirist and foundit but not on Instahyre; company headcount exists on Instahyre and on Hirist/IIMJobs through AmbitionBox.</p>
 <h3 id="how-fresh-is-the-data">How fresh is the data?</h3>
