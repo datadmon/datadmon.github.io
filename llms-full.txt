@@ -851,7 +851,7 @@ Saved inputs you can run with one click on Apify (Examples tab); each has its ow
 Dubai property sales in the last 7 days (DLD): Every Dubai property sale registered with the Dubai Land Department in the last 7 days: price in AED, price per sqm, area, project, rooms and off-plan/ready flag. Official DLD open data. {"transactionGroup": "sales", "maxItems": 5000}
 Dubai off-plan transactions this week: Off-plan property sales registered with the Dubai Land Department this week: developer project, area, unit type, AED price and price per sqm. Official DLD open data. {"transactionGroup": "sales", "offPlan": "offplan", "maxItems": 5000}
 Dubai mortgages registered this week (DLD): Mortgage registrations recorded by the Dubai Land Department in the last 7 days: mortgage value in AED, area, project, property type and procedure. Official DLD open data. {"transactionGroup": "mortgages", "maxItems": 5000}
-Dubai land plot sales in the last 7 days (DLD): Every land plot sale registered with the Dubai Land Department in the last 7 days: price in AED, plot area, price per sqm, area, master project and freehold flag. Official DLD open data. {"transactionGroup": "sales", "propertyType": "land", "maxItems": 2000}
+Dubai land plot sales in the last 7 days (DLD): Every land plot sale registered with the Dubai Land Department in the last 7 days: price in AED, plot area, price per sqm, area, project (on about two thirds of plots) and freehold flag. Official DLD open data. {"transactionGroup": "sales", "propertyType": "land", "maxItems": 2000}
 Dubai ready (secondary) property sales, last 7 days (DLD): Ready (completed, non-off-plan) property sales registered with the Dubai Land Department in the last 7 days: AED price, price per sqm, area, project, rooms and property type. Official DLD open data. {"transactionGroup": "sales", "offPlan": "ready", "maxItems": 3000}
 Dubai commercial property sales this week (DLD): Offices, shops and other commercial units sold in Dubai and registered with the Dubai Land Department in the last 7 days: AED value, price per sqm, area, project and size. {"transactionGroup": "sales", "usage": "commercial", "maxItems": 5000}
 Latest Dubai property transactions, last 3 days (DLD): The newest sales, mortgages and gifts registered with the Dubai Land Department in the last 3 days (3 days so that weekends are covered): AED value, price per sqm, area, project, rooms and size. Official DLD open data. S {"daysBack": 3, "sort": "TRANSACTION_NUMBER_DESC", "maxItems": 3000}
@@ -1744,7 +1744,7 @@ Published by Daemon Data (data_daemon on Apify Store). Prices, fields and exampl
 
 Source: https://datadmon.github.io/guides/dubai-land-department-transactions-json/
 
-The Dubai Land Department (DLD) publishes every registered property transaction in Dubai as open data: each sale, off-plan pre-registration, mortgage registration and gift, with the transaction date, the value in AED, the area, project and master project, property type, rooms, parking and size. It is the only source of **actual registered prices** for Dubai; listing portals show asking prices. This guide explains what the register contains, how much data it produces and how to pull it as JSON.
+The Dubai Land Department (DLD) publishes every registered property transaction in Dubai as open data: each sale, off-plan pre-registration, mortgage registration and gift, with the transaction date, the value in AED, the area and project, property type, rooms, parking and size. It is the only source of **actual registered prices** for Dubai; listing portals show asking prices. This guide explains what the register contains, how much data it produces and how to pull it as JSON.
 
 ## What a week of DLD data looks like (measured 11 to 18 October 2026)
 
@@ -1760,7 +1760,7 @@ Roughly 2,500 of the 2,600 weekly sales are residential; the rest are commercial
 
 ## Fields in each record
 
-Every record carries the transaction date (ISO), transaction number, `procedure` (for example `Sale`, `Delayed Sell`, `Sell - Pre registration`, mortgage registration or modification), transaction group, property type and sub-type, usage (residential or commercial), area, project and master project names, rooms, parking, actual area in square metres, value in AED and a precomputed `pricePerSqmAed`, plus boolean off-plan and freehold flags. Arabic names are available as an optional object. The register contains no owner names or contact details.
+Every record carries the transaction date (ISO), transaction number, `procedure` (for example `Sale`, `Delayed Sell`, `Sell - Pre registration`, mortgage registration or modification), transaction group, property type and sub-type, usage (residential or commercial), area and project names (a master project only on the rare rows where DLD names one, under 1%), rooms, parking, actual area in square metres, value in AED and a precomputed `pricePerSqmAed`, plus boolean off-plan and freehold flags. Arabic names are available as an optional object. The register contains no owner names or contact details.
 
 ## Free portals versus the register as data
 
