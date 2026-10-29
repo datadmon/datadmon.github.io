@@ -1,6 +1,6 @@
 # Daemon Data
 
-> Daemon Data publishes pay-per-record data APIs as Actors on Apify Store (https://apify.com/data_daemon). Each API reads a public website's own JSON endpoints or pages, returns structured records (JSON, CSV, Excel), charges only per record returned, and can be called over REST, from Python/Node.js, in n8n/Make/Zapier, or by an AI agent through MCP (`https://mcp.apify.com/?tools=data_daemon/<actor>`, header `Authorization: Bearer <APIFY_TOKEN>`). Prices below are FREE-plan list prices checked on 2026-10-29.
+> Daemon Data publishes pay-per-record data APIs as Actors on Apify Store (https://apify.com/data_daemon). Each API reads a public website's own JSON endpoints or pages, returns structured records (JSON, CSV, Excel), charges only per record returned, and can be called over REST, from Python/Node.js, in n8n/Make/Zapier, or by an AI agent through MCP (`https://mcp.apify.com/?tools=data_daemon/<actor>`, header `Authorization: Bearer <APIFY_TOKEN>`). Prices below are FREE-plan list prices checked on 2026-10-30.
 
 ## Data APIs
 
@@ -49,8 +49,17 @@ Welcome to the Jungle Jobs Scraper is a pay-per-record Apify Actor by Daemon Dat
 
 Daemon Data Welcome to the Jungle Jobs Scraper on Apify   Listing as plain text
 
-Checked on 23 Oct 2026
-A public Python search matched 1,673 jobs on the France-focused board. Source searches expose at most 1,000 accessible hits each; narrow broad queries using country, company, contract or remote filters. Salary numbers are preserved as provided and may use inconsistent units.
+Checked on 30 Oct 2026
+the default run (20 python jobs with descriptions) took 5 seconds on the Apify platform and cost $0.017 including the start fee. All 20 were in France (Lyon, Toulouse, Paris, Lille among the offices), 17 full-time and 3 internships, 12 with partial remote, 18 posted in French and 2 in English; 17 listed skills and 5 disclosed a salary.
+
+Who uses it, for what
+You areWhat you get
+Recruiters and sourcing teamsNew openings by keyword, country, city, contract type and remote mode, with the hiring company's size and sector, so you see which French tech and startup employers are hiring this week.
+Job aggregators and job boardsWTTJ as a source with stable ids (dedupKey), full job text, company profiles, de-duplication across keywords and runs, and an API you can call on a schedule.
+HR-tech and labour-market researchersContract types, remote arrangements, languages, skills and disclosed salaries across the French job market, with posting dates for trend lines.
+B2B sales and lead generationA company opening five engineering roles is buying tooling and services. Each row carries the company name, slug, website, headcount, sector and headquarters when published.
+Candidates and job-alert buildersYour own alert for fully remote Python jobs or data internships in Paris, delivered to a sheet, Slack or email as they appear.
+AI agents (MCP)Ask Claude or ChatGPT "full-time data engineer jobs in France on Welcome to the Jungle, remote allowed" and let it call this Actor through Apify's MCP server.
 
 Output fields
 The most useful top-level fields with values from a real record; the full list is id, sourceId, dedupKey, url, applyUrl, title, slug, company, locations, offices, countryCodes, remoteMode, contractType, language, salary, experienceLevel, educationLevel, profession, sectors, postedAt, updatedAt, startDate, skills, tools, descriptionHtml, description, candidateProfile, recruitmentProcess, query, source, scrapedAt. Per-field notes and the OpenAPI definition are on the Apify API page.
@@ -65,7 +74,7 @@ querystring"python"
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-10-29):
+A verified example input (it returned data on 2026-10-30):
 
 {
   "queries": [
@@ -123,13 +132,21 @@ Welcome to the Jungle Python jobs in France as JSON: Export Python full-time job
 Welcome to the Jungle fully remote Python jobs as JSON: Five public WTTJ jobs matching Python and the source fully remote label, with descriptions, company metadata and office countries. Coverage is the France-focused board, not the separate US/UK matching product. {"queries": ["python"], "remoteModes": ["fulltime"], "maxJobs": 5}
 Webnet Python vacancies on WTTJ: company jobs API: Public Webnet Python jobs on Welcome to the Jungle, with full descriptions and company profile. Replace the company slug to monitor another employer on the France-focused public board. Up to five jobs. {"queries": ["python"], "companySlugs": ["webnet"], "maxJobs": 5}
 
+Questions buyers ask
+Is there an official Welcome to the Jungle API?
+Welcome to the Jungle does not publish a public jobs API for third parties. This Actor reads the public search index and job detail endpoints that the welcometothejungle.com site itself loads and exposes them as a REST API with schedules, webhooks and only-new feeds, so you do not maintain a scraper yourself.
+Is it legal to scrape Welcome to the Jungle?
+The Actor only reads job and company information that the site shows to anyone without an account, and it collects no applicant data or private recruiter contact details. Public job data is generally collected for aggregation, research and recruiting; you remain responsible for complying with Welcome to the Jungle's terms of use and the data-protection law (including the GDPR) that applies to you.
+Can I export Welcome to the Jungle jobs to Excel or Google Sheets?
+Yes. Every run's dataset downloads as CSV, Excel, JSON, XML or HTML, and the task's Integrations tab appends rows to a Google Sheet after each run.
+
 Alternatives, honestly
 OptionWhat it gives youWhere it falls short for this job
 Public WTTJ company job pagesBrowse and apply to public vacanciesManual reading; this Actor adds structured export and delivered-ID memory
 Other WTTJ Actors on Apify StoreStructured data from the same sourceCompare coverage, description inclusion, only-new memory and price
 Build your own API clientControl over public search and detail requestsYou maintain source configuration, filters, pagination and persistent job IDs
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-29; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-30; the listing is the canonical description of the Actor.
 
 
 ---
@@ -177,7 +194,7 @@ mandatorySkillsarray["IT Product Management"]
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-10-29):
+A verified example input (it returned data on 2026-10-30):
 
 {
   "queries": [
@@ -266,7 +283,7 @@ IIMJobs website and recruiter dashboardSearch and email alerts for a logged-in u
 Other IIMJobs Actors on Apify StoreSimilar scraping of the same boardCompare fields (salary, AmbitionBox profile, only-new mode) and price per 1,000
 Build your own scraperFull controlThe board's JSON endpoints change; you maintain pagination, de-duplication and scheduling
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-29; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-30; the listing is the canonical description of the Actor.
 
 
 ---
@@ -314,7 +331,7 @@ mandatorySkillsarray["Python", "Data Structure", "Algorithm", "System Design", "
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-10-29):
+A verified example input (it returned data on 2026-10-30):
 
 {
   "queries": [
@@ -373,6 +390,7 @@ Fresher and entry-level IT jobs in India (0–2 years): Entry-level developer, Q
 DevOps engineer jobs in India, last 3 days (Hirist): DevOps, SRE and cloud-infrastructure engineer roles posted on Hirist.tech in the last 3 days, with company, city, experience band, salary when disclosed, skills and the full job description. {"site": "hirist", "queries": ["devops engineer"], "postedWithinDays": 3, "includeDescription": true, "maxJobsPerQuery": 50}
 Every new Hirist tech job: full-board feed (last 3 days): Every job posted on Hirist.tech in the last 3 days (backend, frontend, data, DevOps, QA, AI/ML, SAP and security roles), with the full job description, skills, salary in LPA when shown, experience range, applicant count  {"site": "hirist", "allJobs": true, "postedWithinDays": 3, "includeDescription": true, "maxJobs": 600}
 Data engineer jobs in India posted this week (Hirist): Data engineer jobs posted on Hirist.tech in the last 7 days: Spark, Databricks, Snowflake, Airflow, Kafka and cloud data-platform roles across Bangalore, Hyderabad, Pune, Gurgaon and remote, with the full job description {"site": "hirist", "queries": ["data engineer"], "postedWithinDays": 7, "includeDescription": true, "maxJobsPerQuery": 100}
+Cyber security jobs in India posted this week (Hirist): Cyber security and information security jobs posted on Hirist.tech in the last 7 days (21 on 30 October 2026): security architecture, application and cloud security, SIEM, incident response, GRC and ISMS roles in Bangalo {"site": "hirist", "queries": ["cyber security", "information security"], "postedWithinDays": 7, "includeDescription": true, "maxJobsPerQuery": 40}
 
 Questions buyers ask
 How much does it cost to scrape Hirist jobs?
@@ -398,7 +416,7 @@ Hirist.tech websiteSearch and alerts for a logged-in userNo bulk export or API
 Other Hirist Actors on Apify StoreSame boardCompare full-description coverage, AmbitionBox fields, only-new mode, price
 Build your own scraperFull controlMaintenance of endpoints, pagination and de-duplication is on you
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-29; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-30; the listing is the canonical description of the Actor.
 
 
 ---
@@ -445,7 +463,7 @@ remotebooleanfalse
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-10-29):
+A verified example input (it returned data on 2026-10-30):
 
 {
   "careerSiteUrls": [
@@ -529,7 +547,7 @@ The employer's own career siteBrowse and applyOne employer at a time, no export
 Multi-ATS job APIs (Workday, Greenhouse, Lever and others)Several ATS platforms in one productUsually higher price per 1,000; check whether Oracle Recruiting Cloud is actually covered
 Open-source ATS crawlersFreeYou host, schedule and maintain them
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-29; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-30; the listing is the canonical description of the Actor.
 
 
 ---
@@ -575,7 +593,7 @@ priceToEarningsnumber159.68
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-10-29):
+A verified example input (it returned data on 2026-10-30):
 
 {
   "reports": [
@@ -644,7 +662,7 @@ Broker APIs (for example Upstox)Official IPO calendar and some subscription figu
 IPO tracking websitesGMP and subscription pages for peopleNo JSON, no stable key across reports, no schedule
 BSE and NSE websitesOfficial bid data while an issue is openNo GMP; bot protection; no history joined to listing results
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-29; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-30; the listing is the canonical description of the Actor.
 
 
 ---
@@ -691,7 +709,7 @@ scorecardarray[{"name": "Performance", "tag": "Low", "colour": "red", "descripti
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-10-29):
+A verified example input (it returned data on 2026-10-30):
 
 {
   "mode": "index",
@@ -759,7 +777,7 @@ Exchange data feeds (NSE, BSE)Official, real timeLicence fees and bot protection
 Tickertape website and ProThe same pages for a personNo bulk export or API
 Python libraries that read exchange sitesFreeBreak when the exchange changes; fundamentals and shareholding history are thin
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-29; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-30; the listing is the canonical description of the Actor.
 
 
 ---
@@ -783,6 +801,7 @@ Complete. A typical week has 3,000–6,000 transactions; the Actor pages through
 Analysis-ready. Numeric AED values and areas, ISO dates, boolean off-plan/freehold flags, pricePerSqmAed precomputed, optional Arabic names.
 Pre-registration vs completed sale. The procedure field separates developer pre-registrations (Sell - Pre registration) from completed sales (Sale, Delayed Sell), and mortgage registrations from modifications.
 Open data, no personal data. Published by the Dubai Land Department for reuse; no owner names or contacts are included.
+What a month looks like (1–29 October 2026, run T6ufNxkMMy6eAuIwE):* 16,108 transactions after dedupe: 11,027 sales (6,420 off-plan, 4,607 ready; AED 31.9 billion), 4,123 mortgages and 958 gifts. Off-plan flats registered at a median AED 19,303 per sqm against AED 15,434 for ready flats, with the gap ranging from +7% in Majan to +87% in Motor City; the ten busiest areas took 42% of unit sales. The full area and bedroom tables, with the cleaning steps and a tested pandas snippet, are in Dubai off-plan vs ready prices per sqm by area, October 2026.
 From an AI assistant:* add the MCP connector https://mcp.apify.com/?tools=data_daemon/dubai-property-transactions in Claude, ChatGPT, Cursor or VS Code and ask for the data in plain words.
 
 Output fields
@@ -806,7 +825,7 @@ parkingstring"B2-7328,B2-7328T"
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-10-29):
+A verified example input (it returned data on 2026-10-30):
 
 {
   "transactionGroup": "sales",
@@ -866,6 +885,8 @@ Can I filter by area or off-plan?
 Off-plan vs ready, sales / mortgages / gifts, freehold, usage and property type are input filters. For areas, filter the output on the area and project names: DLD's area-id parameter returns no rows and areaId is 0 on every row, so that field is hidden under Advanced.
 Does it include price per square metre?
 Yes, pricePerSqmAed is computed from the transaction value and the actual area.
+Is off-plan cheaper than ready property in Dubai?
+Per square metre, no. In the 8,639 residential unit sales registered 1–29 October 2026 the median off-plan flat cost AED 19,303 per sqm, 25% above the ready median of AED 15,434; off-plan units are smaller (68 vs 81 sqm), so the median ticket was almost the same (AED 1.18m vs 1.20m). Area-by-area and bedroom tables: Dubai off-plan vs ready prices per sqm by area, October 2026.
 Can I run it every day without editing dates?
 Yes. Leave fromDate empty and set daysBack to 1; the window moves with the run date.
 
@@ -875,7 +896,7 @@ Dubai Pulse open-data portalOfficial downloads by handManual extracts, cleaning 
 DXB Interact dashboardOfficial charts and lookupsNot a data feed
 Paid DLD data productsCleaned data with supportSubscriptions; the register itself is open data
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-29; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-30; the listing is the canonical description of the Actor.
 
 
 ---
@@ -922,7 +943,7 @@ caseNumberstring"CR-2026-007272"
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-10-29):
+A verified example input (it returned data on 2026-10-30):
 
 {
   "noticeTypes": [
@@ -995,7 +1016,7 @@ The Gazette website and its paid data serviceOfficial notices; a subscription da
 Companies House APIOfficial company status, freeChanges appear weeks after the petition is advertised
 Other Gazette Actors on Apify StoreSame noticesCompare linked-data fields (company number, addresses) and only-new mode
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-29; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-30; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1043,7 +1064,7 @@ salaryMaxLpanullnull
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-10-29):
+A verified example input (it returned data on 2026-10-30):
 
 {
   "queries": [
@@ -1104,10 +1125,14 @@ foundit.in jobs posted today in Mumbai: export to JSON or CSV: Sales, accounting
 Every new foundit job today: full-board feed (sample of 200): A board-wide feed of jobs posted on foundit (formerly Monster India) in the last day, newest first, capped at 200 for this sample. foundit posts about 2,800 jobs a day; remove the cap and turn on only-new mode for a dail {"allJobs": true, "postedWithinDays": 1, "includeDescription": true, "maxJobs": 200}
 
 Questions buyers ask
+Is there an official foundit API?
+No public one. This Actor reads the JSON that the foundit.in website itself loads and exposes it as a REST API with schedules, webhooks and only-new-jobs runs. Compared with an in-house scraper you get no maintenance, no proxies and pay-per-job pricing.
 How much does it cost to scrape foundit?
 $0.0008 per job with its full description plus $0.001 per run, so 100 jobs cost about $0.08 and a 50-jobs-a-day feed about $1.25 a month.
-Is there an official foundit API?
-No public one. This Actor reads the JSON that the foundit.in website itself loads and exposes it as a REST API with schedules, webhooks and only-new-jobs runs.
+Is it legal to scrape foundit?
+The Actor only reads listings that foundit shows to anyone without a login, and it leaves out the recruiter names and phone numbers the API carries. Public job data is generally collected for aggregation, research and recruiting; you remain responsible for complying with foundit's terms of use and the data-protection law that applies to you, especially if you store company data about people.
+Can I export foundit jobs to Excel or Google Sheets?
+Yes. Every run's dataset downloads as CSV, Excel, JSON, XML or HTML, and the task's Integrations tab appends rows to a Google Sheet after each run.
 Does it return the full job description?
 Yes, as HTML and plain text, plus skills, industries, functions, applicant and view counts, salary band when disclosed, the company profile and the direct apply URL.
 Why are so many salaries and experience ranges null?
@@ -1116,10 +1141,6 @@ Is foundit the same as Monster India?
 Yes. Monster India was renamed foundit in 2022; the site is foundit.in and the data is the same board.
 Does it cover foundit Gulf, Singapore, Malaysia or Indonesia?
 Not yet; this Actor covers foundit.in (India, including remote and the occasional overseas posting listed there). Open an issue if you need another region.
-Why does a city return remote jobs only?
-foundit answers an unknown city name with its remote jobs. The Actor drops those rows, charges nothing and tells you in the status message; use the spelling foundit uses (Bangalore, Delhi, Mumbai, Hyderabad, Chennai, Pune, Kolkata, Ahmedabad, Remote).
-Do I need a proxy or login?
-No.
 
 Alternatives, honestly
 OptionWhat it gives youWhere it falls short for this job
@@ -1127,7 +1148,7 @@ foundit.in websiteSearch for a visitorNo export; syndicated apply links are one 
 Naukri, LinkedIn or Indeed ActorsLarger boardsDifferent coverage; this API reads foundit only
 Other foundit Actors on Apify StoreSame boardCompare salary-band handling, apply-URL resolution and price per 1,000
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-29; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-30; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1143,7 +1164,7 @@ Instahyre Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that retur
 Daemon Data Instahyre Jobs Scraper on Apify   Listing as plain text
 
 Checked on 21 Oct 2026
-python matched 4,300 open Instahyre jobs (2,600 in Bangalore), react 1,600, data science 8,000 (title and skill-tag matching is broad), devops work-from-home 134. A 50-job run with descriptions takes well under a minute on the Apify platform and costs $0.04 plus the $0.001 start fee.
+python matched 4,300 open Instahyre jobs (2,600 in Bangalore), react 1,600, data science 8,000 (title and skill-tag matching is broad), devops work-from-home 134. The default run (50 python jobs with descriptions) took 22 seconds on the Apify platform on 30 Oct 2026 and cost $0.04 plus the $0.001 start fee; 30 of the 50 were in Bangalore and 22 came from companies under 100 people.
 
 Who uses it, for what
 You areWhat you get
@@ -1175,7 +1196,7 @@ postedAtstring"2026-10-09T00:00:00.000Z"
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-10-29):
+A verified example input (it returned data on 2026-10-30):
 
 {
   "queries": [
@@ -1239,20 +1260,22 @@ Data analyst jobs in India (Instahyre): Data analyst and business analyst roles 
 Cyber security jobs in India (Instahyre): Cyber security, information security, SOC and cloud security roles open on Instahyre at Indian startups and product companies, with the full job description, posting date, experience range, skills, company size and websi {"queries": ["cyber security", "information security", "security engineer"], "includeDescription": true, "maxJobsPerQuery": 40}
 
 Questions buyers ask
+Is there an official Instahyre API?
+No public one. This Actor reads the JSON that the Instahyre website itself loads for its job search, plus the public job pages, and exposes them as a REST API with schedules, webhooks and only-new-jobs runs. Compared with an in-house scraper you get no maintenance, no proxies and pay-per-job pricing.
 How much does it cost to scrape Instahyre?
 $0.0008 per job with its full description plus $0.001 per run, so 100 jobs cost about $0.08 and a 50-jobs-a-day feed about $1.25 a month.
-Is there an official Instahyre API?
-No public one. This Actor reads the JSON that the Instahyre website itself loads for its job search, plus the public job pages, and exposes them as a REST API with schedules, webhooks and only-new-jobs runs.
+Is it legal to scrape Instahyre?
+The Actor only reads job pages and search results that Instahyre shows without a login, and it does not output recruiter names or look up e-mail addresses. Public job data is generally collected for aggregation, research and recruiting; you remain responsible for complying with Instahyre's terms of use and the data-protection law that applies to you.
+Does it include recruiter emails, salaries or applicant counts?
+No. Instahyre does not publish salary ranges or applicant counts on public job pages, and this Actor only reads public data and deliberately leaves out recruiter contact details.
+Can I export Instahyre jobs to Excel or Google Sheets?
+Yes. Every run's dataset downloads as CSV, Excel, JSON, XML or HTML, and the task's Integrations tab appends rows to a Google Sheet after each run.
 Does it return the full job description?
 Yes, as HTML and plain text, plus the experience range, posting date, job functions, skills and the company profile with headcount, founding year and website.
 Why is the posting date old on many jobs?
-Instahyre keeps a job open until the employer closes it, so a feed without postedWithinDays includes jobs posted months ago. Use postedWithinDays for recent postings, or only-new mode, which after the first run delivers only jobs that are new on the site.
-Does it include salaries or applicant counts?
-No. Instahyre does not publish salary ranges or applicant counts on public job pages, and this Actor only reads public data.
+Instahyre keeps a job open until the employer closes it, so a feed without postedWithinDays includes jobs posted months ago (the 30 Oct 2026 default run returned posting dates from March 2022 to the same day). Use postedWithinDays for recent postings, or only-new mode, which after the first run delivers only jobs that are new on the site.
 Why does a city return nothing?
 The site only accepts the location names it lists; the Actor maps the common alternative spellings and names any location it had to ignore in the status message. Use Bangalore, Delhi, Gurgaon, Noida, Mumbai, Hyderabad, Chennai, Pune, Kolkata, Ahmedabad or Work From Home.
-Do I need a proxy or login?
-No.
 
 Alternatives, honestly
 OptionWhat it gives youWhere it falls short for this job
@@ -1260,7 +1283,7 @@ Instahyre websiteCandidate and employer accountsNo export or API; salary and app
 Hirist or IIMJobs APIs (same publisher)Applicant counts and salary bandsDifferent boards; Instahyre is the one with company headcount and size filters
 Other Instahyre Actors on Apify StoreSame boardCompare price per 1,000, company-profile fields and only-new mode
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-29; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-30; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1308,7 +1331,7 @@ countrystring"United States"
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-10-29):
+A verified example input (it returned data on 2026-10-30):
 
 {
   "cities": [
@@ -1390,7 +1413,7 @@ Luma website and iCal feedsBrowse; subscribe to one calendarNo cross-city export
 Eventbrite or Meetup ActorsOther event platformsDifferent events; this API reads Luma only
 Other Luma Actors on Apify StoreSame sourceCompare detail fields (hosts, tickets, GPS) and price per 1,000
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-29; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-30; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1438,7 +1461,7 @@ locationTextstring"Bengaluru/Bangalore"
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-10-29):
+A verified example input (it returned data on 2026-10-30):
 
 {
   "cities": [
@@ -1507,7 +1530,7 @@ Apna website and appSearch and apply as a candidateNo export or API; one job at 
 Other Apna Actors on Apify StoreSame boardCompare full-board coverage, salary and locality fields, only-new mode and price per 1,000
 Build your own scraperFull controlYou handle the 500-result keyword cap, deep-page repeats, city ids and de-duplication
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-29; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-30; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1522,14 +1545,14 @@ Shine Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns S
 
 Daemon Data Shine Jobs Scraper on Apify   Listing as plain text
 
-Checked on 26 Oct 2026
-data analyst in Bangalore and Pune with 2 years of experience, posted in the last 3 days, gave 20 jobs from the first few pages (98 others were older, elsewhere or for another experience band, and were not charged). 50 python jobs with descriptions take about a minute.
+Checked on 30 Oct 2026
+the default run (50 newest python jobs with descriptions) took 23 seconds on the Apify platform and cost $0.04 plus the $0.001 start fee. All 50 had a description, 19 showed a salary range, every posting was 1-3 days old, and the cities were Pune 18, Bangalore 17, Hyderabad 16, Chennai 7. On 26 Oct 2026, data analyst in Bangalore and Pune with 2 years of experience, posted in the last 3 days, gave 20 jobs from the first few pages (98 others were older, elsewhere or for another experience band, and were not charged).
 
 Who uses it, for what
 You areWhat you get
 Job aggregators and job-alert appsShine as a source with stable ids, salary, experience band, full description and de-duplication across keywords and runs. Same conventions as the IIMJobs, Hirist, Foundit, Instahyre and Apna Actors by the same publisher.
 Recruiters and staffing agenciesWho is hiring accountants in Mumbai or Java developers in Pune this week, at what salary and experience.
-Salary and labour-market analystsSalary ranges by role, city, experience and industry, with dates for trend lines.
+Salary and labour-market analystsSalary ranges by role, city, experience and industry, with dates for trend lines; many Shine employers state a range (19 of 50 on the 30 Oct 2026 default run).
 B2B sales and lead generationCompanies with many open roles in a function are buying tools and services for it.
 AI agents (MCP)Ask Claude or ChatGPT "data analyst jobs in Pune posted this week with salary" and let it call this Actor through Apify's MCP server.
 
@@ -1554,7 +1577,7 @@ skillsarray["accounts payable", "accounts receivable", "accountants"]
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-10-29):
+A verified example input (it returned data on 2026-10-30):
 
 {
   "searchTerms": [
@@ -1604,7 +1627,15 @@ Data analyst jobs for freshers, posted this week (Shine): Data analyst jobs on S
 
 Questions buyers ask
 Is there an official Shine API?
-Not a public one. This Actor reads Shine's public search and job pages, which robots.txt allows, and exposes them as a REST API with schedules, webhooks and only-new runs.
+Not a public one. This Actor reads Shine's public search and job pages, which robots.txt allows, and exposes them as a REST API with schedules, webhooks and only-new runs. Compared with an in-house scraper you get no maintenance, no proxies and pay-per-job pricing.
+How much does it cost to scrape Shine.com?
+$0.0008 per job with its description plus $0.001 per run, so 100 jobs cost about $0.08 and a 40-jobs-a-day feed about $1 a month.
+Is it legal to scrape Shine.com?
+The Actor only reads listings that Shine shows to anyone without a login, on pages its robots.txt allows, and it does not extract recruiter names, phone numbers or e-mail fields. Public job data is generally collected for aggregation, research and recruiting; you remain responsible for complying with Shine's terms of use and the data-protection law that applies to you.
+Can I export Shine jobs to Excel or Google Sheets?
+Yes. Every run's dataset downloads as CSV, Excel, JSON, XML or HTML, and the task's Integrations tab appends rows to a Google Sheet after each run.
+Does it include recruiter contact details?
+No. Some Shine scrapers sell recruiter e-mails and phone numbers; this Actor deliberately leaves personal contact fields out and returns the job, employer, salary and description data only.
 Why do some jobs have no salary numbers?
 The employer chose "Not Disclosed". salaryText then says so.
 Do I need a proxy?
@@ -1616,7 +1647,7 @@ Shine.com websiteSearch and alerts for a logged-in userNo bulk export or API
 Other Shine Actors on Apify StoreSame boardCompare description and salary-range coverage, only-new mode and price per 1,000
 Build your own scraperFull controlYou parse the app's page data, follow job pages and maintain de-duplication
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-29; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-30; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1631,8 +1662,8 @@ Unstop Scraper is a pay-per-record Apify Actor by Daemon Data that returns Unsto
 
 Daemon Data Unstop Scraper on Apify   Listing as plain text
 
-Checked on 26 Oct 2026
-137 jobs were posted in the last 3 days, 47 of them in Bangalore or remote. 60 open jobs and 309 internships are work from home, and 146 internships are unpaid. 89 hackathons are offline (in person). Results come newest first.
+Checked on 30 Oct 2026
+the default run (50 newest jobs + 50 newest internships with descriptions) took 7 seconds on the Apify platform and cost $0.15 plus the $0.001 start fee. 81 of the 100 were paid, 42 showed a salary or stipend figure, 26 were work from home and 49 were open to freshers; every listing had been posted the day before. On 26 Oct 2026, 137 jobs had been posted in the last 3 days, 47 of them in Bangalore or remote; 60 open jobs and 309 internships were work from home, 146 internships were unpaid, and 89 hackathons were offline (in person). Results come newest first.
 
 Who uses it, for what
 You areWhat you get
@@ -1664,7 +1695,7 @@ salaryMaxnumber40000
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-10-29):
+A verified example input (it returned data on 2026-10-30):
 
 {
   "opportunityTypes": [
@@ -1688,7 +1719,7 @@ AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daem
 
 All input fields
 FieldTypeMeaning
-opportunityTypesarrayUnstop listing types. Each type is one search; a listing is saved and charged once. On 26 Oct 2026 Unstop had about 710 open jobs, 570 internships, 670 competitions, 210 hackathons, 110 workshops, 75 quizzes and 5 scholarships.
+opportunityTypesarrayUnstop listing types. Each type is one search; a listing is saved and charged once. On 30 Oct 2026 Unstop had about 880 open jobs, 590 internships, 400 competitions, 190 hackathons, 100 workshops, 80 quizzes and 6 scholarships.
 searchTermsarrayOptional. Unstop matches them against listing titles and organisation names, e.g. data analyst, marketing, software engineer, Reliance. Each keyword runs once per type. Leave empty to get every open listing of the chosen types.
 workplaceTypesarrayOnly jobs and internships with these workplace types. Empty = any.
 timingstringOnly full-time or only part-time jobs and internships.
@@ -1716,18 +1747,25 @@ Ready-made example pages
 Saved inputs you can run with one click on Apify (Examples tab); each has its own page:
 Open hackathons in India on Unstop (live list): Hackathons currently open for registration on Unstop: title, organiser, prize pool, registration deadline, team size, eligibility (students, freshers, professionals), online or offline, city, entry fee and the full descr {"opportunityTypes": ["hackathons"], "includeDescription": true, "maxResultsPerSearch": 100}
 Paid work-from-home internships on Unstop: Paid internships that can be done from home, listed on Unstop: role, company, stipend, skills, eligibility, start and end dates, application deadline and the full description. Newest first. Useful for students, placement {"opportunityTypes": ["internships"], "workplaceTypes": ["wfh"], "pay": "paid", "includeDescription": true, "maxResultsPerSearch": 100}
+Open competitions and case challenges on Unstop (live list): Competitions open for registration on Unstop, newest first: case competitions, innovation challenges, ideathons and contests from IITs, IIMs and other colleges, with organiser, registration deadline, team size, eligibili {"opportunityTypes": ["competitions"], "includeDescription": true, "maxResultsPerSearch": 100}
 
 Questions buyers ask
 Is there an official Unstop API?
-Unstop does not offer a documented public API. This Actor reads the public JSON endpoints (/api/public/opportunity/...) that the unstop.com website loads, which robots.txt allows. It exposes them as a REST API with schedules, webhooks and only-new runs.
+Unstop does not offer a documented public API. This Actor reads the public JSON endpoints (/api/public/opportunity/...) that the unstop.com website loads, which robots.txt allows. It exposes them as a REST API with schedules, webhooks and only-new runs, so you do not maintain a scraper or proxies yourself.
+How much does it cost to scrape Unstop?
+$0.0015 per listing with its description plus $0.001 per run, so 100 listings cost about $0.15, every open hackathon and competition about $0.90, and a weekly only-new hackathon digest about $0.33 a month.
+Is it legal to scrape Unstop?
+The Actor only reads listings that Unstop shows to anyone without a login, through endpoints its robots.txt allows, and it collects no data about candidates or participants. Public listing data is generally collected for aggregation, research and recruiting; you remain responsible for complying with Unstop's terms of use and the law that applies to you.
+Can I get a list of all open hackathons on Unstop?
+Yes: opportunityTypes: ["hackathons"] with maxResultsPerSearch: 0 returns every hackathon open for registration (193 on 30 Oct 2026), with organiser, mode, team size, prizes and deadline. Add competitions for case-study challenges and other contests. The open hackathons example runs it with one click.
+Can I export Unstop listings to Excel or Google Sheets?
+Yes. Every run's dataset downloads as CSV, Excel, JSON, XML or HTML, and the task's Integrations tab appends rows to a Google Sheet after each run.
 Does it return closed listings?
 No. It returns listings that are open for registration, which is what Unstop shows by default.
 Does it include participants or applicant details?
 No. It returns listing data only: the organiser, the role or event, deadlines and counts. No personal data about candidates or participants is collected.
 Why does a salary show as empty?
-The organiser chose not to disclose it. About 80% of jobs and internships show a salary or stipend.
-Do I need a proxy or login?
-No.
+The organiser chose not to show a figure. On the 30 Oct 2026 default run 81 of 100 jobs and internships were paid and 42 showed a salary or stipend amount; paid tells you which unpaid ones to skip.
 
 Alternatives, honestly
 OptionWhat it gives youWhere it falls short for this job
@@ -1735,7 +1773,7 @@ Unstop website and appBrowse and register as a student or professionalNo export;
 Other Unstop Actors on Apify StoreSame sourceCompare listing types covered (jobs, internships, hackathons, competitions), prize and eligibility fields and price per 1,000
 Build your own clientFull controlYou map filters, paging and the listing types yourself
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-29; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-30; the listing is the canonical description of the Actor.
 
 
 ---
