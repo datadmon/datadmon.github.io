@@ -18,6 +18,7 @@
 - [Apna jobs](https://datadmon.github.io/actors/apna-jobs-scraper/): Apna (apna.co) India jobs with salary, locality, department, work mode and full descriptions; full-board export. $0.80 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/apna-jobs-scraper (plain text: https://apify.com/data_daemon/apna-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/apna-jobs-scraper
 - [Shine jobs](https://datadmon.github.io/actors/shine-jobs-scraper/): Shine.com India jobs by keyword and city with full descriptions, salary range, experience, skills and industry. $0.80 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/shine-jobs-scraper (plain text: https://apify.com/data_daemon/shine-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/shine-jobs-scraper
 - [Unstop jobs, internships and hackathons](https://datadmon.github.io/actors/unstop-scraper/): Unstop jobs, internships, hackathons and competitions with salary or stipend, prizes, deadlines and eligibility. $1.50 per 1,000 opportunitys. Apify listing: https://apify.com/data_daemon/unstop-scraper (plain text: https://apify.com/data_daemon/unstop-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/unstop-scraper
+- [Gupy jobs (Brazil)](https://datadmon.github.io/actors/gupy-jobs-scraper/): Brazil jobs from the Gupy portal with full descriptions, city, state, workplace type and contract type. $0.80 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/gupy-jobs-scraper (plain text: https://apify.com/data_daemon/gupy-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/gupy-jobs-scraper
 
 ## Guides
 
@@ -1772,6 +1773,130 @@ OptionWhat it gives youWhere it falls short for this job
 Unstop website and appBrowse and register as a student or professionalNo export; one listing at a time
 Other Unstop Actors on Apify StoreSame sourceCompare listing types covered (jobs, internships, hackathons, competitions), prize and eligibility fields and price per 1,000
 Build your own clientFull controlYou map filters, paging and the listing types yourself
+
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-30; the listing is the canonical description of the Actor.
+
+
+---
+
+# Gupy Brazil jobs as JSON API | Daemon Data
+
+Source: https://datadmon.github.io/actors/gupy-jobs-scraper/
+
+Gupy Brazil jobs as JSON API
+
+Gupy Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns Brazil jobs from the Gupy portal with full descriptions, city, state, workplace type and contract type as JSON, CSV or Excel. It costs $0.0008 per job with the default options ($0.80 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+
+Daemon Data Gupy Jobs Scraper on Apify   Listing as plain text
+
+Checked on 30 Oct 2026
+the default run (the 50 newest jobs with descriptions) took 3.5 seconds on the Apify platform and cost $0.04 plus the $0.001 start fee. Of the 240 newest jobs that day, 96% were on-site, 3% hybrid and 1% remote (2% remote over the 3,130 jobs read by the remote-jobs example the same day); 87% were regular CLT jobs, 3% internships, 3% apprenticeships and 3% temporary; 30% were marked open to people with disabilities (PcD); every job had a description and 99% had a city and state. Results come newest first.
+
+Who uses it, for what
+You areWhat you get
+Job aggregators and job boardsEvery new posting on Brazil's largest ATS portal as a daily feed (about 2,700 a day), with stable ids, full description text, location, workplace and vacancy type, de-duplicated across keywords and runs. Same conventions as the Welcome to the Jungle, Foundit, Apna and Shine Actors by the same publisher.
+Recruiters and staffing agenciesWho is hiring for which roles, where and on which terms (CLT, PJ, estágio), refreshed daily, with the application deadline.
+HR-tech and career-platform buildersA clean, structured job feed to show in your app, match against candidate profiles or power job alerts.
+Labour-market analysts and employer-branding teamsPostings per company, state, city and workplace type; the share of remote and hybrid roles; PcD-inclusive vacancies.
+Job-alert services and communitiesA daily list of new postings for a keyword and a state, delivered to Google Sheets, Slack, Telegram or a webhook.
+AI agents (MCP)Ask Claude or ChatGPT "remote data analyst jobs on Gupy posted this week in São Paulo" and let it call this Actor through Apify's MCP server.
+
+Output fields
+The most useful top-level fields with values from a real record; the full list is id, title, url, company, companyUrl, companyLogo, careerPage, jobType, jobTypeRaw, workplaceType, isRemote, city, state, locationText, acceptsPwd, postedAt, applicationDeadline, description, searchTerm, scrapedAt. Per-field notes and the OpenAPI definition are on the Apify API page.
+FieldTypeExample
+idnumber12774503
+titlestring"22463-Arquiteto Devops"
+urlstring"https://globalhitss.gupy.io/job/eyJqb2JJZCI6MTI3NzQ1MDMsInNvdXJjZS...
+companystring"Hitss Brasil"
+companyUrlstring"https://globalhitss.gupy.io/"
+companyLogostring"https://attachments.gupy.io/production/companies/57061/career/1425...
+careerPagestring"globalhitss"
+jobTypestring"effective"
+jobTypeRawstring"vacancy_type_effective"
+workplaceTypestring"remote"
+isRemotebooleantrue
+citynullnull
+statenullnull
+locationTextstring"Remote"
+acceptsPwdbooleantrue
+
+Input and how to call it
+
+A verified example input (it returned data on 2026-10-30):
+
+{
+  "searchTerms": [
+    "analista de dados"
+  ],
+  "cities": [
+    "São Paulo"
+  ],
+  "postedWithinDays": 7,
+  "includeDescription": true,
+  "maxResultsPerSearch": 50
+}
+
+One HTTP call starts a run, waits for it and returns the records (token from console.apify.com):
+
+curl -X POST "https://api.apify.com/v2/acts/data_daemon~gupy-jobs-scraper/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"searchTerms": ["analista de dados"], "cities": ["São Paulo"], "postedWithinDays": 7, "includeDescription": true, "maxResultsPerSearch": 50}'
+
+Python: ApifyClient(token).actor("data_daemon/gupy-jobs-scraper").call(run_input=...), full file python/gupy-jobs-scraper.py. Node.js: node/gupy-jobs-scraper.mjs. n8n: importable workflow.
+AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daemon/gupy-jobs-scraper with header Authorization: Bearer YOUR_APIFY_TOKEN in Claude, ChatGPT, Cursor or VS Code and ask for the data in plain words.
+
+All input fields
+FieldTypeMeaning
+searchTermsarrayOptional. Gupy matches them against job titles and descriptions, e.g. analista de dados, python, vendedor, enfermeiro. Each keyword is one search. Leave empty to get every job on the portal, newest first (about 2,700 new jobs a day in late October 2026).
+statesarrayBrazilian states as Gupy spells them, e.g. São Paulo, Minas Gerais, Rio de Janeiro, Paraná. Each state is one search (combined with every keyword). Applied by Gupy before anything is downloaded.
+citiesarrayCity names, e.g. São Paulo, Curitiba, Belo Horizonte. Each city is one search (combined with every keyword). Applied by Gupy before anything is downloaded.
+workplaceTypesarrayOnly jobs with these workplace types (checked on each job; on 30 Oct 2026 about 96% of the newest jobs were on-site). Empty = any.
+jobTypesarrayOnly these Gupy vacancy types (checked on each job). Empty = any. effective is a regular (CLT) job; legal_entity is a PJ contract.
+pwdOnlybooleanOnly jobs the employer marked as open to people with disabilities (acceptsPwd).
+postedWithinDaysintegerOnly jobs published on Gupy in the last N days (e.g. 1 for a daily feed, 7 for weekly). Jobs come newest first, so the search stops at the first page of older jobs. 0 or empty = any date.
+locationsarrayOnly jobs whose city or state contains one of these words (accent-insensitive), e.g. Campinas, Paraná. remote matches remote jobs. Unlike states and cities, this is checked after download; use it to combine a keyword search with several places in one run.
+includeDescriptionbooleanFull job description as plain text (description). It costs the same either way; turn it off for smaller files.
+maxResultsPerSearchintegerCap for each keyword × place search. Newest jobs come first. 0 = no cap (the portal lists its newest 10,000 jobs, about six days of postings on 30 Oct 2026).
+maxResultsintegerStop after this many saved jobs. 0 or empty = no total cap (the run's maximum cost still applies).
+onlyNewSinceLastRunbooleanFor schedules: remember delivered job ids (in a named key-value store in your account) and save only jobs that earlier runs with the same settings did not deliver. Skipped jobs are not charged.
+stateNamestringName of the only-new memory. Empty = derived from the keywords, places and filters. Give two schedules the same name to share one memory.
+skipIdsarrayGupy job ids you already have (the id field). They are neither saved nor charged.
+
+Price
+$0.0008 per job ($0.80 per 1,000); $0.001 per run. List prices for Apify Free and Starter plans; Scale and Business plans pay 15% to 30% less.
+EventPricePer 1,000Charged when
+Job$0.0008$0.80One Gupy job saved to the dataset: id, URL, title, company and career site, city, state, workplace type (remote/hybrid/on-site), job type (CLT, internship, apprentice, temporary, PJ, ...), PcD flag, published date, application deadline and the full description. Skipped or filtered jobs are never charged.
+Actor Start$0.001Charged when the Actor starts running. Number of events charged depends on Actor memory (one event per GB, minimum one event).
+Worked example: the input above, capped at 50 jobs, costs at most $0.041. Apify's free plan includes $5 of usage a month, about 6,250 jobs; the Actor's own compute is included in the per-record price, and records skipped by filters, de-duplication or only-new mode are not charged.
+
+Ready-made example pages
+Saved inputs you can run with one click on Apify (Examples tab); each has its own page:
+Remote jobs in Brazil on Gupy (home office, last 7 days): The newest remote (home office) jobs published on the Gupy portal in the last 7 days: title, company, job type (CLT, PJ, estágio), PcD flag, deadline and the full description. Remote roles are about 2% of Gupy postings ( {"workplaceTypes": ["remote"], "postedWithinDays": 7, "maxResultsPerSearch": 60, "maxResults": 60}
+Analista de dados jobs in São Paulo on Gupy (last 7 days): Data analyst (analista de dados) jobs in the state of São Paulo published on the Gupy portal in the last 7 days, newest first: company, city, on-site/hybrid/remote, job type, deadline and the full description. Change the {"searchTerms": ["analista de dados"], "states": ["São Paulo"], "postedWithinDays": 7, "maxResultsPerSearch": 100}
+
+Questions buyers ask
+Is there an official Gupy jobs API?
+Gupy offers no public job-search API. This Actor reads the JSON page data that portal.gupy.io's own search page loads (robots.txt allows the whole portal), and exposes it as a REST API with schedules, webhooks and only-new runs, so you do not maintain a scraper or proxies yourself.
+How much does it cost to scrape Gupy?
+$0.0008 per job with its description plus $0.001 per run, so 50 jobs cost about $0.04, every job posted on the portal in a day about $2.20, and a weekly keyword × state feed a few cents a month.
+Is it legal to scrape Gupy?
+The Actor only reads job postings that Gupy shows to anyone without a login, through pages its robots.txt allows, and it collects no data about candidates or recruiters. Public job-posting data is generally collected for aggregation, research and recruiting; you remain responsible for complying with Gupy's terms of use and the law that applies to you (including the LGPD, which this Actor's output, company job postings, does not concern).
+Can I get every job posted on Gupy today?
+Yes: leave the keywords empty, set postedWithinDays: 1 and maxResultsPerSearch: 0. That was about 2,700 jobs (about $2.20) on 29 Oct 2026. Switch on only-new mode so a daily schedule delivers each job once.
+Does it return the salary?
+No. The Gupy portal does not show salaries; the description sometimes mentions one.
+Can I filter by remote jobs or by internships?
+Yes, with workplaceTypes: ["remote"] and jobTypes: ["internship"]. Both are checked on each job after download (the portal's search cannot filter them), so combine them with a keyword or a state to keep the run short. About 1–2% of new postings were remote and 3% internships on 30 Oct 2026.
+Can I export Gupy jobs to Excel or Google Sheets?
+Yes. Every run's dataset downloads as CSV, Excel, JSON, XML or HTML, and the task's Integrations tab appends rows to a Google Sheet after each run.
+Does it include candidate or recruiter details?
+No. It returns job postings only: the employer, the role, where and on which terms, the deadline and the description.
+
+Alternatives, honestly
+OptionWhat it gives youWhere it falls short for this job
+Gupy job portal (portal.gupy.io)Search and apply as a candidateNo export; one job page at a time
+Other Gupy Actors on Apify StoreSame sourceCompare description coverage, only-new memory and price per 1,000
+Build your own scraperFull controlThe portal's build ID changes; you maintain pagination, de-duplication and scheduling
 
 Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-30; the listing is the canonical description of the Actor.
 
