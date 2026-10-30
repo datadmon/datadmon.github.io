@@ -393,6 +393,8 @@ DevOps engineer jobs in India, last 3 days (Hirist): DevOps, SRE and cloud-infra
 Every new Hirist tech job: full-board feed (last 3 days): Every job posted on Hirist.tech in the last 3 days (backend, frontend, data, DevOps, QA, AI/ML, SAP and security roles), with the full job description, skills, salary in LPA when shown, experience range, applicant count  {"site": "hirist", "allJobs": true, "postedWithinDays": 3, "includeDescription": true, "maxJobs": 600}
 Data engineer jobs in India posted this week (Hirist): Data engineer jobs posted on Hirist.tech in the last 7 days: Spark, Databricks, Snowflake, Airflow, Kafka and cloud data-platform roles across Bangalore, Hyderabad, Pune, Gurgaon and remote, with the full job description {"site": "hirist", "queries": ["data engineer"], "postedWithinDays": 7, "includeDescription": true, "maxJobsPerQuery": 100}
 Cyber security jobs in India posted this week (Hirist): Cyber security and information security jobs posted on Hirist.tech in the last 7 days (21 on 30 October 2026): security architecture, application and cloud security, SIEM, incident response, GRC and ISMS roles in Bangalo {"site": "hirist", "queries": ["cyber security", "information security"], "postedWithinDays": 7, "includeDescription": true, "maxJobsPerQuery": 40}
+SAP jobs in India posted this week (Hirist): SAP jobs posted on Hirist.tech in the last 7 days (109 on 30 October 2026): ABAP, S/4HANA, MM, EWM, BTP, CPI, FICO, SuccessFactors and Ariba consultant and developer roles, mostly in Bangalore, Hyderabad and Pune, 17 rem {"site": "hirist", "queries": ["sap"], "postedWithinDays": 7, "includeDescription": true, "maxJobsPerQuery": 150}
+AI, machine learning and GenAI engineer jobs in India this week: Machine learning, generative AI and LLM engineer jobs posted on Hirist.tech in the last 7 days (103 on 30 October 2026, three searches merged): ML engineers, data scientists, GenAI and agentic AI engineers in Bangalore,  {"site": "hirist", "queries": ["machine learning", "generative ai", "llm"], "postedWithinDays": 7, "includeDescription": true, "maxJobsPerQuery": 60}
 
 Questions buyers ask
 How much does it cost to scrape Hirist jobs?
@@ -1916,7 +1918,7 @@ Daemon Data India New Company Registrations on Apify   Listing as plain text
 
 Why teams use it
 Daily feed shape. The register lists incorporations by date. Read the newest date (recentDates: 1) or the last three with only-new mode, and nothing is charged twice.
-Filter before paying. Company type, state (both from the CIN) and name keywords are checked before any company page is opened; activity keywords, RoC names and LLP states are checked on the page. Rows outside your filters are never charged.
+Filter before paying. Company type, state (both from the CIN) and name keywords are checked before any company page is opened; activity keywords and RoC names are checked on the page. Rows outside your filters are never charged.
 Business facts only. The row is the company: CIN, type, RoC, state, activity, capital, registered office. No personal data of directors.
 Cheaper than the alternatives. Store actors for MCA data charge $3-10 per 1,000 and most focus on director lookups; this feed is $3 per 1,000 at the FREE tier and less on paid plans.
 
@@ -1990,7 +1992,7 @@ Worked example: the input above, capped at 50 companys, costs at most $0.151. Ap
 
 Ready-made example pages
 Saved inputs you can run with one click on Apify (Examples tab); each has its own page:
-New companies registered in India on the latest day (MCA feed): Every company incorporated on the newest day the MCA register lists (500-1,000 a day): name, CIN, type (Pvt Ltd, OPC, Section 8, LLP), RoC, state, NIC activity, authorised and paid-up capital, registered office with PIN. {"recentDates": 1, "includeDetails": true, "maxResults": 200}
+New companies registered in India on the latest day (MCA feed): Every company incorporated on the newest day the MCA register lists (500-1,000 a day): name, CIN, type (Pvt Ltd, OPC, Section 8, foreign subsidiary), RoC, state, NIC activity, authorised and paid-up capital, registered o {"recentDates": 1, "includeDetails": true, "maxResults": 200}
 New Section 8 (non-profit) companies in India (newest 100): The newest 100 Section 8 non-profit companies incorporated in India, read from the five most recent register days (about 7% of incorporations are Section 8, so two days usually fill the cap): name, CIN, state, RoC, activ {"recentDates": 5, "companyTypes": ["section8"], "includeDetails": true, "maxResults": 100}
 
 Alternatives, honestly
