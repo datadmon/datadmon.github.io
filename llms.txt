@@ -1,6 +1,6 @@
 # Daemon Data
 
-> Daemon Data publishes pay-per-record data APIs as Actors on Apify Store (https://apify.com/data_daemon). Each API reads a public website's own JSON endpoints or pages, returns structured records (JSON, CSV, Excel), charges only per record returned, and can be called over REST, from Python/Node.js, in n8n/Make/Zapier, or by an AI agent through MCP (`https://mcp.apify.com/?tools=data_daemon/<actor>`, header `Authorization: Bearer <APIFY_TOKEN>`). Prices below are FREE-plan list prices checked on 2026-10-30.
+> Daemon Data publishes pay-per-record data APIs as Actors on Apify Store (https://apify.com/data_daemon). Each API reads a public website's own JSON endpoints or pages, returns structured records (JSON, CSV, Excel), charges only per record returned, and can be called over REST, from Python/Node.js, in n8n/Make/Zapier, or by an AI agent through MCP (`https://mcp.apify.com/?tools=data_daemon/<actor>`, header `Authorization: Bearer <APIFY_TOKEN>`). Prices below are FREE-plan list prices checked on 2026-10-31.
 
 ## Data APIs
 
@@ -19,6 +19,7 @@
 - [Shine jobs](https://datadmon.github.io/actors/shine-jobs-scraper/): Shine.com India jobs by keyword and city with full descriptions, salary range, experience, skills and industry. $0.80 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/shine-jobs-scraper (plain text: https://apify.com/data_daemon/shine-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/shine-jobs-scraper
 - [Unstop jobs, internships and hackathons](https://datadmon.github.io/actors/unstop-scraper/): Unstop jobs, internships, hackathons and competitions with salary or stipend, prizes, deadlines and eligibility. $1.50 per 1,000 opportunitys. Apify listing: https://apify.com/data_daemon/unstop-scraper (plain text: https://apify.com/data_daemon/unstop-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/unstop-scraper
 - [Gupy jobs (Brazil)](https://datadmon.github.io/actors/gupy-jobs-scraper/): Brazil jobs from the Gupy portal with full descriptions, city, state, workplace type and contract type. $0.80 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/gupy-jobs-scraper (plain text: https://apify.com/data_daemon/gupy-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/gupy-jobs-scraper
+- [New Indian companies (MCA)](https://datadmon.github.io/actors/india-new-company-registrations/): newly incorporated Indian companies from the MCA register: CIN, type, RoC, state, NIC activity, capital, registered office. $3.00 per 1,000 companys. Apify listing: https://apify.com/data_daemon/india-new-company-registrations (plain text: https://apify.com/data_daemon/india-new-company-registrations.md). MCP: https://mcp.apify.com/?tools=data_daemon/india-new-company-registrations
 
 ## Guides
 
