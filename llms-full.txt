@@ -2148,7 +2148,7 @@ FieldTypeMeaning
 locationsarrayOne per line: "City, UF" (e.g. São Paulo, SP, Curitiba, PR, Belo Horizonte, MG) or a state code alone (SC) for the whole state. Capitals and large cities also work without the state. Each location is its own search. City names are matched as the portals spell them, accents included.
 businessstringListings for sale (sale) or for rent (rent; priceBrl is the rent per rentalPeriod, monthly by default).
 includeShortStaysbooleanRentals only: also return listings priced per day (temporada / short stays). Off by default, so every rent is monthly.
-portalsarrayzap (zapimoveis.com.br), vivareal (vivareal.com.br) or both. Both portals belong to OLX Brasil and share many listings; with both selected a listing id is delivered once.
+portalsarrayzap (zapimoveis.com.br), vivareal (vivareal.com.br) or both. Both portals belong to OLX Brasil and read one listing database (1,610 of 1,612 listings were on both in a 31 Oct 2026 test), so one portal is enough; with both selected a listing id is delivered once.
 listingTypestringused: properties listed by owners and agencies (resale and rentals). development: new launches (lançamentos) from developers. both: run both.
 neighborhoodsarrayBairro names as the portals spell them, e.g. Pinheiros, Moema, Copacabana. Each neighborhood is searched in every location.
 propertyTypesarrayKeep only these types: apartment, house, condominium (casa de condomínio), penthouse, flat, studio, land, commercial, office, warehouse, farm, parking, or a raw code such as APARTMENT. Checked on each listing; others are not charged.
@@ -2242,7 +2242,7 @@ propertyTypesarrayapartment, builder floor, penthouse, studio, house, villa. Emp
 minPriceintegerSale price or monthly rent; applied by Magicbricks' own budget filter.
 maxPriceintegerSale price or monthly rent; applied by Magicbricks' own budget filter.
 minBedroomsintegerKeep listings with at least this many bedrooms.
-postedWithinDaysintegerKeep listings posted in the last N days (postedAt). 1 is applied by Magicbricks itself (fast); longer windows are checked on each listing.
+postedWithinDaysintegerKeep listings posted in the last N days (postedAt). 1 uses Magicbricks' own "posted in the last 24 hours" filter (fast). Magicbricks applies it with a lag: on 1 Nov 2026 it returned listings 34-43 hours old, so expect roughly the last two days; add only-new mode for a daily feed without repeats. Longer windows are checked on each listing, and a search stops after two pages of older listings.
 maxResultsPerSearchintegerCap per city (and property type). 0 = no cap; Magicbricks lists at most 1,500 listings per search.
 maxResultsintegerStop after this many saved listings (default 50, about $0.05). 0 = no cap.
 onlyNewSinceLastRunbooleanRemember delivered listing ids in a key-value store named magicbricks-state and skip them next time (not charged).
@@ -2336,6 +2336,10 @@ Shipment$0.002$2.00One bill of lading saved to the dataset: date, supplier and c
 Company profile$0.01$10.00One company profile saved to the dataset: totals, up to 50 suppliers with volumes and HS codes, HS-code breakdown, port lanes and the 24-month shipment trend.
 Actor Start$0.001Charged when the Actor starts running. Number of events charged depends on Actor memory (one event per GB, minimum one event).
 Worked example: the input above, capped at 50 shipments, costs at most $0.101. Apify's free plan includes $5 of usage a month, about 2,500 shipments; the Actor's own compute is included in the per-record price, and records skipped by filters, de-duplication or only-new mode are not charged.
+
+Ready-made example pages
+Saved inputs you can run with one click on Apify (Examples tab); each has its own page:
+Latest bills of lading: Walmart, Home Depot, IKEA (ImportYeti): Get US import records as JSON via API: the 50 newest ocean bills of lading ImportYeti lists for Walmart, Home Depot USA and IKEA Supply, 150 shipments (latest 28 October 2026; suppliers in China, India, Colombia, Vietnam {"companies": ["walmart", "home depot", "ikea supply"], "output": "shipments", "maxShipmentsPerCompany": 50, "maxResults": 150}
 
 Alternatives, honestly
 OptionWhat it gives youWhere it falls short for this job
