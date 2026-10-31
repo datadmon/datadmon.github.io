@@ -1,6 +1,6 @@
 # Daemon Data
 
-> Daemon Data publishes pay-per-record data APIs as Actors on Apify Store (https://apify.com/data_daemon). Each API reads a public website's own JSON endpoints or pages, returns structured records (JSON, CSV, Excel), charges only per record returned, and can be called over REST, from Python/Node.js, in n8n/Make/Zapier, or by an AI agent through MCP (`https://mcp.apify.com/?tools=data_daemon/<actor>`, header `Authorization: Bearer <APIFY_TOKEN>`). Prices below are FREE-plan list prices checked on 2026-10-31.
+> Daemon Data publishes pay-per-record data APIs as Actors on Apify Store (https://apify.com/data_daemon). Each API reads a public website's own JSON endpoints or pages, returns structured records (JSON, CSV, Excel), charges only per record returned, and can be called over REST, from Python/Node.js, in n8n/Make/Zapier, or by an AI agent through MCP (`https://mcp.apify.com/?tools=data_daemon/<actor>`, header `Authorization: Bearer <APIFY_TOKEN>`). Prices below are FREE-plan list prices checked on 2026-11-01.
 
 ## Data APIs
 
@@ -20,6 +20,10 @@
 - [Unstop jobs, internships and hackathons](https://datadmon.github.io/actors/unstop-scraper/): Unstop jobs, internships, hackathons and competitions with salary or stipend, prizes, deadlines and eligibility. $1.50 per 1,000 opportunitys. Apify listing: https://apify.com/data_daemon/unstop-scraper (plain text: https://apify.com/data_daemon/unstop-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/unstop-scraper
 - [Gupy jobs (Brazil)](https://datadmon.github.io/actors/gupy-jobs-scraper/): Brazil jobs from the Gupy portal with full descriptions, city, state, workplace type and contract type. $0.80 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/gupy-jobs-scraper (plain text: https://apify.com/data_daemon/gupy-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/gupy-jobs-scraper
 - [New Indian companies (MCA)](https://datadmon.github.io/actors/india-new-company-registrations/): newly incorporated Indian companies from the MCA register: CIN, type, RoC, state, NIC activity, capital, registered office. $3.00 per 1,000 companys. Apify listing: https://apify.com/data_daemon/india-new-company-registrations (plain text: https://apify.com/data_daemon/india-new-company-registrations.md). MCP: https://mcp.apify.com/?tools=data_daemon/india-new-company-registrations
+- [WorkIndia jobs](https://datadmon.github.io/actors/workindia-jobs-scraper/): WorkIndia (workindia.in) India jobs with monthly salary range, city, locality, PIN, category and full description. $0.80 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/workindia-jobs-scraper (plain text: https://apify.com/data_daemon/workindia-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/workindia-jobs-scraper
+- [Zap Imóveis + VivaReal listings (Brazil)](https://datadmon.github.io/actors/zap-imoveis-vivareal-scraper/): Brazil property listings from Zap Imoveis and VivaReal: price, condo fee, IPTU, area, rooms, coordinates, agency. $1.00 per 1,000 listings. Apify listing: https://apify.com/data_daemon/zap-imoveis-vivareal-scraper (plain text: https://apify.com/data_daemon/zap-imoveis-vivareal-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/zap-imoveis-vivareal-scraper
+- [Magicbricks listings (India)](https://datadmon.github.io/actors/magicbricks-property-scraper/): Magicbricks India property listings: price, price per sq ft, carpet area, BHK, furnishing, locality, project, coordinates. $1.00 per 1,000 listings. Apify listing: https://apify.com/data_daemon/magicbricks-property-scraper (plain text: https://apify.com/data_daemon/magicbricks-property-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/magicbricks-property-scraper
+- [ImportYeti US import records](https://datadmon.github.io/actors/importyeti-scraper/): US import records from ImportYeti: latest bills of lading per importer or supplier, or a company profile with top suppliers. $2.00 per 1,000 shipments. Apify listing: https://apify.com/data_daemon/importyeti-scraper (plain text: https://apify.com/data_daemon/importyeti-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/importyeti-scraper
 
 ## Guides
 
@@ -47,7 +51,7 @@ Source: https://datadmon.github.io/actors/welcome-to-the-jungle-jobs-scraper/
 
 Welcome to the Jungle jobs API (JSON) | Daemon Data
 
-Welcome to the Jungle Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns France-focused public WTTJ board jobs with descriptions, company profiles and only-new feeds as JSON, CSV or Excel. It costs $0.0008 per job with the default options ($0.80 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+Welcome to the Jungle Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns France-focused public WTTJ board jobs with descriptions, company profiles and only-new feeds as JSON, CSV or Excel. It costs $0.0008 per job with the default options ($0.80 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
 
 Daemon Data Welcome to the Jungle Jobs Scraper on Apify   Listing as plain text
 
@@ -76,7 +80,7 @@ querystring"python"
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-10-31):
+A verified example input (it returned data on 2026-11-01):
 
 {
   "queries": [
@@ -148,7 +152,7 @@ Public WTTJ company job pagesBrowse and apply to public vacanciesManual reading;
 Other WTTJ Actors on Apify StoreStructured data from the same sourceCompare coverage, description inclusion, only-new memory and price
 Build your own API clientControl over public search and detail requestsYou maintain source configuration, filters, pagination and persistent job IDs
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-31; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-01; the listing is the canonical description of the Actor.
 
 
 ---
@@ -159,7 +163,7 @@ Source: https://datadmon.github.io/actors/iimjobs-jobs-scraper/
 
 IIMJobs job listings as JSON API
 
-IIMJobs Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns India MBA, finance, consulting and management jobs with full descriptions as JSON, CSV or Excel. It costs $0.004 per job with the default options ($4.00 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+IIMJobs Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns India MBA, finance, consulting and management jobs with full descriptions as JSON, CSV or Excel. It costs $0.004 per job with the default options ($4.00 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
 
 Daemon Data IIMJobs Jobs Scraper on Apify   Listing as plain text
 
@@ -196,7 +200,7 @@ mandatorySkillsarray["IT Product Management"]
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-10-31):
+A verified example input (it returned data on 2026-11-01):
 
 {
   "queries": [
@@ -285,7 +289,7 @@ IIMJobs website and recruiter dashboardSearch and email alerts for a logged-in u
 Other IIMJobs Actors on Apify StoreSimilar scraping of the same boardCompare fields (salary, AmbitionBox profile, only-new mode) and price per 1,000
 Build your own scraperFull controlThe board's JSON endpoints change; you maintain pagination, de-duplication and scheduling
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-31; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-01; the listing is the canonical description of the Actor.
 
 
 ---
@@ -296,7 +300,7 @@ Source: https://datadmon.github.io/actors/hirist-jobs-scraper/
 
 Hirist tech job listings as JSON API
 
-Hirist.tech Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns India IT and tech jobs with full descriptions, skills, salary when disclosed as JSON, CSV or Excel. It costs $0.004 per job with the default options ($4.00 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+Hirist.tech Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns India IT and tech jobs with full descriptions, skills, salary when disclosed as JSON, CSV or Excel. It costs $0.004 per job with the default options ($4.00 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
 
 Daemon Data Hirist.tech Jobs Scraper on Apify   Listing as plain text
 
@@ -333,7 +337,7 @@ mandatorySkillsarray["Python", "Data Structure", "Algorithm", "System Design", "
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-10-31):
+A verified example input (it returned data on 2026-11-01):
 
 {
   "queries": [
@@ -420,7 +424,7 @@ Hirist.tech websiteSearch and alerts for a logged-in userNo bulk export or API
 Other Hirist Actors on Apify StoreSame boardCompare full-description coverage, AmbitionBox fields, only-new mode, price
 Build your own scraperFull controlMaintenance of endpoints, pagination and de-duplication is on you
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-31; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-01; the listing is the canonical description of the Actor.
 
 
 ---
@@ -431,7 +435,7 @@ Source: https://datadmon.github.io/actors/oracle-hcm-jobs-scraper/
 
 Oracle Recruiting Cloud jobs as JSON API
 
-Oracle Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns every requisition on any Oracle Recruiting Cloud career site as JSON, CSV or Excel. It costs $0.004 per job with the default options ($4.00 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+Oracle Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns every requisition on any Oracle Recruiting Cloud career site as JSON, CSV or Excel. It costs $0.004 per job with the default options ($4.00 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
 
 Daemon Data Oracle Jobs Scraper on Apify   Listing as plain text
 
@@ -467,7 +471,7 @@ remotebooleanfalse
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-10-31):
+A verified example input (it returned data on 2026-11-01):
 
 {
   "careerSiteUrls": [
@@ -551,7 +555,7 @@ The employer's own career siteBrowse and applyOne employer at a time, no export
 Multi-ATS job APIs (Workday, Greenhouse, Lever and others)Several ATS platforms in one productUsually higher price per 1,000; check whether Oracle Recruiting Cloud is actually covered
 Open-source ATS crawlersFreeYou host, schedule and maintain them
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-31; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-01; the listing is the canonical description of the Actor.
 
 
 ---
@@ -562,7 +566,7 @@ Source: https://datadmon.github.io/actors/india-ipo-tracker/
 
 India IPO GMP & subscription data API (JSON)
 
-India IPO Tracker API is a pay-per-record Apify Actor by Daemon Data that returns live IPO GMP, QIB/NII/retail subscription, calendar, listing data as JSON, CSV or Excel. It costs $0.003 per ipo report row with the default options ($3.00 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+India IPO Tracker API is a pay-per-record Apify Actor by Daemon Data that returns live IPO GMP, QIB/NII/retail subscription, calendar, listing data as JSON, CSV or Excel. It costs $0.003 per ipo report row with the default options ($3.00 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
 
 Daemon Data India IPO Tracker API on Apify   Listing as plain text
 
@@ -597,7 +601,7 @@ priceToEarningsnumber159.68
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-10-31):
+A verified example input (it returned data on 2026-11-01):
 
 {
   "reports": [
@@ -666,7 +670,7 @@ Broker APIs (for example Upstox)Official IPO calendar and some subscription figu
 IPO tracking websitesGMP and subscription pages for peopleNo JSON, no stable key across reports, no schedule
 BSE and NSE websitesOfficial bid data while an issue is openNo GMP; bot protection; no history joined to listing results
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-31; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-01; the listing is the canonical description of the Actor.
 
 
 ---
@@ -677,7 +681,7 @@ Source: https://datadmon.github.io/actors/tickertape-stocks-scraper/
 
 NSE/BSE stock fundamentals API (Tickertape)
 
-Indian Stock Market API is a pay-per-record Apify Actor by Daemon Data that returns NSE/BSE index constituents, ratio screener, full stock profiles as JSON, CSV or Excel. It costs $0.02 per stock profile with the default options ($20.00 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+Indian Stock Market API is a pay-per-record Apify Actor by Daemon Data that returns NSE/BSE index constituents, ratio screener, full stock profiles as JSON, CSV or Excel. It costs $0.02 per stock profile with the default options ($20.00 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
 
 Daemon Data Indian Stock Market API on Apify   Listing as plain text
 
@@ -713,7 +717,7 @@ scorecardarray[{"name": "Performance", "tag": "Low", "colour": "red", "descripti
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-10-31):
+A verified example input (it returned data on 2026-11-01):
 
 {
   "mode": "index",
@@ -781,7 +785,7 @@ Exchange data feeds (NSE, BSE)Official, real timeLicence fees and bot protection
 Tickertape website and ProThe same pages for a personNo bulk export or API
 Python libraries that read exchange sitesFreeBreak when the exchange changes; fundamentals and shareholding history are thin
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-31; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-01; the listing is the canonical description of the Actor.
 
 
 ---
@@ -792,7 +796,7 @@ Source: https://datadmon.github.io/actors/dubai-property-transactions/
 
 Dubai Land Department transactions as JSON API
 
-Dubai DLD Property Transactions API is a pay-per-record Apify Actor by Daemon Data that returns Dubai Land Department sales, mortgages and gifts with AED value and price/sqm as JSON, CSV or Excel. It costs $0.001 per transaction with the default options ($1.00 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+Dubai DLD Property Transactions API is a pay-per-record Apify Actor by Daemon Data that returns Dubai Land Department sales, mortgages and gifts with AED value and price/sqm as JSON, CSV or Excel. It costs $0.001 per transaction with the default options ($1.00 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
 
 Daemon Data Dubai DLD Property Transactions API on Apify   Listing as plain text
 
@@ -829,7 +833,7 @@ parkingstring"B2-7328,B2-7328T"
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-10-31):
+A verified example input (it returned data on 2026-11-01):
 
 {
   "transactionGroup": "sales",
@@ -900,7 +904,7 @@ Dubai Pulse open-data portalOfficial downloads by handManual extracts, cleaning 
 DXB Interact dashboardOfficial charts and lookupsNot a data feed
 Paid DLD data productsCleaned data with supportSubscriptions; the register itself is open data
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-31; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-01; the listing is the canonical description of the Actor.
 
 
 ---
@@ -911,7 +915,7 @@ Source: https://datadmon.github.io/actors/uk-gazette-insolvency-notices/
 
 UK Gazette insolvency notices as JSON feed
 
-UK Gazette Insolvency Notices Scraper is a pay-per-record Apify Actor by Daemon Data that returns winding-up petitions, administrations, liquidations from The Gazette as JSON, CSV or Excel. It costs $0.005 per notice with the default options ($5.00 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+UK Gazette Insolvency Notices Scraper is a pay-per-record Apify Actor by Daemon Data that returns winding-up petitions, administrations, liquidations from The Gazette as JSON, CSV or Excel. It costs $0.005 per notice with the default options ($5.00 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
 
 Daemon Data UK Gazette Insolvency Notices Scraper on Apify   Listing as plain text
 
@@ -947,7 +951,7 @@ caseNumberstring"CR-2026-007272"
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-10-31):
+A verified example input (it returned data on 2026-11-01):
 
 {
   "noticeTypes": [
@@ -1020,7 +1024,7 @@ The Gazette website and its paid data serviceOfficial notices; a subscription da
 Companies House APIOfficial company status, freeChanges appear weeks after the petition is advertised
 Other Gazette Actors on Apify StoreSame noticesCompare linked-data fields (company number, addresses) and only-new mode
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-31; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-01; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1031,7 +1035,7 @@ Source: https://datadmon.github.io/actors/foundit-jobs-scraper/
 
 foundit (Monster India) jobs as JSON API
 
-Foundit Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns foundit.in jobs by keyword, city, experience and freshness, full descriptions included as JSON, CSV or Excel. It costs $0.0008 per job with the default options ($0.80 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+Foundit Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns foundit.in jobs by keyword, city, experience and freshness, full descriptions included as JSON, CSV or Excel. It costs $0.0008 per job with the default options ($0.80 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
 
 Daemon Data Foundit Jobs Scraper on Apify   Listing as plain text
 
@@ -1068,7 +1072,7 @@ salaryMaxLpanullnull
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-10-31):
+A verified example input (it returned data on 2026-11-01):
 
 {
   "queries": [
@@ -1152,7 +1156,7 @@ foundit.in websiteSearch for a visitorNo export; syndicated apply links are one 
 Naukri, LinkedIn or Indeed ActorsLarger boardsDifferent coverage; this API reads foundit only
 Other foundit Actors on Apify StoreSame boardCompare salary-band handling, apply-URL resolution and price per 1,000
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-31; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-01; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1163,7 +1167,7 @@ Source: https://datadmon.github.io/actors/instahyre-jobs-scraper/
 
 Instahyre startup tech jobs as JSON API
 
-Instahyre Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns India tech jobs from product companies and startups by skill, city, experience and company size, full descriptions included as JSON, CSV or Excel. It costs $0.0008 per job with the default options ($0.80 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+Instahyre Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns India tech jobs from product companies and startups by skill, city, experience and company size, full descriptions included as JSON, CSV or Excel. It costs $0.0008 per job with the default options ($0.80 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
 
 Daemon Data Instahyre Jobs Scraper on Apify   Listing as plain text
 
@@ -1200,7 +1204,7 @@ postedAtstring"2026-10-09T00:00:00.000Z"
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-10-31):
+A verified example input (it returned data on 2026-11-01):
 
 {
   "queries": [
@@ -1287,7 +1291,7 @@ Instahyre websiteCandidate and employer accountsNo export or API; salary and app
 Hirist or IIMJobs APIs (same publisher)Applicant counts and salary bandsDifferent boards; Instahyre is the one with company headcount and size filters
 Other Instahyre Actors on Apify StoreSame boardCompare price per 1,000, company-profile fields and only-new mode
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-31; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-01; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1298,7 +1302,7 @@ Source: https://datadmon.github.io/actors/luma-events-scraper/
 
 Luma (lu.ma) events as JSON API
 
-Luma Events Scraper is a pay-per-record Apify Actor by Daemon Data that returns lu.ma events by city, category, keyword or calendar: dates, venue, tickets, hosts as JSON, CSV or Excel. It costs $0.0015 per event with the default options ($1.50 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+Luma Events Scraper is a pay-per-record Apify Actor by Daemon Data that returns lu.ma events by city, category, keyword or calendar: dates, venue, tickets, hosts as JSON, CSV or Excel. It costs $0.0015 per event with the default options ($1.50 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
 
 Daemon Data Luma Events Scraper on Apify   Listing as plain text
 
@@ -1335,7 +1339,7 @@ countrystring"United States"
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-10-31):
+A verified example input (it returned data on 2026-11-01):
 
 {
   "cities": [
@@ -1417,7 +1421,7 @@ Luma website and iCal feedsBrowse; subscribe to one calendarNo cross-city export
 Eventbrite or Meetup ActorsOther event platformsDifferent events; this API reads Luma only
 Other Luma Actors on Apify StoreSame sourceCompare detail fields (hosts, tickets, GPS) and price per 1,000
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-31; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-01; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1428,7 +1432,7 @@ Source: https://datadmon.github.io/actors/apna-jobs-scraper/
 
 Apna (apna.co) jobs with salaries as JSON API
 
-Apna Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns Apna (apna.co) India jobs with salary, locality, department, work mode and full descriptions; full-board export as JSON, CSV or Excel. It costs $0.0008 per job with the default options ($0.80 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+Apna Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns Apna (apna.co) India jobs with salary, locality, department, work mode and full descriptions; full-board export as JSON, CSV or Excel. It costs $0.0008 per job with the default options ($0.80 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
 
 Daemon Data Apna Jobs Scraper on Apify   Listing as plain text
 
@@ -1465,7 +1469,7 @@ locationTextstring"Bengaluru/Bangalore"
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-10-31):
+A verified example input (it returned data on 2026-11-01):
 
 {
   "cities": [
@@ -1534,7 +1538,7 @@ Apna website and appSearch and apply as a candidateNo export or API; one job at 
 Other Apna Actors on Apify StoreSame boardCompare full-board coverage, salary and locality fields, only-new mode and price per 1,000
 Build your own scraperFull controlYou handle the 500-result keyword cap, deep-page repeats, city ids and de-duplication
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-31; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-01; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1545,7 +1549,7 @@ Source: https://datadmon.github.io/actors/shine-jobs-scraper/
 
 Shine.com job listings as JSON API
 
-Shine Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns Shine.com India jobs by keyword and city with full descriptions, salary range, experience, skills and industry as JSON, CSV or Excel. It costs $0.0008 per job with the default options ($0.80 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+Shine Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns Shine.com India jobs by keyword and city with full descriptions, salary range, experience, skills and industry as JSON, CSV or Excel. It costs $0.0008 per job with the default options ($0.80 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
 
 Daemon Data Shine Jobs Scraper on Apify   Listing as plain text
 
@@ -1581,7 +1585,7 @@ skillsarray["accounts payable", "accounts receivable", "accountants"]
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-10-31):
+A verified example input (it returned data on 2026-11-01):
 
 {
   "searchTerms": [
@@ -1651,7 +1655,7 @@ Shine.com websiteSearch and alerts for a logged-in userNo bulk export or API
 Other Shine Actors on Apify StoreSame boardCompare description and salary-range coverage, only-new mode and price per 1,000
 Build your own scraperFull controlYou parse the app's page data, follow job pages and maintain de-duplication
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-31; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-01; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1662,7 +1666,7 @@ Source: https://datadmon.github.io/actors/unstop-scraper/
 
 Unstop jobs, internships & hackathons JSON API
 
-Unstop Scraper is a pay-per-record Apify Actor by Daemon Data that returns Unstop jobs, internships, hackathons and competitions with salary or stipend, prizes, deadlines and eligibility as JSON, CSV or Excel. It costs $0.0015 per opportunity with the default options ($1.50 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+Unstop Scraper is a pay-per-record Apify Actor by Daemon Data that returns Unstop jobs, internships, hackathons and competitions with salary or stipend, prizes, deadlines and eligibility as JSON, CSV or Excel. It costs $0.0015 per opportunity with the default options ($1.50 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
 
 Daemon Data Unstop Scraper on Apify   Listing as plain text
 
@@ -1699,7 +1703,7 @@ salaryMaxnumber40000
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-10-31):
+A verified example input (it returned data on 2026-11-01):
 
 {
   "opportunityTypes": [
@@ -1777,7 +1781,7 @@ Unstop website and appBrowse and register as a student or professionalNo export;
 Other Unstop Actors on Apify StoreSame sourceCompare listing types covered (jobs, internships, hackathons, competitions), prize and eligibility fields and price per 1,000
 Build your own clientFull controlYou map filters, paging and the listing types yourself
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-31; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-01; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1788,7 +1792,7 @@ Source: https://datadmon.github.io/actors/gupy-jobs-scraper/
 
 Gupy Brazil jobs as JSON API
 
-Gupy Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns Brazil jobs from the Gupy portal with full descriptions, city, state, workplace type and contract type as JSON, CSV or Excel. It costs $0.0008 per job with the default options ($0.80 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+Gupy Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns Brazil jobs from the Gupy portal with full descriptions, city, state, workplace type and contract type as JSON, CSV or Excel. It costs $0.0008 per job with the default options ($0.80 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
 
 Daemon Data Gupy Jobs Scraper on Apify   Listing as plain text
 
@@ -1825,7 +1829,7 @@ acceptsPwdbooleantrue
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-10-31):
+A verified example input (it returned data on 2026-11-01):
 
 {
   "searchTerms": [
@@ -1901,7 +1905,7 @@ Gupy job portal (portal.gupy.io)Search and apply as a candidateNo export; one jo
 Other Gupy Actors on Apify StoreSame sourceCompare description coverage, only-new memory and price per 1,000
 Build your own scraperFull controlThe portal's build ID changes; you maintain pagination, de-duplication and scheduling
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-31; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-01; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1912,7 +1916,7 @@ Source: https://datadmon.github.io/actors/india-new-company-registrations/
 
 New company registrations in India (MCA) API
 
-India New Company Registrations is a pay-per-record Apify Actor by Daemon Data that returns newly incorporated Indian companies from the MCA register: CIN, type, RoC, state, NIC activity, capital, registered office as JSON, CSV or Excel. It costs $0.003 per company with the default options ($3.00 per 1,000); no login to the source site, no proxy, no browser, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+India New Company Registrations is a pay-per-record Apify Actor by Daemon Data that returns newly incorporated Indian companies from the MCA register: CIN, type, RoC, state, NIC activity, capital, registered office as JSON, CSV or Excel. It costs $0.003 per company with the default options ($3.00 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
 
 Daemon Data India New Company Registrations on Apify   Listing as plain text
 
@@ -1943,7 +1947,7 @@ companyClassstring"Private"
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-10-31):
+A verified example input (it returned data on 2026-11-01):
 
 {
   "recentDates": 3,
@@ -2001,7 +2005,345 @@ MCA portal (mca.gov.in) master dataOfficial lookup of one company by CIN or name
 Paid company-data platforms (Tofler, Probe42 and similar)Financials, directors and filingsSubscriptions priced per seat or per report; overkill for a daily new-incorporations list
 Other MCA Actors on Apify StoreNew-company lists from the same registerCompare price per 1,000, CIN decoding, filters before charging and only-new mode
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-10-31; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-01; the listing is the canonical description of the Actor.
+
+
+---
+
+# WorkIndia jobs with salary as JSON API | Daemon Data
+
+Source: https://datadmon.github.io/actors/workindia-jobs-scraper/
+
+WorkIndia jobs with salary as JSON API
+
+WorkIndia Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns WorkIndia (workindia.in) India jobs with monthly salary range, city, locality, PIN, category and full description as JSON, CSV or Excel. It costs $0.0008 per job with the default options ($0.80 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+
+Daemon Data WorkIndia Jobs Scraper on Apify   Listing as plain text
+
+Output fields
+The most useful top-level fields with values from a real record; the full list is id, url, title, company, category, locality, city, state, pincode, address, salaryMin, salaryMax, salaryPeriod, salaryRangeText, currency, employmentType, workArrangement, genderPreference, educationRequirement, experienceRequirement, skills, datePosted, validThrough, responsibilities, description, scrapedAt. Per-field notes and the OpenAPI definition are on the Apify API page.
+FieldTypeExample
+idstring"11167564"
+urlstring"https://www.workindia.in/jobs/tele_caller-thaltej-ahmedabad-111675...
+titlestring"Tele Caller"
+companystring"Wt Technologies Pvt Ltd"
+categorystring"Telecalling"
+localitystring"Thaltej"
+citystring"Ahmedabad"
+statestring"Gujarat"
+pincodestring"380059"
+salaryMinnumber10000
+salaryMaxnumber20000
+salaryPeriodstring"month"
+currencystring"INR"
+employmentTypestring"FULL_TIME"
+workArrangementstring"Work From Office"
+
+Input and how to call it
+
+A verified example input (it returned data on 2026-11-01):
+
+{
+  "cities": [
+    "Mumbai"
+  ],
+  "maxResults": 50
+}
+
+One HTTP call starts a run, waits for it and returns the records (token from console.apify.com):
+
+curl -X POST "https://api.apify.com/v2/acts/data_daemon~workindia-jobs-scraper/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"cities": ["Mumbai"], "maxResults": 50}'
+
+Python: ApifyClient(token).actor("data_daemon/workindia-jobs-scraper").call(run_input=...), full file python/workindia-jobs-scraper.py. Node.js: node/workindia-jobs-scraper.mjs. n8n: importable workflow.
+AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daemon/workindia-jobs-scraper with header Authorization: Bearer YOUR_APIFY_TOKEN in Claude, ChatGPT, Cursor or VS Code and ask for the data in plain words.
+
+All input fields
+FieldTypeMeaning
+citiesarrayCity names, e.g. Mumbai, Delhi, Bengaluru (or Bangalore), Pune, Hyderabad. Empty = all cities. WorkIndia files Gurgaon, Noida, Greater Noida, Ghaziabad and Faridabad under Delhi and Navi Mumbai under Mumbai; those names select the matching localities. Matched before any job page is opened.
+keywordsarrayWords matched against the job title, e.g. delivery, telecaller, accountant, driver, sales. Empty = all jobs. Matched before any job page is opened.
+categoriesarrayWorkIndia's job category, e.g. Delivery, Telecalling, Sales, Back Office, Accounts, Driver. Checked on the job page; others are not charged.
+minSalaryintegerKeep jobs whose maximum monthly salary is at least this.
+postedWithinDaysintegerKeep jobs posted in the last N days (datePosted).
+includeDescriptionbooleanFull job description and responsibilities text.
+maxResultsintegerStop after this many saved jobs (default 50, about $0.04). 0 = no cap: the whole current board is about 15,000 jobs and takes about an hour (the default run timeout is 2 hours).
+onlyNewSinceLastRunbooleanRemember delivered job ids in a key-value store named workindia-jobs-state and skip them next time (not charged).
+stateNamestringName of the only-new memory. By default it follows cities, keywords and categories.
+skipIdsarrayWorkIndia job ids you already have (the number at the end of the job URL). Neither saved nor charged.
+
+Price
+$0.0008 per job ($0.80 per 1,000); $0.001 per run. List prices for Apify Free and Starter plans; Scale and Business plans pay 15% to 30% less.
+EventPricePer 1,000Charged when
+Job$0.0008$0.80One WorkIndia job saved to the dataset with employer, location, monthly salary range, requirements and full description. Jobs left out by filters, only-new mode or skipIds are never charged.
+Actor Start$0.001Charged when the Actor starts running. Number of events charged depends on Actor memory (one event per GB, minimum one event).
+Worked example: the input above, capped at 50 jobs, costs at most $0.041. Apify's free plan includes $5 of usage a month, about 6,250 jobs; the Actor's own compute is included in the per-record price, and records skipped by filters, de-duplication or only-new mode are not charged.
+
+Alternatives, honestly
+OptionWhat it gives youWhere it falls short for this job
+WorkIndia website and appSearch and apply as a candidateNo export or API; one job at a time
+Apna or Shine APIs (same publisher)Other India boards with salariesDifferent coverage; WorkIndia is strongest for delivery, telecaller, office and field jobs
+Build your own scraperFull controlYou maintain sitemap paging, job-page parsing, expired-page handling and de-duplication
+
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-01; the listing is the canonical description of the Actor.
+
+
+---
+
+# Zap Imóveis & VivaReal listings API (Brazil) | Daemon Data
+
+Source: https://datadmon.github.io/actors/zap-imoveis-vivareal-scraper/
+
+Zap Imóveis & VivaReal listings API (Brazil)
+
+Zap Imóveis & VivaReal Scraper is a pay-per-record Apify Actor by Daemon Data that returns Brazil property listings from Zap Imoveis and VivaReal: price, condo fee, IPTU, area, rooms, coordinates, agency as JSON, CSV or Excel. It costs $0.001 per listing with the default options ($1.00 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+
+Daemon Data Zap Imóveis & VivaReal Scraper on Apify   Listing as plain text
+
+Output fields
+The most useful top-level fields with values from a real record; the full list is id, portal, url, title, business, listingType, priceBrl, rentalPeriod, monthlyCondoFeeBrl, yearlyIptuBrl, pricePerSqmBrl, usableAreaSqm, totalAreaSqm, bedrooms, bathrooms, suites, parkingSpaces, unitTypes, unitSubTypes, usageTypes, unitFloor, floors, constructionStatus, condominiumName, amenities, street, streetNumber, neighborhood, zone, city, state, stateCode, zipCode, latitude, longitude, createdAt, updatedAt, publicationType, advertiserName, advertiserCreci, advertiserId, imageCount, imageUrls, scrapedAt. Per-field notes and the OpenAPI definition are on the Apify API page.
+FieldTypeExample
+idstring"2920089342"
+portalstring"Zap Imóveis"
+urlstring"https://www.zapimoveis.com.br/imovel/venda-apartamento-4-quartos-c...
+titlestring"Apartamento com 4 Quartos à venda, 153m²"
+businessstring"sale"
+priceBrlnumber1300000
+monthlyCondoFeeBrlnumber2395
+yearlyIptuBrlnumber5000
+pricePerSqmBrlnumber8496.73
+usableAreaSqmnumber153
+bedroomsnumber4
+parkingSpacesnumber3
+neighborhoodstring"Santana"
+zonestring"Zona Norte"
+citystring"São Paulo"
+
+Input and how to call it
+
+A verified example input (it returned data on 2026-11-01):
+
+{
+  "locations": [
+    "São Paulo, SP"
+  ],
+  "business": "sale",
+  "portals": [
+    "zap"
+  ],
+  "maxResults": 50
+}
+
+One HTTP call starts a run, waits for it and returns the records (token from console.apify.com):
+
+curl -X POST "https://api.apify.com/v2/acts/data_daemon~zap-imoveis-vivareal-scraper/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"locations": ["São Paulo, SP"], "business": "sale", "portals": ["zap"], "maxResults": 50}'
+
+Python: ApifyClient(token).actor("data_daemon/zap-imoveis-vivareal-scraper").call(run_input=...), full file python/zap-imoveis-vivareal-scraper.py. Node.js: node/zap-imoveis-vivareal-scraper.mjs. n8n: importable workflow.
+AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daemon/zap-imoveis-vivareal-scraper with header Authorization: Bearer YOUR_APIFY_TOKEN in Claude, ChatGPT, Cursor or VS Code and ask for the data in plain words.
+
+All input fields
+FieldTypeMeaning
+locationsarrayOne per line: "City, UF" (e.g. São Paulo, SP, Curitiba, PR, Belo Horizonte, MG) or a state code alone (SC) for the whole state. Capitals and large cities also work without the state. Each location is its own search. City names are matched as the portals spell them, accents included.
+businessstringListings for sale (sale) or for rent (rent; priceBrl is the rent per rentalPeriod, monthly by default).
+includeShortStaysbooleanRentals only: also return listings priced per day (temporada / short stays). Off by default, so every rent is monthly.
+portalsarrayzap (zapimoveis.com.br), vivareal (vivareal.com.br) or both. Both portals belong to OLX Brasil and share many listings; with both selected a listing id is delivered once.
+listingTypestringused: properties listed by owners and agencies (resale and rentals). development: new launches (lançamentos) from developers. both: run both.
+neighborhoodsarrayBairro names as the portals spell them, e.g. Pinheiros, Moema, Copacabana. Each neighborhood is searched in every location.
+propertyTypesarrayKeep only these types: apartment, house, condominium (casa de condomínio), penthouse, flat, studio, land, commercial, office, warehouse, farm, parking, or a raw code such as APARTMENT. Checked on each listing; others are not charged.
+minPriceintegerSale price, or monthly rent for rentals. Leave empty for no limit.
+maxPriceintegerSale price, or monthly rent for rentals. Leave empty for no limit.
+minBedroomsintegerKeep listings with at least this many bedrooms.
+minAreaintegerKeep listings with at least this usable area.
+postedWithinDaysintegerOnly listings created in the last N days (by the portal's createdAt). With the default newest-first order the run stops reading a search once it reaches older listings.
+sortBystringnewest (created date, newest first) or relevance (the portal's default order).
+includeImagesbooleanUp to 10 photo URLs per listing in imageUrls.
+maxResultsPerSearchintegerCap per location (and neighborhood). 0 = no cap. Searches with more than ~1,000 listings are split into price bands automatically.
+maxResultsintegerStop after this many saved listings (default 50, about $0.05). 0 = no cap (the run's maximum cost still applies).
+onlyNewSinceLastRunbooleanRemember delivered listing ids in a key-value store named zap-vivareal-state in your account and skip them next time (not charged). Use with a schedule for a daily new-listings feed.
+stateNamestringName of the only-new memory. By default it follows portals, sale/rent, locations and neighborhoods, so different feeds don't mix.
+skipIdsarrayListing ids you already have. They are neither saved nor charged.
+
+Price
+$0.001 per listing ($1.00 per 1,000); $0.001 per run. List prices for Apify Free and Starter plans; Scale and Business plans pay 15% to 30% less.
+EventPricePer 1,000Charged when
+Listing$0.001$1.00One property listing saved to the dataset: price, condo fee, IPTU, areas, rooms, address with coordinates, created date, agency and CRECI, photos. Listings skipped by only-new mode, skipIds or the filters are never charged.
+Actor Start$0.001Charged when the Actor starts running. Number of events charged depends on Actor memory (one event per GB, minimum one event).
+Worked example: the input above, capped at 50 listings, costs at most $0.051. Apify's free plan includes $5 of usage a month, about 5,000 listings; the Actor's own compute is included in the per-record price, and records skipped by filters, de-duplication or only-new mode are not charged.
+
+Alternatives, honestly
+OptionWhat it gives youWhere it falls short for this job
+Zap Imóveis and VivaReal websitesSearch and alerts for a personNo export; listing pages one at a time
+Other Zap or VivaReal Actors on Apify StoreSame portalsCompare price per 1,000, condo fee and IPTU fields, both portals in one run and only-new mode
+Build your own clientFull controlEach search returns at most about 1,000 listings; you split by price and zone and remove duplicates yourself
+
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-01; the listing is the canonical description of the Actor.
+
+
+---
+
+# Magicbricks property listings as JSON API | Daemon Data
+
+Source: https://datadmon.github.io/actors/magicbricks-property-scraper/
+
+Magicbricks property listings as JSON API
+
+Magicbricks Scraper is a pay-per-record Apify Actor by Daemon Data that returns Magicbricks India property listings: price, price per sq ft, carpet area, BHK, furnishing, locality, project, coordinates as JSON, CSV or Excel. It costs $0.001 per listing with the default options ($1.00 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+
+Daemon Data Magicbricks Scraper on Apify   Listing as plain text
+
+Output fields
+The most useful top-level fields with values from a real record; the full list is id, url, title, transaction, priceInr, priceText, pricePerSqftInr, coveredAreaSqft, carpetAreaSqft, bedrooms, bathrooms, balconies, furnishing, propertyType, project, developer, locality, city, latitude, longitude, possession, postedAt, advertiserType, agencyName, imageUrl, imageCount, description, scrapedAt. Per-field notes and the OpenAPI definition are on the Apify API page.
+FieldTypeExample
+idstring"86766601"
+urlstring"https://www.magicbricks.com/propertyDetails/4-BHK-2328-Sq-ft-Multi...
+titlestring"4BHK Multistorey Apartment for New Property in Kolte Patil 24K Alt...
+transactionstring"sale"
+priceInrnumber33500000
+priceTextstring"3.35 Cr"
+pricePerSqftInrnumber14390
+coveredAreaSqftnumber2328
+carpetAreaSqftnumber1725
+bedroomsnumber4
+bathroomsnumber4
+furnishingstring"Unfurnished"
+propertyTypestring"Apartment"
+projectstring"Kolte Patil 24K Altura"
+developerstring"Kolte Patil Developers Ltd."
+
+Input and how to call it
+
+A verified example input (it returned data on 2026-11-01):
+
+{
+  "cities": [
+    "Pune"
+  ],
+  "transactionType": "rent",
+  "minBedrooms": 2,
+  "maxResults": 40
+}
+
+One HTTP call starts a run, waits for it and returns the records (token from console.apify.com):
+
+curl -X POST "https://api.apify.com/v2/acts/data_daemon~magicbricks-property-scraper/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"cities": ["Pune"], "transactionType": "rent", "minBedrooms": 2, "maxResults": 40}'
+
+Python: ApifyClient(token).actor("data_daemon/magicbricks-property-scraper").call(run_input=...), full file python/magicbricks-property-scraper.py. Node.js: node/magicbricks-property-scraper.mjs. n8n: importable workflow.
+AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daemon/magicbricks-property-scraper with header Authorization: Bearer YOUR_APIFY_TOKEN in Claude, ChatGPT, Cursor or VS Code and ask for the data in plain words.
+
+All input fields
+FieldTypeMeaning
+citiesarrayCity names as Magicbricks spells them, e.g. Mumbai, Pune, Bangalore (Bengaluru works too), Hyderabad, New Delhi, Gurgaon, Noida, Chennai, Kolkata, Ahmedabad. Each city is its own search; an unknown name is reported, not replaced.
+transactionTypestringsale or rent (monthly rent in priceInr).
+propertyTypesarrayapartment, builder floor, penthouse, studio, house, villa. Empty = all residential types in one search; with types chosen, each type is its own search (more listings per city).
+minPriceintegerSale price or monthly rent; applied by Magicbricks' own budget filter.
+maxPriceintegerSale price or monthly rent; applied by Magicbricks' own budget filter.
+minBedroomsintegerKeep listings with at least this many bedrooms.
+postedWithinDaysintegerKeep listings posted in the last N days (postedAt). 1 is applied by Magicbricks itself (fast); longer windows are checked on each listing.
+maxResultsPerSearchintegerCap per city (and property type). 0 = no cap; Magicbricks lists at most 1,500 listings per search.
+maxResultsintegerStop after this many saved listings (default 50, about $0.05). 0 = no cap.
+onlyNewSinceLastRunbooleanRemember delivered listing ids in a key-value store named magicbricks-state and skip them next time (not charged).
+stateNamestringBy default it follows cities, sale/rent and property types.
+skipIdsarrayMagicbricks listing ids you already have. Not saved, not charged.
+
+Price
+$0.001 per listing ($1.00 per 1,000); $0.001 per run. List prices for Apify Free and Starter plans; Scale and Business plans pay 15% to 30% less.
+EventPricePer 1,000Charged when
+Listing$0.001$1.00One property listing saved to the dataset: price, price per sq ft, areas, rooms, locality, project, developer, posting date, coordinates. Listings skipped by only-new mode, skipIds or the filters are never charged.
+Actor Start$0.001Charged when the Actor starts running. Number of events charged depends on Actor memory (one event per GB, minimum one event).
+Worked example: the input above, capped at 50 listings, costs at most $0.051. Apify's free plan includes $5 of usage a month, about 5,000 listings; the Actor's own compute is included in the per-record price, and records skipped by filters, de-duplication or only-new mode are not charged.
+
+Alternatives, honestly
+OptionWhat it gives youWhere it falls short for this job
+Magicbricks website and appSearch and alerts for a personNo export or API
+Other Magicbricks Actors on Apify StoreSame portalCompare price per sq ft, carpet area, possession fields, only-new mode and price per 1,000
+Build your own scraperFull controlThe site needs an unblocking proxy; you pay for and maintain it
+
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-01; the listing is the canonical description of the Actor.
+
+
+---
+
+# ImportYeti US import records (bills of lading) API | Daemon Data
+
+Source: https://datadmon.github.io/actors/importyeti-scraper/
+
+ImportYeti US import records (bills of lading) API
+
+ImportYeti Scraper is a pay-per-record Apify Actor by Daemon Data that returns US import records from ImportYeti: latest bills of lading per importer or supplier, or a company profile with top suppliers as JSON, CSV or Excel. It costs $0.002 per shipment with the default options ($2.00 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+
+Daemon Data ImportYeti Scraper on Apify   Listing as plain text
+
+Output fields
+The most useful top-level fields with values from a real record; the full list is id, importer, importerUrl, importerAddress, importerCountry, importerCountryCode, supplier, supplierUrl, supplierAddress, supplierCountry, supplierCountryCode, date, billOfLading, masterBillOfLading, houseBillOfLading, billType, weightKg, quantity, quantityUnit, containers, description, shippingRoute, estimatedShippingCostUsd, pageType, name, url, address, website, otherWebsites, mostRecentShipment, totalShipments, shipmentsLast12Months, avgTeuPerMonth, avgTeuPerShipment, estimatedTotalShippingCostUsd, topSuppliers, topImporters, hsCodes, topLanes, billTypes, monthlyShipments, databaseUpdated, scrapedAt. Per-field notes and the OpenAPI definition are on the Apify API page.
+FieldTypeExample
+idstring"ONEYDELG34285600"
+importerstring"Wal Mart"
+datestring"2026-10-28"
+billOfLadingstring"ONEYDELG34285600"
+supplierstring"Arjan Impex P Ltd"
+supplierCountrystring"India"
+supplierAddressstring"Industrial Estate Sonipat ... Hr 131001 In"
+weightKgnumber598
+quantitynumber314
+quantityUnitstring"CTN"
+containersnumber1
+descriptionstring"Stainless Steel Pet Bowl ..."
+shippingRoutestring"Asia,Pacific"
+estimatedShippingCostUsdnumber8714.26
+
+Input and how to call it
+
+A verified example input (it returned data on 2026-11-01):
+
+{
+  "companies": [
+    "walmart"
+  ],
+  "output": "shipments",
+  "maxResults": 100
+}
+
+One HTTP call starts a run, waits for it and returns the records (token from console.apify.com):
+
+curl -X POST "https://api.apify.com/v2/acts/data_daemon~importyeti-scraper/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"companies": ["walmart"], "output": "shipments", "maxResults": 100}'
+
+Python: ApifyClient(token).actor("data_daemon/importyeti-scraper").call(run_input=...), full file python/importyeti-scraper.py. Node.js: node/importyeti-scraper.mjs. n8n: importable workflow.
+AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daemon/importyeti-scraper with header Authorization: Bearer YOUR_APIFY_TOKEN in Claude, ChatGPT, Cursor or VS Code and ask for the data in plain words.
+
+All input fields
+FieldTypeMeaning
+companiesarrayCompany names or ImportYeti URLs, e.g. Walmart, ikea-supply, https://www.importyeti.com/company/wal-mart. A name is turned into the page address (Ikea Supply becomes /company/ikea-supply); if it is not found, copy the exact URL from importyeti.com.
+suppliersarraySupplier names or ImportYeti supplier URLs, e.g. https://www.importyeti.com/supplier/foxconn. Shipments then list the US importers they ship to.
+outputstringshipments: one row per recent bill of lading (the page lists the 50 newest). profile: one row per company with totals, top suppliers (or, for supplier pages, top US buyers), HS codes, port lanes and monthly shipments for up to the last 24 months that had shipments.
+shippedWithinDaysintegerShipments mode: keep bills of lading dated within the last N days.
+maxShipmentsPerCompanyintegerUp to 50 (ImportYeti shows the 50 newest bills of lading per company).
+topSuppliersintegerProfile mode: how many suppliers (company pages) or US buyers (supplier pages) to include, up to 50, largest first.
+maxResultsintegerStop after this many saved rows (default 100). 0 = no cap.
+onlyNewSinceLastRunbooleanShipments: skip bills of lading delivered by earlier runs. Profiles: deliver a company again only after it has a newer shipment. Memory is kept in a key-value store named importyeti-state (skipped rows are not charged).
+stateNamestringBy default it follows the output and the company list.
+skipIdsarrayBill of lading numbers (shipments) or company/<slug> ids (profiles) you already have. Not saved, not charged.
+
+Price
+$0.002 per shipment ($2.00 per 1,000); $0.01 per company profile ($10.00 per 1,000); $0.001 per run. List prices for Apify Free and Starter plans; Scale and Business plans pay 15% to 30% less.
+EventPricePer 1,000Charged when
+Shipment$0.002$2.00One bill of lading saved to the dataset: date, supplier and country, weight, quantity, containers, cargo description, route, estimated freight cost. Rows skipped by only-new mode, skipIds or the date filter are never charged.
+Company profile$0.01$10.00One company profile saved to the dataset: totals, up to 50 suppliers with volumes and HS codes, HS-code breakdown, port lanes and the 24-month shipment trend.
+Actor Start$0.001Charged when the Actor starts running. Number of events charged depends on Actor memory (one event per GB, minimum one event).
+Worked example: the input above, capped at 50 shipments, costs at most $0.101. Apify's free plan includes $5 of usage a month, about 2,500 shipments; the Actor's own compute is included in the per-record price, and records skipped by filters, de-duplication or only-new mode are not charged.
+
+Alternatives, honestly
+OptionWhat it gives youWhere it falls short for this job
+ImportYeti websiteFree search of US customs bills of ladingOne company page at a time; no export or alerts
+Paid trade-data platforms (Panjiva, ImportGenius and similar)Global customs data, contacts, analyticsTeam subscriptions; more than a per-company shipment watch needs
+Other ImportYeti Actors on Apify StoreSame sourceCompare shipment vs profile output, price per 1,000 and only-new mode
+
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-01; the listing is the canonical description of the Actor.
 
 
 ---
