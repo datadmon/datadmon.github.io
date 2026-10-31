@@ -2340,6 +2340,7 @@ Worked example: the input above, capped at 50 shipments, costs at most $0.101. A
 Alternatives, honestly
 OptionWhat it gives youWhere it falls short for this job
 ImportYeti websiteFree search of US customs bills of ladingOne company page at a time; no export or alerts
+ImportYeti's official API (data.importyeti.com)REST endpoints for company profiles, shipments and searchNeeds an ImportYeti account, API key and prepaid data credits; this Actor bills per row on your Apify account instead
 Paid trade-data platforms (Panjiva, ImportGenius and similar)Global customs data, contacts, analyticsTeam subscriptions; more than a per-company shipment watch needs
 Other ImportYeti Actors on Apify StoreSame sourceCompare shipment vs profile output, price per 1,000 and only-new mode
 
