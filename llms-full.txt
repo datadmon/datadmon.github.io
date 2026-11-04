@@ -26,6 +26,7 @@
 - [Magicbricks listings (India)](https://datadmon.github.io/actors/magicbricks-property-scraper/): Magicbricks India property listings: price, price per sq ft, carpet area, BHK, furnishing, locality, project, coordinates. $1.00 per 1,000 listings. Apify listing: https://apify.com/data_daemon/magicbricks-property-scraper (plain text: https://apify.com/data_daemon/magicbricks-property-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/magicbricks-property-scraper
 - [ImportYeti US import records](https://datadmon.github.io/actors/importyeti-scraper/): US import records from ImportYeti: latest bills of lading per importer or supplier, or a company profile with top suppliers. $2.00 per 1,000 shipments. Apify listing: https://apify.com/data_daemon/importyeti-scraper (plain text: https://apify.com/data_daemon/importyeti-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/importyeti-scraper
 - [OnlineJobs.ph remote VA jobs](https://datadmon.github.io/actors/onlinejobs-ph-scraper/): OnlineJobs.ph Philippine remote and virtual-assistant jobs with wage parsed to min/max/currency/period, hours per week, skills and full description. $0.80 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/onlinejobs-ph-scraper (plain text: https://apify.com/data_daemon/onlinejobs-ph-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/onlinejobs-ph-scraper
+- [Naukri.com jobs (India)](https://datadmon.github.io/actors/naukri-jobs-scraper/): Naukri.com jobs with salary in LPA, experience, skills, applicants, views, AmbitionBox rating and full description; whole-board daily export and only-new mode. $0.80 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/naukri-jobs-scraper (plain text: https://apify.com/data_daemon/naukri-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/naukri-jobs-scraper
 
 ## Guides
 
@@ -1445,7 +1446,7 @@ HR-tech, skilling and government programmesWhich jobs ask for ITI, a diploma or 
 AI agents (MCP)Ask Claude or ChatGPT "new telecaller jobs in Jaipur posted today with salary" and let it call this Actor through Apify's MCP server.
 
 Output fields
-The most useful top-level fields with values from a real record; the full list is id, url, title, company, companyId, companyLogo, department, category, role, city, state, area, pincode, latitude, longitude, locationText, workMode, employmentType, shift, salaryMin, salaryMax, salaryCurrency, salaryPeriod, earningPotential, incentives, experienceMinYears, experienceMaxYears, experienceText, education, englishLevel, openings, tags, isExternalJob, externalApplyUrl, postedAt, updatedAt, expiresAt, description, searchTerm, scrapedAt. Per-field notes and the OpenAPI definition are on the Apify API page.
+The most useful top-level fields with values from a real record; the full list is id, url, title, company, companyId, companyLogo, department, category, role, city, state, area, pincode, latitude, longitude, locationText, workMode, employmentType, shift, salaryMin, salaryMax, salaryCurrency, salaryPeriod, salaryLooksYearly, earningPotential, incentives, experienceMinYears, experienceMaxYears, experienceText, education, englishLevel, openings, tags, isExternalJob, externalApplyUrl, postedAt, updatedAt, expiresAt, description, searchTerm, scrapedAt. Per-field notes and the OpenAPI definition are on the Apify API page.
 FieldTypeExample
 idnumber667781330
 urlstring"https://apna.co/job/bengaluru-bangalore/casa-officer-667781330"
@@ -2530,6 +2531,89 @@ OptionWhat it gives youWhere it falls short for this job
 OnlineJobs.ph websiteSearch and apply as a Filipino job seeker; employer plans to post and contactNo export, API or alerts feed; one job page at a time
 Other OnlineJobs.ph Actors on Apify StoreSame boardCompare price per 1,000 (from $0.80 to $4.90), parsed wage min/max/period, hours per week and only-new mode
 Build your own scraperFull controlEach search lists at most 285 jobs; you split by keyword, parse free-text wages and skip deleted jobs yourself
+
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-04; the listing is the canonical description of the Actor.
+
+
+---
+
+# Naukri jobs API: salary in LPA, daily whole-board feed | Daemon Data
+
+Source: https://datadmon.github.io/actors/naukri-jobs-scraper/
+
+Naukri jobs API: salary in LPA, daily whole-board feed
+
+Naukri Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns Naukri.com jobs with salary in LPA, experience, skills, applicants, views, AmbitionBox rating and full description; whole-board daily export and only-new mode as JSON, CSV or Excel. It costs $0.0008 per job with the default options ($0.80 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+
+Daemon Data Naukri Jobs Scraper on Apify   Listing as plain text
+
+Why teams use it
+Job aggregators and job boards: a complete daily feed of new Indian jobs in one schema.
+Recruiters and staffing firms: see which companies are hiring for which roles and cities, and how many people already applied.
+HR analytics and salary research: salary bands in LPA by role, city and experience; demand by skill.
+Sales teams: companies that are hiring are companies that are growing; use hiring as a buying signal.
+AI agents and job-search tools: fresh Indian jobs as structured data through the API or MCP.
+
+Output fields
+Top-level fields of each record: id, dedupKey, url, title, company, experienceMinYears, experienceMaxYears, experienceText, salaryMinInr, salaryMaxInr, salaryMinLpa, salaryMaxLpa, salaryHidden, salaryText, locations, locationText, workMode, skills, roleCategory, role, functionalArea, industry, employmentType, education, openings, applicants, views, postedByConsultant, walkIn, postedAt, summary, descriptionHtml, description, query, scrapedAt.
+
+Input and how to call it
+
+A verified example input (it returned data on 2026-11-04):
+
+{
+  "queries": [
+    "data analyst"
+  ],
+  "locations": [
+    "Bangalore"
+  ],
+  "postedWithinDays": 3,
+  "maxJobsPerQuery": 50
+}
+
+One HTTP call starts a run, waits for it and returns the records (token from console.apify.com):
+
+curl -X POST "https://api.apify.com/v2/acts/data_daemon~naukri-jobs-scraper/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"queries": ["data analyst"], "locations": ["Bangalore"], "postedWithinDays": 3, "maxJobsPerQuery": 50}'
+
+Python: ApifyClient(token).actor("data_daemon/naukri-jobs-scraper").call(run_input=...), full file python/naukri-jobs-scraper.py. Node.js: node/naukri-jobs-scraper.mjs. n8n: importable workflow.
+AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daemon/naukri-jobs-scraper with header Authorization: Bearer YOUR_APIFY_TOKEN in Claude, ChatGPT, Cursor or VS Code and ask for the data in plain words.
+
+All input fields
+FieldTypeMeaning
+queriesarrayJob titles, skills or company names, one search each (e.g. data analyst, java developer, Infosys). Leave empty and turn on All jobs to export the whole board.
+allJobsbooleanExport every job posted on Naukri in the posting window instead of keyword searches (about 12,000 new jobs a day). Searches larger than Naukri's paging limit (~15,000) are split automatically by job function and city. If postedWithinDays is empty it is set to 1.
+locationsarrayCities to search, one search per city (e.g. Bangalore, Mumbai, Delhi, Pune, Hyderabad, Remote). Empty = all of India.
+experienceYearsintegerOnly jobs open to a candidate with this many years of experience (Naukri's experience filter).
+workModesarrayOnly jobs with these work modes. Empty = all.
+postedWithinDaysintegerOnly jobs posted in the last N days (1-30). Empty = any date (up to Naukri's 30-day window).
+sortBystringRelevance (default) puts true keyword matches first; Naukri's date order mixes in loosely related jobs. All jobs always runs newest first.
+keywordInTitlebooleanKeep only jobs whose title contains every word of the keyword (e.g. data analyst keeps "Senior Data Analyst", drops "Business Analyst"). Left-out jobs are not charged. Off by default.
+includeDescriptionbooleanOn (default): opens each job for the full description, applicants, views, role, function, industry, education, employment type and the company's website and address, at no extra charge. Off: faster, search-card fields only (title, company, salary, experience, city, skills, short summary).
+maxJobsPerQueryintegerStop each keyword (per city) after this many jobs. Not used with All jobs.
+maxJobsintegerStop the run after this many jobs in total. 0 = no limit (the run's maximum cost still applies).
+onlyNewSinceLastRunbooleanOn: deliver only jobs that an earlier run with the same stateName (or the same search) has not delivered, and skip the rest without charging. If postedWithinDays is empty it is set to 3. Off (default): return every matching job.
+stateNamestringOptional name for the only-new memory, e.g. bangalore-data-jobs. Runs with the same name share one memory. Empty = derived from the keywords, cities, experience and work mode.
+skipJobIdsarrayNaukri job IDs you already have (the id field, e.g. 041126017601); they are skipped and not charged.
+
+Price
+$0.0008 per job ($0.80 per 1,000); $0.001 per run. List prices for Apify Free and Starter plans; Scale and Business plans pay 15% to 30% less.
+EventPricePer 1,000Charged when
+Job$0.0008$0.80One Naukri job saved to the dataset, including the full description and job-page details when descriptions are on. Jobs skipped by only-new mode, skipJobIds or the title filter are never charged.
+Actor Start$0.001Charged when the Actor starts running. Number of events charged depends on Actor memory (one event per GB, minimum one event).
+Worked example: the input above, capped at 50 jobs, costs at most $0.041. Apify's free plan includes $5 of usage a month, about 6,250 jobs; the Actor's own compute is included in the per-record price, and records skipped by filters, de-duplication or only-new mode are not charged.
+
+Ready-made example pages
+Saved inputs you can run with one click on Apify (Examples tab); each has its own page:
+Naukri jobs API: newest jobs posted in the last 24 hours: A daily Naukri.com jobs feed as JSON: the newest 2,000 jobs posted on Naukri in the last 24 hours across all sectors and cities, with company, city, work mode, experience, salary in LPA, skills and posting time. Set maxJ {"allJobs": true, "postedWithinDays": 1, "includeDescription": false, "maxJobs": 2000}
+
+Alternatives, honestly
+OptionWhat it gives youWhere it falls short for this job
+Naukri.com websiteSearch and apply as a candidateNo export or API for job listings; one page of 20 jobs at a time
+Other Naukri Actors on Apify StoreSame boardCompare price per 1,000 with details included, salary in LPA, whole-board export past the 15,000-result limit and only-new mode
+Build your own scraperFull controlYou keep up with Naukri's API, paging limit and job-page format yourself
 
 Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-04; the listing is the canonical description of the Actor.
 
