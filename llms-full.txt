@@ -1,9 +1,10 @@
 # Daemon Data
 
-> Daemon Data publishes pay-per-record data APIs as Actors on Apify Store (https://apify.com/data_daemon). Each API reads a public website's own JSON endpoints or pages, returns structured records (JSON, CSV, Excel), charges only per record returned, and can be called over REST, from Python/Node.js, in n8n/Make/Zapier, or by an AI agent through MCP (`https://mcp.apify.com/?tools=data_daemon/<actor>`, header `Authorization: Bearer <APIFY_TOKEN>`). Prices below are FREE-plan list prices checked on 2026-11-04.
+> Daemon Data publishes pay-per-record data APIs as Actors on Apify Store (https://apify.com/data_daemon). Each API reads a public website's own JSON endpoints or pages, returns structured records (JSON, CSV, Excel), charges only per record returned, and can be called over REST, from Python/Node.js, in n8n/Make/Zapier, or by an AI agent through MCP (`https://mcp.apify.com/?tools=data_daemon/<actor>`, header `Authorization: Bearer <APIFY_TOKEN>`). Prices below are FREE-plan list prices checked on 2026-11-06.
 
 ## Data APIs
 
+- [Get on Board jobs (LATAM)](https://datadmon.github.io/actors/getonbrd-jobs-scraper/): LATAM tech jobs with monthly USD salary, full descriptions, country eligibility and persistent only-new feeds. $0.80 per 1,000 job with full descriptions. Apify listing: https://apify.com/data_daemon/getonbrd-jobs-scraper (plain text: https://apify.com/data_daemon/getonbrd-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/getonbrd-jobs-scraper
 - [Welcome to the Jungle jobs](https://datadmon.github.io/actors/welcome-to-the-jungle-jobs-scraper/): France-focused public WTTJ board jobs with descriptions, company profiles and only-new feeds. $0.80 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/welcome-to-the-jungle-jobs-scraper (plain text: https://apify.com/data_daemon/welcome-to-the-jungle-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/welcome-to-the-jungle-jobs-scraper
 - [IIMJobs jobs](https://datadmon.github.io/actors/iimjobs-jobs-scraper/): India MBA, finance, consulting and management jobs with full descriptions. $2.00 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/iimjobs-jobs-scraper (plain text: https://apify.com/data_daemon/iimjobs-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/iimjobs-jobs-scraper
 - [Hirist jobs](https://datadmon.github.io/actors/hirist-jobs-scraper/): India IT and tech jobs with full descriptions, skills, salary when disclosed. $2.00 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/hirist-jobs-scraper (plain text: https://apify.com/data_daemon/hirist-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/hirist-jobs-scraper
@@ -48,6 +49,117 @@
 
 ---
 
+# Get on Board LATAM jobs API with salary & only-new feeds | Daemon Data
+
+Source: https://datadmon.github.io/actors/getonbrd-jobs-scraper/
+
+Get on Board LATAM jobs API with salary & only-new feeds
+
+Get on Board Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns LATAM tech jobs with monthly USD salary, full descriptions, country eligibility and persistent only-new feeds as JSON, CSV or Excel. It costs $0.0008 per job with full description with the default options ($0.80 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+
+Daemon Data Get on Board Jobs Scraper on Apify   Listing as plain text
+
+Who uses it, for what
+You areWhat you get
+LATAM recruiters and staffing teamsHiring companies and open roles filtered by country eligibility, remote modality, seniority and disclosed salary.
+Job aggregators and career platformsStructured job descriptions, skills, locations and stable source IDs for importing into your application.
+Salary and labour-market analystsDisclosed monthly USD salary bands alongside role, seniority and country. Missing salaries stay null.
+Job-alert and workflow buildersA persistent only-new feed that skips previously delivered IDs without another job charge.
+AI agentsA bounded jobs API through Apify MCP, with country eligibility preserved instead of assuming every remote role is worldwide.
+
+Output fields
+The most useful top-level fields with values from a real record; the full list is id, url, title, category, categoryId, seniority, seniorityCode, employmentType, modality, remoteZone, description, descriptionHtml, publishedAt, source, scrapedAt, company, salary, tags, countries, cities, remote, applicationCount. Per-field notes and the OpenAPI definition are on the Apify API page.
+FieldTypeExample
+idstring"example-developer-acme-santiago"
+urlstring"https://www.getonbrd.com/jobs/example-developer-acme-santiago"
+titlestring"Software Developer"
+companyobject{"id": "acme", "name": "Acme", "url": "https://www.getonbrd.com/com...
+categorystring"Programming"
+categoryIdstring"programming"
+tagsarray["Python"]
+senioritystring"Senior"
+modalitystring"remote_local"
+remotebooleantrue
+countriesarray["Chile"]
+citiesarray[]
+salaryobject{"min": 2000, "max": 3000, "currency": "USD", "period": "month"}
+descriptionstring"Requirements\nPython experience"
+descriptionHtmlstring"<h2>Requirements</h2><p>Python experience</p>"
+
+Input and how to call it
+
+A verified example input (it returned data on 2026-11-06):
+
+{
+  "categories": [
+    "programming"
+  ],
+  "remoteOnly": true,
+  "minSalaryUsd": 1000,
+  "maxItems": 20
+}
+
+One HTTP call starts a run, waits for it and returns the records (token from console.apify.com):
+
+curl -X POST "https://api.apify.com/v2/acts/data_daemon~getonbrd-jobs-scraper/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"categories": ["programming"], "remoteOnly": true, "minSalaryUsd": 1000, "maxItems": 20}'
+
+Python: ApifyClient(token).actor("data_daemon/getonbrd-jobs-scraper").call(run_input=...), full file python/getonbrd-jobs-scraper.py. Node.js: node/getonbrd-jobs-scraper.mjs. n8n: importable workflow.
+AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daemon/getonbrd-jobs-scraper with header Authorization: Bearer YOUR_APIFY_TOKEN in Claude, ChatGPT, Cursor or VS Code and ask for the data in plain words.
+
+All input fields
+FieldTypeMeaning
+categoriesarrayEmpty = enumerate all 18 public categories. Category slugs from Get on Board.
+keywordsarrayClient-side, case/accent-insensitive substring match. OR between keywords; empty = any. No source search endpoint is used.
+remoteModalitiesarrayExact source labels. fully_remote = fully remote; remote_local = remote restricted to countries; hybrid; no_remote.
+remoteOnlybooleanKeep source remote=true jobs (fully_remote and remote_local). Hybrid jobs are excluded.
+senioritiesarrayMatch source name or code, e.g. Junior, Semi Senior, Senior, Expert, junior, semi_senior, senior. Case/accent insensitive.
+countriesarrayCountry names or common ISO codes (CL, MX, CO, PE, AR, BR, US, etc.). Match source eligibility, never infer worldwide eligibility from a remote flag.
+minSalaryUsdintegerKeep jobs whose disclosed minimum monthly USD salary is at least this amount. 0 = any.
+withSalaryOnlybooleanExclude jobs without a positive disclosed minimum monthly USD salary.
+postedWithinDaysintegerClient-side UTC rolling window; unknown dates are excluded when active. 0 = any age.
+maxItemsintegerGlobal delivered-row cap after filtering and deduplication. A later only-new run may deliver older unseen backlog left by this cap.
+onlyNewbooleanPersistent delivered-ID memory in named getonbrd-jobs-state KV store. Same stateName + normalized filters share memory; skipped repeats have no job charge. Avoid overlapping runs for one feed.
+stateNamestringName of your only-new feed, e.g. latam-remote-tech. Combined with normalized filters; cap changes retain memory. Ignored unless onlyNew is enabled.
+skipIdsarrayExplicit exclusions; skipped IDs are neither delivered nor charged.
+
+Price
+$0.0008 per job with full description ($0.80 per 1,000); $0.001 per run. List prices for Apify Free and Starter plans; Scale and Business plans pay 15% to 30% less.
+EventPricePer 1,000Charged when
+Job with full description$0.0008$0.80One delivered Get on Board job including description and public company profile. Previously delivered jobs skipped in only-new mode are not charged.
+Actor Start$0.001Charged when the Actor starts running. Number of events charged depends on Actor memory (one event per GB, minimum one event).
+Worked example: the input above, capped at 20 job with full descriptions, costs at most $0.017. Apify's free plan includes $5 of usage a month, about 6,250 job with full descriptions; the Actor's own compute is included in the per-record price, and records skipped by filters, de-duplication or only-new mode are not charged.
+
+What it is not for
+Candidate profiles; worldwide remote eligibility inferred from the remote flag; annual or original local-currency salary. The data belongs to its publisher; the Actor reads public pages and endpoints and leaves out personal contact details.
+
+Questions buyers ask
+Is salary monthly USD or yearly pay?
+The public API's numeric bands are USD per month. The Actor preserves those figures without annualizing them. Employer prose may also mention local-currency compensation; it remains in the description and is not substituted into the salary object. Undisclosed salary stays null.
+Does remote mean I can apply from any country?
+No. remote_local restricts remote work geographically. Even for fully remote listings, use the source's countries field and the original job page to check eligibility. Country filtering never substitutes the employer's headquarters country.
+¿Puedo exportar empleos remotos de Get on Board con sueldo?
+Sí. Usa remoteOnly: true, countries: ["CL"] (o tu país) y minSalaryUsd. Exporta empleos de tecnología en JSON, CSV o Excel, con descripción, empresa, seniority y sueldo en USD mensuales. onlyNew: true y el mismo stateName omiten empleos ya entregados sin volver a cobrar por ellos.
+Posso extrair vagas remotas do Get on Board para o Brasil?
+Sim. Use countries: ["BR"] e remoteOnly: true. O filtro respeita os países elegíveis informados pela vaga; remoto não significa aceitação de candidatos do mundo inteiro. A remuneração estruturada é em USD por mês. O modo onlyNew evita cobrar novamente por vagas já entregues no mesmo feed.
+Why did a repeat run return more jobs, or no jobs?
+The first run may have hit its cap, leaving unseen older jobs for a later run. Once the matching source inventory is exhausted, later runs return zero until new IDs appear. A refreshed existing ID is still considered delivered. See Run summary for skipped counts and stop reasons.
+Is this an official Get on Board integration?
+This is an independent Actor using public pages and public JSON, with no login or private candidate data. Get on Board publishes its own API; this Actor adds Apify exports, filters, billing and persistent delivered-ID memory. Follow applicable law and source usage conditions for your intended use. Source availability and fields can change.
+How do I report a problem?
+Open the Issues tab with your input and run ID, without credentials. Custom extraction and integration requests can be discussed there.
+
+Alternatives, honestly
+OptionWhat it gives youWhere it falls short for this job
+Get on Board public APIPublic category job data and company expansionYou maintain pagination, local filters, exports and persistent delivered-ID memory
+Other Get on Board ActorsStructured jobs from the same sourceCompare description inclusion, country eligibility, only-new memory and total price
+
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
+
+
+---
+
 # Welcome to the Jungle jobs API (JSON) | Daemon Data | Daemon Data
 
 Source: https://datadmon.github.io/actors/welcome-to-the-jungle-jobs-scraper/
@@ -83,7 +195,7 @@ querystring"python"
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-11-04):
+A verified example input (it returned data on 2026-11-06):
 
 {
   "queries": [
@@ -155,7 +267,7 @@ Public WTTJ company job pagesBrowse and apply to public vacanciesManual reading;
 Other WTTJ Actors on Apify StoreStructured data from the same sourceCompare coverage, description inclusion, only-new memory and price
 Build your own API clientControl over public search and detail requestsYou maintain source configuration, filters, pagination and persistent job IDs
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-04; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
 
 
 ---
@@ -183,7 +295,7 @@ Workforce and market analystsDemand for MBA, CA and CFA skills over time, hiring
 AI agents (MCP)Ask Claude or ChatGPT "VP finance roles in Mumbai posted this week" and let it call this Actor through Apify's MCP server.
 
 Output fields
-The most useful top-level fields with values from a real record; the full list is id, dedupKey, site, url, title, designation, company, recruiter, experienceMinYears, experienceMaxYears, salaryHidden, locations, remote, skills, mandatorySkills, industryIds, functionalAreaId, categoryId, premium, brandedJd, applicants, views, postedAt, descriptionHtml, description, query, scrapedAt, salaryMinLpa, salaryMaxLpa, otherLocation. Per-field notes and the OpenAPI definition are on the Apify API page.
+The most useful top-level fields with values from a real record; the full list is id, dedupKey, site, url, title, designation, company, recruiter, experienceMinYears, experienceMaxYears, salaryHidden, locations, remote, skills, mandatorySkills, industryIds, functionalAreaId, categoryId, premium, brandedJd, applicants, views, postedAt, descriptionHtml, description, query, scrapedAt, salaryMinLpa, salaryMaxLpa, otherLocation, companyInfoMatched. Per-field notes and the OpenAPI definition are on the Apify API page.
 FieldTypeExample
 idnumber1739557
 dedupKeystring"iimjobs:1739557"
@@ -203,7 +315,7 @@ mandatorySkillsarray["IT Product Management"]
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-11-04):
+A verified example input (it returned data on 2026-11-06):
 
 {
   "queries": [
@@ -234,9 +346,9 @@ allJobsbooleanIgnore the keywords and deliver every job IIMJobs lists in the pos
 locationsarrayOptional. Cities as IIMJobs lists them: Mumbai, Bangalore, Delhi NCR, Gurgaon, Pune, Hyderabad, Chennai, Remote, Anywhere in India. Case-insensitive substring match on the job's listed locations; a single known city is also applied server-side for speed. Leave empty for all of India.
 minExperienceintegerOnly jobs whose experience range reaches at least this many years. Integer 0-40.
 maxExperienceintegerOnly jobs whose experience range starts at or below this many years. Integer 0-40.
-postedWithinDaysintegerOnly jobs posted in the last N days. Integer 1-365, e.g. 1 with a daily schedule or 7 for a weekly report. Leave empty for all open jobs.
-includeDescriptionbooleanOn (default): full description as HTML and plain text, plus the company profile. Adds $0.002 per job. Off: listing fields only, at half the price, which is enough for counting jobs or sizing a market.
-maxJobsPerQueryintegerStop a keyword after this many new jobs (default 40). Cost: $0.002 per job plus $0.002 per full description, so 40 jobs with descriptions = $0.16. Raise it for full exports: product manager alone has about 4,000 open jobs.
+postedWithinDaysintegerOnly jobs posted in the last N days. Integer 1-365. Days count in India time, so 1 means today only: use 3 with a daily only-new schedule, 7 for a weekly report. Leave empty for all open jobs.
+includeDescriptionbooleanOn (default): full description as HTML and plain text, plus the company profile. No extra charge since 2 November 2026. Off: listing fields only, about twice as fast, which is enough for counting jobs or sizing a market.
+maxJobsPerQueryintegerStop a keyword after this many new jobs (default 40). Cost: $0.002 per job, description included, so 40 jobs = $0.08. Raise it for full exports: product manager alone has about 4,000 open jobs.
 maxJobsintegerHard cap on saved jobs for the whole run across all keywords (0 = no cap).
 onlyNewSinceLastRunbooleanOn: deliver only jobs that an earlier run with the same stateName has not already delivered, and skip the rest without charging. If postedWithinDays is empty it is set to 3 so each run stays small. Off (default): return every matching job.
 stateNamestringOptional name for this search's memory when onlyNewSinceLastRun is on, e.g. pm-bangalore-daily. Leave empty to derive it from the keywords, locations and experience filters. Use a new key to start over.
@@ -259,16 +371,16 @@ Product manager jobs in India (IIMJobs): Product management roles on IIMJobs wit
 Investment banking and finance jobs in India (IIMJobs): Investment banking, private equity, corporate finance and CA roles from IIMJobs with descriptions and applicant counts. {"queries": ["investment banking", "private equity", "corporate finance"], "postedWithinDays": 30, "includeDescription": true, "maxJobsPerQuery": 60}
 Management consulting jobs for MBAs (IIMJobs): Strategy and management consulting openings on IIMJobs, filtered to 2–8 years of experience, with full descriptions. {"queries": ["management consulting", "strategy consultant"], "minExperience": 2, "maxExperience": 8, "postedWithinDays": 30, "includeDescription": true, "maxJo
 FP&A jobs in India posted in the last 3 days (IIMJobs): Financial planning & analysis (FP&A) roles posted on IIMJobs in the last 3 days, with the full job description, salary band when disclosed, experience range, skills and applicant count. {"site": "iimjobs", "queries": ["financial planning and analysis", "fp&a"], "postedWithinDays": 3, "includeDescription": true, "maxJobsPerQuery": 50}
-Category manager jobs in Bangalore (IIMJobs): Category management roles in Bangalore from IIMJobs (e-commerce, FMCG, quick commerce) posted in the last 15 days, with salary when disclosed, experience band, skills and the full job description. {"site": "iimjobs", "queries": ["category manager"], "locations": ["Bangalore"], "postedWithinDays": 15, "includeDescription": true, "maxJobsPerQuery": 60}
 Chief of staff and founder's office jobs in India (IIMJobs): Chief of staff and founder's office roles at Indian startups and corporates posted on IIMJobs in the last 30 days, with company, salary band, experience range and the full job description. {"site": "iimjobs", "queries": ["chief of staff", "founder's office"], "postedWithinDays": 30, "includeDescription": true, "maxJobsPerQuery": 50}
 HR business partner and talent acquisition jobs (IIMJobs): HRBP and talent acquisition roles posted on IIMJobs in the last 7 days, with company, location, experience range, salary when disclosed and applicant count. Useful for HR job alerts and hiring-trend tracking. {"site": "iimjobs", "queries": ["hr business partner", "talent acquisition"], "postedWithinDays": 7, "includeDescription": true, "maxJobsPerQuery": 50}
 Brand and marketing manager jobs in India this week (IIMJobs): Brand manager and marketing manager roles posted on IIMJobs in the last 7 days (FMCG, D2C, consumer tech), with company, city, salary band, experience and the full job description. {"site": "iimjobs", "queries": ["brand manager", "marketing manager"], "postedWithinDays": 7, "includeDescription": true, "maxJobsPerQuery": 50}
 Private equity and equity research jobs in Mumbai (IIMJobs): Private equity, fund and equity research roles in Mumbai posted on IIMJobs in the last 30 days, with firm, experience band, salary when disclosed, skills and the full job description. {"site": "iimjobs", "queries": ["private equity", "equity research"], "locations": ["Mumbai"], "postedWithinDays": 30, "includeDescription": true, "maxJobsPerQu
-Every new IIMJobs job: full-board feed (last 3 days): Every job posted on IIMJobs in the last 3 days across all functions (finance, consulting, product, sales, HR), with the full job description, salary band when disclosed, experience, skills, applicant count and AmbitionBo {"site": "iimjobs", "allJobs": true, "postedWithinDays": 3, "includeDescription": true, "maxJobs": 600}
+Every new IIMJobs job: full-board feed (last 3 days): Every job posted on IIMJobs in the last 3 days across all functions (finance, consulting, product, sales, HR), with the full job description, salary band when disclosed, experience, skills, applicant count and AmbitionBo {"site": "iimjobs", "allJobs": true, "postedWithinDays": 3, "includeDescription": true, "maxJobs": 600, "onlyNewSinceLastRun": true, "stateName": "iimjobs-full-
+IIMJobs daily feed: only new product manager jobs (schedule it): A ready-made daily feed task: product manager jobs posted on IIMJobs in the last 3 days, only jobs this feed has not delivered before. Copy it to your account, change the keywords or add cities, then Schedule -> Daily. T {"site": "iimjobs", "queries": ["product manager"], "postedWithinDays": 3, "onlyNewSinceLastRun": true, "stateName": "iimjobs-pm-daily-feed", "includeDescriptio
 
 Questions buyers ask
 How much does it cost to scrape IIMJobs?
-$0.002 per job plus $0.002 per full description, so 100 jobs with descriptions cost $0.40 and a 50-jobs-a-day feed about $6 a month.
+$0.002 per job with its full description (plus $0.001 per run), so 100 jobs cost $0.20 and a 50-jobs-a-day feed about $3 a month.
 Is there an official IIMJobs API?
 No public one. This Actor reads the JSON that the iimjobs.com website itself loads and exposes it as a REST API with schedules, webhooks and only-new-jobs runs.
 Which roles does IIMJobs cover?
@@ -276,7 +388,7 @@ Management, consulting, finance, CA/CFA, sales, marketing, HR and MBA-track role
 Does it return the full job description?
 Yes, as HTML and plain text, plus skills, applicant and view counts, salary in LPA when disclosed and the AmbitionBox company profile when one exists.
 Why is recruiter.name null?
-IIMJobs shows recruiter names only to logged-in users. The Actor keeps the recruiter's designation and does not work around the site's choice. Company name, domain and profile are always included.
+IIMJobs shows recruiter names only to logged-in users. The Actor keeps the recruiter's designation and does not work around the site's choice. Company name and domain come from the job; an AmbitionBox profile is included only when its identity matches.
 IIMJobs vs Naukri: which should I scrape?
 IIMJobs is curated mid-to-senior management, finance and consulting hiring. Naukri is all levels. For CXO, VP, CA/CFA and MBA roles, IIMJobs has far less noise.
 Can I get IIMJobs and Hirist jobs together?
@@ -290,7 +402,7 @@ IIMJobs website and recruiter dashboardSearch and email alerts for a logged-in u
 Other IIMJobs Actors on Apify StoreSimilar scraping of the same boardCompare fields (salary, AmbitionBox profile, only-new mode) and price per 1,000
 Build your own scraperFull controlThe board's JSON endpoints change; you maintain pagination, de-duplication and scheduling
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-04; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
 
 
 ---
@@ -318,7 +430,7 @@ Job-alert and career productsFresh roles from the last 24 hours, filtered by exp
 AI agents (MCP)Ask Claude or ChatGPT for "remote senior Python roles posted this week" and let it call this Actor through Apify's MCP server.
 
 Output fields
-The most useful top-level fields with values from a real record; the full list is id, dedupKey, site, url, title, designation, company, recruiter, experienceMinYears, experienceMaxYears, salaryHidden, locations, remote, skills, mandatorySkills, industryIds, functionalAreaId, categoryId, premium, brandedJd, applicants, views, postedAt, descriptionHtml, description, query, scrapedAt, salaryMinLpa, salaryMaxLpa, otherLocation. Per-field notes and the OpenAPI definition are on the Apify API page.
+The most useful top-level fields with values from a real record; the full list is id, dedupKey, site, url, title, designation, company, recruiter, experienceMinYears, experienceMaxYears, salaryHidden, locations, remote, skills, mandatorySkills, industryIds, functionalAreaId, categoryId, premium, brandedJd, applicants, views, postedAt, descriptionHtml, description, query, scrapedAt, salaryMinLpa, salaryMaxLpa, otherLocation, companyInfoMatched. Per-field notes and the OpenAPI definition are on the Apify API page.
 FieldTypeExample
 idnumber1677571
 dedupKeystring"hirist:1677571"
@@ -338,7 +450,7 @@ mandatorySkillsarray["Python", "Data Structure", "Algorithm", "System Design", "
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-11-04):
+A verified example input (it returned data on 2026-11-06):
 
 {
   "queries": [
@@ -368,9 +480,9 @@ allJobsbooleanIgnore the keywords and deliver every job Hirist lists in the post
 locationsarrayOptional. Cities as Hirist lists them: Bangalore, Hyderabad, Pune, Chennai, Gurgaon, Noida, Mumbai, Remote, Anywhere in India. Case-insensitive substring match on the job's listed locations; a single known city is also applied server-side for speed. Leave empty for all of India.
 minExperienceintegerOnly jobs whose experience range reaches at least this many years. Integer 0-40.
 maxExperienceintegerOnly jobs whose experience range starts at or below this many years. Integer 0-40.
-postedWithinDaysintegerOnly jobs posted in the last N days. Integer 1-365, e.g. 1 with a daily schedule or 7 for a weekly report. Leave empty for all open jobs.
-includeDescriptionbooleanOn (default): full, untruncated description as HTML and plain text, plus the company profile. Adds $0.002 per job. Off: listing fields only, at half the price, which is enough for counting jobs or sizing a market.
-maxJobsPerQueryintegerStop a keyword after this many new jobs (default 40). Cost: $0.002 per job plus $0.002 per full description, so 40 jobs with descriptions = $0.16. Raise it for full exports: data engineer alone has about 3,400 open jobs.
+postedWithinDaysintegerOnly jobs posted in the last N days. Integer 1-365. Days count in India time, so 1 means today only: use 3 with a daily only-new schedule, 7 for a weekly report. Leave empty for all open jobs.
+includeDescriptionbooleanOn (default): full, untruncated description as HTML and plain text, plus the company profile. No extra charge since 2 November 2026. Off: listing fields only, about twice as fast, which is enough for counting jobs or sizing a market.
+maxJobsPerQueryintegerStop a keyword after this many new jobs (default 40). Cost: $0.002 per job, description included, so 40 jobs = $0.08. Raise it for full exports: data engineer alone has about 3,400 open jobs.
 maxJobsintegerHard cap on saved jobs for the whole run across all keywords (0 = no cap).
 onlyNewSinceLastRunbooleanOn: deliver only jobs that an earlier run with the same stateName has not already delivered, and skip the rest without charging. If postedWithinDays is empty it is set to 3 so each run stays small. Off (default): return every matching job.
 stateNamestringOptional name for this search's memory when onlyNewSinceLastRun is on, e.g. python-bangalore-daily. Leave empty to derive it from the keywords, locations and experience filters. Use a new key to start over.
@@ -393,15 +505,16 @@ Python developer jobs in Bangalore posted this week (Hirist): Fresh Python devel
 Remote tech jobs in India (Hirist): Remote software, data and DevOps jobs on Hirist with full job descriptions, skills, applicant count and salary when shown. {"queries": ["software engineer", "data engineer", "devops"], "locations": ["Remote"], "postedWithinDays": 15, "includeDescription": true, "maxJobsPerQuery": 60
 Fresher and entry-level IT jobs in India (0–2 years): Entry-level developer, QA and support roles on Hirist for 0–2 years of experience, with descriptions and applicant counts. {"queries": ["software developer", "qa engineer", "support engineer"], "minExperience": 0, "maxExperience": 2, "postedWithinDays": 15, "includeDescription": tru
 DevOps engineer jobs in India, last 3 days (Hirist): DevOps, SRE and cloud-infrastructure engineer roles posted on Hirist.tech in the last 3 days, with company, city, experience band, salary when disclosed, skills and the full job description. {"site": "hirist", "queries": ["devops engineer"], "postedWithinDays": 3, "includeDescription": true, "maxJobsPerQuery": 50}
-Every new Hirist tech job: full-board feed (last 3 days): Every job posted on Hirist.tech in the last 3 days (backend, frontend, data, DevOps, QA, AI/ML, SAP and security roles), with the full job description, skills, salary in LPA when shown, experience range, applicant count  {"site": "hirist", "allJobs": true, "postedWithinDays": 3, "includeDescription": true, "maxJobs": 600}
+Every new Hirist tech job: full-board feed (last 3 days): Every job posted on Hirist.tech in the last 3 days (backend, frontend, data, DevOps, QA, AI/ML, SAP and security roles), with the full job description, skills, salary in LPA when shown, experience range, applicants and A {"site": "hirist", "allJobs": true, "postedWithinDays": 3, "includeDescription": true, "maxJobs": 600, "onlyNewSinceLastRun": true, "stateName": "hirist-full-bo
 Data engineer jobs in India posted this week (Hirist): Data engineer jobs posted on Hirist.tech in the last 7 days: Spark, Databricks, Snowflake, Airflow, Kafka and cloud data-platform roles across Bangalore, Hyderabad, Pune, Gurgaon and remote, with the full job description {"site": "hirist", "queries": ["data engineer"], "postedWithinDays": 7, "includeDescription": true, "maxJobsPerQuery": 100}
 Cyber security jobs in India posted this week (Hirist): Cyber security and information security jobs posted on Hirist.tech in the last 7 days (21 on 30 October 2026): security architecture, application and cloud security, SIEM, incident response, GRC and ISMS roles in Bangalo {"site": "hirist", "queries": ["cyber security", "information security"], "postedWithinDays": 7, "includeDescription": true, "maxJobsPerQuery": 40}
 SAP jobs in India posted this week (Hirist): SAP jobs posted on Hirist.tech in the last 7 days (109 on 30 October 2026): ABAP, S/4HANA, MM, EWM, BTP, CPI, FICO, SuccessFactors and Ariba consultant and developer roles, mostly in Bangalore, Hyderabad and Pune, 17 rem {"site": "hirist", "queries": ["sap"], "postedWithinDays": 7, "includeDescription": true, "maxJobsPerQuery": 150}
 AI, machine learning and GenAI engineer jobs in India this week: Machine learning, generative AI and LLM engineer jobs posted on Hirist.tech in the last 7 days (103 on 30 October 2026, three searches merged): ML engineers, data scientists, GenAI and agentic AI engineers in Bangalore,  {"site": "hirist", "queries": ["machine learning", "generative ai", "llm"], "postedWithinDays": 7, "includeDescription": true, "maxJobsPerQuery": 60}
+Hirist daily feed: only new Python developer jobs (schedule it): A ready-made daily feed task: Python developer jobs posted on Hirist.tech in the last 3 days, only jobs this feed has not delivered before. Copy it to your account, change the keywords or add cities, then Schedule -> Dai {"site": "hirist", "queries": ["python developer"], "postedWithinDays": 3, "onlyNewSinceLastRun": true, "stateName": "hirist-python-daily-feed", "includeDescrip
 
 Questions buyers ask
 How much does it cost to scrape Hirist jobs?
-$0.002 per job plus $0.002 per full description, so 100 jobs with descriptions cost $0.40 and a 34-jobs-a-day feed about $4 a month.
+$0.002 per job with its full description (plus $0.001 per run), so 100 jobs cost $0.20 and a 34-jobs-a-day feed about $2 a month.
 Is there a Hirist API?
 Not a public one. This Actor reads the JSON the hirist.tech site itself loads and exposes it as a REST API with schedules, webhooks and only-new-jobs runs.
 Is Hirist.tech real or fake?
@@ -411,7 +524,7 @@ Yes: locations, minExperience, maxExperience and postedWithinDays. A single city
 Does it return the full job description?
 Yes, as HTML and plain text, untruncated, plus skills, applicant and view counts, salary in LPA when shown and the AmbitionBox company profile when one exists.
 Why is recruiter.name null?
-Hirist shows recruiter names only to logged-in users. The Actor keeps the recruiter's designation and does not work around the site's choice. Company name, domain and profile are always included.
+Hirist shows recruiter names only to logged-in users. The Actor keeps the recruiter's designation and does not work around the site's choice. Company name and domain come from the job; an AmbitionBox profile is included only when its identity matches.
 Hirist vs Naukri?
 Hirist is tech-only and every posting carries skill tags and an experience band, which makes it cleaner for skills analytics. Naukri is broader and noisier.
 Can I get Hirist and IIMJobs jobs together?
@@ -423,7 +536,7 @@ Hirist.tech websiteSearch and alerts for a logged-in userNo bulk export or API
 Other Hirist Actors on Apify StoreSame boardCompare full-description coverage, AmbitionBox fields, only-new mode, price
 Build your own scraperFull controlMaintenance of endpoints, pagination and de-duplication is on you
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-04; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
 
 
 ---
@@ -470,7 +583,7 @@ remotebooleanfalse
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-11-04):
+A verified example input (it returned data on 2026-11-06):
 
 {
   "careerSiteUrls": [
@@ -498,7 +611,7 @@ keywordstringOptional. Searched the way the career site's own search box does, e
 locationstringOptional country, state or city, e.g. India, United Kingdom, London, Bengaluru, Karnataka, India. Countries always work. States and cities are resolved through the site's own location filter; if the site does not list the place, jobs are matched on their location text instead and only matching jobs are delivered and charged. The run log lists the locations a site offers.
 postedWithinDaysintegerOnly jobs posted recently. Integer 1-30; Oracle supports two buckets, so 1-7 means the last 7 days and 8-30 the last 30 days. Leave empty for all open jobs.
 workplaceTypesarrayOptional: only remote, hybrid or on-site jobs. Works only on career sites that tag workplace type; some tag every job on-site (Oracle's own site does), and then Remote returns 0 jobs.
-includeDetailsbooleanOn (default): full description, qualifications, responsibilities, skills and the employer's custom fields. Adds $0.002 per job. Off: list fields only, at half the price.
+includeDetailsbooleanOn (default): full description, qualifications, responsibilities, skills and the employer's custom fields. No extra charge since 2 November 2026. Off: list fields only, faster.
 maxJobsPerSiteintegerStop after this many jobs per career site (default 50, about $0.20 with details at FREE prices). Set 0 to export the whole site; large employers list 2,000-13,000 open jobs.
 onlyNewSinceLastRunbooleanDeliver only jobs that an earlier run with the same search (or the same State key) has not already delivered. Skipped jobs are not charged. Made for daily schedules: the Actor remembers delivered job IDs in a key-value store named oracle-hcm-jobs-state in your account. When this is on and Posted within is empty, the last 7 days are searched.
 stateNamestringOptional name for this saved search's memory when Only new jobs is on, e.g. jpmc-india. Leave empty to derive it from the career site URLs, keyword, location and workplace types. Use a new key to start over.
@@ -530,7 +643,7 @@ Jobs from several Oracle Recruiting Cloud career sites (API): One run reads two 
 
 Questions buyers ask
 How much does it cost to scrape an Oracle career site?
-$0.002 per job plus $0.002 per full detail record. A 500-job site with details costs $2.00; the same site without details costs $1.00.
+$0.002 per job with its full detail record, plus $0.001 per run. A 500-job site with details costs about $1.00.
 Does Oracle Recruiting Cloud have a public API for job postings?
 The documented Oracle HCM REST API needs customer credentials. Public career sites load their jobs from an unauthenticated candidate-experience endpoint (/hcmRestApi/resources/latest/recruitingCEJobRequisitions), which is what this Actor reads, with the same filters the careers page uses. The three endpoints, their parameters and the silent wrong-site fallback are documented in Oracle Recruiting Cloud jobs API: the public JSON endpoints behind every Oracle HCM career site.
 What is the difference between Oracle HCM, Oracle Fusion and Oracle Recruiting Cloud?
@@ -552,7 +665,7 @@ The employer's own career siteBrowse and applyOne employer at a time, no export
 Multi-ATS job APIs (Workday, Greenhouse, Lever and others)Several ATS platforms in one productUsually higher price per 1,000; check whether Oracle Recruiting Cloud is actually covered
 Open-source ATS crawlersFreeYou host, schedule and maintain them
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-04; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
 
 
 ---
@@ -598,7 +711,7 @@ priceToEarningsnumber159.68
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-11-04):
+A verified example input (it returned data on 2026-11-06):
 
 {
   "reports": [
@@ -667,7 +780,7 @@ Broker APIs (for example Upstox)Official IPO calendar and some subscription figu
 IPO tracking websitesGMP and subscription pages for peopleNo JSON, no stable key across reports, no schedule
 BSE and NSE websitesOfficial bid data while an issue is openNo GMP; bot protection; no history joined to listing results
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-04; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
 
 
 ---
@@ -714,7 +827,7 @@ scorecardarray[{"name": "Performance", "tag": "Low", "colour": "red", "descripti
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-11-04):
+A verified example input (it returned data on 2026-11-06):
 
 {
   "mode": "index",
@@ -782,7 +895,7 @@ Exchange data feeds (NSE, BSE)Official, real timeLicence fees and bot protection
 Tickertape website and ProThe same pages for a personNo bulk export or API
 Python libraries that read exchange sitesFreeBreak when the exchange changes; fundamentals and shareholding history are thin
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-04; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
 
 
 ---
@@ -830,7 +943,7 @@ parkingstring"B2-7328,B2-7328T"
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-11-04):
+A verified example input (it returned data on 2026-11-06):
 
 {
   "transactionGroup": "sales",
@@ -901,7 +1014,7 @@ Dubai Pulse open-data portalOfficial downloads by handManual extracts, cleaning 
 DXB Interact dashboardOfficial charts and lookupsNot a data feed
 Paid DLD data productsCleaned data with supportSubscriptions; the register itself is open data
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-04; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
 
 
 ---
@@ -912,9 +1025,9 @@ Source: https://datadmon.github.io/actors/uk-gazette-insolvency-notices/
 
 UK Gazette insolvency notices as JSON feed
 
-UK Gazette Insolvency Notices Scraper is a pay-per-record Apify Actor by Daemon Data that returns winding-up petitions, administrations, liquidations from The Gazette as JSON, CSV or Excel. It costs $0.005 per notice with the default options ($5.00 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+UK Gazette Insolvency Notices Scraper API: Winding-Up Petitions is a pay-per-record Apify Actor by Daemon Data that returns winding-up petitions, administrations, liquidations from The Gazette as JSON, CSV or Excel. It costs $0.005 per notice with the default options ($5.00 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
 
-Daemon Data UK Gazette Insolvency Notices Scraper on Apify   Listing as plain text
+Daemon Data UK Gazette Insolvency Notices Scraper API: Winding-Up Petitions on Apify   Listing as plain text
 
 Checked on 17 Oct 2026
 In the week of 11 to 17 Oct 2026 The Gazette published 138 winding-up petitions and 43 administration appointments; HMRC presented 56% of the 620 petitions of the prior 30 days. On 21 Oct 2026 the 48-hour corporate-insolvency example returned 100 notices with 98 structured records.
@@ -948,7 +1061,7 @@ caseNumberstring"CR-2026-007272"
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-11-04):
+A verified example input (it returned data on 2026-11-06):
 
 {
   "noticeTypes": [
@@ -1021,7 +1134,7 @@ The Gazette website and its paid data serviceOfficial notices; a subscription da
 Companies House APIOfficial company status, freeChanges appear weeks after the petition is advertised
 Other Gazette Actors on Apify StoreSame noticesCompare linked-data fields (company number, addresses) and only-new mode
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-04; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1069,7 +1182,7 @@ salaryMaxLpanullnull
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-11-04):
+A verified example input (it returned data on 2026-11-06):
 
 {
   "queries": [
@@ -1153,7 +1266,7 @@ foundit.in websiteSearch for a visitorNo export; syndicated apply links are one 
 Naukri, LinkedIn or Indeed ActorsLarger boardsDifferent coverage; this API reads foundit only
 Other foundit Actors on Apify StoreSame boardCompare salary-band handling, apply-URL resolution and price per 1,000
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-04; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1201,7 +1314,7 @@ postedAtstring"2026-10-09T00:00:00.000Z"
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-11-04):
+A verified example input (it returned data on 2026-11-06):
 
 {
   "queries": [
@@ -1288,7 +1401,7 @@ Instahyre websiteCandidate and employer accountsNo export or API; salary and app
 Hirist or IIMJobs APIs (same publisher)Applicant counts and salary bandsDifferent boards; Instahyre is the one with company headcount and size filters
 Other Instahyre Actors on Apify StoreSame boardCompare price per 1,000, company-profile fields and only-new mode
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-04; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1299,9 +1412,9 @@ Source: https://datadmon.github.io/actors/luma-events-scraper/
 
 Luma (lu.ma) events as JSON API
 
-Luma Events Scraper is a pay-per-record Apify Actor by Daemon Data that returns lu.ma events by city, category, keyword or calendar: dates, venue, tickets, hosts as JSON, CSV or Excel. It costs $0.0015 per event with the default options ($1.50 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+Luma Events Scraper & API is a pay-per-record Apify Actor by Daemon Data that returns lu.ma events by city, category, keyword or calendar: dates, venue, tickets, hosts as JSON, CSV or Excel. It costs $0.0015 per event with the default options ($1.50 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
 
-Daemon Data Luma Events Scraper on Apify   Listing as plain text
+Daemon Data Luma Events Scraper & API on Apify   Listing as plain text
 
 Checked on 19 Oct 2026, on the Apify platform
 San Francisco listed 105 upcoming events; three cities (San Francisco, New York, London) gave 100 events with full details in 36 seconds for $0.15 plus the $0.001 start fee. The default run (the 25 soonest San Francisco events with details) takes about 10 seconds and costs $0.04.
@@ -1336,7 +1449,7 @@ countrystring"United States"
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-11-04):
+A verified example input (it returned data on 2026-11-06):
 
 {
   "cities": [
@@ -1418,7 +1531,7 @@ Luma website and iCal feedsBrowse; subscribe to one calendarNo cross-city export
 Eventbrite or Meetup ActorsOther event platformsDifferent events; this API reads Luma only
 Other Luma Actors on Apify StoreSame sourceCompare detail fields (hosts, tickets, GPS) and price per 1,000
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-04; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1466,7 +1579,7 @@ locationTextstring"Bengaluru/Bangalore"
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-11-04):
+A verified example input (it returned data on 2026-11-06):
 
 {
   "cities": [
@@ -1535,7 +1648,7 @@ Apna website and appSearch and apply as a candidateNo export or API; one job at 
 Other Apna Actors on Apify StoreSame boardCompare full-board coverage, salary and locality fields, only-new mode and price per 1,000
 Build your own scraperFull controlYou handle the 500-result keyword cap, deep-page repeats, city ids and de-duplication
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-04; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1582,7 +1695,7 @@ skillsarray["accounts payable", "accounts receivable", "accountants"]
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-11-04):
+A verified example input (it returned data on 2026-11-06):
 
 {
   "searchTerms": [
@@ -1652,7 +1765,7 @@ Shine.com websiteSearch and alerts for a logged-in userNo bulk export or API
 Other Shine Actors on Apify StoreSame boardCompare description and salary-range coverage, only-new mode and price per 1,000
 Build your own scraperFull controlYou parse the app's page data, follow job pages and maintain de-duplication
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-04; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1700,7 +1813,7 @@ salaryMaxnumber40000
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-11-04):
+A verified example input (it returned data on 2026-11-06):
 
 {
   "opportunityTypes": [
@@ -1778,7 +1891,7 @@ Unstop website and appBrowse and register as a student or professionalNo export;
 Other Unstop Actors on Apify StoreSame sourceCompare listing types covered (jobs, internships, hackathons, competitions), prize and eligibility fields and price per 1,000
 Build your own clientFull controlYou map filters, paging and the listing types yourself
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-04; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1826,7 +1939,7 @@ acceptsPwdbooleantrue
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-11-04):
+A verified example input (it returned data on 2026-11-06):
 
 {
   "searchTerms": [
@@ -1902,7 +2015,7 @@ Gupy job portal (portal.gupy.io)Search and apply as a candidateNo export; one jo
 Other Gupy Actors on Apify StoreSame sourceCompare description coverage, only-new memory and price per 1,000
 Build your own scraperFull controlThe portal's build ID changes; you maintain pagination, de-duplication and scheduling
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-04; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1944,7 +2057,7 @@ companyClassstring"Private"
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-11-04):
+A verified example input (it returned data on 2026-11-06):
 
 {
   "recentDates": 3,
@@ -2002,7 +2115,7 @@ MCA portal (mca.gov.in) master dataOfficial lookup of one company by CIN or name
 Paid company-data platforms (Tofler, Probe42 and similar)Financials, directors and filingsSubscriptions priced per seat or per report; overkill for a daily new-incorporations list
 Other MCA Actors on Apify StoreNew-company lists from the same registerCompare price per 1,000, CIN decoding, filters before charging and only-new mode
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-04; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
 
 
 ---
@@ -2038,7 +2151,7 @@ workArrangementstring"Work From Office"
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-11-04):
+A verified example input (it returned data on 2026-11-06):
 
 {
   "cities": [
@@ -2087,7 +2200,7 @@ WorkIndia website and appSearch and apply as a candidateNo export or API; one jo
 Apna or Shine APIs (same publisher)Other India boards with salariesDifferent coverage; WorkIndia is strongest for delivery, telecaller, office and field jobs
 Build your own scraperFull controlYou maintain sitemap paging, job-page parsing, expired-page handling and de-duplication
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-04; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
 
 
 ---
@@ -2123,7 +2236,7 @@ experienceTextstring"4 - 8 years"
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-11-04):
+A verified example input (it returned data on 2026-11-06):
 
 {
   "categories": [
@@ -2180,7 +2293,7 @@ Cutshort websiteSearch and apply as a candidate; recruiter plans for employersNo
 Instahyre or Hirist APIs (same publisher)Other India tech boardsDifferent coverage; Cutshort is strongest for funded startups and shows salary ranges on most jobs
 Other Cutshort Actors on Apify StoreSame boardCompare price per 1,000, company-profile fields, salary range and only-new mode
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-04; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
 
 
 ---
@@ -2216,7 +2329,7 @@ citystring"São Paulo"
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-11-04):
+A verified example input (it returned data on 2026-11-06):
 
 {
   "locations": [
@@ -2277,7 +2390,7 @@ Zap Imóveis and VivaReal websitesSearch and alerts for a personNo export; listi
 Other Zap or VivaReal Actors on Apify StoreSame portalsCompare price per 1,000, condo fee and IPTU fields, both portals in one run and only-new mode
 Build your own clientFull controlEach search returns at most about 1,000 listings; you split by price and zone and remove duplicates yourself
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-04; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
 
 
 ---
@@ -2313,7 +2426,7 @@ developerstring"Kolte Patil Developers Ltd."
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-11-04):
+A verified example input (it returned data on 2026-11-06):
 
 {
   "cities": [
@@ -2361,7 +2474,7 @@ Magicbricks website and appSearch and alerts for a personNo export or API
 Other Magicbricks Actors on Apify StoreSame portalCompare price per sq ft, carpet area, possession fields, only-new mode and price per 1,000
 Build your own scraperFull controlThe site needs an unblocking proxy; you pay for and maintain it
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-04; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
 
 
 ---
@@ -2372,9 +2485,9 @@ Source: https://datadmon.github.io/actors/importyeti-scraper/
 
 ImportYeti US import records (bills of lading) API
 
-ImportYeti Scraper is a pay-per-record Apify Actor by Daemon Data that returns US import records from ImportYeti: latest bills of lading per importer or supplier, or a company profile with top suppliers as JSON, CSV or Excel. It costs $0.002 per shipment with the default options ($2.00 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+ImportYeti Scraper & API is a pay-per-record Apify Actor by Daemon Data that returns US import records from ImportYeti: latest bills of lading per importer or supplier, or a company profile with top suppliers as JSON, CSV or Excel. It costs $0.002 per shipment with the default options ($2.00 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
 
-Daemon Data ImportYeti Scraper on Apify   Listing as plain text
+Daemon Data ImportYeti Scraper & API on Apify   Listing as plain text
 
 Output fields
 The most useful top-level fields with values from a real record; the full list is id, importer, importerUrl, importerAddress, importerCountry, importerCountryCode, supplier, supplierUrl, supplierAddress, supplierCountry, supplierCountryCode, date, billOfLading, masterBillOfLading, houseBillOfLading, billType, weightKg, quantity, quantityUnit, containers, description, shippingRoute, estimatedShippingCostUsd, pageType, name, url, address, website, otherWebsites, mostRecentShipment, totalShipments, shipmentsLast12Months, avgTeuPerMonth, avgTeuPerShipment, estimatedTotalShippingCostUsd, topSuppliers, topImporters, hsCodes, topLanes, billTypes, monthlyShipments, databaseUpdated, scrapedAt. Per-field notes and the OpenAPI definition are on the Apify API page.
@@ -2396,7 +2509,7 @@ estimatedShippingCostUsdnumber8714.26
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-11-04):
+A verified example input (it returned data on 2026-11-06):
 
 {
   "companies": [
@@ -2448,7 +2561,7 @@ ImportYeti's official API (data.importyeti.com)REST endpoints for company profil
 Paid trade-data platforms (Panjiva, ImportGenius and similar)Global customs data, contacts, analyticsTeam subscriptions; more than a per-company shipment watch needs
 Other ImportYeti Actors on Apify StoreSame sourceCompare shipment vs profile output, price per 1,000 and only-new mode
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-04; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
 
 
 ---
@@ -2484,7 +2597,7 @@ salaryInferredbooleanfalse
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-11-04):
+A verified example input (it returned data on 2026-11-06):
 
 {
   "keywords": [
@@ -2532,7 +2645,7 @@ OnlineJobs.ph websiteSearch and apply as a Filipino job seeker; employer plans t
 Other OnlineJobs.ph Actors on Apify StoreSame boardCompare price per 1,000 (from $0.80 to $4.90), parsed wage min/max/period, hours per week and only-new mode
 Build your own scraperFull controlEach search lists at most 285 jobs; you split by keyword, parse free-text wages and skip deleted jobs yourself
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-04; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
 
 
 ---
@@ -2559,7 +2672,7 @@ Top-level fields of each record: id, dedupKey, url, title, company, experienceMi
 
 Input and how to call it
 
-A verified example input (it returned data on 2026-11-04):
+A verified example input (it returned data on 2026-11-06):
 
 {
   "queries": [
@@ -2608,6 +2721,7 @@ Worked example: the input above, capped at 50 jobs, costs at most $0.041. Apify'
 Ready-made example pages
 Saved inputs you can run with one click on Apify (Examples tab); each has its own page:
 Naukri jobs API: newest jobs posted in the last 24 hours: A daily Naukri.com jobs feed as JSON: the newest 2,000 jobs posted on Naukri in the last 24 hours across all sectors and cities, with company, city, work mode, experience, salary in LPA, skills and posting time. Set maxJ {"allJobs": true, "postedWithinDays": 1, "includeDescription": false, "maxJobs": 2000}
+Naukri daily feed: only new data analyst jobs in Bangalore: A ready-made daily feed task: data analyst jobs in Bangalore posted on Naukri in the last 2 days with the keyword in the job title, only jobs this feed has not delivered before. Copy it to your account, change the keywor {"queries": ["data analyst"], "locations": ["Bangalore"], "keywordInTitle": true, "postedWithinDays": 2, "onlyNewSinceLastRun": true, "stateName": "naukri-data-
 
 Alternatives, honestly
 OptionWhat it gives youWhere it falls short for this job
@@ -2615,7 +2729,7 @@ Naukri.com websiteSearch and apply as a candidateNo export or API for job listin
 Other Naukri Actors on Apify StoreSame boardCompare price per 1,000 with details included, salary in LPA, whole-board export past the 15,000-result limit and only-new mode
 Build your own scraperFull controlYou keep up with Naukri's API, paging limit and job-page format yourself
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-04; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages on this page were read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
 
 
 ---
