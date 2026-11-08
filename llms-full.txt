@@ -1,6 +1,6 @@
 # Daemon Data
 
-> Daemon Data publishes 27 public Actors on Apify Store (https://apify.com/data_daemon), verified at build time against the Apify API. Data Actors read public JSON endpoints or pages and return structured records (JSON, CSV, Excel). Most charge per record; India Jobs Feed and India Jobs MCP have no own fee, with downstream board Actor charges. Call via REST, Python/Node.js, n8n/Make/Zapier or MCP (`https://mcp.apify.com/?tools=data_daemon/<actor>`, header `Authorization: Bearer <APIFY_TOKEN>`). FREE-plan list prices checked 2026-11-06. Historical measurements retain their stated dates.
+> Daemon Data publishes 28 public Actors on Apify Store (https://apify.com/data_daemon), verified at build time against the Apify API. Data Actors read public JSON endpoints or pages and return structured records (JSON, CSV, Excel). Most charge per record; India Jobs Feed and India Jobs MCP have no own fee, with downstream board Actor charges. Call via REST, Python/Node.js, n8n/Make/Zapier or MCP (`https://mcp.apify.com/?tools=data_daemon/<actor>`, header `Authorization: Bearer <APIFY_TOKEN>`). FREE-plan list prices checked 2026-11-08. Historical measurements retain their stated dates.
 
 ## Data APIs
 
@@ -8,6 +8,7 @@
 - [Company career sites (5 ATS platforms)](https://datadmon.github.io/actors/career-site-jobs-scraper/): $1 per 1,000 jobs | Jobs straight from company career sites on Workday, Greenhouse, Lever, Ashby and SmartRecruiters in one schema: title, location, remote, salary range, date, description, apply URL. Search your own company list, or across companies by title, place and date. Only-new mode.. $1.00 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/career-site-jobs-scraper (plain text: https://apify.com/data_daemon/career-site-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/career-site-jobs-scraper
 - [Cutshort startup jobs](https://datadmon.github.io/actors/cutshort-jobs-scraper/): Cutshort (cutshort.io) India startup and tech jobs with salary range, experience, skills, remote policy, company profile and full description. $0.80 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/cutshort-jobs-scraper (plain text: https://apify.com/data_daemon/cutshort-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/cutshort-jobs-scraper
 - [Dubai DLD transactions](https://datadmon.github.io/actors/dubai-property-transactions/): Dubai Land Department sales, mortgages and gifts with AED value and price/sqm. $1.00 per 1,000 transactions. Apify listing: https://apify.com/data_daemon/dubai-property-transactions (plain text: https://apify.com/data_daemon/dubai-property-transactions.md). MCP: https://mcp.apify.com/?tools=data_daemon/dubai-property-transactions
+- [Dubai rent contracts (Ejari)](https://datadmon.github.io/actors/dubai-rent-contracts/): Registered Dubai rent contracts (Ejari) from the official Dubai Land Department register: annual rent, contract value, size, rent per sqm, area, project, property type, new vs renewed, lease dates. Signed leases, not asking rents. $1 per 1,000 rows.. $1.00 per 1,000 rent contract rows. Apify listing: https://apify.com/data_daemon/dubai-rent-contracts (plain text: https://apify.com/data_daemon/dubai-rent-contracts.md). MCP: https://mcp.apify.com/?tools=data_daemon/dubai-rent-contracts
 - [Foundit jobs](https://datadmon.github.io/actors/foundit-jobs-scraper/): foundit.in jobs by keyword, city, experience and freshness, full descriptions included. $0.80 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/foundit-jobs-scraper (plain text: https://apify.com/data_daemon/foundit-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/foundit-jobs-scraper
 - [Get on Board jobs (LATAM)](https://datadmon.github.io/actors/getonbrd-jobs-scraper/): LATAM tech jobs with monthly USD salary, full descriptions, country eligibility and persistent only-new feeds. $0.80 per 1,000 job with full descriptions. Apify listing: https://apify.com/data_daemon/getonbrd-jobs-scraper (plain text: https://apify.com/data_daemon/getonbrd-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/getonbrd-jobs-scraper
 - [Gupy jobs (Brazil)](https://datadmon.github.io/actors/gupy-jobs-scraper/): Brazil jobs from the Gupy portal with full descriptions, city, state, workplace type and contract type. $0.80 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/gupy-jobs-scraper (plain text: https://apify.com/data_daemon/gupy-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/gupy-jobs-scraper
@@ -99,7 +100,7 @@ locationTextstring"Bengaluru/Bangalore"
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-06; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-08; this build does not run paid example searches.
 
 {
   "cities": [
@@ -168,7 +169,7 @@ Apna website and appSearch and apply as a candidateNo export or API; one job at 
 Other Apna Actors on Apify StoreSame boardCompare full-board coverage, salary and locality fields, only-new mode and price per 1,000
 Build your own scraperFull controlYou handle the 500-result keyword cap, deep-page repeats, city ids and de-duplication
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-08; the listing is the canonical description of the Actor.
 
 
 ---
@@ -204,7 +205,7 @@ teamstring"Backend"
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-06; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-08; this build does not run paid example searches.
 
 {
   "careerSiteUrls": [
@@ -260,7 +261,7 @@ Saved inputs you can run with one click on Apify (Examples tab); each has its ow
 Workday jobs: software engineer jobs posted in the last 7 days: Software engineer jobs posted in the last 7 days on company career sites that run on Workday (myworkdayjobs.com), searched across the built-in list of Workday employers, with location, posting date, apply URL and full de {"platforms": ["workday"], "keywords": ["software engineer"], "postedWithinDays": 7, "maxJobs": 50, "includeDescription": true}
 Greenhouse, Lever and Ashby jobs: data engineer, last 7 days: Data engineer jobs posted in the last 7 days across thousands of company job boards on Greenhouse, Lever and Ashby, in one schema: company, title, locations, workplace type, salary range where the employer publishes it,  {"platforms": ["greenhouse", "lever", "ashby"], "keywords": ["data engineer"], "postedWithinDays": 7, "maxJobs": 100, "includeDescription": true}
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-08; the listing is the canonical description of the Actor.
 
 
 ---
@@ -296,7 +297,7 @@ experienceTextstring"4 - 8 years"
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-06; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-08; this build does not run paid example searches.
 
 {
   "categories": [
@@ -353,7 +354,7 @@ Cutshort websiteSearch and apply as a candidate; recruiter plans for employersNo
 Instahyre or Hirist APIs (same publisher)Other India tech boardsDifferent coverage; Cutshort is strongest for funded startups and shows salary ranges on most jobs
 Other Cutshort Actors on Apify StoreSame boardCompare price per 1,000, company-profile fields, salary range and only-new mode
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-08; the listing is the canonical description of the Actor.
 
 
 ---
@@ -373,11 +374,12 @@ In the week to 18 Oct 2026 the register recorded about 4,100 transactions: 2,600
 
 Why teams use it
 Registered prices, not asking prices. Listing portals show what sellers want; DLD shows what buyers actually paid.
-Complete. A typical week has 3,000–6,000 transactions; the Actor pages through all of them, 500 at a time.
+Complete. A typical week has 3,000–6,000 transactions; the Actor pages through all of them, 2,000 at a time, and keeps the rows that share one transaction number (portfolio mortgages, up to ~100 rows) in a single page, so no row is repeated or lost at a page boundary.
 Analysis-ready. Numeric AED values and areas, ISO dates, boolean off-plan/freehold flags, pricePerSqmAed precomputed, optional Arabic names.
 Pre-registration vs completed sale. The procedure field separates developer pre-registrations (Sell - Pre registration) from completed sales (Sale, Delayed Sell), and mortgage registrations from modifications.
 Open data, no personal data. Published by the Dubai Land Department for reuse; no owner names or contacts are included.
 What a month looks like (1–29 October 2026, run T6ufNxkMMy6eAuIwE):* 16,108 transactions after dedupe: 11,027 sales (6,420 off-plan, 4,607 ready; AED 31.9 billion), 4,123 mortgages and 958 gifts. Off-plan flats registered at a median AED 19,303 per sqm against AED 15,434 for ready flats, with the gap ranging from +7% in Majan to +87% in Motor City; the ten busiest areas took 42% of unit sales. The full area and bedroom tables, with the cleaning steps and a tested pandas snippet, are in Dubai off-plan vs ready prices per sqm by area, October 2026.
+Rents too:* the registered Ejari rent contracts (annual rent, rent per sq m, area, project, new vs renewal) are in Dubai Rent Contracts API, same register, same price. Combine the two for rental yield by area.
 From an AI assistant:* add the MCP connector https://mcp.apify.com/?tools=data_daemon/dubai-property-transactions in Claude, ChatGPT, Cursor or VS Code and ask for the data in plain words.
 
 Output fields
@@ -401,7 +403,7 @@ parkingstring"B2-7328,B2-7328T"
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-06; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-08; this build does not run paid example searches.
 
 {
   "transactionGroup": "sales",
@@ -419,9 +421,9 @@ AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daem
 
 All input fields
 FieldTypeMeaning
-fromDatestringStart of the transaction date range, YYYY-MM-DD (DD/MM/YYYY also accepted). Leave empty to use Days back instead, so a scheduled run never needs a date edit. An invalid date is ignored with a warning.
-toDatestringEnd of the transaction date range, YYYY-MM-DD. Defaults to today (UTC).
-daysBackintegerUsed when From date is empty: fetch the last N days up to To date (or today). Default 7, minimum 1, maximum 365; values outside that range are clamped. Set 1 for a daily scheduled feed. All transactions run about 600 rows ($0.60) per working day and 4,000 ($4) per week; DLD registers nothing on weekends, so a weekend run returns 0 rows and costs nothing.
+fromDatestringStart of the range, YYYY-MM-DD (DD/MM/YYYY also accepted), matched against each row's transactionDate. Leave empty to use Days back instead, so a scheduled run never needs a date edit. An invalid date is ignored with a warning.
+toDatestringEnd of the range (included), YYYY-MM-DD. Defaults to today (UTC).
+daysBackintegerUsed when From date is empty: fetch the last N days up to To date (or today). Both ends are included, so N=1 covers yesterday and today. Default 7, minimum 1, maximum 365; values outside that range are clamped. For a daily scheduled feed use 2 with Only new transactions on, so late registrations are caught and nothing is charged twice. All transactions run about 600-1,000 rows per working day; DLD registers little or nothing on weekends.
 transactionGroupstringFilter by DLD transaction group: all, sales, mortgages or gifts. Weekly volume in Oct 2026: all about 4,000 rows ($4.00), sales about 2,600 ($2.60), mortgages about 1,300 ($1.30), gifts about 160 ($0.16).
 offPlanstringOff-plan (developer pre-registration) vs completed properties: all, offplan or ready. Of about 2,600 weekly sales, roughly 1,650 are off-plan and 950 ready.
 freeholdstringFreehold vs non-freehold tenure: all, freehold or nonfreehold.
@@ -429,7 +431,10 @@ usagestringProperty usage: all, residential or commercial. Of about 2,600 weekly
 propertyTypestringProperty type: all, unit (apartments and villa units), building or land. Land plots are about 220 of the 2,600 weekly sales.
 includeArabicbooleanAdd an arabic object with the Arabic names for area, project, procedure etc. No extra charge.
 maxItemsintegerStop after this many transactions (0 = all in range). Each transaction costs $0.001, so the default 200 = $0.20 and 2,000 = $2.00. A typical week has 3,000-6,000 transactions.
+onlyNewbooleanFor scheduled feeds: skip transactions an earlier only-new run already delivered, so overlapping date windows are never charged twice. Memory is kept per Feed state name and filter combination in the named key-value store dubai-dld-only-new for 120 days. Recommended schedule: daily with Days back 2-3 and this on. Don't run two only-new runs of the same feed at the same time.
+stateNamestringName of your only-new feed, e.g. dubai-sales-daily. Separate names keep separate memories. Ignored unless Only new transactions is on.
 sortstringSort order by DLD transaction number: TRANSACTION_NUMBER_ASC or TRANSACTION_NUMBER_DESC. Matters only when maxItems cuts the range short.
+dateFilterstringtransactionDate (default) keeps rows whose transactionDate falls in your range, weekends included, so back-to-back ranges never overlap or leave gaps. dldBusinessDay passes the dates straight to the DLD gateway, which files each transaction under a working day (cut-off around 15:15, Fridays 11:45) and returns 0 rows for a weekend-only range; versions before 0.2 always worked this way.
 areaIdstringAdvanced: DLD internal area id, passed through to the gateway. The transactions feed returns areaId 0 on every row and, as of October 2026, 0 rows for any id sent here, so ids cannot be looked up from the output and this filter is not usable. Leave empty and filter on the area name in the results.
 
 Price
@@ -464,7 +469,9 @@ Yes, pricePerSqmAed is computed from the transaction value and the actual area.
 Is off-plan cheaper than ready property in Dubai?
 Per square metre, no. In the 8,639 residential unit sales registered 1–29 October 2026 the median off-plan flat cost AED 19,303 per sqm, 25% above the ready median of AED 15,434; off-plan units are smaller (68 vs 81 sqm), so the median ticket was almost the same (AED 1.18m vs 1.20m). Area-by-area and bedroom tables: Dubai off-plan vs ready prices per sqm by area, October 2026.
 Can I run it every day without editing dates?
-Yes. Leave fromDate empty and set daysBack to 1; the window moves with the run date.
+Yes. Leave fromDate empty, set daysBack to 2 and onlyNew to true; the window moves with the run date and each transaction is delivered and charged once.
+Which day does a date range cover?
+Calendar days of transactionDate, both ends included, weekends too. The DLD gateway itself files each transaction under a working day (cut-off around 15:15, Fridays 11:45), so its own query for 29 October 2026 returns 183 rows registered on the afternoon of 28 October, and a weekend-only query returns nothing. Since version 0.2 the Actor widens the query by a few days and keeps the rows dated inside your range: back-to-back ranges never overlap or leave gaps (checked on 21 windows against a September–November pull, 7 November 2026), and the extra rows are not charged. Set Date filter to dldBusinessDay for the old gateway behaviour.
 
 Alternatives, honestly
 OptionWhat it gives youWhere it falls short for this job
@@ -472,7 +479,111 @@ Dubai Pulse open-data portalOfficial downloads by handManual extracts, cleaning 
 DXB Interact dashboardOfficial charts and lookupsNot a data feed
 Paid DLD data productsCleaned data with supportSubscriptions; the register itself is open data
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-08; the listing is the canonical description of the Actor.
+
+
+---
+
+# Dubai Ejari rent contracts (DLD) as JSON API | Daemon Data
+
+Source: https://datadmon.github.io/actors/dubai-rent-contracts/
+
+Dubai Ejari rent contracts (DLD) as JSON API
+
+Dubai Rent Contracts API is a pay-per-record Apify Actor by Daemon Data that returns Registered Dubai rent contracts (Ejari) from the official Dubai Land Department register: annual rent, contract value, size, rent per sqm, area, project, property type, new vs renewed, lease dates. Signed leases, not asking rents. $1 per 1,000 rows. as JSON, CSV or Excel. It costs $0.001 per rent contract row with the default options ($1.00 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+
+Daemon Data Dubai Rent Contracts API on Apify   Listing as plain text
+
+Checked on 8 Nov 2026
+From 1 to 6 Nov 2026 Ejari registered 19,436 rent contracts (24,631 unit rows: 392 multi-unit contracts repeat their full amount on 5,587 rows). Of the 19,044 single-unit contracts, 53% were renewals and 76% residential. The median annual rent of 12,988 single-unit residential flats was AED 64,240; Marsa Dubai (Dubai Marina) AED 115,000 and Business Bay AED 90,000.
+
+Why teams use it
+Registered rents. Every Ejari contract, not a sample of listings. New leases and renewals are both included and labelled.
+No double counting. DLD lists a contract that covers several units (a building, a labour camp) as one row per unit, and each row repeats the whole contract's rent. In the first week of November 2026, 392 such contracts produced 5,587 rows, one of them with 482 rows of AED 4,033,177.50 each. Summing those rows would add about AED 1.9 billion of rent for that one contract. Every row here carries unitsInContract, annualRentPerSqmAed is only computed when rent and size describe the same thing, and One row per contract merges them (you then pay per contract).
+Community names work. DLD uses official area names ("Marsa Dubai", "Al Barsha South Fourth"); this Actor also accepts Dubai Marina, JBR, Downtown, JVC, JVT, JLT, Dubai Hills, Sports City, Motor City, Damac Hills, Discovery Gardens, Al Furjan, International City, Silicon Oasis, Arjan, Town Square, Creek Harbour and Dubai South. A name like "Al Barsha" includes its numbered sub-areas.
+Complete paging. Rows come sorted by registration time; the rows of one contract always arrive together, so nothing is repeated or lost between pages. Checked against day-by-day pulls: 24,631 of 24,631 rows, 0 extra, 0 missing.
+Open data, no personal data. No tenant or landlord names, no contract numbers.
+
+Output fields
+The most useful top-level fields with values from a real record; the full list is registrationDate, registrationDateTime, startDate, endDate, contractDays, version, isNewContract, annualAmountAed, contractAmountAed, sizeSqm, annualRentPerSqmAed, unitsInContract, multiUnitContract, area, project, masterProject, propertyType, propertySubType, usage, freehold, rooms, parking, nearestMetro, nearestMall, nearestLandmark, unitRows, propertySubTypes, arabic, source, scrapedAt. Per-field notes and the OpenAPI definition are on the Apify API page.
+FieldTypeExample
+registrationDatestring"2026-11-05"
+registrationDateTimestring"2026-11-05T10:45:57"
+startDatestring"2026-11-01"
+endDatestring"2027-10-31"
+contractDaysnumber365
+versionstring"Renewed"
+isNewContractbooleanfalse
+annualAmountAednumber41000
+contractAmountAednumber41000
+sizeSqmnumber55.76
+annualRentPerSqmAednumber735.29
+unitsInContractnumber1
+multiUnitContractbooleanfalse
+areastring"Port Saeed"
+propertyTypestring"Unit"
+
+Input and how to call it
+
+Example input. Fields and pricing were checked against the public listing on 2026-11-08; this build does not run paid example searches.
+
+{
+  "daysBack": 7,
+  "areas": [
+    "Business Bay",
+    "Dubai Marina"
+  ],
+  "propertySubTypes": [
+    "Flat"
+  ],
+  "maxItems": 200
+}
+
+One HTTP call starts a run, waits for it and returns the records (token from console.apify.com):
+
+curl -X POST "https://api.apify.com/v2/acts/data_daemon~dubai-rent-contracts/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"daysBack": 7, "areas": ["Business Bay", "Dubai Marina"], "propertySubTypes": ["Flat"], "maxItems": 200}'
+
+Python: ApifyClient(token).actor("data_daemon/dubai-rent-contracts").call(run_input=...). Python example · Node.js example · n8n workflow.
+AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daemon/dubai-rent-contracts with header Authorization: Bearer YOUR_APIFY_TOKEN in Claude, ChatGPT, Cursor or VS Code and ask for the data in plain words.
+
+All input fields
+FieldTypeMeaning
+fromDatestringStart of the range (included), YYYY-MM-DD (DD/MM/YYYY also accepted), matched against the date chosen in Date type (registration date by default). Leave empty to use Days back instead, so a scheduled run never needs a date edit.
+toDatestringEnd of the range (included), YYYY-MM-DD. Defaults to today (UTC).
+daysBackintegerUsed when From date is empty: the last N days up to To date (or today), both ends included, so N=1 covers yesterday and today. Default 7. Dubai registers about 5,000 rent contract rows per working day (about 25,000-30,000 a week, Nov 2026). For a daily scheduled feed use 2 with Only new contracts on.
+dateTypestringWhich contract date the range applies to. registrationDate (default) gives a clean daily feed of newly registered contracts; startDate finds leases starting in the range; endDate finds leases expiring in the range (renewal and churn prospecting).
+contractVersionstringFilter by Ejari contract version. About 45% of registrations are new leases and 55% renewals (Nov 2026).
+usagestringFilter by property usage: about 76% residential, 23% commercial (Nov 2026).
+freeholdstringFreehold areas are where foreigners can own property (Dubai Marina, Downtown, JVC...).
+areasarrayOfficial DLD area names, e.g. Business Bay, Al Barsha South Fourth, Marsa Dubai (Dubai Marina), Burj Khalifa (Downtown). Each area is fetched with its own query. Leave empty for all of Dubai. Unknown names are skipped with a suggestion in the run status.
+propertySubTypesarrayKeep only these sub-types, e.g. Flat, Villa, Office, Shop, Warehouse, Labor Camps, Hotel apartments. Leave empty for all. Filtered-out rows are not charged.
+oneRowPerContractbooleanDLD lists a contract that covers several units (a building, a labour camp) as one row per unit, and every row repeats the whole contract's amount. On: such contracts are merged into one row with unitsInContract, the total sizeSqm and the sub-types, so rent totals are not inflated and you pay per contract (Nov 1-6 2026: 24,631 rows = 19,436 contracts). Off (default): one row per unit, as DLD publishes it.
+sortstringOrder by registration time. With Max items set, newestFirst returns the latest contracts.
+includeArabicbooleanAdd an arabic object with the Arabic area, project, property type and landmark names.
+maxItemsintegerMaximum rows to save (0 = everything in range). Each saved row is one charged event; the default of 200 keeps a first try cheap.
+onlyNewbooleanFor scheduled runs: skip (and do not charge) rows that an earlier only-new run with the same State name and filters already delivered. Memory lasts 120 days.
+stateNamestringName of the only-new memory. Use a different name for each independent feed.
+
+Price
+$0.001 per rent contract row ($1.00 per 1,000). List prices for Apify Free and Starter plans; Scale and Business plans pay 15% to 30% less.
+EventPricePer 1,000Charged when
+Rent contract row$0.001$1.00One registered Dubai rent contract row (or one merged contract with One row per contract) saved to the dataset. Rows left out by filters or already delivered in only-new mode are never charged.
+Cost example: 200 rent contract rows with default options cost $0.2, including any start fee. This is an illustrative record count; set explicit row and total-charge caps for your run. Apify's free plan includes $5 of usage a month, about 5,000 rent contract rows before start fees; the Actor's own compute is included in the per-record price, and records skipped by filters, de-duplication or only-new mode are not charged.
+
+Ready-made example pages
+Saved inputs you can run with one click on Apify (Examples tab); each has its own page:
+Dubai Marina Rent Prices API - Ejari Flat Contracts, 7 Days: Every registered Ejari rent contract for a flat in Dubai Marina (DLD area Marsa Dubai) in the last 7 days, newest first: annual rent in AED, rent per sqm, size, new lease or renewal, lease start and end dates, and the pr {"daysBack": 7, "areas": ["Marsa Dubai"], "usage": "residential", "propertySubTypes": ["Flat"], "oneRowPerContract": true, "sort": "newestFirst", "maxItems": 10
+Business Bay Office Rents API - Ejari Commercial Leases: Every registered Ejari office lease in Business Bay in the last 7 days, newest first: annual rent in AED, rent per sqm, size, building/project, new lease or renewal, start and end dates. About two in three rows are Ejari {"daysBack": 7, "areas": ["Business Bay"], "usage": "commercial", "propertySubTypes": ["Office"], "oneRowPerContract": true, "sort": "newestFirst", "maxItems": 
+
+Alternatives, honestly
+OptionWhat it gives youWhere it falls short for this job
+DLD open-data rents pageOfficial search and CSV download by handManual extracts; multi-unit contracts repeat the full amount on every unit row
+DXB Interact / rental indexOfficial charts and the RERA rental indexAverages, not contract-level rows; not a data feed
+Paid property data platformsCleaned market data with supportSubscriptions; the Ejari register itself is open data
+
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-08; the listing is the canonical description of the Actor.
 
 
 ---
@@ -520,7 +631,7 @@ salaryMaxLpanullnull
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-06; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-08; this build does not run paid example searches.
 
 {
   "queries": [
@@ -604,7 +715,7 @@ foundit.in websiteSearch for a visitorNo export; syndicated apply links are one 
 Naukri, LinkedIn or Indeed ActorsLarger boardsDifferent coverage; this API reads foundit only
 Other foundit Actors on Apify StoreSame boardCompare salary-band handling, apply-URL resolution and price per 1,000
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-08; the listing is the canonical description of the Actor.
 
 
 ---
@@ -648,7 +759,7 @@ descriptionHtmlstring"<h2>Requirements</h2><p>Python experience</p>"
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-06; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-08; this build does not run paid example searches.
 
 {
   "categories": [
@@ -715,7 +826,7 @@ OptionWhat it gives youWhere it falls short for this job
 Get on Board public APIPublic category job data and company expansionYou maintain pagination, local filters, exports and persistent delivered-ID memory
 Other Get on Board ActorsStructured jobs from the same sourceCompare description inclusion, country eligibility, only-new memory and total price
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-08; the listing is the canonical description of the Actor.
 
 
 ---
@@ -763,7 +874,7 @@ acceptsPwdbooleantrue
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-06; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-08; this build does not run paid example searches.
 
 {
   "searchTerms": [
@@ -839,7 +950,7 @@ Gupy job portal (portal.gupy.io)Search and apply as a candidateNo export; one jo
 Other Gupy Actors on Apify StoreSame sourceCompare description coverage, only-new memory and price per 1,000
 Build your own scraperFull controlThe portal's build ID changes; you maintain pagination, de-duplication and scheduling
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-08; the listing is the canonical description of the Actor.
 
 
 ---
@@ -887,7 +998,7 @@ mandatorySkillsarray["Python", "Data Structure", "Algorithm", "System Design", "
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-06; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-08; this build does not run paid example searches.
 
 {
   "queries": [
@@ -973,7 +1084,7 @@ Hirist.tech websiteSearch and alerts for a logged-in userNo bulk export or API
 Other Hirist Actors on Apify StoreSame boardCompare full-description coverage, AmbitionBox fields, only-new mode, price
 Build your own scraperFull controlMaintenance of endpoints, pagination and de-duplication is on you
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-08; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1021,7 +1132,7 @@ mandatorySkillsarray["IT Product Management"]
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-06; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-08; this build does not run paid example searches.
 
 {
   "queries": [
@@ -1108,7 +1219,7 @@ IIMJobs website and recruiter dashboardSearch and email alerts for a logged-in u
 Other IIMJobs Actors on Apify StoreSimilar scraping of the same boardCompare fields (salary, AmbitionBox profile, only-new mode) and price per 1,000
 Build your own scraperFull controlThe board's JSON endpoints change; you maintain pagination, de-duplication and scheduling
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-08; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1143,7 +1254,7 @@ estimatedShippingCostUsdnumber8714.26
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-06; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-08; this build does not run paid example searches.
 
 {
   "companies": [
@@ -1195,7 +1306,7 @@ ImportYeti's official API (data.importyeti.com)REST endpoints for company profil
 Paid trade-data platforms (Panjiva, ImportGenius and similar)Global customs data, contacts, analyticsTeam subscriptions; more than a per-company shipment watch needs
 Other ImportYeti Actors on Apify StoreSame sourceCompare shipment vs profile output, price per 1,000 and only-new mode
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-08; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1241,7 +1352,7 @@ priceToEarningsnumber159.68
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-06; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-08; this build does not run paid example searches.
 
 {
   "reports": [
@@ -1313,7 +1424,7 @@ BSE and NSE websitesOfficial bid data while an issue is openNo GMP; bot protecti
 Free IPO GMP accuracy explorer
 Compare 2026 IPO GMP with actual listing gain: filter mainboard/SME, issue size and GMP bands, inspect the methodology and download CSV or JSON.
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-08; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1352,7 +1463,7 @@ Is it legal to scrape job listings?
 The feed reads publicly visible job listings, the same information any visitor sees, without logging in; it does not collect recruiter contact details. Check that your use complies with the laws that apply to you.
 Something is wrong or missing?
 Open an issue on the Issues tab with your input and the run link, and it will be looked at. Custom fields or another Indian board can be discussed there too.
-Public status, schema and absence of an own pricing record checked 2026-11-06. See the public listing for the complete input and latest terms.
+Public status, schema and absence of an own pricing record checked 2026-11-08. See the public listing for the complete input and latest terms.
 
 
 ---
@@ -1372,7 +1483,7 @@ https://data-daemon--india-jobs-mcp.apify.actor/mcp
 Authorization: Bearer YOUR_APIFY_TOKEN
 Tools: search_jobs, search_all_boards, new_jobs_since, get_results, list_boards. Start with list_boards to read coverage and live board prices. Searches can return pending run IDs; collect them with get_results.
 Questions and limits
-Public status, schema and absence of an own pricing record checked 2026-11-06. See the public listing for the complete input and latest terms.
+Public status, schema and absence of an own pricing record checked 2026-11-08. See the public listing for the complete input and latest terms.
 
 
 ---
@@ -1414,7 +1525,7 @@ companyClassstring"Private"
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-06; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-08; this build does not run paid example searches.
 
 {
   "recentDates": 3,
@@ -1472,7 +1583,7 @@ MCA portal (mca.gov.in) master dataOfficial lookup of one company by CIN or name
 Paid company-data platforms (Tofler, Probe42 and similar)Financials, directors and filingsSubscriptions priced per seat or per report; overkill for a daily new-incorporations list
 Other MCA Actors on Apify StoreNew-company lists from the same registerCompare price per 1,000, CIN decoding, filters before charging and only-new mode
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-08; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1520,7 +1631,7 @@ postedAtstring"2026-10-09T00:00:00.000Z"
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-06; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-08; this build does not run paid example searches.
 
 {
   "queries": [
@@ -1607,7 +1718,7 @@ Instahyre websiteCandidate and employer accountsNo export or API; salary and app
 Hirist or IIMJobs APIs (same publisher)Applicant counts and salary bandsDifferent boards; Instahyre is the one with company headcount and size filters
 Other Instahyre Actors on Apify StoreSame boardCompare price per 1,000, company-profile fields and only-new mode
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-08; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1655,7 +1766,7 @@ countrystring"United States"
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-06; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-08; this build does not run paid example searches.
 
 {
   "cities": [
@@ -1737,7 +1848,7 @@ Luma website and iCal feedsBrowse; subscribe to one calendarNo cross-city export
 Eventbrite or Meetup ActorsOther event platformsDifferent events; this API reads Luma only
 Other Luma Actors on Apify StoreSame sourceCompare detail fields (hosts, tickets, GPS) and price per 1,000
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-08; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1773,7 +1884,7 @@ developerstring"Kolte Patil Developers Ltd."
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-06; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-08; this build does not run paid example searches.
 
 {
   "cities": [
@@ -1821,7 +1932,7 @@ Magicbricks website and appSearch and alerts for a personNo export or API
 Other Magicbricks Actors on Apify StoreSame portalCompare price per sq ft, carpet area, possession fields, only-new mode and price per 1,000
 Build your own scraperFull controlThe site needs an unblocking proxy; you pay for and maintain it
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-08; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1848,7 +1959,7 @@ Top-level fields of each record: id, dedupKey, url, title, company, experienceMi
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-06; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-08; this build does not run paid example searches.
 
 {
   "queries": [
@@ -1905,7 +2016,7 @@ Naukri.com website and employer integrationsCandidate search/apply and employer 
 Other Naukri Actors on Apify StoreSame boardCompare price per 1,000 with details included, salary in LPA, whole-board export past the 15,000-result limit and only-new mode
 Build your own scraperFull controlYou keep up with Naukri's API, paging limit and job-page format yourself
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-08; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1941,7 +2052,7 @@ salaryInferredbooleanfalse
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-06; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-08; this build does not run paid example searches.
 
 {
   "keywords": [
@@ -1989,7 +2100,7 @@ OnlineJobs.ph websiteSearch and apply as a Filipino job seeker; employer plans t
 Other OnlineJobs.ph Actors on Apify StoreSame boardCompare price per 1,000 (from $0.80 to $4.90), parsed wage min/max/period, hours per week and only-new mode
 Build your own scraperFull controlEach search lists at most 285 jobs; you split by keyword, parse free-text wages and skip deleted jobs yourself
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-08; the listing is the canonical description of the Actor.
 
 
 ---
@@ -2036,7 +2147,7 @@ remotebooleanfalse
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-06; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-08; this build does not run paid example searches.
 
 {
   "careerSiteUrls": [
@@ -2118,7 +2229,7 @@ The employer's own career siteBrowse and applyOne employer at a time, no export
 Multi-ATS job APIs (Workday, Greenhouse, Lever and others)Several ATS platforms in one productUsually higher price per 1,000; check whether Oracle Recruiting Cloud is actually covered
 Open-source ATS crawlersFreeYou host, schedule and maintain them
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-08; the listing is the canonical description of the Actor.
 
 
 ---
@@ -2165,7 +2276,7 @@ skillsarray["accounts payable", "accounts receivable", "accountants"]
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-06; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-08; this build does not run paid example searches.
 
 {
   "searchTerms": [
@@ -2235,7 +2346,7 @@ Shine.com websiteSearch and alerts for a logged-in userNo bulk export or API
 Other Shine Actors on Apify StoreSame boardCompare description and salary-range coverage, only-new mode and price per 1,000
 Build your own scraperFull controlYou parse the app's page data, follow job pages and maintain de-duplication
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-08; the listing is the canonical description of the Actor.
 
 
 ---
@@ -2282,7 +2393,7 @@ scorecardarray[{"name": "Performance", "tag": "Low", "colour": "red", "descripti
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-06; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-08; this build does not run paid example searches.
 
 {
   "mode": "index",
@@ -2350,7 +2461,7 @@ Exchange data feeds (NSE, BSE)Official, real timeLicence fees and bot protection
 Tickertape website and ProThe same pages for a personNo bulk export or API
 Python libraries that read exchange sitesFreeBreak when the exchange changes; fundamentals and shareholding history are thin
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-08; the listing is the canonical description of the Actor.
 
 
 ---
@@ -2397,7 +2508,7 @@ caseNumberstring"CR-2026-007272"
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-06; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-08; this build does not run paid example searches.
 
 {
   "noticeTypes": [
@@ -2470,7 +2581,7 @@ The Gazette website and its paid data serviceOfficial notices; a subscription da
 Companies House APIOfficial company status, freeChanges appear weeks after the petition is advertised
 Other Gazette Actors on Apify StoreSame noticesCompare linked-data fields (company number, addresses) and only-new mode
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-08; the listing is the canonical description of the Actor.
 
 
 ---
@@ -2518,7 +2629,7 @@ salaryMaxnumber40000
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-06; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-08; this build does not run paid example searches.
 
 {
   "opportunityTypes": [
@@ -2596,7 +2707,7 @@ Unstop website and appBrowse and register as a student or professionalNo export;
 Other Unstop Actors on Apify StoreSame sourceCompare listing types covered (jobs, internships, hackathons, competitions), prize and eligibility fields and price per 1,000
 Build your own clientFull controlYou map filters, paging and the listing types yourself
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-08; the listing is the canonical description of the Actor.
 
 
 ---
@@ -2636,7 +2747,7 @@ querystring"python"
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-06; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-08; this build does not run paid example searches.
 
 {
   "queries": [
@@ -2692,7 +2803,6 @@ Ready-made example pages
 Saved inputs you can run with one click on Apify (Examples tab); each has its own page:
 Welcome to the Jungle Python jobs in France as JSON: Export Python full-time jobs on the public France-focused WTTJ board, with full descriptions, company profiles, offices, remote mode and disclosed salary as provided. Bounded example: five jobs. {"queries": ["python"], "countryCodes": ["FR"], "contractTypes": ["FULL_TIME"], "maxJobs": 5}
 Welcome to the Jungle fully remote Python jobs as JSON: Five public WTTJ jobs matching Python and the source fully remote label, with descriptions, company metadata and office countries. Coverage is the France-focused board, not the separate US/UK matching product. {"queries": ["python"], "remoteModes": ["fulltime"], "maxJobs": 5}
-Webnet Python vacancies on WTTJ: company jobs API: Public Webnet Python jobs on Welcome to the Jungle, with full descriptions and company profile. Replace the company slug to monitor another employer on the France-focused public board. Up to five jobs. {"queries": ["python"], "companySlugs": ["webnet"], "maxJobs": 5}
 
 Questions buyers ask
 Is there an official Welcome to the Jungle API?
@@ -2708,7 +2818,7 @@ Public WTTJ company job pagesBrowse and apply to public vacanciesManual reading;
 Other WTTJ Actors on Apify StoreStructured data from the same sourceCompare coverage, description inclusion, only-new memory and price
 Build your own API clientControl over public search and detail requestsYou maintain source configuration, filters, pagination and persistent job IDs
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-08; the listing is the canonical description of the Actor.
 
 
 ---
@@ -2744,7 +2854,7 @@ workArrangementstring"Work From Office"
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-06; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-08; this build does not run paid example searches.
 
 {
   "cities": [
@@ -2793,7 +2903,7 @@ WorkIndia website and appSearch and apply as a candidateNo export or API; one jo
 Apna or Shine APIs (same publisher)Other India boards with salariesDifferent coverage; WorkIndia is strongest for delivery, telecaller, office and field jobs
 Build your own scraperFull controlYou maintain sitemap paging, job-page parsing, expired-page handling and de-duplication
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-08; the listing is the canonical description of the Actor.
 
 
 ---
@@ -2829,7 +2939,7 @@ citystring"São Paulo"
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-06; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-08; this build does not run paid example searches.
 
 {
   "locations": [
@@ -2890,7 +3000,7 @@ Zap Imóveis and VivaReal websitesSearch and alerts for a personNo export; listi
 Other Zap or VivaReal Actors on Apify StoreSame portalsCompare price per 1,000, condo fee and IPTU fields, both portals in one run and only-new mode
 Build your own clientFull controlEach search returns at most about 1,000 listings; you split by price and zone and remove duplicates yourself
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-06; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-08; the listing is the canonical description of the Actor.
 
 
 ---
