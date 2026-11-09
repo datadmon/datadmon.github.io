@@ -34,6 +34,10 @@
 - [WorkIndia jobs](https://datadmon.github.io/actors/workindia-jobs-scraper/): WorkIndia (workindia.in) India jobs with monthly salary range, city, locality, PIN, category and full description. $0.80 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/workindia-jobs-scraper (plain text: https://apify.com/data_daemon/workindia-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/workindia-jobs-scraper
 - [Zap Imóveis + VivaReal listings (Brazil)](https://datadmon.github.io/actors/zap-imoveis-vivareal-scraper/): Brazil property listings from Zap Imoveis and VivaReal: price, condo fee, IPTU, area, rooms, coordinates, agency. $1.00 per 1,000 listings. Apify listing: https://apify.com/data_daemon/zap-imoveis-vivareal-scraper (plain text: https://apify.com/data_daemon/zap-imoveis-vivareal-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/zap-imoveis-vivareal-scraper
 
+## Product lines
+
+- [Dubai Property Data API](https://datadmon.github.io/dubai-property-data/): Registered Dubai property sales (DLD), Ejari rent contracts and the DLD project register as JSON or CSV, billed per row from $0.001. Free 500-row sample files, monthly backfills, daily feeds, no seat licence. Free sample files: https://datadmon.github.io/data/dubai/README.md
+
 ## Free research tools
 
 - [IPO GMP vs listing gain explorer](https://datadmon.github.io/tools/ipo-gmp-vs-listing-gain/): 2026 Indian IPOs, GMP accuracy by band, mainboard/SME and issue-size filters, downloadable CSV/JSON and source methodology.
@@ -370,6 +374,8 @@ Dubai DLD Property Transactions API is a pay-per-record Apify Actor by Daemon Da
 
 Daemon Data Dubai DLD Property Transactions API on Apify   Listing as plain text
 
+Part of the Dubai Property Data API product line with Dubai rent contracts (Ejari), Dubai real estate projects (DLD register): one cost table for sample, backfill and daily-feed jobs, and free sample files (CSV and JSON) from all three registers.
+
 Checked on 18 Oct 2026
 In the week to 18 Oct 2026 the register recorded about 4,100 transactions: 2,600 sales (1,650 off-plan, 950 ready), 1,300 mortgages and 160 gifts; about 2,500 of the sales were residential and 220 were land plots. On 21 Oct 2026 the last-24-hours example returned 1,000 transactions in 6 seconds.
 
@@ -495,6 +501,8 @@ Dubai Real Estate Projects API is a pay-per-record Apify Actor by Daemon Data th
 
 Daemon Data Dubai Real Estate Projects API on Apify   Listing as plain text
 
+Part of the Dubai Property Data API product line with Dubai DLD transactions, Dubai rent contracts (Ejari): one cost table for sample, backfill and daily-feed jobs, and free sample files (CSV and JSON) from all three registers.
+
 Checked on 9 Nov 2026
 The DLD register held 915 projects worth AED 212 billion (323,000 units): 601 active, 114 pending approval, 180 finished in 2026, 14 cancelled. Escrow account numbers on 803 of them. DLD approved 15-30 projects a month in 2026; most projects by developer: Binghatti 37, Emaar 29, Azizi 17. A full-register run returns all 915 rows in about 20 seconds.
 
@@ -592,6 +600,8 @@ Dubai Ejari rent contracts (DLD) as JSON API
 Dubai Rent Contracts API is a pay-per-record Apify Actor by Daemon Data that returns Registered Dubai rent contracts (Ejari) from the official Dubai Land Department register: annual rent, contract value, size, rent per sqm, area, project, property type, new vs renewed, lease dates. Signed leases, not asking rents. $1 per 1,000 rows. as JSON, CSV or Excel. It costs $0.001 per rent contract row with the default options ($1.00 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
 
 Daemon Data Dubai Rent Contracts API on Apify   Listing as plain text
+
+Part of the Dubai Property Data API product line with Dubai DLD transactions, Dubai real estate projects (DLD register): one cost table for sample, backfill and daily-feed jobs, and free sample files (CSV and JSON) from all three registers.
 
 Checked on 8 Nov 2026
 From 1 to 6 Nov 2026 Ejari registered 19,436 rent contracts (24,631 unit rows: 392 multi-unit contracts repeat their full amount on 5,587 rows). Of the 19,044 single-unit contracts, 53% were renewals and 76% residential. The median annual rent of 12,988 single-unit residential flats was AED 64,240; Marsa Dubai (Dubai Marina) AED 115,000 and Business Bay AED 90,000.
@@ -3564,6 +3574,97 @@ Yes. Use the `text` field for a town, a company name, a practitioner firm or `Re
 **Is the data free to reuse?**
 
 Gazette notices are Crown copyright under the Open Government Licence v3.0; reuse company-level data with attribution and handle the personal data in personal-insolvency notices under data-protection law.
+
+
+---
+
+# Dubai Property Data API: DLD sales, Ejari rents and the project register
+
+Source: https://datadmon.github.io/dubai-property-data/
+
+**Dubai Property Data API** is Daemon Data's product line of three pay-per-row Apify Actors that read the Dubai Land Department's open-data gateway and return the registered sales register, the Ejari rent-contract register and the real-estate project register as JSON, CSV or Excel. You pay $0.001 per transaction or rent-contract row and $0.005 per project record, on your own Apify account, with no seat licence, no UAE Pass and no proxy. Every number on this page was measured on the date stated next to it.
+
+## What you get
+
+| Register | Actor | What a row is | Key fields |
+|---|---|---|---|
+| **Sales** (DLD transactions) | [Dubai DLD Property Transactions](/actors/dubai-property-transactions/) | one registered sale, off-plan sale, mortgage or gift | transaction date, AED value, price per sq m, area, project, property type and sub-type, rooms, size, off-plan and freehold flags, nearest metro, mall and landmark |
+| **Rents** (Ejari contracts) | [Dubai Rent Contracts (Ejari)](/actors/dubai-rent-contracts/) | one registered tenancy contract (or one unit of a multi-unit contract) | registration date, lease start and end, annual rent, contract value, size, rent per sq m, area, project, property type and sub-type, new lease or renewal, units in contract |
+| **Projects** (DLD register) | [Dubai Real Estate Projects](/actors/dubai-real-estate-projects/) | one DLD-registered development project, or one registered developer | project number and name, developer, status, declared value, escrow account number, construction progress, unit counts, area, approval, start, planned-end and completion dates |
+
+The three registers share DLD's area and project names, so `area` and `project` join across them: rent per sq m over sale price per sq m gives gross rental yield by community; a developer's declared value per unit sits next to the prices actually registered in its project.
+
+## Who uses it
+
+- **Valuers and mortgage teams**: registered prices and rents per sq m by area and project, for income valuations and price-per-sq-m benchmarks.
+- **Proptech teams and portals**: a daily feed of every registration into their own database, each row delivered and charged once.
+- **Brokerages and property managers**: last month's sales and new leases in their communities for comparables and client reports; leases ending next month for renewal prospects.
+- **Researchers, funds and analysts**: full-month or year-to-date backfills for market studies, yield models and absorption tracking by project.
+
+## What common jobs cost
+
+Prices are the listed Apify Free and Starter tier (higher plans pay 15-30% less); platform compute adds about $0.004 per 1,000 rows. Row counts are the DLD gateway's own totals, read on 9 November 2026, and match the cost tables in each Actor's README.
+
+| Job | Sales (DLD transactions, $0.001/row) | Rents (Ejari, $0.001/row) | Projects (DLD register, $0.005/record) |
+|---|---|---|---|
+| **Sample**: the default `{}` run | 200 rows from the last 7 days, $0.20 | 200 rows from the last 7 days, $0.20 | 50 most recently approved active projects, $0.25 |
+| **Backfill, one month** (October 2026) | 17,646 rows (11,978 sales), about $17.65 | 112,045 unit rows, about $112; 95,572 with one row per contract, about $96 | whole register: 915 projects, about $4.58; plus 215 developers, about $5.65 |
+| **Backfill, year to date** (1 January to 9 November 2026) | 187,282 rows (138,303 sales), about $187 | 995,340 unit rows, about $995 | not applicable: the register is this year's projects |
+| **Daily feed** (one scheduled run a day, `onlyNew`) | about 520-570 rows a day, about $16-18 a month | about 3,300-3,600 rows a day, about $100-112 a month (about $96 per contract) | 15-30 new approvals a month plus changed records, about $1 a month |
+
+Per-seat analytics subscriptions for Dubai property data are typically listed at about AED 1,000 a month, or AED 5,000-15,000 a year, per seat (published and estimated list prices, November 2026). A full month of every registered DLD transaction here is about $18 and a month of every Ejari contract about $96-112, billed per row.
+
+### Copy-paste inputs
+
+Sample, any Actor: `{}`.
+
+Backfill, one calendar month: sales `{"fromDate": "2026-10-01", "toDate": "2026-10-31", "maxItems": 0}`; rents `{"fromDate": "2026-10-01", "toDate": "2026-10-31", "oneRowPerContract": true, "maxItems": 0}`; projects `{"status": "all", "maxItems": 0}` (add `"dataset": "developers"` in a second run for the developers list).
+
+Daily feed (save as a task, schedule it daily): sales `{"daysBack": 2, "onlyNew": true, "stateName": "dld-daily", "maxItems": 0}`; rents `{"daysBack": 2, "onlyNew": true, "stateName": "ejari-daily", "oneRowPerContract": true, "maxItems": 0}`; projects `{"status": "all", "maxItems": 0, "onlyNew": true, "stateName": "register-watch"}`.
+
+## Free sample files
+
+Small, honest extracts produced by the current builds of the three Actors, served from this site with no form, account or email. Source: Dubai Land Department open data; see the [sample README](/data/dubai/README.md) for the capture date, the exact inputs, run IDs and field meanings.
+
+
+
+## The three Actors
+
+
+
+## Questions and answers
+
+**Is there an official DLD API?**
+
+The Dubai Land Department publishes its registers as open data: a search page on dubailand.gov.ae backed by a JSON gateway, and bulk files on Dubai Pulse. There is no documented public REST API with keys and quotas. These Actors read the open-data gateway, page through every row, dedupe and type the fields, and return them as JSON, CSV or Excel; Apify bills per row.
+
+**How fresh is the data?**
+
+The gateway lists most transactions and rent contracts within about a day of registration, and DLD keeps adding to (and occasionally correcting) the last few days. A daily feed with a 2-day window and `onlyNew` catches late registrations and delivers each row once. The project register changes when DLD approves, updates or completes a project; the change feed delivers only those records.
+
+**How far back does it go?**
+
+The DLD gateway serves the current calendar year only: on 9 November 2026 a 2025 date range returned no rows, and the project register holds the projects approved, started, due or completed in 2026. For 2005-2025 use the Dubai Pulse open-data files; Dubai Pulse timed out from Japan and from an Apify datacenter in our probes on 9 November 2026, so budget for manual downloads there. A tested guide on combining Dubai Pulse history with these daily feeds is planned.
+
+**How much is a full month, and how much is a year?**
+
+October 2026: 17,646 DLD transactions (about $17.65), 112,045 Ejari unit rows or 95,572 contracts (about $112 or $96), the whole project register 915 rows (about $4.58). Year to date, 1 January to 9 November 2026: 187,282 transactions (about $187) and 995,340 Ejari unit rows (about $995). Filters (`transactionGroup`, `areas`, `propertySubTypes`, `usage`) reduce the rows you pay for.
+
+**Why can one Ejari contract appear as many rows?**
+
+DLD publishes a contract that covers several units (a building, a labour camp) as one row per unit and repeats the whole contract's rent on each. Every row carries `unitsInContract`; set `oneRowPerContract: true` to merge them and pay per contract.
+
+**Is there personal data?**
+
+No. The registers contain no owner, buyer, tenant or landlord names, no contract numbers and no contact details. Developer records carry the business phone or website only when DLD publishes it.
+
+**How do I get an invoice, and where do I ask for help?**
+
+Apify bills your account and issues the invoice; we never see card details. Questions and bug reports go to the Issues tab of the Actor page, with the input you used; they are usually answered within a day.
+
+## Need a custom backfill or feed?
+
+A filtered feed into your database, a one-off backfill of several registers, a join of sales and rents by community, or a field you do not see here: describe the job and the volume and we will say what it costs and when it can run. [Describe your data job]({{LEAD_FORM_URL}}) or open an issue on any of the three Actor pages.
 
 
 ---

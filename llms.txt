@@ -34,6 +34,10 @@
 - [WorkIndia jobs](https://datadmon.github.io/actors/workindia-jobs-scraper/): WorkIndia (workindia.in) India jobs with monthly salary range, city, locality, PIN, category and full description. $0.80 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/workindia-jobs-scraper (plain text: https://apify.com/data_daemon/workindia-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/workindia-jobs-scraper
 - [Zap Imóveis + VivaReal listings (Brazil)](https://datadmon.github.io/actors/zap-imoveis-vivareal-scraper/): Brazil property listings from Zap Imoveis and VivaReal: price, condo fee, IPTU, area, rooms, coordinates, agency. $1.00 per 1,000 listings. Apify listing: https://apify.com/data_daemon/zap-imoveis-vivareal-scraper (plain text: https://apify.com/data_daemon/zap-imoveis-vivareal-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/zap-imoveis-vivareal-scraper
 
+## Product lines
+
+- [Dubai Property Data API](https://datadmon.github.io/dubai-property-data/): Registered Dubai property sales (DLD), Ejari rent contracts and the DLD project register as JSON or CSV, billed per row from $0.001. Free 500-row sample files, monthly backfills, daily feeds, no seat licence. Free sample files: https://datadmon.github.io/data/dubai/README.md
+
 ## Free research tools
 
 - [IPO GMP vs listing gain explorer](https://datadmon.github.io/tools/ipo-gmp-vs-listing-gain/): 2026 Indian IPOs, GMP accuracy by band, mainboard/SME and issue-size filters, downloadable CSV/JSON and source methodology.
