@@ -1,6 +1,6 @@
 # Daemon Data
 
-> Daemon Data publishes 29 public Actors on Apify Store (https://apify.com/data_daemon), verified at build time against the Apify API. Data Actors read public JSON endpoints or pages and return structured records (JSON, CSV, Excel). Most charge per record; India Jobs Feed and India Jobs MCP have no own fee, with downstream board Actor charges. Call via REST, Python/Node.js, n8n/Make/Zapier or MCP (`https://mcp.apify.com/?tools=data_daemon/<actor>`, header `Authorization: Bearer <APIFY_TOKEN>`). FREE-plan list prices checked 2026-11-09. Historical measurements retain their stated dates.
+> Daemon Data publishes 30 public Actors on Apify Store (https://apify.com/data_daemon), verified at build time against the Apify API. Data Actors read public JSON endpoints or pages and return structured records (JSON, CSV, Excel). Most charge per record; India Jobs Feed and India Jobs MCP have no own fee, with downstream board Actor charges. Call via REST, Python/Node.js, n8n/Make/Zapier or MCP (`https://mcp.apify.com/?tools=data_daemon/<actor>`, header `Authorization: Bearer <APIFY_TOKEN>`). FREE-plan list prices checked 2026-11-09. Historical measurements retain their stated dates.
 
 ## Data APIs
 
@@ -26,6 +26,7 @@
 - [Naukri.com jobs (India)](https://datadmon.github.io/actors/naukri-jobs-scraper/): Naukri.com jobs with salary in LPA, experience, skills, applicants, views, AmbitionBox rating and full description; whole-board daily export and only-new mode. $0.80 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/naukri-jobs-scraper (plain text: https://apify.com/data_daemon/naukri-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/naukri-jobs-scraper
 - [OnlineJobs.ph remote VA jobs](https://datadmon.github.io/actors/onlinejobs-ph-scraper/): OnlineJobs.ph Philippine remote and virtual-assistant jobs with wage parsed to min/max/currency/period, hours per week, skills and full description. $0.80 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/onlinejobs-ph-scraper (plain text: https://apify.com/data_daemon/onlinejobs-ph-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/onlinejobs-ph-scraper
 - [Oracle HCM career sites](https://datadmon.github.io/actors/oracle-hcm-jobs-scraper/): every requisition on any Oracle Recruiting Cloud career site. $2.00 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/oracle-hcm-jobs-scraper (plain text: https://apify.com/data_daemon/oracle-hcm-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/oracle-hcm-jobs-scraper
+- [Saudi government tenders (Etimad)](https://datadmon.github.io/actors/saudi-etimad-tenders/): Saudi government tenders from the Etimad procurement portal as JSON: agency, type, activity, region, Gregorian and Hijri deadlines, document fee, status, plus detail pages with award results (bidders, winner, amount). Keyword, agency, activity and region filters; daily only-new feed. $3 per 1,000.. $3.00 per 1,000 tender records. Apify listing: https://apify.com/data_daemon/saudi-etimad-tenders (plain text: https://apify.com/data_daemon/saudi-etimad-tenders.md). MCP: https://mcp.apify.com/?tools=data_daemon/saudi-etimad-tenders
 - [Shine jobs](https://datadmon.github.io/actors/shine-jobs-scraper/): Shine.com India jobs by keyword and city with full descriptions, salary range, experience, skills and industry. $0.80 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/shine-jobs-scraper (plain text: https://apify.com/data_daemon/shine-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/shine-jobs-scraper
 - [NSE/BSE stocks (Tickertape)](https://datadmon.github.io/actors/tickertape-stocks-scraper/): NSE/BSE index constituents, ratio screener, full stock profiles. $20.00 per 1,000 stock profiles. Apify listing: https://apify.com/data_daemon/tickertape-stocks-scraper (plain text: https://apify.com/data_daemon/tickertape-stocks-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/tickertape-stocks-scraper
 - [UK insolvency notices](https://datadmon.github.io/actors/uk-gazette-insolvency-notices/): winding-up petitions, administrations, liquidations from The Gazette. $2.00 per 1,000 notices. Apify listing: https://apify.com/data_daemon/uk-gazette-insolvency-notices (plain text: https://apify.com/data_daemon/uk-gazette-insolvency-notices.md). MCP: https://mcp.apify.com/?tools=data_daemon/uk-gazette-insolvency-notices
@@ -2343,6 +2344,103 @@ Published by Daemon Data (data_daemon on Apify Store). Prices, fields and exampl
 
 ---
 
+# Saudi Etimad government tenders and awards as JSON feed | Daemon Data
+
+Source: https://datadmon.github.io/actors/saudi-etimad-tenders/
+
+Saudi Etimad government tenders and awards as JSON feed
+
+Saudi Etimad Tenders API is a pay-per-record Apify Actor by Daemon Data that returns Saudi government tenders from the Etimad procurement portal as JSON: agency, type, activity, region, Gregorian and Hijri deadlines, document fee, status, plus detail pages with award results (bidders, winner, amount). Keyword, agency, activity and region filters; daily only-new feed. $3 per 1,000. as JSON, CSV or Excel. It costs $0.003 per tender record with the default options ($3.00 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+
+Daemon Data Saudi Etimad Tenders API on Apify   Listing as plain text
+
+Checked on 9 Nov 2026
+The Etimad portal listed 291,416 tenders in total. On 9 Nov 2026 the last-two-days example returned 183 new tenders (about 90 a day) with agency, activity, region, type, deadlines and document fee; a {} run returns the 50 newest in about 10 seconds. Awarded tenders add bidders, the awarded supplier and the award value.
+
+Why teams use it
+A feed, not a search form. The portal shows 24 tenders a page in Arabic and has no RSS, export or API for suppliers without an account. This Actor returns the newest tenders first as clean rows and remembers what it delivered, so a scheduled run gives you only new or changed tenders (onlyNew), never charged twice.
+Searchable in English. Tender type, status, region and the main activity groups come with English translations next to the Arabic originals (tenderTypeEn, statusEn, regionEn), and filters accept English names (regions: ["Riyadh"], activities: ["IT"], tenderTypes: ["public"]). Tender names, agencies and purposes stay exactly as the agency published them (Arabic, sometimes English).
+Award results with prices. With includeDetails, awarded tenders carry every bidder's financial offer and technical result, the awarded supplier and the award value: the data a competitor analysis needs.
+Both calendars. Deadlines come as Gregorian timestamps (submissionDeadline) and Hijri dates (submissionDeadlineHijri), plus daysRemaining.
+Built for schedules. Publication windows (2 days to 90 days), a run-deadline guard, a charge-limit guard and a clear status message; unchanged tenders in only-new mode are skipped and not charged.
+Business data only. Agencies, tenders and supplier companies as published on the public portal. No login, no personal data.
+
+Output fields
+The most useful top-level fields with values from a real record; the full list is tenderId, referenceNumber, tenderNumber, name, agency, branch, tenderType, tenderTypeEn, tenderTypeId, activity, activityId, status, statusEn, statusId, publishedAt, publishedDate, lastEnquiryDate, submissionDeadline, submissionDeadlineDate, lastEnquiryDateHijri, submissionDeadlineHijri, daysRemaining, documentFeeSar, documentsFree, financialFeesSar, invitationCostSar, buyingCostSar, isUnifiedProcurement, url, tenderIdString, source, scrapedAt, offersOpeningDate, offersOpeningDateHijri, changeType, agencyCode, insideKsa, purpose, contractDuration, contractDurationDays, insuranceRequired, submissionMethod, initialGuarantee, contractorClassification, executionLocation, executionRegions, region, regionEn, city, includesSupplyItems, activities, offersExaminationDate, expectedAwardDate, workStartDate, enquiriesStartDate, maxEnquiryResponseDays, awardType, bidders, biddersCount, lowestOfferSar, awardAnnounced, awardedSuppliers, awardedSupplier, awardTotalSar, hasDetails, awardNumber, constructionWorks, maintenanceWorks, offersOpeningPlace, previouslyDeliveredOn. Per-field notes and the OpenAPI definition are on the Apify API page.
+FieldTypeExample
+tenderIdnumber1118251
+referenceNumberstring"261139001461"
+namestring"تأمين أحتياج الأيام العالمية لزوم مستشفى الأمير سلمان بن محمد بالد...
+agencystring"تجمع الرياض الصحي الأول"
+branchstring"مستشفى الأمير سلمان بن محمد بالدلم"
+tenderTypestring"شراء مباشر"
+tenderTypeEnstring"Direct purchase"
+tenderTypeIdnumber2
+activitystring"خدمات النشر والطباعة والدعاية والاعلان والإنتاج الفني"
+activityIdnumber801
+statusstring"تم اعتماد الترسية"
+statusEnstring"Award approved"
+statusIdnumber15
+publishedAtstring"2026-11-05T14:23:11.6166667"
+publishedDatestring"2026-11-05"
+
+Input and how to call it
+
+Example input. Fields and pricing were checked against the public listing on 2026-11-09; this build does not run paid example searches.
+
+{
+  "publishedWithin": "2d",
+  "maxItems": 50
+}
+
+One HTTP call starts a run, waits for it and returns the records (token from console.apify.com):
+
+curl -X POST "https://api.apify.com/v2/acts/data_daemon~saudi-etimad-tenders/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"publishedWithin": "2d", "maxItems": 50}'
+
+Python: ApifyClient(token).actor("data_daemon/saudi-etimad-tenders").call(run_input=...). Python example · Node.js example · n8n workflow.
+AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daemon/saudi-etimad-tenders with header Authorization: Bearer YOUR_APIFY_TOKEN in Claude, ChatGPT, Cursor or VS Code and ask for the data in plain words.
+
+All input fields
+FieldTypeMeaning
+stagestringWhich tenders to list, as the Etimad visitor portal groups them. all (default) returns every published tender newest first (291,000 on 9 Nov 2026); open the ones still accepting offers (about 1,300); awarded the ones whose award results are published (combine with Published within 90 days and Include details for an awards feed with supplier names and amounts).
+publishedWithinstringThe portal's own publication-date window. On 9 Nov 2026: 182 tenders in the last 2 days, 707 in the last week, 2,800 in the last month, 7,200 in the last 3 months. Use 2d for a daily feed.
+fromDatestringOptional exact publication date range start (included), YYYY-MM-DD. The listing is read newest first and stops once it reaches older tenders. Combine with Published within = any for a backfill.
+toDatestringOptional publication date range end (included), YYYY-MM-DD.
+keywordsarraySearch terms, Arabic or English, matched by Etimad's own search over tender name, number and agency, e.g. صيانة, تكييف, software, CCTV. One listing query per keyword; results are merged and de-duplicated.
+agenciesarrayAgency names (Arabic, as Etimad lists them, e.g. وزارة الصحة, أمانة منطقة الرياض) or 12-digit Etimad agency codes. A name is matched against the portal's agency list (up to 8 matching agencies are queried); names with more matches filter the rows by agency/branch name instead.
+activitiesarrayTender activity: main activity id 1-19 or its English/Arabic name (contracting, IT, healthcare, maintenance, security, consulting, transport...), or an Etimad sub-activity id such as 601 (electricity, gas, water and HVAC supplies). One query per activity.
+tenderTypesarraypublic (منافسة عامة), directPurchase (شراء مباشر), framework (اتفاقية إطارية), largeCompanies, reverseAuction, twoStage, postQualification, competition, revenueShare. Empty = all types.
+regionsarrayExecution region: Riyadh, Makkah, Madinah, Qassim, Eastern Province, Asir, Tabuk, Hail, Northern Borders, Jazan, Najran, Al Bahah, Al Jouf (English, Arabic or id 1-13). Empty = all of Saudi Arabia.
+documentFeestringPrice of the tender documents (booklet), a proxy for contract size. The portal answers this filter slowly (10-30 s per page).
+includeDetailsbooleanAlso read each tender's public detail page: purpose, contract duration, insurance and guarantee requirements, submission method, contractor classification, execution region and city, activities, expected award and work-start dates, and the published award results (bidders with offer amounts, awarded supplier and award value). Adds one tender-details event per tender (4 requests each, about 1-2 s per tender).
+maxItemsintegerMaximum tenders to save, newest first (0 = everything that matches). Each saved tender is one charged event; the default of 50 keeps a first try at about $0.15 ($0.50 with details).
+onlyNewbooleanFor scheduled runs: deliver (and charge) a tender only when it is new to this State name or when its status, submission deadline, enquiry deadline, opening date or name changed since the last delivery. Each row then carries changeType (new or updated). Memory lasts 400 days.
+stateNamestringName of the only-new memory. Use a different name for each independent feed.
+
+Price
+$0.003 per tender record ($3.00 per 1,000); $0.007 per tender details and award results ($7.00 per 1,000). List prices for Apify Free and Starter plans; Scale and Business plans pay 15% to 30% less.
+EventPricePer 1,000Charged when
+Tender record$0.003$3.00One Saudi government tender saved to the dataset (agency, type, activity, deadlines, document fee, status, link). Tenders left out by filters or unchanged in only-new mode are never charged.
+Tender details and award results$0.007$7.00Charged once per saved tender whose public detail page was read (includeDetails): purpose, contract duration, guarantees, execution city, dates, bidders and award results. Not charged when the detail page is unavailable.
+Cost example: 50 tender records with default options cost $0.15, including any start fee. This is an illustrative record count; set explicit row and total-charge caps for your run. Apify's free plan includes $5 of usage a month, about 1,666 tender records before start fees; the Actor's own compute is included in the per-record price, and records skipped by filters, de-duplication or only-new mode are not charged.
+
+Ready-made example pages
+Saved inputs you can run with one click on Apify (Examples tab); each has its own page:
+New Saudi government tenders, last 2 days (Etimad JSON feed): Every tender published on the Saudi Etimad procurement portal in the last two days, as JSON: agency and branch, tender type (public tender, direct purchase, framework agreement), activity, submission and enquiry deadline {"publishedWithin": "2d", "maxItems": 0}
+
+Alternatives, honestly
+OptionWhat it gives youWhere it falls short for this job
+Etimad portal (tenders.etimad.sa)Official tender search and tender pagesOne search at a time in the browser; no export or daily feed of new tenders
+Etimad Contracts Plus / paid tender alertsOfficial and commercial alert servicesPer-query or subscription pricing
+Tender aggregator subscriptionsMulti-country tender databases with supportSubscriptions; the Etimad listings themselves are public
+
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-09; the listing is the canonical description of the Actor.
+
+
+---
+
 # Shine.com job listings as JSON API | Daemon Data
 
 Source: https://datadmon.github.io/actors/shine-jobs-scraper/
@@ -2665,7 +2763,6 @@ Ready-made example pages
 Saved inputs you can run with one click on Apify (Examples tab); each has its own page:
 UK winding-up petitions published this week: Latest petitions to wind up companies published in The Gazette (notice code 2450): company name, court, case number, petitioner, hearing date and notice text. {"noticeTypes": ["2450"], "publishedWithinDays": 7, "maxItems": 300}
 UK administration appointments this week (Gazette): Latest appointments of administrators published in The Gazette (notice code 2410): company name, company number, administrators, insolvency practitioner contacts and notice text. {"noticeTypes": ["2410"], "publishedWithinDays": 7, "maxItems": 300}
-UK liquidations and creditor meetings (Gazette): Latest UK liquidation notices from The Gazette: resolutions for winding-up, appointments of liquidators and meetings of creditors (codes 2441, 2432, 2443, 2442), with company and liquidator details. {"noticeTypes": ["2441", "2432", "2443", "2442"], "maxItems": 300}
 UK corporate insolvency notices, last 48 hours (JSON feed): Corporate insolvency notices published in The Gazette in the last two days: winding-up petitions and orders, administrations, liquidations and creditor meetings, with company number and registered office from the linked  {"service": "insolvency", "noticeTypes": ["2450", "2410", "2432", "2405"], "publishedWithinDays": 2, "includeLinkedData": true, "maxItems": 100}
 
 Questions buyers ask
@@ -3664,7 +3761,7 @@ Apify bills your account and issues the invoice; we never see card details. Ques
 
 ## Need a custom backfill or feed?
 
-A filtered feed into your database, a one-off backfill of several registers, a join of sales and rents by community, or a field you do not see here: describe the job and the volume and we will say what it costs and when it can run. [Describe your data job]({{LEAD_FORM_URL}}) or open an issue on any of the three Actor pages.
+A filtered feed into your database, a one-off backfill of several registers, a join of sales and rents by community, or a field you do not see here: describe the job and the volume and we will say what it costs and when it can run. [Describe your data job](https://docs.google.com/forms/d/e/1FAIpQLSe6-DIlUBUuXLnb0Wc9U93EiqzFqrXE1RZLo2lzhBN0atbrMQ/viewform) or open an issue on any of the three Actor pages.
 
 
 ---
