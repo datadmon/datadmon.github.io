@@ -1,10 +1,11 @@
 # Daemon Data
 
-> Daemon Data publishes 31 public Actors on Apify Store (https://apify.com/data_daemon), verified at build time against the Apify API. Data Actors read public JSON endpoints or pages and return structured records (JSON, CSV, Excel). Most charge per record; India Jobs Feed and India Jobs MCP have no own fee, with downstream board Actor charges. Call via REST, Python/Node.js, n8n/Make/Zapier or MCP (`https://mcp.apify.com/?tools=data_daemon/<actor>`, header `Authorization: Bearer <APIFY_TOKEN>`). FREE-plan list prices checked 2026-11-10. Historical measurements retain their stated dates.
+> Daemon Data publishes 32 public Actors on Apify Store (https://apify.com/data_daemon), verified at build time against the Apify API. Data Actors read public JSON endpoints or pages and return structured records (JSON, CSV, Excel). Most charge per record; India Jobs Feed and India Jobs MCP have no own fee, with downstream board Actor charges. Call via REST, Python/Node.js, n8n/Make/Zapier or MCP (`https://mcp.apify.com/?tools=data_daemon/<actor>`, header `Authorization: Bearer <APIFY_TOKEN>`). FREE-plan list prices checked 2026-11-10. Historical measurements retain their stated dates.
 
 ## Data APIs
 
 - [Apna jobs](https://datadmon.github.io/actors/apna-jobs-scraper/): Apna (apna.co) India jobs with salary, locality, department, work mode and full descriptions; full-board export. $0.80 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/apna-jobs-scraper (plain text: https://apify.com/data_daemon/apna-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/apna-jobs-scraper
+- [BSE announcements and filings](https://datadmon.github.io/actors/bse-corporate-announcements/): BSE India corporate filings: announcements with category, subject, summary and PDF link, corporate actions with ex-dates, board meetings, the results calendar and bulk and block deals, with scrip code, symbol and ISIN on equity rows. $3.00 per 1,000 filing rows. Apify listing: https://apify.com/data_daemon/bse-corporate-announcements (plain text: https://apify.com/data_daemon/bse-corporate-announcements.md). MCP: https://mcp.apify.com/?tools=data_daemon/bse-corporate-announcements
 - [Company career sites (5 ATS platforms)](https://datadmon.github.io/actors/career-site-jobs-scraper/): jobs straight from company career sites on Workday, Greenhouse, Lever, Ashby and SmartRecruiters in one schema: title, location, remote, salary range, date, description and apply URL, for your own company list or across companies by title, place and date. $1.00 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/career-site-jobs-scraper (plain text: https://apify.com/data_daemon/career-site-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/career-site-jobs-scraper
 - [Cutshort startup jobs](https://datadmon.github.io/actors/cutshort-jobs-scraper/): Cutshort (cutshort.io) India startup and tech jobs with salary range, experience, skills, remote policy, company profile and full description. $0.80 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/cutshort-jobs-scraper (plain text: https://apify.com/data_daemon/cutshort-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/cutshort-jobs-scraper
 - [Dubai DLD transactions](https://datadmon.github.io/actors/dubai-property-transactions/): Dubai Land Department sales, mortgages and gifts with AED value and price/sqm. $1.00 per 1,000 transactions. Apify listing: https://apify.com/data_daemon/dubai-property-transactions (plain text: https://apify.com/data_daemon/dubai-property-transactions.md). MCP: https://mcp.apify.com/?tools=data_daemon/dubai-property-transactions
@@ -175,6 +176,103 @@ OptionWhat it gives youWhere it falls short for this job
 Apna website and appSearch and apply as a candidateNo export or API; one job at a time
 Other Apna Actors on Apify StoreSame boardCompare full-board coverage, salary and locality fields, only-new mode and price per 1,000
 Build your own scraperFull controlYou handle the 500-result keyword cap, deep-page repeats, city ids and de-duplication
+
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-10; the listing is the canonical description of the Actor.
+
+
+---
+
+# BSE corporate announcements and filings as JSON API | Daemon Data
+
+Source: https://datadmon.github.io/actors/bse-corporate-announcements/
+
+BSE corporate announcements and filings as JSON API
+
+BSE Corporate Announcements API is a pay-per-record Apify Actor by Daemon Data that returns BSE India corporate filings: announcements with category, subject, summary and PDF link, corporate actions with ex-dates, board meetings, the results calendar and bulk and block deals, with scrip code, symbol and ISIN on equity rows as JSON, CSV or Excel. It costs $0.003 per filing row with the default options ($3.00 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+
+Daemon Data BSE Corporate Announcements API on Apify   Listing as plain text
+
+Checked on 10 Nov 2026
+BSE carried 13,616 equity announcements for 2-9 Nov 2026 (1,733 to 3,114 on each trading day of 2-6 Nov) and 26,652 for October; one run returned all 3,114 announcements of 5 Nov in 80 seconds. The same day it listed 2,456 corporate actions with a 2026 ex-date, 1,745 forthcoming result dates and 318 bulk and block deals for 2-10 Nov. A {} run returns the 50 newest announcements in about 3 seconds.
+
+Why teams use it
+Rows, not pages. BSE shows filings in browser tables, 50 to a page, and the whole market only one day at a time. This Actor walks the pages and returns the same public data as clean JSON with ISO dates in India time, numbers as numbers and stable field names.
+Symbol and ISIN on the row. BSE's filing tables identify a company by scrip code. Each row here also carries the BSE symbol and, for securities in BSE's list of active equity securities, the ISIN and the BSE group (A, B, X, T, M for SME ...), so the feed joins to prices, holdings or an NSE feed without a mapping table. Of the 3,114 equity announcements of 5 November 2026, all carried a symbol and 3,035 an ISIN.
+A feed that delivers each filing once. With onlyNew the Actor remembers what it delivered. Schedule it with daysBack: 2: a filing broadcast late at night is still picked up next morning, and nothing is delivered or charged twice.
+Filter before you pay. symbols, categories and keywords are applied before rows are saved, so a watchlist or a "dividends only" feed costs cents.
+Parsed corporate actions. "Interim Dividend - Rs. - 24.0000" becomes actionType: "dividend", amountPerShare: 24; "Bonus issue 1:1" becomes ratio: "1:1"; a split carries the old and new face value.
+
+Output fields
+The most useful top-level fields with values from a real record; the full list is reportType, exchange, id, segment, scripCode, symbol, company, isin, group, category, subcategory, subject, summary, attachmentUrl, attachmentSize, attachmentSizeKb, isCritical, date, broadcastAt, submittedAt, disseminatedAt, companyUrl, changeType, source, scrapedAt, detailedSummary, audioVideoUrl, industry, meetingDate, purpose, daysToMeeting, dealType, clientName, side, quantity, price, valueInr, actionType, amountPerShare, exDate, recordDate, noDeliveryStart, noDeliveryEnd, daysToExDate, eventDate, daysToEvent, ratio, faceValueFrom, faceValueTo, bookClosureStart, bookClosureEnd, paymentDate, remarks. Per-field notes and the OpenAPI definition are on the Apify API page.
+FieldTypeExample
+reportTypestring"announcements"
+exchangestring"BSE"
+idstring"72b7099e-aceb-4bdf-a0e9-7ebd882429c7"
+segmentstring"equities"
+scripCodestring"544336"
+symbolstring"QUADFUTURE"
+companystring"Quadrant Future Tek Ltd"
+isinstring"INE0LRY01011"
+groupstring"B"
+categorystring"Board Meeting"
+subcategorystring"Outcome of Board Meeting"
+subjectstring"Board Meeting Outcome for Outcome Of The Board Meeting Held On Nov...
+summarystring"Outcome of the Board meeting held on November 10, 2026 for conside...
+attachmentUrlstring"https://www.bseindia.com/xml-data/corpfiling/AttachLive/0fcd380f-0...
+attachmentSizestring"3.36 MB"
+
+Input and how to call it
+
+Example input. Fields and pricing were checked against the public listing on 2026-11-10; this build does not run paid example searches.
+
+{
+  "reports": [
+    "announcements"
+  ],
+  "daysBack": 2,
+  "maxItems": 50
+}
+
+One HTTP call starts a run, waits for it and returns the records (token from console.apify.com):
+
+curl -X POST "https://api.apify.com/v2/acts/data_daemon~bse-corporate-announcements/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"reports": ["announcements"], "daysBack": 2, "maxItems": 50}'
+
+Python: ApifyClient(token).actor("data_daemon/bse-corporate-announcements").call(run_input=...). Python example · Node.js example · n8n workflow.
+AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daemon/bse-corporate-announcements with header Authorization: Bearer YOUR_APIFY_TOKEN in Claude, ChatGPT, Cursor or VS Code and ask for the data in plain words.
+
+All input fields
+FieldTypeMeaning
+reportsarrayWhich BSE filing feeds to read. Each row carries its reportType. announcements (default): every corporate announcement with category, subcategory, subject, summary text and PDF link (1,700-3,100 on a weekday in results season). corporateActions: dividends, bonus, splits, rights and buybacks by ex-date. boardMeetings: meeting date and purpose. resultsCalendar: forthcoming financial-result dates. deals: bulk and block deals with client, side, quantity and price.
+symbolsarrayCompanies to keep: BSE scrip codes (500325), BSE symbols (RELIANCE, TCS, HDFCBANK) or ISINs (INE002A01018), mixed freely. Empty = the whole market. With up to 25 companies the announcements and corporate actions are read per company, so a year of history for a watchlist is a small run.
+categoriesarrayKeep rows whose category contains one of these words (case-insensitive). For announcements this matches BSE's category and subcategory, for example Result, Board Meeting, Corp. Action, Dividend, Credit Rating, Press Release, Investor Presentation, Acquisition, Award of Order, Insider Trading, AGM. For corporate actions and board meetings it is the purpose (Dividend, Bonus, Split, Quarterly Results, Preferential Issue). Empty = all.
+keywordsarrayKeep rows whose company name, symbol, scrip code, category, subject or summary text contains one of these words (case-insensitive), for example order, preferential, QIP, demerger. Empty = all.
+daysBackintegerFor announcements and deals: how many days before today (India time) to read, today included. 0 = today only, 2 (default) = today and the two days before. Ignored when From date is set.
+daysAheadintegerFor corporate actions (ex-dates), board meetings and the results calendar: how many days after today to read, soonest first. Default 30. Ignored when To date is set.
+fromDatestringFirst day (YYYY-MM-DD, India time) for every selected report. Use with To date for a backfill. BSE serves whole-market announcements one day at a time, 50 per request: a day of 3,114 rows took 80 seconds (checked 10 Nov 2026), so allow about half a minute per 1,000 rows.
+toDatestringLast day (YYYY-MM-DD, India time). Empty = today for announcements and deals, today + Days ahead for calendars.
+segmentsarrayFor the announcements report. equities (default) covers listed companies, including the BSE SME platform (those rows carry group M or MT) and InvITs/REITs. debt is filings by issuers of listed debt, mf is mutual funds and ETFs; both are large daily lists.
+dealTypesarrayFor the deals report: bulk deals and block deals (client, buy or sell, quantity, price). Default: both.
+maxItemsintegerStop each report after this many rows (newest first for announcements and deals, soonest first for calendars). 0 = no limit. Each row costs $0.003, so the default 50 rows cost $0.15.
+onlyNewbooleanRemember what was delivered and return only rows that are new since the last run with the same state name. Rows already delivered are skipped and not charged again, so a scheduled run with Days back 2 never misses a late filing and never bills one twice.
+stateNamestringName of the only-new memory. Use a different name for each independent feed (for example one per watchlist). Letters, digits, dash and underscore.
+
+Price
+$0.003 per filing row ($3.00 per 1,000). List prices for Apify Free and Starter plans; Scale and Business plans pay 15% to 30% less.
+EventPricePer 1,000Charged when
+Filing row$0.003$3.00One row saved to the dataset: a BSE announcement, corporate action, board meeting, result date or bulk/block deal. Rows left out by filters, and rows already delivered in only-new mode, are never charged.
+Cost example: 50 filing rows with default options cost $0.15, including any start fee. This is an illustrative record count; set explicit row and total-charge caps for your run. Apify's free plan includes $5 of usage a month, about 1,666 filing rows before start fees; the Actor's own compute is included in the per-record price, and records skipped by filters, de-duplication or only-new mode are not charged.
+
+Ready-made example pages
+Saved inputs you can run with one click on Apify (Examples tab); each has its own page:
+BSE corporate announcements, latest 200 filings (JSON API): The 200 newest corporate announcements filed with BSE India, as JSON: scrip code, symbol, company, ISIN where BSE lists one, category and subcategory (results, board meeting, corporate action, insider trading), the headl {"reports": ["announcements"], "daysBack": 1, "maxItems": 200}
+
+Alternatives, honestly
+OptionWhat it gives youWhere it falls short for this job
+BSE website (corporate announcements pages)Official tables of announcements, actions, board meetings and dealsBrowser tables, 50 rows a page, the whole market one day at a time; no feed of only-new filings
+BSE licensed data productsOfficial licensed market-data productsCommercial licence and contract
+Broker and market-data APIsPrices, holdings and some corporate actionsFiling text, PDF links and bulk deals are usually missing
 
 Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-10; the listing is the canonical description of the Actor.
 
@@ -430,7 +528,7 @@ AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daem
 
 All input fields
 FieldTypeMeaning
-fromDatestringStart of the range, YYYY-MM-DD (DD/MM/YYYY also accepted), matched against each row's transactionDate. Leave empty to use Days back instead, so a scheduled run never needs a date edit. An invalid date is ignored with a warning.
+fromDatestringStart of the range, YYYY-MM-DD (DD/MM/YYYY also accepted), matched against each row's transactionDate. Leave empty to use Days back instead, so a scheduled run never needs a date edit. An invalid date is ignored with a warning. DLD serves the current calendar year only: dates before 1 January return no rows (checked 10 Nov 2026).
 toDatestringEnd of the range (included), YYYY-MM-DD. Defaults to today (UTC).
 daysBackintegerUsed when From date is empty: fetch the last N days up to To date (or today). Both ends are included, so N=1 covers yesterday and today. Default 7, minimum 1, maximum 365; values outside that range are clamped. For a daily scheduled feed use 2 with Only new transactions on, so late registrations are caught and nothing is charged twice. All transactions run about 600-1,000 rows per working day; DLD registers little or nothing on weekends.
 transactionGroupstringFilter by DLD transaction group: all, sales, mortgages or gifts. Weekly volume in Oct 2026: all about 4,000 rows ($4.00), sales about 2,600 ($2.60), mortgages about 1,300 ($1.30), gifts about 160 ($0.16).
@@ -477,10 +575,12 @@ Does it include price per square metre?
 Yes, pricePerSqmAed is computed from the transaction value and the actual area.
 Is off-plan cheaper than ready property in Dubai?
 Per square metre, no. In the 8,639 residential unit sales registered 1–29 October 2026 the median off-plan flat cost AED 19,303 per sqm, 25% above the ready median of AED 15,434; off-plan units are smaller (68 vs 81 sqm), so the median ticket was almost the same (AED 1.18m vs 1.20m). Area-by-area and bedroom tables: Dubai off-plan vs ready prices per sqm by area, October 2026.
+Can I get earlier years (2025 and before)?
+Not from this Actor. Checked on 10 November 2026: the DLD open-data gateway answers for the current calendar year only. Every 2025 and earlier date range returned 0 rows, a range from 25 December 2025 to 5 January 2026 returned only 2026 rows, and 1 January to 10 November 2026 held 188,045 transactions (138,762 of them sales). A run with older dates ends successfully with 0 rows, no charge and a status message that says so. DLD's open-data page says "For previous year data kindly visit data.dubai": the official history is the Data.Dubai dataset "Real Estate Transactions" (published by the Dubai Land Department as open data, CSV and JSON files, listed that day as two CSV parts of about 582 MB each; Data.Dubai replaced the retired Dubai Pulse portal). Data.Dubai's FAQ states that the portal is currently reachable only from inside the United Arab Emirates, and it refused our requests from Japan and the United States that day, so this Actor does not read it. To get the history from the source: download the files at data.dubai on a UAE connection (its FAQ says open datasets need no login), or create an account there and use the "Request API Access Key" form on the dataset page.
+How do I build my own history from now on?
+Two steps. First back-fill the current year once, month by month ({"fromDate": "2026-10-01", "toDate": "2026-10-31", "maxItems": 0} and so on): the year to 10 November 2026 is 188,045 rows, about $188 for everything or about $139 for sales only ("transactionGroup": "sales"). Then save the daily feed as a scheduled task ({"daysBack": 2, "onlyNew": true, "stateName": "dld-daily", "maxItems": 0}): about 520-570 rows a day, about $16-18 a month, each row delivered and charged once. Because the gateway answers only for the current year, pull a year's rows before it ends; rows you have not saved by 31 December may no longer be available here in January.
 Can I run it every day without editing dates?
 Yes. Leave fromDate empty, set daysBack to 2 and onlyNew to true; the window moves with the run date and each transaction is delivered and charged once.
-Which day does a date range cover?
-Calendar days of transactionDate, both ends included, weekends too. The DLD gateway itself files each transaction under a working day (cut-off around 15:15, Fridays 11:45), so its own query for 29 October 2026 returns 183 rows registered on the afternoon of 28 October, and a weekend-only query returns nothing. Since version 0.2 the Actor widens the query by a few days and keeps the rows dated inside your range: back-to-back ranges never overlap or leave gaps (checked on 21 windows against a September–November pull, 7 November 2026), and the extra rows are not charged. Set Date filter to dldBusinessDay for the old gateway behaviour.
 
 Alternatives, honestly
 OptionWhat it gives youWhere it falls short for this job
@@ -2141,7 +2241,7 @@ NSE Corporate Announcements API is a pay-per-record Apify Actor by Daemon Data t
 Daemon Data NSE Corporate Announcements API on Apify   Listing as plain text
 
 Checked on 10 Nov 2026
-NSE carried 6,933 equity announcements for 2-9 Nov 2026 (904 to 1,530 on each weekday) and 14,045 for October; one run returned the whole week in 6 seconds. The same day it listed 2,027 corporate actions with a 2026 ex-date, 661 bulk and block deals for the week, and 2,648 offer documents. A {} run returns the 50 newest announcements in about 4 seconds.
+NSE carried 6,933 equity announcements for 2-9 Nov 2026 (904 to 1,530 on each of the five trading days 2-6 Nov, 234 on Monday 9 Nov) and 14,045 for October; one run returned the whole week in 6 seconds. The same day it listed 2,027 corporate actions with a 2026 ex-date, 661 bulk and block deals for the week, and 2,648 offer documents. A {} run returns the 50 newest announcements in about 4 seconds.
 
 Why teams use it
 Rows, not pages. NSE shows filings in browser tables and offers no free developer API for them. This Actor returns the same public data as clean JSON with ISO dates in India time, numbers as numbers and stable field names.
@@ -2151,7 +2251,7 @@ One call for the whole filing desk. Announcements, ex-dates, board meetings, dea
 Parsed corporate actions. "Interim Dividend - Rs 2.50 Per Share" becomes actionType: "dividend", amountPerShare: 2.5; "Bonus 1:1" becomes ratio: "1:1"; a split carries the old and new face value.
 
 Output fields
-The most useful top-level fields with values from a real record; the full list is reportType, id, segment, symbol, company, isin, category, summary, detailedSummary, attachmentUrl, attachmentSize, attachmentSizeKb, hasXbrl, audioSummaryUrl, date, broadcastAt, disseminatedAt, companyUrl, source, scrapedAt, industry, series, purpose, actionType, ratio, rightsPremium, faceValue, exDate, recordDate, daysToExDate, amountPerShare, faceValueFrom, faceValueTo, meetingDate, description, ixbrlUrl, daysToMeeting, eventDate, daysToEvent, dealType, clientName, side, quantity, price, valueInr, filingId, agency, rating, ratingAction, outlook, ratingDate, earlierAgency, earlierRating, earlierOutlook, earlierRatingAction, earlierRatingDate, ratingChanged, verificationStatus, xbrlUrl, asOnDate, promoterPercent, publicPercent, employeeTrustPercent, revised, submissionDate, xbrlSize, changeType, stage, draftProspectusDate, draftProspectusStatus, draftProspectusUrl, draftProspectusSize, latestDocumentDate, finalProspectusDate, finalProspectusUrl, advertisementDate, advertisementUrl, redHerringProspectusDate, redHerringProspectusUrl, bookClosureStart, bookClosureEnd, noDeliveryStart, noDeliveryEnd, remarks, issueOpenDate, issueCloseDate. Per-field notes and the OpenAPI definition are on the Apify API page.
+The most useful top-level fields with values from a real record; the full list is reportType, exchange, id, segment, symbol, company, isin, category, summary, detailedSummary, attachmentUrl, attachmentSize, attachmentSizeKb, hasXbrl, audioSummaryUrl, date, broadcastAt, disseminatedAt, companyUrl, source, scrapedAt, industry, series, purpose, actionType, ratio, rightsPremium, faceValue, exDate, recordDate, daysToExDate, amountPerShare, faceValueFrom, faceValueTo, meetingDate, description, ixbrlUrl, daysToMeeting, eventDate, daysToEvent, dealType, clientName, side, quantity, price, valueInr, filingId, agency, rating, ratingAction, outlook, ratingDate, earlierAgency, earlierRating, earlierOutlook, earlierRatingAction, earlierRatingDate, ratingChanged, verificationStatus, xbrlUrl, asOnDate, promoterPercent, publicPercent, employeeTrustPercent, revised, submissionDate, xbrlSize, changeType, stage, draftProspectusDate, draftProspectusStatus, draftProspectusUrl, draftProspectusSize, latestDocumentDate, finalProspectusDate, finalProspectusUrl, advertisementDate, advertisementUrl, redHerringProspectusDate, redHerringProspectusUrl, bookClosureStart, bookClosureEnd, noDeliveryStart, noDeliveryEnd, remarks, issueOpenDate, issueCloseDate. Per-field notes and the OpenAPI definition are on the Apify API page.
 FieldTypeExample
 reportTypestring"announcements"
 idstring"106854171"
@@ -3102,7 +3202,6 @@ Separate Otta/US/UK personalized matching inventory; normalized salary benchmark
 
 Ready-made example pages
 Saved inputs you can run with one click on Apify (Examples tab); each has its own page:
-Welcome to the Jungle Python jobs in France as JSON: Export Python full-time jobs on the public France-focused WTTJ board, with full descriptions, company profiles, offices, remote mode and disclosed salary as provided. Bounded example: five jobs. {"queries": ["python"], "countryCodes": ["FR"], "contractTypes": ["FULL_TIME"], "maxJobs": 5}
 Welcome to the Jungle fully remote Python jobs as JSON: Five public WTTJ jobs matching Python and the source fully remote label, with descriptions, company metadata and office countries. Coverage is the France-focused board, not the separate US/UK matching product. {"queries": ["python"], "remoteModes": ["fulltime"], "maxJobs": 5}
 
 Questions buyers ask
