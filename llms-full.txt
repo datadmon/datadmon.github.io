@@ -1,6 +1,6 @@
 # Daemon Data
 
-> Daemon Data publishes 33 public Actors on Apify Store (https://apify.com/data_daemon), verified at build time against the Apify API. Data Actors read public JSON endpoints or pages and return structured records (JSON, CSV, Excel). Most charge per record; India Jobs Feed and India Jobs MCP have no own fee, with downstream board Actor charges. Call via REST, Python/Node.js, n8n/Make/Zapier or MCP (`https://mcp.apify.com/?tools=data_daemon/<actor>`, header `Authorization: Bearer <APIFY_TOKEN>`). FREE-plan list prices checked 2026-11-11. Historical measurements retain their stated dates.
+> Daemon Data publishes 34 public Actors on Apify Store (https://apify.com/data_daemon), verified at build time against the Apify API. Data Actors read public JSON endpoints or pages and return structured records (JSON, CSV, Excel). Most charge per record; India Jobs Feed and India Jobs MCP have no own fee, with downstream board Actor charges. Call via REST, Python/Node.js, n8n/Make/Zapier or MCP (`https://mcp.apify.com/?tools=data_daemon/<actor>`, header `Authorization: Bearer <APIFY_TOKEN>`). FREE-plan list prices checked 2026-11-11. Historical measurements retain their stated dates.
 
 ## Data APIs
 
@@ -18,6 +18,7 @@
 - [Hirist jobs](https://datadmon.github.io/actors/hirist-jobs-scraper/): India IT and tech jobs with full descriptions, skills, salary when disclosed. $2.00 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/hirist-jobs-scraper (plain text: https://apify.com/data_daemon/hirist-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/hirist-jobs-scraper
 - [IIMJobs jobs](https://datadmon.github.io/actors/iimjobs-jobs-scraper/): India MBA, finance, consulting and management jobs with full descriptions. $2.00 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/iimjobs-jobs-scraper (plain text: https://apify.com/data_daemon/iimjobs-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/iimjobs-jobs-scraper
 - [ImportYeti US import records](https://datadmon.github.io/actors/importyeti-scraper/): US import records from ImportYeti: latest bills of lading per importer or supplier, or a company profile with top suppliers. $2.00 per 1,000 shipments. Apify listing: https://apify.com/data_daemon/importyeti-scraper (plain text: https://apify.com/data_daemon/importyeti-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/importyeti-scraper
+- [India company data (MCA)](https://datadmon.github.io/actors/india-company-data/): Indian company records from the MCA register by CIN or name: status, incorporation date, capital, registered office, company email, compliance flags and the board of directors with DIN. $3.00 per 1,000 companys. Apify listing: https://apify.com/data_daemon/india-company-data (plain text: https://apify.com/data_daemon/india-company-data.md). MCP: https://mcp.apify.com/?tools=data_daemon/india-company-data
 - [India IPO GMP](https://datadmon.github.io/actors/india-ipo-tracker/): live IPO GMP, QIB/NII/retail subscription, calendar, listing data. $3.00 per 1,000 ipo report rows. Apify listing: https://apify.com/data_daemon/india-ipo-tracker (plain text: https://apify.com/data_daemon/india-ipo-tracker.md). MCP: https://mcp.apify.com/?tools=data_daemon/india-ipo-tracker
 - [India Jobs Feed (10 boards in one)](https://datadmon.github.io/actors/india-jobs-feed/): One search across Naukri, IIMJobs, Hirist, foundit, Instahyre, Shine, Cutshort, Apna, WorkIndia and Unstop. One schema: company, city, remote/onsite, experience, salary in LPA, skills, posting date. Cross-board duplicates folded. Only-new mode for daily feeds. No login.. No own fee; board Actor charges apply. Apify listing: https://apify.com/data_daemon/india-jobs-feed (plain text: https://apify.com/data_daemon/india-jobs-feed.md). MCP: https://mcp.apify.com/?tools=data_daemon/india-jobs-feed
 - [India Jobs MCP (10 boards for agents)](https://datadmon.github.io/actors/india-jobs-mcp/): MCP server for Claude, Cursor and other AI agents: search Naukri, IIMJobs, Hirist, foundit, Instahyre, Shine, Cutshort, Apna, WorkIndia and Unstop. Tools: search_jobs, search_all_boards, new_jobs_since, list_boards. Salary in LPA, experience, skills. Pay only each board's per-job price.. No own fee; board Actor charges apply. Apify listing: https://apify.com/data_daemon/india-jobs-mcp (plain text: https://apify.com/data_daemon/india-jobs-mcp.md). MCP: https://mcp.apify.com/?tools=data_daemon/india-jobs-mcp
@@ -447,6 +448,10 @@ $0.001 per product row ($1.00 per 1,000). List prices for Apify Free and Starter
 EventPricePer 1,000Charged when
 Product row$0.001$1.00One product or variant row written to the dataset, checked against OpenAI's product feed spec, with its status and the list of issues. Rows left out by maxItems or by the out-of-stock option are never charged.
 Cost example: 50 product rows with default options cost $0.05, including any start fee. This is an illustrative record count; set explicit row and total-charge caps for your run. Apify's free plan includes $5 of usage a month, about 5,000 product rows before start fees; the Actor's own compute is included in the per-record price, and records skipped by filters, de-duplication or only-new mode are not charged.
+
+Ready-made example pages
+Saved inputs you can run with one click on Apify (Examples tab); each has its own page:
+ChatGPT Business Hub product feed from a Google Merchant feed: Converts a Google Merchant Center feed (XML, TSV or CSV) into the product file ChatGPT Business Hub asks for: OpenAI's CSV / JSONL format with item_id, title, description, url, brand, seller_name, image_url, price and av {"merchantFeedUrls": ["https://datadmon.github.io/data/samples/google-merchant-sample-feed.xml"], "sellerName": "Juniper Ridge Outfitters"}
 
 Questions buyers ask
 What is Businesses in ChatGPT (Business Hub)?
@@ -1621,6 +1626,112 @@ ImportYeti websiteFree search of US customs bills of ladingOne company page at a
 ImportYeti's official API (data.importyeti.com)REST endpoints for company profiles, shipments and searchNeeds an ImportYeti account, API key and prepaid data credits; this Actor bills per row on your Apify account instead
 Paid trade-data platforms (Panjiva, ImportGenius and similar)Global customs data, contacts, analyticsTeam subscriptions; more than a per-company shipment watch needs
 Other ImportYeti Actors on Apify StoreSame sourceCompare shipment vs profile output, price per 1,000 and only-new mode
+
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-11; the listing is the canonical description of the Actor.
+
+
+---
+
+# India company data API: MCA CIN lookup, directors and email | Daemon Data
+
+Source: https://datadmon.github.io/actors/india-company-data/
+
+India company data API: MCA CIN lookup, directors and email
+
+India Company Data API (MCA) is a pay-per-record Apify Actor by Daemon Data that returns Indian company records from the MCA register by CIN or name: status, incorporation date, capital, registered office, company email, compliance flags and the board of directors with DIN as JSON, CSV or Excel. It costs $0.003 per company with the default options ($3.00 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+
+Daemon Data India Company Data API (MCA) on Apify   Listing as plain text
+
+Checked on 11 Nov 2026
+A run looked up 204 Indian companies in 8 minutes with no failed lookup: 80% carried a company email, 86% a current board (3.6 directors on average), 98% a register status. A second run over a four-company watchlist returned nothing and charged nothing, because no record had changed.
+
+Output fields
+The most useful top-level fields with values from a real record; the full list is cin, name, url, status, registrationDate, registrationNumber, companyType, companyTypeCode, listed, roc, state, cinStateCode, category, subCategory, companyClass, activity, nicCode, authorizedCapitalInr, paidUpCapitalInr, email, website, registeredAddress, pincode, lastAgmDate, lastFinancialsDate, activeCompliance, cirpStatus, filingStatus, sourceUpdatedAt, directorsCount, directors, signatories, relatedCompanies, query, queryType, matchType, changeType, changedFields, source, scrapedAt. Per-field notes and the OpenAPI definition are on the Apify API page.
+FieldTypeExample
+cinstring"L22210MH1995PLC084781"
+namestring"TATA CONSULTANCY SERVICES LIMITED"
+urlstring"https://www.instafinancials.com/company/tata-consultancy-services-...
+statusstring"Active"
+registrationDatestring"1995-01-19"
+registrationNumberstring"84781"
+companyTypestring"Public Limited"
+companyTypeCodestring"PLC"
+listedbooleantrue
+rocstring"RoC Mumbai I"
+statestring"Maharashtra"
+cinStateCodestring"MH"
+categorystring"Company limited by shares"
+subCategorystring"Indian Non-Government Company"
+companyClassstring"Public Company"
+
+Input and how to call it
+
+Example input. Fields and pricing were checked against the public listing on 2026-11-11; this build does not run paid example searches.
+
+{
+  "cins": [
+    "L17110MH1973PLC019786",
+    "L85110KA1981PLC013115"
+  ],
+  "companyNames": [
+    "Tata Consultancy Services Limited"
+  ]
+}
+
+One HTTP call starts a run, waits for it and returns the records (token from console.apify.com):
+
+curl -X POST "https://api.apify.com/v2/acts/data_daemon~india-company-data/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"cins": ["L17110MH1973PLC019786", "L85110KA1981PLC013115"], "companyNames": ["Tata Consultancy Services Limited"]}'
+
+Python: ApifyClient(token).actor("data_daemon/india-company-data").call(run_input=...). Python, Node.js and n8n calling instructions.
+AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daemon/india-company-data with header Authorization: Bearer YOUR_APIFY_TOKEN in Claude, ChatGPT, Cursor or VS Code and ask for the data in plain words.
+
+All input fields
+FieldTypeMeaning
+cinsarrayCorporate Identification Numbers to look up, for example L17110MH1973PLC019786. Pasted lines and URLs that contain a CIN work too. This is the exact way in: one CIN gives one company. Leave both lists empty to see three sample companies.
+companyNamesarrayRegistered company names to resolve to a CIN, for example Tata Consultancy Services Limited. The register is searched from the start of the name, so type the name as it is registered (the first words are enough). Each row says how it matched: exact, name (same name without Private / Limited) or partial (starts with your text; check it).
+matchesPerNameintegerHow many companies to return for each name (1 = the best match only). Use 3-6 when you search a group name such as Zomato and want its companies.
+includeDirectorsbooleanAdds the current board (name, DIN, designation, appointment date, number of directorships, disqualification flags) and the signatories (company secretary, CFO and other signing officers). Public-record governance data only: no phone numbers, no personal email. One extra page per company at no extra charge.
+includeRelatedCompaniesbooleanAdds relatedCompanies: other companies with at least one common director (name, status, state, number of common directors). Useful for due diligence; makes rows of large groups long.
+onlyChangedbooleanFor scheduled runs over the same list. The first run returns every company; later runs return (and charge) only companies whose status, capital, address, email, filing dates, compliance flags or board changed, with changeType and changedFields. Unchanged companies cost nothing.
+stateNamestringName of the memory used by watchlist mode. Use a different name for each separate list.
+maxItemsintegerStop after this many companies (0 = the whole list).
+
+Price
+$0.003 per company ($3.00 per 1,000); $0.001 per run. List prices for Apify Free and Starter plans; Scale and Business plans pay 15% to 30% less.
+EventPricePer 1,000Charged when
+Company$0.003$3.00One company record saved to the dataset: status, incorporation date, type, RoC, capital, registered office, company email and website, compliance flags, and the board of directors with DIN when requested. CINs and names that are not found, and unchanged companies in watchlist mode, are never charged.
+Actor Start$0.001Charged when the Actor starts running. Number of events charged depends on Actor memory (one event per GB, minimum one event).
+Cost example: 50 companys with default options cost $0.151, including any start fee. This is an illustrative record count; set explicit row and total-charge caps for your run. Apify's free plan includes $5 of usage a month, about 1,666 companys before start fees; the Actor's own compute is included in the per-record price, and records skipped by filters, de-duplication or only-new mode are not charged.
+
+Questions buyers ask
+Where does the data come from?
+From the Ministry of Corporate Affairs (MCA) company register as shown on the public company pages of InstaFinancials, a company-information site that compiles MCA filings. sourceUpdatedAt shows how recent each record is. It is a copy of the register, not the MCA portal itself: for a legally binding extract use MCA's own certified copies.
+Is there an API for MCA company master data?
+
+This Actor works as one: send a list of CINs or names, get the master data and board back as JSON. It does not call an MCA API; it reads a public copy of the register (see above). For certified extracts use MCA's own services.
+Does it return directors' phone numbers or personal emails?
+No. Directors are returned with name, DIN, designation and appointment date, which are public-record governance data. The only contact fields are the company's own email and website.
+Why should I keep the proxy on?
+
+The source serves a limited number of pages per IP address. The Actor spreads a list over many addresses through Apify Proxy (datacenter addresses are enough, and they are included in the price). With the proxy off, a run reads only a handful of companies and then stops with a message.
+How fresh is a record?
+sourceUpdatedAt is the date the source last refreshed that company. Large and active companies are refreshed within days or weeks; dormant ones less often.
+Can I look up an LLP or a director by DIN?
+
+Not yet. Companies with a CIN only.
+Is there an API?
+Yes. Start a run with the Apify API or the Python / Node.js clients and read the dataset; n8n, Make and Zapier work the same way. AI agents can call it through https://mcp.apify.com/?tools=data_daemon/india-company-data.
+Is it legal to use this data?
+
+Company master data and the names of directors are public records under the Companies Act. The Actor reads public pages without logging in and returns no personal contact details. Use the data in line with the laws that apply to you, including India's DPDP Act when you process information about individuals.
+
+Alternatives, honestly
+OptionWhat it gives youWhere it falls short for this job
+MCA portalThe official register, one company at a timeSign-in and manual look-ups; no list input
+Company-information subscriptionsDashboards with financials and reportsPriced per report or per seat
+Our India New Company Registrations ActorCompanies by incorporation dateA date feed, not a lookup; no emails or directors
 
 Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-11; the listing is the canonical description of the Actor.
 
@@ -3399,7 +3510,6 @@ Cost example: 50 jobs with default options cost $0.041, including any start fee.
 
 Ready-made example pages
 Saved inputs you can run with one click on Apify (Examples tab); each has its own page:
-Delivery jobs in Mumbai with monthly salary, posted this week: Get Mumbai delivery jobs as JSON via API: delivery boy, delivery executive, rider and partner openings posted on WorkIndia in the last 7 days across Mumbai, Navi Mumbai and Thane (100 on 1 November 2026, all posted withi {"cities": ["Mumbai"], "keywords": ["delivery"], "postedWithinDays": 7, "includeDescription": true, "maxResults": 100}
 Telecaller jobs in Delhi NCR with salary, posted this week: Get Delhi NCR telecaller jobs as JSON via API: telecaller, tele caller, BPO and collection telecalling openings posted on WorkIndia in the last 7 days in Delhi, Gurgaon, Noida, Ghaziabad and Faridabad (100 on 1 November  {"cities": ["Delhi"], "keywords": ["telecaller", "tele caller", "telecalling", "tele calling"], "postedWithinDays": 7, "includeDescription": true, "maxResults":
 
 Alternatives, honestly
