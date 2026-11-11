@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Sample Google Merchant Center feed for testing feed converters. Fictional store and products; the
+     example.com links do not open. The last six rows carry deliberate mistakes so a validator has something
+     to report. Published by Daemon Data (https://datadmon.github.io/). Free to use. -->
+<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
+  <channel>
+    <title>Juniper Ridge Outfitters</title>
+    <link>https://www.example.com/</link>
+    <description>Sample product feed (fictional store)</description>
+    <item>
+      <g:id>JR-MUG-350-BLU</g:id>
+      <g:title>Enamel camp mug, 350 ml, blue</g:title>
+      <g:description>Steel camp mug with a speckled enamel coating. Holds 350 ml. Safe on a gas stove and in the dishwasher.</g:description>
+      <g:link>https://www.example.com/products/enamel-camp-mug?color=blue</g:link>
+      <g:image_link>https://www.example.com/images/enamel-camp-mug-blue.jpg</g:image_link>
+      <g:additional_image_link>https://www.example.com/images/enamel-camp-mug-blue-side.jpg</g:additional_image_link>
+      <g:additional_image_link>https://www.example.com/images/enamel-camp-mug-blue-top.jpg</g:additional_image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>18.00 USD</g:price>
+      <g:brand>Juniper Ridge</g:brand>
+      <g:gtin>00012345678905</g:gtin>
+      <g:mpn>JR-350-B</g:mpn>
+      <g:condition>new</g:condition>
+      <g:product_type>Camp Kitchen &gt; Drinkware &gt; Mugs</g:product_type>
+      <g:google_product_category>2169</g:google_product_category>
+      <g:item_group_id>JR-MUG-350</g:item_group_id>
+      <g:color>Blue</g:color>
+      <g:material>Enamelled steel</g:material>
+      <g:product_weight>0.21 kg</g:product_weight>
+      <g:shipping><g:country>US</g:country><g:service>Standard</g:service><g:price>5.00 USD</g:price></g:shipping>
+    </item>
+    <item>
+      <g:id>JR-MUG-350-GRN</g:id>
+      <g:title>Enamel camp mug, 350 ml, forest green</g:title>
+      <g:description>Steel camp mug with a speckled enamel coating. Holds 350 ml. Safe on a gas stove and in the dishwasher.</g:description>
+      <g:link>https://www.example.com/products/enamel-camp-mug?color=green</g:link>
+      <g:image_link>https://www.example.com/images/enamel-camp-mug-green.jpg</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>18.00 USD</g:price>
+      <g:sale_price>14.40 USD</g:sale_price>
+      <g:brand>Juniper Ridge</g:brand>
+      <g:mpn>JR-350-G</g:mpn>
+      <g:condition>new</g:condition>
+      <g:product_type>Camp Kitchen &gt; Drinkware &gt; Mugs</g:product_type>
+      <g:item_group_id>JR-MUG-350</g:item_group_id>
+      <g:color>Forest green</g:color>
+      <g:material>Enamelled steel</g:material>
+      <g:product_weight>0.21 kg</g:product_weight>
+      <g:shipping><g:country>US</g:country><g:service>Standard</g:service><g:price>5.00 USD</g:price></g:shipping>
+    </item>
+    <item>
+      <g:id>JR-MUG-350-RED</g:id>
+      <g:title>Enamel camp mug, 350 ml, brick red</g:title>
+      <g:description>Steel camp mug with a speckled enamel coating. Holds 350 ml. Safe on a gas stove and in the dishwasher.</g:description>
+      <g:link>https://www.example.com/products/enamel-camp-mug?color=red</g:link>
+      <g:image_link>https://www.example.com/images/enamel-camp-mug-red.jpg</g:image_link>
+      <g:availability>out of stock</g:availability>
+      <g:price>18.00 USD</g:price>
+      <g:brand>Juniper Ridge</g:brand>
+      <g:mpn>JR-350-R</g:mpn>
+      <g:condition>new</g:condition>
+      <g:product_type>Camp Kitchen &gt; Drinkware &gt; Mugs</g:product_type>
+      <g:item_group_id>JR-MUG-350</g:item_group_id>
+      <g:color>Brick red</g:color>
+      <g:material>Enamelled steel</g:material>
+    </item>
+    <item>
+      <g:id>JR-BOOT-TRAIL-9</g:id>
+      <g:title>Ridgeline waterproof trail boot, size 9</g:title>
+      <g:description><![CDATA[<p>Mid-cut leather trail boot with a waterproof membrane.</p><ul><li>Rubber lug outsole</li><li>Removable cork footbed</li><li>Resoleable</li></ul>]]></g:description>
+      <g:link>https://www.example.com/products/ridgeline-trail-boot?size=9</g:link>
+      <g:image_link>https://www.example.com/images/ridgeline-boot.jpg</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>189.00 USD</g:price>
+      <g:brand>Juniper Ridge</g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type>Footwear &gt; Hiking Boots</g:product_type>
+      <g:item_group_id>JR-BOOT-TRAIL</g:item_group_id>
+      <g:size>9</g:size>
+      <g:gender>male</g:gender>
+      <g:age_group>adult</g:age_group>
+      <g:material>Leather and rubber</g:material>
+    </item>
+    <item>
+      <g:id>JR-BOOT-TRAIL-10</g:id>
+      <g:title>Ridgeline waterproof trail boot, size 10</g:title>
+      <g:description><![CDATA[<p>Mid-cut leather trail boot with a waterproof membrane.</p><ul><li>Rubber lug outsole</li><li>Removable cork footbed</li><li>Resoleable</li></ul>]]></g:description>
+      <g:link>https://www.example.com/products/ridgeline-trail-boot?size=10</g:link>
+      <g:image_link>https://www.example.com/images/ridgeline-boot.jpg</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>189.00 USD</g:price>
+      <g:brand>Juniper Ridge</g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type>Footwear &gt; Hiking Boots</g:product_type>
+      <g:item_group_id>JR-BOOT-TRAIL</g:item_group_id>
+      <g:size>10</g:size>
+      <g:gender>male</g:gender>
+      <g:age_group>adult</g:age_group>
+      <g:material>Leather and rubber</g:material>
+    </item>
+    <item>
+      <g:id>JR-BOOT-TRAIL-11</g:id>
+      <g:title>Ridgeline waterproof trail boot, size 11</g:title>
+      <g:description><![CDATA[<p>Mid-cut leather trail boot with a waterproof membrane.</p><ul><li>Rubber lug outsole</li><li>Removable cork footbed</li><li>Resoleable</li></ul>]]></g:description>
+      <g:link>https://www.example.com/products/ridgeline-trail-boot?size=11</g:link>
+      <g:image_link>https://www.example.com/images/ridgeline-boot.jpg</g:image_link>
+      <g:availability>backorder</g:availability>
+      <g:price>189.00 USD</g:price>
+      <g:brand>Juniper Ridge</g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type>Footwear &gt; Hiking Boots</g:product_type>
+      <g:item_group_id>JR-BOOT-TRAIL</g:item_group_id>
+      <g:size>11</g:size>
+      <g:gender>male</g:gender>
+      <g:age_group>adult</g:age_group>
+      <g:material>Leather and rubber</g:material>
+    </item>
+    <item>
+      <g:id>JR-TENT-2P</g:id>
+      <g:title>Larkspur 2-person backpacking tent</g:title>
+      <g:description>Freestanding double-wall tent for two. Packed weight 1.6 kg, two doors, two vestibules, aluminium poles.</g:description>
+      <g:link>https://www.example.com/products/larkspur-2p-tent</g:link>
+      <g:image_link>https://www.example.com/images/larkspur-2p.jpg</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>329.00 USD</g:price>
+      <g:sale_price>279.00 USD</g:sale_price>
+      <g:brand>Juniper Ridge</g:brand>
+      <g:gtin>036000291452</g:gtin>
+      <g:condition>new</g:condition>
+      <g:product_type>Camping &gt; Tents &gt; Backpacking Tents</g:product_type>
+      <g:product_weight>1.6 kg</g:product_weight>
+      <g:product_length>45 cm</g:product_length>
+      <g:product_width>14 cm</g:product_width>
+      <g:product_height>14 cm</g:product_height>
+    </item>
+    <item>
+      <g:id>JR-BAG-DOWN-20</g:id>
+      <g:title>Switchback 20°F down sleeping bag, regular</g:title>
+      <g:description>650-fill down mummy bag rated to 20°F (-7°C). Draft collar, two-way zip, stuff sack included.</g:description>
+      <g:link>https://www.example.com/products/switchback-20-down-bag</g:link>
+      <g:image_link>https://www.example.com/images/switchback-20.jpg</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>249.00 USD</g:price>
+      <g:brand>Juniper Ridge</g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type>Camping &gt; Sleeping Bags</g:product_type>
+      <g:product_weight>1.1 kg</g:product_weight>
+    </item>
+    <item>
+      <g:id>JR-STOVE-1B</g:id>
+      <g:title>Pocket canister stove, single burner</g:title>
+      <g:description>Folding canister stove, 2,800 W. Boils one litre in about three and a half minutes. Weighs 85 g.</g:description>
+      <g:link>https://www.example.com/products/pocket-canister-stove</g:link>
+      <g:image_link>https://www.example.com/images/pocket-stove.jpg</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>44.95 USD</g:price>
+      <g:brand>Emberline</g:brand>
+      <g:mpn>EL-PS1</g:mpn>
+      <g:condition>new</g:condition>
+      <g:product_type>Camp Kitchen &gt; Stoves</g:product_type>
+      <g:product_weight>85 g</g:product_weight>
+    </item>
+    <item>
+      <g:id>JR-LAMP-HEAD-400</g:id>
+      <g:title>Nightjar 400-lumen rechargeable headlamp</g:title>
+      <g:description>USB-C rechargeable headlamp, 400 lumens, red night mode, IPX4 splash resistance, up to 40 hours on low.</g:description>
+      <g:link>https://www.example.com/products/nightjar-400-headlamp</g:link>
+      <g:image_link>https://www.example.com/images/nightjar-400.jpg</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>39.00 USD</g:price>
+      <g:brand>Emberline</g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type>Lighting &gt; Headlamps</g:product_type>
+    </item>
+    <item>
+      <g:id>JR-BOTTLE-1L</g:id>
+      <g:title>Wide-mouth water bottle, 1 litre, slate</g:title>
+      <g:description>BPA-free one-litre bottle with a wide mouth that fits most water filters. Volume marks in ml and oz.</g:description>
+      <g:link>https://www.example.com/products/wide-mouth-bottle-1l</g:link>
+      <g:image_link>https://www.example.com/images/bottle-1l-slate.jpg</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>14.00 USD</g:price>
+      <g:brand>Juniper Ridge</g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type>Camp Kitchen &gt; Drinkware &gt; Bottles</g:product_type>
+      <g:color>Slate</g:color>
+    </item>
+    <item>
+      <g:id>JR-PACK-45</g:id>
+      <g:title>Cairn 45-litre backpack, moss</g:title>
+      <g:description>45-litre top-loading pack with an adjustable back length, hip-belt pockets and a rain cover.</g:description>
+      <g:link>https://www.example.com/products/cairn-45-pack</g:link>
+      <g:image_link>https://www.example.com/images/cairn-45-moss.jpg</g:image_link>
+      <g:availability>preorder</g:availability>
+      <g:price>179.00 USD</g:price>
+      <g:brand>Juniper Ridge</g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type>Packs &gt; Backpacking Packs</g:product_type>
+      <g:color>Moss</g:color>
+      <g:product_weight>1.45 kg</g:product_weight>
+    </item>
+    <item>
+      <g:id>JR-SOCK-MER-M</g:id>
+      <g:title>Merino hiking socks, crew, medium</g:title>
+      <g:description>Cushioned crew socks, 68% merino wool. Flat toe seam. Sold as one pair.</g:description>
+      <g:link>https://www.example.com/products/merino-hiking-socks?size=m</g:link>
+      <g:image_link>https://www.example.com/images/merino-socks.jpg</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>22.00 USD</g:price>
+      <g:brand>Juniper Ridge</g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type>Apparel &gt; Socks</g:product_type>
+      <g:item_group_id>JR-SOCK-MER</g:item_group_id>
+      <g:size>M</g:size>
+      <g:gender>unisex</g:gender>
+    </item>
+    <item>
+      <g:id>JR-SOCK-MER-L</g:id>
+      <g:title>Merino hiking socks, crew, large</g:title>
+      <g:description>Cushioned crew socks, 68% merino wool. Flat toe seam. Sold as one pair.</g:description>
+      <g:link>https://www.example.com/products/merino-hiking-socks?size=l</g:link>
+      <g:image_link>https://www.example.com/images/merino-socks.jpg</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>22.00 USD</g:price>
+      <g:brand>Juniper Ridge</g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type>Apparel &gt; Socks</g:product_type>
+      <g:item_group_id>JR-SOCK-MER</g:item_group_id>
+      <g:size>L</g:size>
+      <g:gender>unisex</g:gender>
+    </item>
+    <item>
+      <g:id>JR-KNIFE-FOLD</g:id>
+      <g:title>Folding camp knife, 8 cm blade</g:title>
+      <g:description>Stainless folding knife with a locking 8 cm blade and a beech handle.</g:description>
+      <g:link>https://www.example.com/products/folding-camp-knife</g:link>
+      <g:image_link>https://www.example.com/images/folding-knife.jpg</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>34.00 USD</g:price>
+      <g:brand>Emberline</g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type>Tools &gt; Knives</g:product_type>
+    </item>
+    <item>
+      <g:id>JR-FILTER-SQZ</g:id>
+      <g:title>Squeeze water filter with 1-litre pouch</g:title>
+      <g:description>Hollow-fibre squeeze filter, 0.1 micron. Screws onto the pouch or a standard bottle. Weighs 60 g.</g:description>
+      <g:link>https://www.example.com/products/squeeze-water-filter</g:link>
+      <g:image_link>https://www.example.com/images/squeeze-filter.jpg</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>36.50 USD</g:price>
+      <g:brand>Clearbrook</g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type>Water &gt; Filters</g:product_type>
+      <g:product_weight>60 g</g:product_weight>
+    </item>
+    <item>
+      <g:id>JR-CHAIR-LITE</g:id>
+      <g:title>Packable camp chair</g:title>
+      <g:description>Shock-corded aluminium frame chair that packs to the size of a water bottle. Holds up to 120 kg.</g:description>
+      <g:link>https://www.example.com/products/packable-camp-chair</g:link>
+      <g:image_link>https://www.example.com/images/packable-chair.jpg</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>89.00 USD</g:price>
+      <g:brand>Juniper Ridge</g:brand>
+      <g:condition>refurbished</g:condition>
+      <g:product_type>Camping &gt; Furniture</g:product_type>
+    </item>
+    <item>
+      <g:id>JR-MAP-RIDGE</g:id>
+      <g:title>Juniper Ridge trail map, waterproof</g:title>
+      <g:description>1:25,000 topographic trail map printed on tear-resistant waterproof paper.</g:description>
+      <g:link>https://www.example.com/products/trail-map</g:link>
+      <g:image_link>https://www.example.com/images/trail-map.jpg</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>12.00 USD</g:price>
+      <g:brand>Juniper Ridge</g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type>Navigation &gt; Maps</g:product_type>
+    </item>
+    <!-- Rows with deliberate mistakes start here: wrong GTIN check digit, sale price above the price and a WebP
+         image, no price, an availability value that is not allowed, no image, a repeated id. -->
+    <item>
+      <g:id>JR-POLE-CARB</g:id>
+      <g:title>Carbon trekking poles, pair</g:title>
+      <g:description>Three-section carbon poles with cork grips and flick locks. 115 to 135 cm.</g:description>
+      <g:link>https://www.example.com/products/carbon-trekking-poles</g:link>
+      <g:image_link>https://www.example.com/images/carbon-poles.jpg</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>129.00 USD</g:price>
+      <g:brand>Juniper Ridge</g:brand>
+      <g:gtin>036000291453</g:gtin>
+      <g:condition>new</g:condition>
+      <g:product_type>Trekking &gt; Poles</g:product_type>
+    </item>
+    <item>
+      <g:id>JR-HAT-SUN</g:id>
+      <g:title>Wide-brim sun hat</g:title>
+      <g:description>UPF 50 sun hat with a chin cord and a mesh crown.</g:description>
+      <g:link>https://www.example.com/products/sun-hat</g:link>
+      <g:image_link>https://www.example.com/images/sun-hat.webp</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>32.00 USD</g:price>
+      <g:sale_price>38.00 USD</g:sale_price>
+      <g:brand>Juniper Ridge</g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type>Apparel &gt; Hats</g:product_type>
+    </item>
+    <item>
+      <g:id>JR-GLOVE-FLEECE</g:id>
+      <g:title>Fleece liner gloves</g:title>
+      <g:description>Light fleece gloves with touchscreen fingertips.</g:description>
+      <g:link>https://www.example.com/products/fleece-liner-gloves</g:link>
+      <g:image_link>https://www.example.com/images/fleece-gloves.jpg</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:brand>Juniper Ridge</g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type>Apparel &gt; Gloves</g:product_type>
+    </item>
+    <item>
+      <g:id>JR-COOLER-25</g:id>
+      <g:title>Hard cooler, 25 litres</g:title>
+      <g:description>Rotomoulded 25-litre cooler that keeps ice for up to four days.</g:description>
+      <g:link>https://www.example.com/products/hard-cooler-25</g:link>
+      <g:image_link>https://www.example.com/images/cooler-25.jpg</g:image_link>
+      <g:availability>ships in 2 weeks</g:availability>
+      <g:price>199.00 USD</g:price>
+      <g:brand>Juniper Ridge</g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type>Camp Kitchen &gt; Coolers</g:product_type>
+    </item>
+    <item>
+      <g:id>JR-TARP-3X3</g:id>
+      <g:title>Ultralight tarp, 3 x 3 m</g:title>
+      <g:description>Silnylon tarp with sixteen tie-out points and taped ridge seam.</g:description>
+      <g:link>https://www.example.com/products/ultralight-tarp</g:link>
+      <g:availability>in stock</g:availability>
+      <g:price>119.00 USD</g:price>
+      <g:brand>Juniper Ridge</g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type>Camping &gt; Tarps</g:product_type>
+    </item>
+    <item>
+      <g:id>JR-MAP-RIDGE</g:id>
+      <g:title>Juniper Ridge trail map, waterproof (second listing)</g:title>
+      <g:description>1:25,000 topographic trail map printed on tear-resistant waterproof paper.</g:description>
+      <g:link>https://www.example.com/products/trail-map-2</g:link>
+      <g:image_link>https://www.example.com/images/trail-map.jpg</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>12.00 USD</g:price>
+      <g:brand>Juniper Ridge</g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type>Navigation &gt; Maps</g:product_type>
+    </item>
+  </channel>
+</rss>
