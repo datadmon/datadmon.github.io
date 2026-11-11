@@ -1,12 +1,13 @@
 # Daemon Data
 
-> Daemon Data publishes 32 public Actors on Apify Store (https://apify.com/data_daemon), verified at build time against the Apify API. Data Actors read public JSON endpoints or pages and return structured records (JSON, CSV, Excel). Most charge per record; India Jobs Feed and India Jobs MCP have no own fee, with downstream board Actor charges. Call via REST, Python/Node.js, n8n/Make/Zapier or MCP (`https://mcp.apify.com/?tools=data_daemon/<actor>`, header `Authorization: Bearer <APIFY_TOKEN>`). FREE-plan list prices checked 2026-11-11. Historical measurements retain their stated dates.
+> Daemon Data publishes 33 public Actors on Apify Store (https://apify.com/data_daemon), verified at build time against the Apify API. Data Actors read public JSON endpoints or pages and return structured records (JSON, CSV, Excel). Most charge per record; India Jobs Feed and India Jobs MCP have no own fee, with downstream board Actor charges. Call via REST, Python/Node.js, n8n/Make/Zapier or MCP (`https://mcp.apify.com/?tools=data_daemon/<actor>`, header `Authorization: Bearer <APIFY_TOKEN>`). FREE-plan list prices checked 2026-11-11. Historical measurements retain their stated dates.
 
 ## Data APIs
 
 - [Apna jobs](https://datadmon.github.io/actors/apna-jobs-scraper/): Apna (apna.co) India jobs with salary, locality, department, work mode and full descriptions; full-board export. $0.80 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/apna-jobs-scraper (plain text: https://apify.com/data_daemon/apna-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/apna-jobs-scraper
 - [BSE announcements and filings](https://datadmon.github.io/actors/bse-corporate-announcements/): BSE India corporate filings: announcements with category, subject, summary and PDF link, corporate actions with ex-dates, board meetings, the results calendar and bulk and block deals, with scrip code, symbol and ISIN on equity rows. $3.00 per 1,000 filing rows. Apify listing: https://apify.com/data_daemon/bse-corporate-announcements (plain text: https://apify.com/data_daemon/bse-corporate-announcements.md). MCP: https://mcp.apify.com/?tools=data_daemon/bse-corporate-announcements
 - [Company career sites (5 ATS platforms)](https://datadmon.github.io/actors/career-site-jobs-scraper/): jobs straight from company career sites on Workday, Greenhouse, Lever, Ashby and SmartRecruiters in one schema: title, location, remote, salary range, date, description and apply URL, for your own company list or across companies by title, place and date. $1.00 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/career-site-jobs-scraper (plain text: https://apify.com/data_daemon/career-site-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/career-site-jobs-scraper
+- [ChatGPT product feed generator](https://datadmon.github.io/actors/chatgpt-product-feed-generator/): Turn a Google Merchant feed, a WooCommerce store or product pages into the product file ChatGPT Business Hub asks for: OpenAI's CSV / JSONL feed with every row checked against the spec (required fields, price, availability, GTIN, variants) and a list of what to fix. $1 per 1,000 products.. $1.00 per 1,000 product rows. Apify listing: https://apify.com/data_daemon/chatgpt-product-feed-generator (plain text: https://apify.com/data_daemon/chatgpt-product-feed-generator.md). MCP: https://mcp.apify.com/?tools=data_daemon/chatgpt-product-feed-generator
 - [Cutshort startup jobs](https://datadmon.github.io/actors/cutshort-jobs-scraper/): Cutshort (cutshort.io) India startup and tech jobs with salary range, experience, skills, remote policy, company profile and full description. $0.80 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/cutshort-jobs-scraper (plain text: https://apify.com/data_daemon/cutshort-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/cutshort-jobs-scraper
 - [Dubai DLD transactions](https://datadmon.github.io/actors/dubai-property-transactions/): Dubai Land Department sales, mortgages and gifts with AED value and price/sqm. $1.00 per 1,000 transactions. Apify listing: https://apify.com/data_daemon/dubai-property-transactions (plain text: https://apify.com/data_daemon/dubai-property-transactions.md). MCP: https://mcp.apify.com/?tools=data_daemon/dubai-property-transactions
 - [Dubai real estate projects (DLD register)](https://datadmon.github.io/actors/dubai-real-estate-projects/): registered Dubai real estate projects from the official Dubai Land Department register: developer, status, project value, escrow account, % completed, units, area and dates, plus the DLD registered-developers list with licence dates. $5.00 per 1,000 project records. Apify listing: https://apify.com/data_daemon/dubai-real-estate-projects (plain text: https://apify.com/data_daemon/dubai-real-estate-projects.md). MCP: https://mcp.apify.com/?tools=data_daemon/dubai-real-estate-projects
@@ -365,6 +366,110 @@ Ready-made example pages
 Saved inputs you can run with one click on Apify (Examples tab); each has its own page:
 Workday jobs: software engineer jobs posted in the last 7 days: Software engineer jobs posted in the last 7 days on company career sites that run on Workday (myworkdayjobs.com), searched across the built-in list of Workday employers, with location, posting date, apply URL and full de {"platforms": ["workday"], "keywords": ["software engineer"], "postedWithinDays": 7, "maxJobs": 50, "includeDescription": true}
 Greenhouse, Lever and Ashby jobs: data engineer, last 7 days: Data engineer jobs posted in the last 7 days across thousands of company job boards on Greenhouse, Lever and Ashby, in one schema: company, title, locations, workplace type, salary range where the employer publishes it,  {"platforms": ["greenhouse", "lever", "ashby"], "keywords": ["data engineer"], "postedWithinDays": 7, "maxJobs": 100, "includeDescription": true}
+
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-11; the listing is the canonical description of the Actor.
+
+
+---
+
+# ChatGPT Business Hub product feed generator (CSV / JSONL) | Daemon Data
+
+Source: https://datadmon.github.io/actors/chatgpt-product-feed-generator/
+
+ChatGPT Business Hub product feed generator (CSV / JSONL)
+
+ChatGPT Product Feed Generator for Business Hub (CSV / JSONL) is a pay-per-record Apify Actor by Daemon Data that returns Turn a Google Merchant feed, a WooCommerce store or product pages into the product file ChatGPT Business Hub asks for: OpenAI's CSV / JSONL feed with every row checked against the spec (required fields, price, availability, GTIN, variants) and a list of what to fix. $1 per 1,000 products. as JSON, CSV or Excel. It costs $0.001 per product row with the default options ($1.00 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+
+Daemon Data ChatGPT Product Feed Generator for Business Hub (CSV / JSONL) on Apify   Listing as plain text
+
+Checked on 11 Nov 2026
+A run converted a 100-product WooCommerce store with 354 variations into a 400-row OpenAI product feed in 30 seconds: 3 rows were rejected for a zero price and 72 were flagged for a missing description. A {} run converts a 24-row sample Google Merchant feed in about 3 seconds: 20 rows written, 4 rejected for the mistakes planted in the sample.
+
+Output fields
+The most useful top-level fields with values from a real record; the full list is item_id, title, description, url, brand, seller_name, image_url, additional_image_urls, price, sale_price, availability, group_id, listing_has_variations, variant_dict, gtin, mpn, condition, product_category, material, color, size, gender, age_group, length, width, height, dimensions_unit, weight, item_weight_unit, shipping_price, seller_url, accepts_returns, return_deadline_in_days, return_policy, review_count, star_rating, feed_status, feed_issues, source_type, source_url, generated_at. Per-field notes and the OpenAPI definition are on the Apify API page.
+FieldTypeExample
+item_idstring"JR-MUG-350-GRN"
+titlestring"Enamel camp mug, 350 ml, forest green"
+descriptionstring"Steel camp mug with a speckled enamel coating. Holds 350 ml. Safe ...
+urlstring"https://www.example.com/products/enamel-camp-mug?color=green"
+brandstring"Juniper Ridge"
+seller_namestring"Juniper Ridge Outfitters"
+image_urlstring"https://www.example.com/images/enamel-camp-mug-green.jpg"
+pricestring"18.00 USD"
+sale_pricestring"14.40 USD"
+availabilitystring"in_stock"
+group_idstring"JR-MUG-350"
+listing_has_variationsbooleantrue
+variant_dictobject{"color": "Forest green"}
+mpnstring"JR-350-G"
+conditionstring"new"
+
+Input and how to call it
+
+Example input. Fields and pricing were checked against the public listing on 2026-11-11; this build does not run paid example searches.
+
+{
+  "merchantFeedUrls": [
+    "https://datadmon.github.io/data/samples/google-merchant-sample-feed.xml"
+  ],
+  "sellerName": "Juniper Ridge Outfitters"
+}
+
+One HTTP call starts a run, waits for it and returns the records (token from console.apify.com):
+
+curl -X POST "https://api.apify.com/v2/acts/data_daemon~chatgpt-product-feed-generator/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"merchantFeedUrls": ["https://datadmon.github.io/data/samples/google-merchant-sample-feed.xml"], "sellerName": "Juniper Ridge Outfitters"}'
+
+Python: ApifyClient(token).actor("data_daemon/chatgpt-product-feed-generator").call(run_input=...). Python, Node.js and n8n calling instructions.
+AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daemon/chatgpt-product-feed-generator with header Authorization: Bearer YOUR_APIFY_TOKEN in Claude, ChatGPT, Cursor or VS Code and ask for the data in plain words.
+
+All input fields
+FieldTypeMeaning
+merchantFeedUrlsarrayLinks to product feed files in Google Merchant Center format: XML (RSS or Atom with g: fields), TSV or CSV, plain or gzipped. Most shop platforms and feed plugins can give you this link (WooCommerce feed plugins, BigCommerce, Magento, Wix, Squarespace, Shopify feed apps). This is the most complete source because the file already has brand, GTIN, variants and sale prices. Leave every source empty to convert a sample feed and see the output.
+wooCommerceStoreUrlsarrayHome page of a WooCommerce store, for example https://shop.example.com. The Actor reads the store's public product API (/wp-json/wc/store/v1/products): every published product with price, stock, images, categories, ratings and variations. No plugin and no login. If the store has switched that API off, use its feed URL or sitemap instead.
+sitemapUrlsarraySitemap or sitemap index of a shop, for example https://shop.example.com/sitemap.xml. Product pages found in it are opened and their schema.org Product markup (JSON-LD) is read. Works on any platform that prints that markup, which most do for Google.
+productPageUrlsarrayIndividual product pages to read (schema.org Product / ProductGroup JSON-LD). Use it for a small catalogue or to test a few pages.
+productUrlPatternstringRegular expression that tells product pages apart from other pages in a sitemap. Default /(products?|p|item|shop|dp)/.
+sellerNamestringYour store's name as customers should see it. OpenAI requires seller_name on every row. When empty, the name is read from the feed title, the WooCommerce site name or the page's site name.
+brandFallbackstringOpenAI requires brand on every row. Products that have a brand in the source keep it. For the rest this value is used; when it is empty the seller name is used and the row gets a warning.
+sellerUrlstringOptional seller_url: your storefront's home page.
+returnPolicyUrlstringOptional return_policy: public page with your return terms.
+returnDeadlineDaysintegerOptional. When set, every row gets accepts_returns: true and return_deadline_in_days. Leave 0 to leave returns unspecified.
+currencystringThree-letter ISO code, for example USD. Only used when a price has no currency code (a bare 19.99 or $19.99).
+urlSuffixstringOptional query string added to every product url, for example utm_source=chatgpt.com&utm_medium=feed. Parameters already on the link are kept.
+expandVariantsbooleanOpenAI wants one row per purchasable variant, linked by group_id with the options in variant_dict. Turn off to write one row per product.
+includeOutOfStockbooleanOut-of-stock products stay in the feed with availability: out_of_stock (recommended: OpenAI treats each upload as the full catalogue). Turn off to leave them out; they are then not charged.
+maxItemsintegerStop after this many product rows (for a test run). 0 = the whole catalogue. A capped file is not a full snapshot, so do not upload it as your live feed.
+
+Price
+$0.001 per product row ($1.00 per 1,000). List prices for Apify Free and Starter plans; Scale and Business plans pay 15% to 30% less.
+EventPricePer 1,000Charged when
+Product row$0.001$1.00One product or variant row written to the dataset, checked against OpenAI's product feed spec, with its status and the list of issues. Rows left out by maxItems or by the out-of-stock option are never charged.
+Cost example: 50 product rows with default options cost $0.05, including any start fee. This is an illustrative record count; set explicit row and total-charge caps for your run. Apify's free plan includes $5 of usage a month, about 5,000 product rows before start fees; the Actor's own compute is included in the per-record price, and records skipped by filters, de-duplication or only-new mode are not charged.
+
+Questions buyers ask
+What is Businesses in ChatGPT (Business Hub)?
+OpenAI opened it in beta on 10 November 2026. A business claims its profile at chatgpt.com/business-hub, verifies it, and can then edit its details, see how often ChatGPT mentions and links to it, and add a product catalogue. Shopify stores connect an app; other stores upload a product file in OpenAI's format, which is what this Actor produces.
+Does this upload the feed to ChatGPT for me?
+
+No. The Actor never signs in to your ChatGPT account, and claiming a profile needs your own verification. You download the file from the run and upload it yourself.
+Does a product feed make ChatGPT recommend my products?
+OpenAI says claiming a profile does not guarantee placement. The feed gives ChatGPT accurate names, prices, stock and links for your products; whether it shows them is OpenAI's decision.
+Can it read a Shopify store?
+
+Shopify stores can use OpenAI's Shopify connection, so this Actor does not read Shopify's storefront JSON. If you want a file anyway, pass the Google Shopping feed URL from your Shopify feed app, or your sitemap.
+My WooCommerce store returns an error. Why?
+Some stores switch off the public Store API or sit behind a bot check. Pass the store's Google Merchant feed URL instead (any WooCommerce feed plugin gives you one), or its sitemap, or turn on Apify Proxy in the input.
+Is there an API for this?
+
+Yes. Start a run with the Apify API, wait for it to finish and download chatgpt-product-feed.jsonl from the run's key-value store. Python and Node.js clients, n8n, Make and Zapier work the same way, and AI agents can call it through https://mcp.apify.com/?tools=data_daemon/chatgpt-product-feed-generator.
+
+Alternatives, honestly
+OptionWhat it gives youWhere it falls short for this job
+OpenAI Shopify connectionSyncs a Shopify catalogue to ChatGPTShopify stores only
+Feed management platformsHosted multi-channel product feed toolsMonthly subscription; set-up per channel
+Writing the file by handFine for a handful of productsNo checks; variants, price format and GTINs are easy to get wrong
 
 Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-11; the listing is the canonical description of the Actor.
 
