@@ -122,7 +122,7 @@ curl -X POST "https://api.apify.com/v2/acts/data_daemon~abu-dhabi-property-trans
   -H "Content-Type: application/json" \
   -d '{"daysBack": 7, "maxItems": 200}'
 
-Python: ApifyClient(token).actor("data_daemon/abu-dhabi-property-transactions").call(run_input=...). Python, Node.js and n8n calling instructions.
+Python: ApifyClient(token).actor("data_daemon/abu-dhabi-property-transactions").call(run_input=...). Python example · Node.js example · n8n workflow.
 AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daemon/abu-dhabi-property-transactions with header Authorization: Bearer YOUR_APIFY_TOKEN in Claude, ChatGPT, Cursor or VS Code and ask for the data in plain words.
 
 All input fields
