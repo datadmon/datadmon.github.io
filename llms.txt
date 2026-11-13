@@ -1,6 +1,6 @@
 # Daemon Data
 
-> Daemon Data publishes 35 public Actors on Apify Store (https://apify.com/data_daemon), verified at build time against the Apify API. Data Actors read public JSON endpoints or pages and return structured records (JSON, CSV, Excel). Most charge per record; India Jobs Feed and India Jobs MCP have no own fee, with downstream board Actor charges. Call via REST, Python/Node.js, n8n/Make/Zapier or MCP (`https://mcp.apify.com/?tools=data_daemon/<actor>`, header `Authorization: Bearer <APIFY_TOKEN>`). FREE-plan list prices checked 2026-11-12. Historical measurements retain their stated dates.
+> Daemon Data publishes 35 public Actors on Apify Store (https://apify.com/data_daemon), verified at build time against the Apify API. Data Actors read public JSON endpoints or pages and return structured records (JSON, CSV, Excel). Most charge per record; India Jobs Feed and India Jobs MCP have no own fee, with downstream board Actor charges. Call via REST, Python/Node.js, n8n/Make/Zapier or MCP (`https://mcp.apify.com/?tools=data_daemon/<actor>`, header `Authorization: Bearer <APIFY_TOKEN>`). FREE-plan list prices checked 2026-11-13. Historical measurements retain their stated dates.
 
 ## Data APIs
 
