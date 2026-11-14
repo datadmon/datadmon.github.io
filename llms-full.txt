@@ -1,6 +1,6 @@
 # Daemon Data
 
-> Daemon Data publishes 35 public Actors on Apify Store (https://apify.com/data_daemon), verified at build time against the Apify API. Data Actors read public JSON endpoints or pages and return structured records (JSON, CSV, Excel). Most charge per record; India Jobs Feed and India Jobs MCP have no own fee, with downstream board Actor charges. Call via REST, Python/Node.js, n8n/Make/Zapier or MCP (`https://mcp.apify.com/?tools=data_daemon/<actor>`, header `Authorization: Bearer <APIFY_TOKEN>`). FREE-plan list prices checked 2026-11-13. Historical measurements retain their stated dates.
+> Daemon Data publishes 35 public Actors on Apify Store (https://apify.com/data_daemon), verified at build time against the Apify API. Data Actors read public JSON endpoints or pages and return structured records (JSON, CSV, Excel). Most charge per record; India Jobs Feed and India Jobs MCP have no own fee, with downstream board Actor charges. Call via REST, Python/Node.js, n8n/Make/Zapier or MCP (`https://mcp.apify.com/?tools=data_daemon/<actor>`, header `Authorization: Bearer <APIFY_TOKEN>`). FREE-plan list prices checked 2026-11-14. Historical measurements retain their stated dates.
 
 ## Data APIs
 
@@ -109,7 +109,7 @@ plotAreaSqmnumber49853.68
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-13; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-14; this build does not run paid example searches.
 
 {
   "daysBack": 7,
@@ -161,7 +161,7 @@ ADREC market-data page (DARI)The official table with filters and an Excel export
 Property portalsAsking prices and listingsNot registered prices; no off-plan primary sales by project
 Paid market reports and data platformsAnalysis, indices and cleaned dataSubscriptions or quarterly PDFs, not row-level sales you can query
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-13; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-14; the listing is the canonical description of the Actor.
 
 
 ---
@@ -209,7 +209,7 @@ locationTextstring"Bengaluru/Bangalore"
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-13; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-14; this build does not run paid example searches.
 
 {
   "cities": [
@@ -278,7 +278,7 @@ Apna website and appSearch and apply as a candidateNo export or API; one job at 
 Other Apna Actors on Apify StoreSame boardCompare full-board coverage, salary and locality fields, only-new mode and price per 1,000
 Build your own scraperFull controlYou handle the 500-result keyword cap, deep-page repeats, city ids and de-duplication
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-13; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-14; the listing is the canonical description of the Actor.
 
 
 ---
@@ -324,7 +324,7 @@ attachmentSizestring"3.36 MB"
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-13; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-14; this build does not run paid example searches.
 
 {
   "reports": [
@@ -346,7 +346,7 @@ AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daem
 All input fields
 FieldTypeMeaning
 reportsarrayWhich BSE filing feeds to read. Each row carries its reportType. announcements (default): every corporate announcement with category, subcategory, subject, summary text and PDF link (1,700-3,100 on a weekday in results season). corporateActions: dividends, bonus, splits, rights and buybacks by ex-date. boardMeetings: meeting date and purpose. resultsCalendar: forthcoming financial-result dates. deals: bulk and block deals with client, side, quantity and price.
-symbolsarrayCompanies to keep: BSE scrip codes (500325), BSE symbols (RELIANCE, TCS, HDFCBANK) or ISINs (INE002A01018), mixed freely. Empty = the whole market. With up to 25 companies the announcements and corporate actions are read per company, so a year of history for a watchlist is a small run.
+symbolsarrayCompanies to keep: BSE scrip codes (500325), BSE symbols (RELIANCE, TCS, HDFCBANK) or ISINs (INE002A01018), mixed freely. Spellings from other tools are understood (RELIANCE.BO, BSE:TCS), and an entry that is not on BSE is named in the status message. Empty = the whole market. With up to 25 companies the announcements and corporate actions are read per company, so a year of history for a watchlist is a small run.
 categoriesarrayKeep rows whose category contains one of these words (case-insensitive). For announcements this matches BSE's category and subcategory, for example Result, Board Meeting, Corp. Action, Dividend, Credit Rating, Press Release, Investor Presentation, Acquisition, Award of Order, Insider Trading, AGM. For corporate actions and board meetings it is the purpose (Dividend, Bonus, Split, Quarterly Results, Preferential Issue). Empty = all.
 keywordsarrayKeep rows whose company name, symbol, scrip code, category, subject or summary text contains one of these words (case-insensitive), for example order, preferential, QIP, demerger. Empty = all.
 daysBackintegerFor announcements and deals: how many days before today (India time) to read, today included. 0 = today only, 2 (default) = today and the two days before. Ignored when From date is set.
@@ -375,7 +375,7 @@ BSE website (corporate announcements pages)Official tables of announcements, act
 BSE licensed data productsOfficial licensed market-data productsCommercial licence and contract
 Broker and market-data APIsPrices, holdings and some corporate actionsFiling text, PDF links and bulk deals are usually missing
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-13; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-14; the listing is the canonical description of the Actor.
 
 
 ---
@@ -411,7 +411,7 @@ teamstring"Backend"
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-13; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-14; this build does not run paid example searches.
 
 {
   "careerSiteUrls": [
@@ -467,7 +467,7 @@ Saved inputs you can run with one click on Apify (Examples tab); each has its ow
 Workday jobs: software engineer jobs posted in the last 7 days: Software engineer jobs posted in the last 7 days on company career sites that run on Workday (myworkdayjobs.com), searched across the built-in list of Workday employers, with location, posting date, apply URL and full de {"platforms": ["workday"], "keywords": ["software engineer"], "postedWithinDays": 7, "maxJobs": 50, "includeDescription": true}
 Greenhouse, Lever and Ashby jobs: data engineer, last 7 days: Data engineer jobs posted in the last 7 days across thousands of company job boards on Greenhouse, Lever and Ashby, in one schema: company, title, locations, workplace type, salary range where the employer publishes it,  {"platforms": ["greenhouse", "lever", "ashby"], "keywords": ["data engineer"], "postedWithinDays": 7, "maxJobs": 100, "includeDescription": true}
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-13; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-14; the listing is the canonical description of the Actor.
 
 
 ---
@@ -506,7 +506,7 @@ conditionstring"new"
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-13; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-14; this build does not run paid example searches.
 
 {
   "merchantFeedUrls": [
@@ -575,7 +575,7 @@ OpenAI Shopify connectionSyncs a Shopify catalogue to ChatGPTShopify stores only
 Feed management platformsHosted multi-channel product feed toolsMonthly subscription; set-up per channel
 Writing the file by handFine for a handful of productsNo checks; variants, price format and GTINs are easy to get wrong
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-13; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-14; the listing is the canonical description of the Actor.
 
 
 ---
@@ -611,7 +611,7 @@ experienceTextstring"4 - 8 years"
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-13; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-14; this build does not run paid example searches.
 
 {
   "categories": [
@@ -667,7 +667,7 @@ Cutshort websiteSearch and apply as a candidate; recruiter plans for employersNo
 Instahyre or Hirist APIs (same publisher)Other India tech boardsDifferent coverage; Cutshort is strongest for funded startups and shows salary ranges on most jobs
 Other Cutshort Actors on Apify StoreSame boardCompare price per 1,000, company-profile fields, salary range and only-new mode
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-13; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-14; the listing is the canonical description of the Actor.
 
 
 ---
@@ -718,7 +718,7 @@ parkingstring"B2-7328,B2-7328T"
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-13; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-14; this build does not run paid example searches.
 
 {
   "transactionGroup": "sales",
@@ -796,7 +796,7 @@ Dubai Pulse open-data portalOfficial downloads by handManual extracts, cleaning 
 DXB Interact dashboardOfficial charts and lookupsNot a data feed
 Paid DLD data productsCleaned data with supportSubscriptions; the register itself is open data
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-13; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-14; the listing is the canonical description of the Actor.
 
 
 ---
@@ -845,7 +845,7 @@ inspectionDatestring"2026-09-24"
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-13; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-14; this build does not run paid example searches.
 
 {
   "status": "active",
@@ -896,7 +896,7 @@ DLD open-data projects pageOfficial search by date type, status and areaFour par
 Property portals' project pagesMarketing content, renders, launch pricesOnly advertised projects; no escrow account, declared value or regulator status
 Paid off-plan data platformsCleaned project databases with supportSubscriptions; the DLD register itself is open data
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-13; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-14; the listing is the canonical description of the Actor.
 
 
 ---
@@ -944,7 +944,7 @@ propertyTypestring"Unit"
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-13; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-14; this build does not run paid example searches.
 
 {
   "daysBack": 7,
@@ -1002,7 +1002,7 @@ DLD open-data rents pageOfficial search and CSV download by handManual extracts;
 DXB Interact / rental indexOfficial charts and the RERA rental indexAverages, not contract-level rows; not a data feed
 Paid property data platformsCleaned market data with supportSubscriptions; the Ejari register itself is open data
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-13; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-14; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1050,7 +1050,7 @@ salaryMaxLpanullnull
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-13; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-14; this build does not run paid example searches.
 
 {
   "queries": [
@@ -1134,7 +1134,7 @@ foundit.in websiteSearch for a visitorNo export; syndicated apply links are one 
 Naukri, LinkedIn or Indeed ActorsLarger boardsDifferent coverage; this API reads foundit only
 Other foundit Actors on Apify StoreSame boardCompare salary-band handling, apply-URL resolution and price per 1,000
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-13; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-14; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1178,7 +1178,7 @@ descriptionHtmlstring"<h2>Requirements</h2><p>Python experience</p>"
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-13; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-14; this build does not run paid example searches.
 
 {
   "categories": [
@@ -1245,7 +1245,7 @@ OptionWhat it gives youWhere it falls short for this job
 Get on Board public APIPublic category job data and company expansionYou maintain pagination, local filters, exports and persistent delivered-ID memory
 Other Get on Board ActorsStructured jobs from the same sourceCompare description inclusion, country eligibility, only-new memory and total price
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-13; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-14; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1293,7 +1293,7 @@ acceptsPwdbooleantrue
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-13; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-14; this build does not run paid example searches.
 
 {
   "searchTerms": [
@@ -1369,7 +1369,7 @@ Gupy job portal (portal.gupy.io)Search and apply as a candidateNo export; one jo
 Other Gupy Actors on Apify StoreSame sourceCompare description coverage, only-new memory and price per 1,000
 Build your own scraperFull controlThe portal's build ID changes; you maintain pagination, de-duplication and scheduling
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-13; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-14; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1417,7 +1417,7 @@ mandatorySkillsarray["Python", "Data Structure", "Algorithm", "System Design", "
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-13; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-14; this build does not run paid example searches.
 
 {
   "queries": [
@@ -1503,7 +1503,7 @@ Hirist.tech websiteSearch and alerts for a logged-in userNo bulk export or API
 Other Hirist Actors on Apify StoreSame boardCompare full-description coverage, AmbitionBox fields, only-new mode, price
 Build your own scraperFull controlMaintenance of endpoints, pagination and de-duplication is on you
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-13; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-14; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1551,7 +1551,7 @@ mandatorySkillsarray["IT Product Management"]
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-13; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-14; this build does not run paid example searches.
 
 {
   "queries": [
@@ -1638,7 +1638,7 @@ IIMJobs website and recruiter dashboardSearch and email alerts for a logged-in u
 Other IIMJobs Actors on Apify StoreSimilar scraping of the same boardCompare fields (salary, AmbitionBox profile, only-new mode) and price per 1,000
 Build your own scraperFull controlThe board's JSON endpoints change; you maintain pagination, de-duplication and scheduling
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-13; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-14; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1673,7 +1673,7 @@ estimatedShippingCostUsdnumber8714.26
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-13; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-14; this build does not run paid example searches.
 
 {
   "companies": [
@@ -1725,7 +1725,7 @@ ImportYeti's official API (data.importyeti.com)REST endpoints for company profil
 Paid trade-data platforms (Panjiva, ImportGenius and similar)Global customs data, contacts, analyticsTeam subscriptions; more than a per-company shipment watch needs
 Other ImportYeti Actors on Apify StoreSame sourceCompare shipment vs profile output, price per 1,000 and only-new mode
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-13; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-14; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1764,7 +1764,7 @@ companyClassstring"Public Company"
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-13; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-14; this build does not run paid example searches.
 
 {
   "cins": [
@@ -1835,7 +1835,7 @@ MCA portalThe official register, one company at a timeSign-in and manual look-up
 Company-information subscriptionsDashboards with financials and reportsPriced per report or per seat
 Our India New Company Registrations ActorCompanies by incorporation dateA date feed, not a lookup; no emails or directors
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-13; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-14; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1881,7 +1881,7 @@ listingGainPercentnullnull
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-13; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-14; this build does not run paid example searches.
 
 {
   "reports": [
@@ -1955,7 +1955,7 @@ BSE and NSE websitesOfficial bid data while an issue is openNo GMP; bot protecti
 Free IPO GMP accuracy explorer
 Compare 2026 IPO GMP with actual listing gain: filter mainboard/SME, issue size and GMP bands, inspect the methodology and download CSV or JSON.
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-13; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-14; the listing is the canonical description of the Actor.
 
 
 ---
@@ -1994,7 +1994,7 @@ Is it legal to scrape job listings?
 The feed reads publicly visible job listings, the same information any visitor sees, without logging in; it does not collect recruiter contact details. Check that your use complies with the laws that apply to you.
 Something is wrong or missing?
 Open an issue on the Issues tab with your input and the run link, and it will be looked at. Custom fields or another Indian board can be discussed there too.
-Public status, schema and absence of an own pricing record checked 2026-11-13. See the public listing for the complete input and latest terms.
+Public status, schema and absence of an own pricing record checked 2026-11-14. See the public listing for the complete input and latest terms.
 
 
 ---
@@ -2014,7 +2014,7 @@ https://data-daemon--india-jobs-mcp.apify.actor/mcp
 Authorization: Bearer YOUR_APIFY_TOKEN
 Tools: search_jobs, search_all_boards, new_jobs_since, get_results, list_boards. Start with list_boards to read coverage and live board prices. Searches can return pending run IDs; collect them with get_results.
 Questions and limits
-Public status, schema and absence of an own pricing record checked 2026-11-13. See the public listing for the complete input and latest terms.
+Public status, schema and absence of an own pricing record checked 2026-11-14. See the public listing for the complete input and latest terms.
 
 
 ---
@@ -2056,7 +2056,7 @@ companyClassstring"Private"
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-13; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-14; this build does not run paid example searches.
 
 {
   "recentDates": 3,
@@ -2114,7 +2114,7 @@ MCA portal (mca.gov.in) master dataOfficial lookup of one company by CIN or name
 Paid company-data platforms (Tofler, Probe42 and similar)Financials, directors and filingsSubscriptions priced per seat or per report; overkill for a daily new-incorporations list
 Other MCA Actors on Apify StoreNew-company lists from the same registerCompare price per 1,000, CIN decoding, filters before charging and only-new mode
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-13; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-14; the listing is the canonical description of the Actor.
 
 
 ---
@@ -2162,7 +2162,7 @@ postedAtstring"2026-10-09T00:00:00.000Z"
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-13; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-14; this build does not run paid example searches.
 
 {
   "queries": [
@@ -2249,7 +2249,7 @@ Instahyre websiteCandidate and employer accountsNo export or API; salary and app
 Hirist or IIMJobs APIs (same publisher)Applicant counts and salary bandsDifferent boards; Instahyre is the one with company headcount and size filters
 Other Instahyre Actors on Apify StoreSame boardCompare price per 1,000, company-profile fields and only-new mode
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-13; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-14; the listing is the canonical description of the Actor.
 
 
 ---
@@ -2297,7 +2297,7 @@ countrystring"United States"
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-13; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-14; this build does not run paid example searches.
 
 {
   "cities": [
@@ -2377,7 +2377,7 @@ Luma website and iCal feedsBrowse; subscribe to one calendarNo cross-city export
 Eventbrite or Meetup ActorsOther event platformsDifferent events; this API reads Luma only
 Other Luma Actors on Apify StoreSame sourceCompare detail fields (hosts, tickets, GPS) and price per 1,000
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-13; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-14; the listing is the canonical description of the Actor.
 
 
 ---
@@ -2413,7 +2413,7 @@ developerstring"Kolte Patil Developers Ltd."
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-13; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-14; this build does not run paid example searches.
 
 {
   "cities": [
@@ -2461,7 +2461,7 @@ Magicbricks website and appSearch and alerts for a personNo export or API
 Other Magicbricks Actors on Apify StoreSame portalCompare price per sq ft, carpet area, possession fields, only-new mode and price per 1,000
 Build your own scraperFull controlThe site needs an unblocking proxy; you pay for and maintain it
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-13; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-14; the listing is the canonical description of the Actor.
 
 
 ---
@@ -2488,7 +2488,7 @@ Top-level fields of each record: id, dedupKey, url, title, company, experienceMi
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-13; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-14; this build does not run paid example searches.
 
 {
   "queries": [
@@ -2545,7 +2545,7 @@ Naukri.com website and employer integrationsCandidate search/apply and employer 
 Other Naukri Actors on Apify StoreSame boardCompare price per 1,000 with details included, salary in LPA, whole-board export past the 15,000-result limit and only-new mode
 Build your own scraperFull controlYou keep up with Naukri's API, paging limit and job-page format yourself
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-13; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-14; the listing is the canonical description of the Actor.
 
 
 ---
@@ -2591,7 +2591,7 @@ disseminatedAtstring"2026-11-10T15:27:53+05:30"
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-13; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-14; this build does not run paid example searches.
 
 {
   "reports": [
@@ -2613,7 +2613,7 @@ AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daem
 All input fields
 FieldTypeMeaning
 reportsarrayWhich NSE filing feeds to read. Each row carries its reportType. announcements (default): every corporate announcement with category, summary text and PDF link (900-1,500 on a weekday). corporateActions: dividends, bonus, splits, rights and buybacks by ex-date. boardMeetings: meeting date and purpose. eventCalendar: results and dividend dates. deals: bulk, block and short-selling disclosures. creditRatings: rating actions by CRISIL, CARE, ICRA and others. shareholdingPatterns: promoter and public holding per filing. offerDocuments: draft, red herring and final prospectuses (the IPO pipeline).
-symbolsarrayNSE symbols to keep, for example RELIANCE, TCS, HDFCBANK. Empty = the whole market. With up to 25 symbols the announcements are read per company, so a year of history for a watchlist is a small run.
+symbolsarrayCompanies to keep. NSE symbols (RELIANCE, TCS, HDFCBANK), ISINs (INE002A01018) and full company names (Infosys, State Bank of India) all work, and so do the spellings other tools use (RELIANCE.NS, NSE:TCS, INFY-EQ). Empty = the whole market. An entry that is not listed on NSE is named in the run's status message. With up to 25 symbols the announcements are read per company, so a year of history for a watchlist is a small run.
 categoriesarrayKeep rows whose category contains one of these words (case-insensitive). For announcements this is NSE's subject, for example Dividend, Outcome of Board Meeting, Press Release, Investor Presentation, orders, Acquisition, Credit Rating, Resignation, Bonus, Buyback. For corporate actions, board meetings and the event calendar it is the purpose (Dividend, Bonus, Financial Results, Fund Raising). Empty = all.
 keywordsarrayKeep rows whose company name, category or summary text contains one of these words (case-insensitive), for example order, preferential, QIP, demerger. Empty = all.
 daysBackintegerFor announcements, deals, credit ratings and shareholding patterns: how many days before today (India time) to read, today included. 0 = today only, 2 (default) = today and the two days before. Ignored when From date is set.
@@ -2643,7 +2643,7 @@ NSE website (corporate filings pages)Official tables of announcements, actions, 
 NSE Data & Analytics licensed feedsOfficial licensed market-data productsCommercial licence and contract
 Broker and market-data APIsPrices, holdings and some corporate actionsFilings text, PDF links, bulk deals and ratings are usually missing
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-13; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-14; the listing is the canonical description of the Actor.
 
 
 ---
@@ -2679,7 +2679,7 @@ salaryInferredbooleanfalse
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-13; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-14; this build does not run paid example searches.
 
 {
   "keywords": [
@@ -2727,7 +2727,7 @@ OnlineJobs.ph websiteSearch and apply as a Filipino job seeker; employer plans t
 Other OnlineJobs.ph Actors on Apify StoreSame boardCompare price per 1,000 (from $0.80 to $4.90), parsed wage min/max/period, hours per week and only-new mode
 Build your own scraperFull controlEach search lists at most 285 jobs; you split by keyword, parse free-text wages and skip deleted jobs yourself
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-13; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-14; the listing is the canonical description of the Actor.
 
 
 ---
@@ -2774,7 +2774,7 @@ remotebooleanfalse
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-13; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-14; this build does not run paid example searches.
 
 {
   "careerSiteUrls": [
@@ -2856,7 +2856,7 @@ The employer's own career siteBrowse and applyOne employer at a time, no export
 Multi-ATS job APIs (Workday, Greenhouse, Lever and others)Several ATS platforms in one productUsually higher price per 1,000; check whether Oracle Recruiting Cloud is actually covered
 Open-source ATS crawlersFreeYou host, schedule and maintain them
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-13; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-14; the listing is the canonical description of the Actor.
 
 
 ---
@@ -2903,7 +2903,7 @@ publishedDatestring"2026-11-05"
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-13; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-14; this build does not run paid example searches.
 
 {
   "publishedWithin": "2d",
@@ -2953,7 +2953,7 @@ Etimad portal (tenders.etimad.sa)Official tender search and tender pagesOne sear
 Etimad Contracts Plus / paid tender alertsOfficial and commercial alert servicesPer-query or subscription pricing
 Tender aggregator subscriptionsMulti-country tender databases with supportSubscriptions; the Etimad listings themselves are public
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-13; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-14; the listing is the canonical description of the Actor.
 
 
 ---
@@ -3000,7 +3000,7 @@ skillsarray["accounts payable", "accounts receivable", "accountants"]
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-13; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-14; this build does not run paid example searches.
 
 {
   "searchTerms": [
@@ -3069,7 +3069,7 @@ Shine.com websiteSearch and alerts for a logged-in userNo bulk export or API
 Other Shine Actors on Apify StoreSame boardCompare description and salary-range coverage, only-new mode and price per 1,000
 Build your own scraperFull controlYou parse the app's page data, follow job pages and maintain de-duplication
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-13; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-14; the listing is the canonical description of the Actor.
 
 
 ---
@@ -3116,7 +3116,7 @@ scorecardarray[{"name": "Performance", "tag": "Low", "colour": "red", "descripti
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-13; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-14; this build does not run paid example searches.
 
 {
   "mode": "index",
@@ -3184,7 +3184,7 @@ Exchange data feeds (NSE, BSE)Official, real timeLicence fees and bot protection
 Tickertape website and ProThe same pages for a personNo bulk export or API
 Python libraries that read exchange sitesFreeBreak when the exchange changes; fundamentals and shareholding history are thin
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-13; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-14; the listing is the canonical description of the Actor.
 
 
 ---
@@ -3231,7 +3231,7 @@ caseNumberstring"CR-2026-007272"
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-13; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-14; this build does not run paid example searches.
 
 {
   "noticeTypes": [
@@ -3300,7 +3300,7 @@ The Gazette website and its paid data serviceOfficial notices; a subscription da
 Companies House APIOfficial company status, freeChanges appear weeks after the petition is advertised
 Other Gazette Actors on Apify StoreSame noticesCompare linked-data fields (company number, addresses) and only-new mode
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-13; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-14; the listing is the canonical description of the Actor.
 
 
 ---
@@ -3348,7 +3348,7 @@ salaryMaxnumber40000
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-13; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-14; this build does not run paid example searches.
 
 {
   "opportunityTypes": [
@@ -3425,7 +3425,7 @@ Unstop website and appBrowse and register as a student or professionalNo export;
 Other Unstop Actors on Apify StoreSame sourceCompare listing types covered (jobs, internships, hackathons, competitions), prize and eligibility fields and price per 1,000
 Build your own clientFull controlYou map filters, paging and the listing types yourself
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-13; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-14; the listing is the canonical description of the Actor.
 
 
 ---
@@ -3465,7 +3465,7 @@ querystring"python"
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-13; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-14; this build does not run paid example searches.
 
 {
   "queries": [
@@ -3535,7 +3535,7 @@ Public WTTJ company job pagesBrowse and apply to public vacanciesManual reading;
 Other WTTJ Actors on Apify StoreStructured data from the same sourceCompare coverage, description inclusion, only-new memory and price
 Build your own API clientControl over public search and detail requestsYou maintain source configuration, filters, pagination and persistent job IDs
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-13; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-14; the listing is the canonical description of the Actor.
 
 
 ---
@@ -3571,7 +3571,7 @@ workArrangementstring"Work From Office"
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-13; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-14; this build does not run paid example searches.
 
 {
   "cities": [
@@ -3619,7 +3619,7 @@ WorkIndia website and appSearch and apply as a candidateNo export or API; one jo
 Apna or Shine APIs (same publisher)Other India boards with salariesDifferent coverage; WorkIndia is strongest for delivery, telecaller, office and field jobs
 Build your own scraperFull controlYou maintain sitemap paging, job-page parsing, expired-page handling and de-duplication
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-13; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-14; the listing is the canonical description of the Actor.
 
 
 ---
@@ -3655,7 +3655,7 @@ citystring"São Paulo"
 
 Input and how to call it
 
-Example input. Fields and pricing were checked against the public listing on 2026-11-13; this build does not run paid example searches.
+Example input. Fields and pricing were checked against the public listing on 2026-11-14; this build does not run paid example searches.
 
 {
   "locations": [
@@ -3716,7 +3716,7 @@ Zap Imóveis and VivaReal websitesSearch and alerts for a personNo export; listi
 Other Zap or VivaReal Actors on Apify StoreSame portalsCompare price per 1,000, condo fee and IPTU fields, both portals in one run and only-new mode
 Build your own clientFull controlEach search returns at most about 1,000 listings; you split by price and zone and remove duplicates yourself
 
-Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-13; the listing is the canonical description of the Actor.
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-14; the listing is the canonical description of the Actor.
 
 
 ---
