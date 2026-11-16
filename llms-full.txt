@@ -776,24 +776,6 @@ Dubai commercial property sales this week (DLD): Offices, shops and other commer
 Latest Dubai property transactions, last 3 days (DLD): The newest sales, mortgages and gifts registered with the Dubai Land Department in the last 3 days (3 days so that weekends are covered): AED value, price per sqm, area, project, rooms and size. Official DLD open data. S {"daysBack": 3, "sort": "TRANSACTION_NUMBER_DESC", "maxItems": 3000}
 Dubai DLD property transactions, last 24 hours, as JSON: Every Dubai Land Department transaction registered in the last day: sales, mortgages and gifts with area, project, property type, size and AED value, as JSON or CSV. Schedule it daily for a transaction feed. {"daysBack": 1, "transactionGroup": "all", "sort": "TRANSACTION_NUMBER_DESC", "maxItems": 1000}
 
-Questions buyers ask
-How much does it cost to get Dubai property transactions?
-$0.001 per transaction. A full week of all DLD transactions (about 4,100 rows) costs about $4.10; a week of sales alone about $2.60.
-Is this the official DLD data?
-Yes. It reads the Dubai Land Department's open-data transactions service, the same register that paid DLD data products resell.
-Can I filter by area or off-plan?
-Off-plan vs ready, sales / mortgages / gifts, freehold, usage and property type are input filters. For areas, filter the output on the area and project names: DLD's area-id parameter returns no rows and areaId is 0 on every row, so that field is hidden under Advanced.
-Does it include price per square metre?
-Yes, pricePerSqmAed is computed from the transaction value and the actual area.
-Is off-plan cheaper than ready property in Dubai?
-Per square metre, no. In the 8,639 residential unit sales registered 1–29 October 2026 the median off-plan flat cost AED 19,303 per sqm, 25% above the ready median of AED 15,434; off-plan units are smaller (68 vs 81 sqm), so the median ticket was almost the same (AED 1.18m vs 1.20m). Area-by-area and bedroom tables: Dubai off-plan vs ready prices per sqm by area, October 2026.
-Can I get earlier years (2025 and before)?
-Not from this Actor. Checked on 10 November 2026: the DLD open-data gateway answers for the current calendar year only. Every 2025 and earlier date range returned 0 rows, a range from 25 December 2025 to 5 January 2026 returned only 2026 rows, and 1 January to 10 November 2026 held 188,045 transactions (138,762 of them sales). A run with older dates ends successfully with 0 rows, no charge and a status message that says so. DLD's open-data page says "For previous year data kindly visit data.dubai": the official history is the Data.Dubai dataset "Real Estate Transactions" (published by the Dubai Land Department as open data, CSV and JSON files, listed that day as two CSV parts of about 582 MB each; Data.Dubai replaced the retired Dubai Pulse portal). Data.Dubai's FAQ states that the portal is currently reachable only from inside the United Arab Emirates, and it refused our requests from Japan and the United States that day, so this Actor does not read it. To get the history from the source: download the files at data.dubai on a UAE connection (its FAQ says open datasets need no login), or create an account there and use the "Request API Access Key" form on the dataset page.
-How do I build my own history from now on?
-Two steps. First back-fill the current year once, month by month ({"fromDate": "2026-10-01", "toDate": "2026-10-31", "maxItems": 0} and so on): the year to 10 November 2026 is 188,045 rows, about $188 for everything or about $139 for sales only ("transactionGroup": "sales"). Then save the daily feed as a scheduled task ({"daysBack": 2, "onlyNew": true, "stateName": "dld-daily", "maxItems": 0}): about 520-570 rows a day, about $16-18 a month, each row delivered and charged once. Because the gateway answers only for the current year, pull a year's rows before it ends; rows you have not saved by 31 December may no longer be available here in January.
-Can I run it every day without editing dates?
-Yes. Leave fromDate empty, set daysBack to 2 and onlyNew to true; the window moves with the run date and each transaction is delivered and charged once.
-
 Alternatives, honestly
 OptionWhat it gives youWhere it falls short for this job
 Dubai Pulse open-data portalOfficial downloads by handManual extracts, cleaning needed, no schedule
@@ -1522,9 +1504,6 @@ IIMJobs Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns
 
 Daemon Data IIMJobs Jobs Scraper on Apify   Listing as plain text
 
-Checked on 18 Oct 2026
-product manager matched 4,097 open IIMJobs listings and investment banking matched 652. On the first page of product manager, the median job already had about 170 applicants.
-
 Who uses it, for what
 You areWhat you get
 Executive search and staffing firmsA daily list of new mid-senior openings by function, city and experience band, plus applicant counts, so you know which mandates are crowded before you pitch.
@@ -1720,7 +1699,6 @@ Cost example: 50 shipments with default options cost $0.101, including any start
 Ready-made example pages
 Saved inputs you can run with one click on Apify (Examples tab); each has its own page:
 Latest bills of lading: Walmart, Home Depot, IKEA (ImportYeti): Get US import records as JSON via API: the 50 newest ocean bills of lading ImportYeti lists for Walmart, Home Depot USA and IKEA Supply, 150 shipments (latest 28 October 2026; suppliers in China, India, Colombia, Vietnam {"companies": ["walmart", "home depot", "ikea supply"], "output": "shipments", "maxShipmentsPerCompany": 50, "maxResults": 150}
-Supplier lists and import trends: Tesla, Nike, Amazon, IKEA: Get US importer profiles as JSON via API: one row each for Tesla, Nike USA, Amazon Services, IKEA Supply, Walmart, Home Depot USA, Trader Joe's and Dollar Tree from ImportYeti (8 rows, shipments to 1 November 2026). Each {"companies": ["tesla", "nike usa", "amazon services", "ikea supply", "walmart", "home depot usa", "trader joes", "dollar tree distribution"], "output": "profil
 
 Alternatives, honestly
 OptionWhat it gives youWhere it falls short for this job
@@ -2225,8 +2203,6 @@ Ready-made example pages
 Saved inputs you can run with one click on Apify (Examples tab); each has its own page:
 Python jobs in Bangalore at startups (Instahyre): Open Python jobs on Instahyre in Bangalore at companies with under 1,000 employees, with the full description, experience range, skills and the company's headcount, founding year and website. Save as a task and switch on {"queries": ["python"], "locations": ["Bangalore"], "companySizes": ["small", "medium"], "includeDescription": true, "maxJobsPerQuery": 50}
 Work-from-home tech jobs in India (Instahyre): Remote (work from home) engineering, data and product jobs on Instahyre, with the full description, experience range, skills and company profile. Change the keywords to your stack; switch on only-new mode for a daily fee {"queries": ["react", "node.js", "data engineer"], "locations": ["Work From Home"], "includeDescription": true, "maxJobsPerQuery": 30}
-Data analyst jobs in India (Instahyre): Data analyst and business analyst roles open on Instahyre: SQL, Python, Power BI, Tableau and analytics jobs at startups and product companies, with the full job description, posting date, experience range, company size  {"queries": ["data analyst", "business analyst"], "includeDescription": true, "maxJobsPerQuery": 50}
-Cyber security jobs in India (Instahyre): Cyber security, information security, SOC and cloud security roles open on Instahyre at Indian startups and product companies, with the full job description, posting date, experience range, skills, company size and websi {"queries": ["cyber security", "information security", "security engineer"], "includeDescription": true, "maxJobsPerQuery": 40}
 
 Questions buyers ask
 Is there an official Instahyre API?
@@ -2640,6 +2616,9 @@ NSE corporate announcements, latest 200 filings (JSON API): The 200 newest corpo
 NSE bulk deals and block deals, last 7 days (JSON API): Every bulk deal and block deal NSE India disclosed in the last 7 days, as JSON: date, symbol, company, the client that bought or sold, side, quantity, price and deal value in rupees. Newest day first, block deals before  {"reports": ["deals"], "dealTypes": ["bulk", "block"], "daysBack": 7, "maxItems": 0}
 NSE insider trading, last 7 days: buys, sells, pledges (JSON): Every insider trade disclosed to NSE India in the last 7 days, one JSON row per transaction: the person, their category (promoter, promoter group, director, designated person), buy, sell or pledge, shares, value in rupee {"reports": ["insiderTrading"], "daysBack": 7, "maxItems": 0}
 NSE quarterly results, latest 100 filings as JSON (API): The 100 newest financial results filed with NSE India, one row per filing with the figures as numbers: revenue, expenses, profit before tax, net profit, EPS, year to date, plus balance sheet and cash flow when filed. Rea {"reports": ["financialResults"], "daysBack": 7, "maxItems": 100}
+NSE promoter and insider buying, last 14 days (JSON, CSV): Open-market share purchases that promoters, directors and other insiders disclosed to NSE in the last 14 days, one row per transaction: person, category, quantity, value in rupees, average price, holding before and after {"reports": ["insiderTrading"], "categories": ["Market Purchase"], "daysBack": 14, "maxItems": 300}
+NSE share pledges: created, invoked and released, 30 days: Pledges of shares disclosed to NSE under the insider-trading rules in the last 30 days, one row per event: pledge created, invoked, released or revoked, with the person, category (promoter, promoter group, designated per {"reports": ["insiderTrading"], "categories": ["Pledge"], "daysBack": 30, "maxItems": 200}
+NSE order wins: new orders and contracts, last 7 days (JSON): Announcements NSE files under 'Bagging/Receiving of orders/contracts' in the last 7 days: company, symbol, ISIN, the summary text, the PDF link and the broadcast time in India time. Measured on 16 Nov 2026: 26 for 9-16 N {"reports": ["announcements"], "categories": ["Bagging"], "daysBack": 7, "maxItems": 200}
 
 Alternatives, honestly
 OptionWhat it gives youWhere it falls short for this job
