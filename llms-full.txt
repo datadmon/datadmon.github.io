@@ -1,6 +1,6 @@
 # Daemon Data
 
-> Daemon Data publishes 35 public Actors on Apify Store (https://apify.com/data_daemon), verified at build time against the Apify API. Data Actors read public JSON endpoints or pages and return structured records (JSON, CSV, Excel). Most charge per record; India Jobs Feed and India Jobs MCP have no own fee, with downstream board Actor charges. Call via REST, Python/Node.js, n8n/Make/Zapier or MCP (`https://mcp.apify.com/?tools=data_daemon/<actor>`, header `Authorization: Bearer <APIFY_TOKEN>`). FREE-plan list prices checked 2026-11-16. Historical measurements retain their stated dates.
+> Daemon Data publishes 36 public Actors on Apify Store (https://apify.com/data_daemon), verified at build time against the Apify API. Data Actors read public JSON endpoints or pages and return structured records (JSON, CSV, Excel). Most charge per record; India Jobs Feed and India Jobs MCP have no own fee, with downstream board Actor charges. Call via REST, Python/Node.js, n8n/Make/Zapier or MCP (`https://mcp.apify.com/?tools=data_daemon/<actor>`, header `Authorization: Bearer <APIFY_TOKEN>`). FREE-plan list prices checked 2026-11-16. Historical measurements retain their stated dates.
 
 ## Data APIs
 
@@ -17,6 +17,7 @@
 - [Get on Board jobs (LATAM)](https://datadmon.github.io/actors/getonbrd-jobs-scraper/): LATAM tech jobs with monthly USD salary, full descriptions, country eligibility and persistent only-new feeds. $0.80 per 1,000 job with full descriptions. Apify listing: https://apify.com/data_daemon/getonbrd-jobs-scraper (plain text: https://apify.com/data_daemon/getonbrd-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/getonbrd-jobs-scraper
 - [Gupy jobs (Brazil)](https://datadmon.github.io/actors/gupy-jobs-scraper/): Brazil jobs from the Gupy portal with full descriptions, city, state, workplace type and contract type. $0.80 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/gupy-jobs-scraper (plain text: https://apify.com/data_daemon/gupy-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/gupy-jobs-scraper
 - [Hirist jobs](https://datadmon.github.io/actors/hirist-jobs-scraper/): India IT and tech jobs with full descriptions, skills, salary when disclosed. $2.00 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/hirist-jobs-scraper (plain text: https://apify.com/data_daemon/hirist-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/hirist-jobs-scraper
+- [HKEX announcements, director dealings and CCASS](https://datadmon.github.io/actors/hkex-news-filings/): Hong Kong Exchange (HKEX) data as JSON: HKEXnews announcements with category, title and document link; director and substantial-shareholder dealings (disclosure of interests); CCASS shareholding by participant. Stock-code watchlists, only-new feed. $3 per 1,000 filings, $1 per 1,000 CCASS rows.. $3.00 per 1,000 announcement or dealing rows. Apify listing: https://apify.com/data_daemon/hkex-news-filings (plain text: https://apify.com/data_daemon/hkex-news-filings.md). MCP: https://mcp.apify.com/?tools=data_daemon/hkex-news-filings
 - [IIMJobs jobs](https://datadmon.github.io/actors/iimjobs-jobs-scraper/): India MBA, finance, consulting and management jobs with full descriptions. $2.00 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/iimjobs-jobs-scraper (plain text: https://apify.com/data_daemon/iimjobs-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/iimjobs-jobs-scraper
 - [ImportYeti US import records](https://datadmon.github.io/actors/importyeti-scraper/): US import records from ImportYeti: latest bills of lading per importer or supplier, or a company profile with top suppliers. $2.00 per 1,000 shipments. Apify listing: https://apify.com/data_daemon/importyeti-scraper (plain text: https://apify.com/data_daemon/importyeti-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/importyeti-scraper
 - [India company data (MCA)](https://datadmon.github.io/actors/india-company-data/): Indian company records from the MCA register by CIN or name: status, incorporation date, capital, registered office, company email, compliance flags and the board of directors with DIN. $3.00 per 1,000 companys. Apify listing: https://apify.com/data_daemon/india-company-data (plain text: https://apify.com/data_daemon/india-company-data.md). MCP: https://mcp.apify.com/?tools=data_daemon/india-company-data
@@ -1488,6 +1489,104 @@ OptionWhat it gives youWhere it falls short for this job
 Hirist.tech websiteSearch and alerts for a logged-in userNo bulk export or API
 Other Hirist Actors on Apify StoreSame boardCompare full-description coverage, AmbitionBox fields, only-new mode, price
 Build your own scraperFull controlMaintenance of endpoints, pagination and de-duplication is on you
+
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-16; the listing is the canonical description of the Actor.
+
+
+---
+
+# HKEX announcements, director dealings and CCASS shareholding as JSON API | Daemon Data
+
+Source: https://datadmon.github.io/actors/hkex-news-filings/
+
+HKEX announcements, director dealings and CCASS shareholding as JSON API
+
+HKEX News API is a pay-per-record Apify Actor by Daemon Data that returns Hong Kong Exchange (HKEX) data as JSON: HKEXnews announcements with category, title and document link; director and substantial-shareholder dealings (disclosure of interests); CCASS shareholding by participant. Stock-code watchlists, only-new feed. $3 per 1,000 filings, $1 per 1,000 CCASS rows. as JSON, CSV or Excel. It costs $0.003 per announcement or dealing row with the default options ($3.00 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+
+Daemon Data HKEX News API on Apify   Listing as plain text
+
+Checked on 16 Nov 2026
+HKEXnews listed 3,283 entries for the trading week 9-13 Nov 2026 (687 on Friday the 13th, 302 of them in the category Announcements and Notices). The disclosure-of-interests search held 626 notices for the event days 9-13 Nov (48 for 13 Nov when read on 16 Nov). CCASS listed 416 participants for Tencent (00700) on 13 Nov. A whole day of announcements came back complete (687 of 687) in 5 seconds; two stocks' top 50 CCASS holders (102 rows) in 48 seconds.
+
+Why teams use it
+Rows, not pages. The three sources are a search form, a set of paged tables and a form that posts back. This Actor returns them as JSON with ISO dates in Hong Kong time, numbers as numbers, stock codes with leading zeros and stable field names.
+A feed that delivers each row once. With onlyNew the Actor remembers what it delivered. Schedule it with daysBack: 7: a notice filed days after its event is still picked up, and nothing is delivered or charged twice.
+Filter before you pay. stockCodes, headlineCategories and keywords are applied before rows are saved. Exact category names are filtered at the source, so a year of one category is a small run.
+A whole day, complete. A busy day is read in one request and the row count is checked against the total HKEXnews reports (687 of 687 on 13 November 2026).
+Dealings you can sort. (L), (S) and (P) become long, short and lending-pool fields; reason codes come with HKEX's wording and a plain transactionType (increase, decrease, short increase ...).
+CCASS changes in one call. compareDays puts today's and the earlier holding on the same row.
+
+Output fields
+The most useful top-level fields with values from a real record; the full list is reportType, exchange, id, stockCode, stockName, stockCodes, stockNames, title, headlineCategory, subcategories, category, status, language, board, fileType, fileSize, fileSizeKb, documentUrl, dealingDisclosuresUrl, date, publishedAt, formSerial, form, noticeType, role, company, holderName, eventDate, filingDate, position, reasonCode, reasonText, transactionType, sharesInvolved, averagePrice, currency, sharesAfter, percentAfter, shortSharesAfter, shortPercentAfter, lendingPoolSharesAfter, lendingPoolPercentAfter, events, subject, detailUrl, classOfShares, issuedSharesInClass, awareDate, sharesBefore, percentBefore, shortSharesBefore, shortPercentBefore, lendingPoolSharesBefore, lendingPoolPercentBefore, sharesChange, percentChange, capacityCode, capacity, transactionCurrency, highestPrice, averageConsideration, tradeVenue, rowType, holdingDate, rank, participantId, participantName, shares, percentOfIssued, previousHoldingDate, previousShares, percentOfIssuedChange, issuedShares, sharesInCcass, percentInCcass, participantCount, intermediaryShares, intermediaryPercent, intermediaryCount, consentingInvestorShares, consentingInvestorPercent, consentingInvestorCount, nonConsentingInvestorShares, nonConsentingInvestorPercent, nonConsentingInvestorCount, participantsListed, previousSharesInCcass, sharesInCcassChange, sourceUrl, source, scrapedAt. Per-field notes and the OpenAPI definition are on the Apify API page.
+FieldTypeExample
+reportTypestring"announcements"
+idstring"12412800"
+stockCodestring"01897"
+stockNamestring"MILLIONHOPE IND"
+stockCodesarray["01897"]
+stockNamesarray["MILLIONHOPE IND"]
+titlestring"Announcement of Interim Results for the Six Months Ended 30 Septem...
+headlineCategorystring"Announcements and Notices"
+subcategoriesarray["Interim Results", "Dividend or Distribution", "Closure of Books o...
+categorystring"Announcements and Notices - [Interim Results / Dividend or Distrib...
+languagestring"en"
+boardstring"Main Board"
+fileTypestring"PDF"
+fileSizestring"207KB"
+fileSizeKbnumber207
+
+Input and how to call it
+
+Example input. Fields and pricing were checked against the public listing on 2026-11-16; this build does not run paid example searches.
+
+{
+  "reports": [
+    "announcements"
+  ],
+  "daysBack": 7,
+  "maxItems": 50
+}
+
+One HTTP call starts a run, waits for it and returns the records (token from console.apify.com):
+
+curl -X POST "https://api.apify.com/v2/acts/data_daemon~hkex-news-filings/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"reports": ["announcements"], "daysBack": 7, "maxItems": 50}'
+
+Python: ApifyClient(token).actor("data_daemon/hkex-news-filings").call(run_input=...). Python example · Node.js example · n8n workflow.
+AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daemon/hkex-news-filings with header Authorization: Bearer YOUR_APIFY_TOKEN in Claude, ChatGPT, Cursor or VS Code and ask for the data in plain words.
+
+All input fields
+FieldTypeMeaning
+reportsarrayWhich HKEX feeds to read. Each row carries its reportType. announcements (default): listed-company announcements, circulars, results, next-day disclosure returns and other documents from the HKEXnews title search, with stock codes, headline category and document link (687 entries on Friday 13 November 2026). directorDealings: disclosure-of-interests notices filed by directors, chief executives and substantial shareholders (who, shares bought or sold, average price, holding and percent afterwards; 626 notices for the event days 9-13 November 2026). ccassHoldings: CCASS participant shareholding of each stock in stockCodes on one day (which broker or custodian holds how many shares and what percent of the issued shares; 416 participants for Tencent on 13 November 2026).
+stockCodesarrayHKEX stock codes to keep, with or without leading zeros: 00700, 700, 5, 09988. The spellings other tools use (0700.HK, HKEX:700) and HKEXnews short names (TENCENT) work too. Empty = the whole market for announcements and dealings. Required for ccassHoldings, which is searched one stock at a time. With stock codes, announcements and dealings are read per company, so a year of history for a watchlist is a small run.
+headlineCategoriesarrayKeep announcements of these HKEX headline categories. Exact names are filtered by HKEXnews itself, which makes long histories cheap: tier one such as Announcements and Notices, Circulars, Financial Statements/ESG Information, Next Day Disclosure Returns, Monthly Returns, Listing Documents, or a subcategory such as Final Results, Interim Results, Profit Warning, Inside Information, Dividend or Distribution, Share Buyback, Trading Halt. Any other text is matched as words in the category of each row. Empty = everything HKEXnews lists, including fund trading information and structured-product notices.
+keywordsarrayKeep rows that contain one of these words (case-insensitive). Announcements: title, stock name and category (placing, privatisation, profit warning). Dealings: company, holder name and reason (BlackRock, purchased). CCASS: participant name or ID (HSBC, C00019). Empty = all.
+daysBackintegerFor announcements and dealings: how many days before today (Hong Kong time) to read, today included. 0 = today only, 7 (default) = today and the seven days before. Ignored when From date is set. Dealings are searched by the date of the event, and a notice can be filed some days after it: read at least 5 days back in a daily feed.
+fromDatestringFirst day (YYYY-MM-DD, Hong Kong time) for announcements and dealings. Use with To date for a backfill; the week of 9-13 November 2026 had 3,283 entries.
+toDatestringLast day (YYYY-MM-DD, Hong Kong time). Empty = today.
+languagestringHKEXnews files the English and the Chinese version of a document as separate entries with their own ids. en (default) reads the English entries, zh the Chinese ones (titles and categories in Chinese), both reads both and marks each row with its language.
+includeDetailsbooleanFor directorDealings: open the notice page of every delivered row and add the stock code, the share class, the number of issued shares, the holding and percent before the event, the change, the capacity and the highest price. One more request per notice (about three seconds each), so it is off by default. Not needed for the stock code when stockCodes is set: those rows carry it already.
+holdingDatestringFor ccassHoldings: the day whose holdings to read (YYYY-MM-DD). Empty = the latest day CCASS serves (the day before today). CCASS serves the past 12 months; for a Sunday or public holiday it answers with the day before, and the rows say which day they are.
+topParticipantsintegerFor ccassHoldings: keep the largest N participants of each stock, by shares held. Default 50. 0 = every participant (416 rows for Tencent on 13 November 2026). Each stock also returns one summary row with the totals.
+minPercentstringFor ccassHoldings: keep participants that hold at least this percent of the issued shares, for example 1 or 0.5. Empty or 0 = no minimum.
+compareDaysintegerFor ccassHoldings: also read the holdings N days before the holding date and add previousShares, sharesChange and percentOfIssuedChange to every row (who added, who reduced). One more request per stock. 0 (default) = no comparison.
+maxItemsintegerStop announcements and dealings after this many rows each, newest first. 0 = no limit. Each of these rows costs $0.003, so the default 50 rows cost $0.15. CCASS rows are limited by Participants per stock instead.
+onlyNewbooleanRemember what was delivered and return only rows that are new since the last run with the same state name. Rows already delivered are skipped and not charged again, so a scheduled run with Days back 7 never misses a late notice and never bills one twice. For CCASS a day's holdings of a stock are delivered once.
+stateNamestringName of the only-new memory. Use a different name for each independent feed (for example one per watchlist). Letters, digits, dash and underscore.
+
+Price
+$0.003 per announcement or dealing row ($3.00 per 1,000); $0.001 per ccass holding row ($1.00 per 1,000). List prices for Apify Free and Starter plans; Scale and Business plans pay 15% to 30% less.
+EventPricePer 1,000Charged when
+Announcement or dealing row$0.003$3.00One row saved to the dataset: a HKEXnews announcement or a disclosure-of-interests notice (director or substantial-shareholder dealing). Rows left out by filters, and rows already delivered in only-new mode, are never charged.
+CCASS holding row$0.001$1.00One row saved to the dataset by the ccassHoldings report: a CCASS participant's holding of a stock on a day, or the stock's summary row for that day. Rows already delivered in only-new mode are never charged.
+Cost example: 50 announcement or dealing rows with default options cost $0.15, including any start fee. This is an illustrative record count; set explicit row and total-charge caps for your run. Apify's free plan includes $5 of usage a month, about 1,666 announcement or dealing rows before start fees; the Actor's own compute is included in the per-record price, and records skipped by filters, de-duplication or only-new mode are not charged.
+
+Alternatives, honestly
+OptionWhat it gives youWhere it falls short for this job
+HKEXnews and the disclosure-of-interests searchThe official pages: title search, notices by date or company, CCASS search by stock and dayBrowser tables, one stock and one day at a time for CCASS; no rows to load into a database
+Market-data terminals and vendor feedsFilings next to prices, news and analyticsAnnual contracts; far more than a filings feed needs
+Stock-information websitesAnnouncement lists and top CCASS holders per stockPages for reading, not an API; no whole-market feed and no change history you control
 
 Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-16; the listing is the canonical description of the Actor.
 
