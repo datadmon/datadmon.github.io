@@ -1,6 +1,6 @@
 # Daemon Data
 
-> Daemon Data publishes 36 public Actors on Apify Store (https://apify.com/data_daemon), verified at build time against the Apify API. Data Actors read public JSON endpoints or pages and return structured records (JSON, CSV, Excel). Most charge per record; India Jobs Feed and India Jobs MCP have no own fee, with downstream board Actor charges. Call via REST, Python/Node.js, n8n/Make/Zapier or MCP (`https://mcp.apify.com/?tools=data_daemon/<actor>`, header `Authorization: Bearer <APIFY_TOKEN>`). FREE-plan list prices checked 2026-11-17. Historical measurements retain their stated dates.
+> Daemon Data publishes 37 public Actors on Apify Store (https://apify.com/data_daemon), verified at build time against the Apify API. Data Actors read public JSON endpoints or pages and return structured records (JSON, CSV, Excel). Most charge per record; India Jobs Feed and India Jobs MCP have no own fee, with downstream board Actor charges. Call via REST, Python/Node.js, n8n/Make/Zapier or MCP (`https://mcp.apify.com/?tools=data_daemon/<actor>`, header `Authorization: Bearer <APIFY_TOKEN>`). FREE-plan list prices checked 2026-11-17. Historical measurements retain their stated dates.
 
 ## Data APIs
 
@@ -26,6 +26,7 @@
 - [India Jobs MCP (10 boards for agents)](https://datadmon.github.io/actors/india-jobs-mcp/): MCP server for Claude, Cursor and other AI agents: search Naukri, IIMJobs, Hirist, foundit, Instahyre, Shine, Cutshort, Apna, WorkIndia and Unstop. Tools: search_jobs, search_all_boards, new_jobs_since, list_boards. Salary in LPA, experience, skills. Pay only each board's per-job price.. No own fee; board Actor charges apply. Apify listing: https://apify.com/data_daemon/india-jobs-mcp (plain text: https://apify.com/data_daemon/india-jobs-mcp.md). MCP: https://mcp.apify.com/?tools=data_daemon/india-jobs-mcp
 - [New Indian companies (MCA)](https://datadmon.github.io/actors/india-new-company-registrations/): newly incorporated Indian companies from the MCA register: CIN, type, RoC, state, NIC activity, capital, registered office. $3.00 per 1,000 companys. Apify listing: https://apify.com/data_daemon/india-new-company-registrations (plain text: https://apify.com/data_daemon/india-new-company-registrations.md). MCP: https://mcp.apify.com/?tools=data_daemon/india-new-company-registrations
 - [Instahyre jobs](https://datadmon.github.io/actors/instahyre-jobs-scraper/): India tech jobs from product companies and startups by skill, city, experience and company size, full descriptions included. $0.80 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/instahyre-jobs-scraper (plain text: https://apify.com/data_daemon/instahyre-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/instahyre-jobs-scraper
+- [Jobgether remote jobs](https://datadmon.github.io/actors/jobgether-jobs-scraper/): Scrape Jobgether remote jobs by keyword, skill, country or region, employment type, seniority, salary and date. Each job has the company, where it is open, salary, skills, posting time and the employer's apply link; full description on request. Only-new mode for daily feeds. No login, no proxy.. $0.80 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/jobgether-jobs-scraper (plain text: https://apify.com/data_daemon/jobgether-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/jobgether-jobs-scraper
 - [Luma events](https://datadmon.github.io/actors/luma-events-scraper/): lu.ma events by city, category, keyword or calendar: dates, venue, tickets, hosts. $1.50 per 1,000 events. Apify listing: https://apify.com/data_daemon/luma-events-scraper (plain text: https://apify.com/data_daemon/luma-events-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/luma-events-scraper
 - [Magicbricks listings (India)](https://datadmon.github.io/actors/magicbricks-property-scraper/): Magicbricks India property listings: price, price per sq ft, carpet area, BHK, furnishing, locality, project, coordinates. $1.00 per 1,000 listings. Apify listing: https://apify.com/data_daemon/magicbricks-property-scraper (plain text: https://apify.com/data_daemon/magicbricks-property-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/magicbricks-property-scraper
 - [Naukri.com jobs (India)](https://datadmon.github.io/actors/naukri-jobs-scraper/): Naukri.com jobs with salary in LPA, experience, skills, applicants, views, AmbitionBox rating and full description; whole-board daily export and only-new mode. $0.80 per 1,000 jobs. Apify listing: https://apify.com/data_daemon/naukri-jobs-scraper (plain text: https://apify.com/data_daemon/naukri-jobs-scraper.md). MCP: https://mcp.apify.com/?tools=data_daemon/naukri-jobs-scraper
@@ -2312,6 +2313,98 @@ OptionWhat it gives youWhere it falls short for this job
 Instahyre websiteCandidate and employer accountsNo export or API; salary and applicant counts are not shown publicly anywhere
 Hirist or IIMJobs APIs (same publisher)Applicant counts and salary bandsDifferent boards; Instahyre is the one with company headcount and size filters
 Other Instahyre Actors on Apify StoreSame boardCompare price per 1,000, company-profile fields and only-new mode
+
+Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-17; the listing is the canonical description of the Actor.
+
+
+---
+
+# Jobgether remote jobs with salary, skills and apply link as JSON API | Daemon Data
+
+Source: https://datadmon.github.io/actors/jobgether-jobs-scraper/
+
+Jobgether remote jobs with salary, skills and apply link as JSON API
+
+Jobgether Scraper is a pay-per-record Apify Actor by Daemon Data that returns Scrape Jobgether remote jobs by keyword, skill, country or region, employment type, seniority, salary and date. Each job has the company, where it is open, salary, skills, posting time and the employer's apply link; full description on request. Only-new mode for daily feeds. No login, no proxy. as JSON, CSV or Excel. It costs $0.0008 per job with the default options ($0.80 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+
+Daemon Data Jobgether Scraper on Apify   Listing as plain text
+
+Checked on 17 Nov 2026
+Jobgether listed 173,013 remote jobs when a broad search ran on 17 Nov 2026. A default run returned the 50 newest in 2 seconds; data engineer 200 jobs in 10 seconds; python in Germany 128 jobs; a broad search 1,000 distinct jobs in about a minute. The site serves 500 jobs per search, so wider searches are split by employment type and experience level; one uncapped run reached 9,557 jobs, 2,350 of them posted in the last 24 hours.
+
+Output fields
+The most useful top-level fields with values from a real record; the full list is id, url, title, company, companyUrl, companyWebsite, companySize, companyLogo, locations, locationsText, countries, regions, states, worldwide, remoteType, employmentType, seniority, salaryMin, salaryMax, salaryCurrency, salaryPeriod, salaryHidden, skills, roles, postedAt, applyUrl, easyApply, description, expiresAt, qualifications, responsibilities, industries, languages, softSkills, search, source, scrapedAt. Per-field notes and the OpenAPI definition are on the Apify API page.
+FieldTypeExample
+idstring"6afbf4e78acd9c1f9b1d225c"
+urlstring"https://jobgether.com/offer/6afbf4e78acd9c1f9b1d225c-customer-expe...
+titlestring"Customer Experience Customer Success Technical Leader"
+companystring"Cisco"
+companyUrlstring"https://jobgether.com/remote-jobs/company-cisco"
+companyWebsitestring"http://www.cisco.com"
+companySizestring"XLarge"
+companyLogostring"https://cdn-s3.jobgether.com/cisco/profile.webp"
+locationsarray["North America", "Canada"]
+locationsTextstring"North America, Canada"
+countriesarray["Canada"]
+regionsarray["North America"]
+statesarray[]
+worldwidebooleanfalse
+remoteTypestring"Full Remote"
+
+Input and how to call it
+
+Example input. Fields and pricing were checked against the public listing on 2026-11-17; this build does not run paid example searches.
+
+{
+  "keywords": [
+    "python"
+  ],
+  "locations": [
+    "Europe"
+  ],
+  "maxResults": 50
+}
+
+One HTTP call starts a run, waits for it and returns the records (token from console.apify.com):
+
+curl -X POST "https://api.apify.com/v2/acts/data_daemon~jobgether-jobs-scraper/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"keywords": ["python"], "locations": ["Europe"], "maxResults": 50}'
+
+Python: ApifyClient(token).actor("data_daemon/jobgether-jobs-scraper").call(run_input=...). Python example · Node.js example · n8n workflow.
+AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daemon/jobgether-jobs-scraper with header Authorization: Bearer YOUR_APIFY_TOKEN in Claude, ChatGPT, Cursor or VS Code and ask for the data in plain words.
+
+All input fields
+FieldTypeMeaning
+keywordsarrayJob titles or words, one search each (e.g. python, data engineer, customer success). Uses Jobgether's own keyword search. Empty = all jobs, newest first.
+locationsarrayWhere the candidate lives: a country (Germany, United States, Brazil), a region (Europe, Latin America, APAC), a US state (Texas) or Worldwide. One search per entry. Jobgether returns the jobs open to people there, including jobs open to the whole region or to anyone. Names are looked up in Jobgether's location list; unknown ones are skipped and named in the status message. Empty = everywhere.
+employmentTypesarrayOnly jobs of these employment types (Jobgether's contract filter). Empty = all.
+experienceLevelsarrayOnly jobs of these seniority levels (Jobgether's experience filter). Jobs without a level are left out when this is set. Empty = all.
+skillsarrayJobs tagged with a skill, one search each (e.g. Python, Salesforce, Figma). Wider than a keyword: it matches the skill tags Jobgether puts on each job, not only the title. Names are looked up in Jobgether's skill list.
+companiesarrayOnly jobs at these employers (e.g. GitLab, Automattic). Names are looked up in Jobgether's company list; unknown ones are skipped and named in the status message.
+minSalaryintegerOnly jobs whose shown salary range starts at or above this yearly amount, in the job's own currency (e.g. 100000). Jobs without a salary are left out when this is set.
+salaryCurrencystringOnly jobs whose salary is shown in this currency, e.g. USD, EUR, GBP, CAD. Jobs without a salary are left out when this is set. Left-out jobs are not charged.
+postedWithinDaysintegerOnly jobs added to Jobgether in the last N days. Reading stops once a page is older than the window.
+sortBystringNewest first (default) suits feeds and alerts. Relevance is the order Jobgether shows by default.
+includeDescriptionbooleanOn: opens each job page (one extra request per job, about 0.6 seconds each) for the full description as text and the date the posting is valid through, at no extra charge. Off (default): the list fields only, 50 jobs per request.
+includeRequirementsbooleanOn: one more request per job for the qualifications and responsibilities as lists, the employer's industries, required languages, soft skills and the complete skill list, at no extra charge. Jobgether allows 30 such requests a minute, so this adds about 2 seconds per job. Off by default.
+maxResultsintegerStop after this many jobs in total. With several searches the cap is shared evenly between them. 0 = no cap (the run's maximum cost still applies).
+onlyNewSinceLastRunbooleanOn: deliver only jobs that an earlier run with the same stateName (or the same search) has not delivered, and skip the rest without charging. Off (default): return every matching job.
+stateNamestringOptional name for the only-new memory, e.g. python-europe. Runs with the same name share one memory. Empty = derived from the keywords, skills, locations, companies, employment types and experience levels.
+skipJobIdsarrayJobgether job IDs you already have (the id field, 24 characters); they are skipped and not charged.
+
+Price
+$0.0008 per job ($0.80 per 1,000); $0.001 per run. List prices for Apify Free and Starter plans; Scale and Business plans pay 15% to 30% less.
+EventPricePer 1,000Charged when
+Job$0.0008$0.80One job saved to the dataset, with the description and requirements when you ask for them. Jobs left out by a filter, already delivered in only-new mode or listed in skipJobIds are never charged.
+Actor Start$0.001Charged when the Actor starts running. Number of events charged depends on Actor memory (one event per GB, minimum one event).
+Cost example: 50 jobs with default options cost $0.041, including any start fee. This is an illustrative record count; set explicit row and total-charge caps for your run. Apify's free plan includes $5 of usage a month, about 6,250 jobs before start fees; the Actor's own compute is included in the per-record price, and records skipped by filters, de-duplication or only-new mode are not charged.
+
+Alternatives, honestly
+OptionWhat it gives youWhere it falls short for this job
+Jobgether's websiteSearch by title, country, experience and salary in the browserPages for reading; no export, and 500 jobs per search
+Jobgether's public jobs endpointA documented JSON list of jobs for agents25 jobs a page and 250 per search, without skills or the employer's apply link
+General job aggregator APIsMany boards behind one subscriptionMonthly plans; remote-only fields such as the countries a job is open to are often missing
 
 Published by Daemon Data (data_daemon on Apify Store). Prices, fields and example pages read from the live Apify listing on 2026-11-17; the listing is the canonical description of the Actor.
 
