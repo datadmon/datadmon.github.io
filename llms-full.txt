@@ -76,9 +76,9 @@ Source: https://datadmon.github.io/actors/abu-dhabi-property-transactions/
 
 Abu Dhabi property transactions (ADREC sold prices) as JSON API
 
-Abu Dhabi Property Transactions API is a pay-per-record Apify Actor by Daemon Data that returns Abu Dhabi property sales from ADREC market data since 2019 with AED price, price/sqm, district, project and bedrooms as JSON, CSV or Excel. It costs $0.001 per sale with the default options ($1.00 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+Abu Dhabi Property Transactions is a pay-per-record Apify Actor by Daemon Data that returns Abu Dhabi property sales from ADREC market data since 2019 with AED price, price/sqm, district, project and bedrooms as JSON, CSV or Excel. It costs $0.001 per sale with the default options ($1.00 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
 
-Daemon Data Abu Dhabi Property Transactions API on Apify   Listing as plain text
+Daemon Data Abu Dhabi Property Transactions on Apify   Listing as plain text
 
 Checked on 12 Nov 2026
 ADREC's table held 127,379 sales from 2 Jan 2019 to 11 Nov 2026 (25,114 in 2025; 27,636 so far in 2026). October 2026: 3,046 sales, 2,934 of them in Abu Dhabi City, 94 in Al Ain and 18 in Al Dhafra; 2,407 off-plan, 628 ready, 11 court-mandated; 2,152 primary and 894 resale. A full-month run returned all 3,046 rows in 22 seconds, matching the source count.
@@ -1132,9 +1132,9 @@ Source: https://datadmon.github.io/actors/getonbrd-jobs-scraper/
 
 Get on Board LATAM jobs API with salary & only-new feeds
 
-Get on Board Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns LATAM tech jobs with monthly USD salary, full descriptions, country eligibility and persistent only-new feeds as JSON, CSV or Excel. It costs $0.0008 per job with full description with the default options ($0.80 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
+Getonbrd (Get on Board) Jobs Scraper is a pay-per-record Apify Actor by Daemon Data that returns LATAM tech jobs with monthly USD salary, full descriptions, country eligibility and persistent only-new feeds as JSON, CSV or Excel. It costs $0.0008 per job with full description with the default options ($0.80 per 1,000); no login to the source site and no proxy or browser to set up on your side, and the same input runs from the Apify console, one REST call, Python, Node.js, n8n or an AI assistant through MCP.
 
-Daemon Data Get on Board Jobs Scraper on Apify   Listing as plain text
+Daemon Data Getonbrd (Get on Board) Jobs Scraper on Apify   Listing as plain text
 
 Who uses it, for what
 You areWhat you get
