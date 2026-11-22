@@ -596,7 +596,8 @@ Company Domain Finder is a pay-per-record Apify Actor by Daemon Data that return
 Daemon Data Company Domain Finder on Apify   Listing as plain text
 
 Why teams use it
-Enrich a CRM or a lead list that has company names but no websites, before an email finder or an enrichment tool that needs a domain.
+Lead generation and CRM enrichment: a lead list that has company names but no websites gets a domain per company, ready for an email finder or an enrichment tool that needs one.
+Domain to LinkedIn company page: a list of domains gets each company's LinkedIn URL and other social profiles, read from the company's own homepage.
 Clean up a spreadsheet of accounts: one canonical domain per company, with duplicates visible.
 Join datasets: job postings, tenders, filings or review data that carry a company name can be joined to anything keyed by domain.
 Feed an AI agent: "what is the website of X" answered with a confidence value and alternatives instead of a guess.
@@ -648,9 +649,10 @@ AI assistant (MCP): add the remote server https://mcp.apify.com/?tools=data_daem
 All input fields
 FieldTypeMeaning
 companyNamesarrayOne company per line, up to 10,000 per run, for example Stripe, Siemens AG or Tata Consultancy Services. Legal suffixes (Inc, Ltd, GmbH) are ignored when matching. Duplicates are looked up once.
-verifyWebsitebooleanOpen each found domain's homepage once: HTTP status, final URL after redirects, page title, logo and social links. Turn it off for domains only, which is faster.
-extractCompanyLinkedInbooleanRead the links to the company's own pages on LinkedIn, X, Facebook, Instagram, YouTube and GitHub from its homepage. Needs Open the website. LinkedIn itself is not visited.
-minConfidencestringHow close the matched company's name must be to yours, from 0.3 (loose) to 1 (same name after removing legal suffixes). Default 0.6. Below the threshold a row comes back with found false, the best candidate in note, and no charge.
+domainsarrayAlready have the domain? Give domains or URLs, for example stripe.com or https://www.emaar.com, and get the same row for each: website status, site name, the company's LinkedIn page and other social links, logo. A domain is charged as one company found when its website returns a page (HTTP 2xx); a blocked, missing or dead website is not charged. Can be combined with company names (10,000 items per run in total); names are done first and a domain that one of them resolved to is not looked up twice. The sample names of this form are skipped when you give domains.
+verifyWebsitebooleanFor company names: open each found domain's homepage once (HTTP status, final URL after redirects, page title, logo and social links). Turn it off to get the domain only, which is faster. Items in Domains are always opened.
+extractCompanyLinkedInbooleanRead the links to the company's own pages on LinkedIn, X, Facebook, Instagram, YouTube and GitHub from the link tags of its homepage. For company names this needs Open the website. LinkedIn itself is not visited.
+minConfidencestringFor company names: how close the matched company's name must be to yours, from 0.3 (loose) to 1 (same name after removing legal suffixes). Default 0.6. Below the threshold a row comes back with found false, the best candidate in note, and no charge. Through the API a number between 0.3 and 1 is accepted as well.
 
 Price
 $0.0006 per company found ($0.60 per 1,000); $0.001 per run. List prices for Apify Free and Starter plans; Scale and Business plans pay 15% to 30% less.
@@ -659,11 +661,26 @@ Company found$0.0006$0.60One company name resolved to a domain at or above your 
 Actor Start$0.001Charged when the Actor starts running. Number of events charged depends on Actor memory (one event per GB, minimum one event).
 Cost example: 50 company founds with default options cost $0.031, including any start fee. This is an illustrative record count; set explicit row and total-charge caps for your run. Apify's free plan includes $5 of usage a month, about 8,333 company founds before start fees; the Actor's own compute is included in the per-record price, and records skipped by filters, de-duplication or only-new mode are not charged.
 
+What it is not for
+People, e-mail addresses or phone numbers; small local businesses that appear in no public company index. The data belongs to its publisher; the Actor reads public pages and endpoints and leaves out personal contact details.
+
 Questions buyers ask
 How accurate is it?
 On our test list of 30 names (22 November 2026: well-known and mid-size companies from ten countries, several written with legal suffixes), all 23 names with one known answer resolved to the expected domain. Of three made-up or ambiguous names, two were returned as not found and one ("Acme") matched "Acme Tools" at confidence 0.6. The list is small and leans towards known companies: small local businesses that appear in neither source are returned as not found.
 Where does the data come from?
 A public company suggest index, Wikidata's "official website" statements, and each company's own homepage. LinkedIn and other networks are not visited; their links are read from the company's homepage.
+Can I get a company's LinkedIn URL from its domain?
+Yes. Put the domains in domains. The LinkedIn company page and the other profiles are the ones the company links from its own homepage, so a company that links none returns none.
+Related Actors
+
+India Company Data API (MCA): directors, status and registered details of Indian companies by name or CIN.
+
+Career Site Jobs API: open jobs of a company from Workday, Greenhouse, Lever and Ashby career sites.
+
+ImportYeti Scraper: US import records and suppliers of a company.
+
+Python Code Runner: join or clean this Actor's rows with pandas or SQL without downloading them.
+
 Does it return people or email addresses?
 No. It returns company-level data only.
 Something is wrong or missing
@@ -1068,6 +1085,8 @@ $0.001 per rent contract row ($1.00 per 1,000). List prices for Apify Free and S
 EventPricePer 1,000Charged when
 Rent contract row$0.001$1.00One registered Dubai rent contract row (or one merged contract with One row per contract) saved to the dataset. Rows left out by filters or already delivered in only-new mode are never charged.
 Cost example: 200 rent contract rows with default options cost $0.2, including any start fee. This is an illustrative record count; set explicit row and total-charge caps for your run. Apify's free plan includes $5 of usage a month, about 5,000 rent contract rows before start fees; the Actor's own compute is included in the per-record price, and records skipped by filters, de-duplication or only-new mode are not charged.
+
+Scheduled change from 2026-12-07: rent contract row $0.002 ($2.00 per 1,000).
 
 Ready-made example pages
 Saved inputs you can run with one click on Apify (Examples tab); each has its own page:
@@ -2098,6 +2117,8 @@ IPO report row$0.003$3.00One record from any IPO report (current IPOs, GMP, subs
 IPO detail page$0.015$15.00One full IPO detail record (price band, lot size, timetable, reservation, anchors, financials, objects).
 Cost example: 50 ipo report rows with default options cost $0.15, including any start fee. This is an illustrative record count; set explicit row and total-charge caps for your run. Apify's free plan includes $5 of usage a month, about 1,666 ipo report rows before start fees; the Actor's own compute is included in the per-record price, and records skipped by filters, de-duplication or only-new mode are not charged.
 
+Scheduled change from 2026-12-07: ipo report row $0.005 ($5.00 per 1,000), ipo detail page $0.015 ($15.00 per 1,000).
+
 What it is not for
 Non-Indian IPOs; secondary-market prices (use Tickertape). The data belongs to its publisher; the Actor reads public pages and endpoints and leaves out personal contact details.
 
@@ -2886,6 +2907,8 @@ EventPricePer 1,000Charged when
 Filing row$0.003$3.00One row saved to the dataset: an NSE announcement, corporate action, board meeting, calendar event, deal, credit rating, shareholding pattern or offer document. Rows left out by filters, and rows already delivered in only-new mode, are never charged.
 Cost example: 50 filing rows with default options cost $0.15, including any start fee. This is an illustrative record count; set explicit row and total-charge caps for your run. Apify's free plan includes $5 of usage a month, about 1,666 filing rows before start fees; the Actor's own compute is included in the per-record price, and records skipped by filters, de-duplication or only-new mode are not charged.
 
+Scheduled change from 2026-12-07: filing row $0.005 ($5.00 per 1,000).
+
 Ready-made example pages
 Saved inputs you can run with one click on Apify (Examples tab); each has its own page:
 NSE corporate announcements, latest 200 filings (JSON API): The 200 newest corporate announcements filed with NSE India, as JSON: symbol, company, ISIN, the subject NSE files it under (board meeting outcome, results, press release, dividend, order win), the summary text, the PDF  {"reports": ["announcements"], "daysBack": 2, "maxItems": 200}
@@ -2975,6 +2998,8 @@ EventPricePer 1,000Charged when
 Job$0.0008$0.80One OnlineJobs.ph job saved to the dataset with type of work, wage (as written and parsed), hours per week, skills, posting time and full description. Jobs left out by filters, only-new mode or skipIds, and jobs deleted by the employer, are never charged.
 Actor Start$0.001Charged when the Actor starts running. Number of events charged depends on Actor memory (one event per GB, minimum one event).
 Cost example: 50 jobs with default options cost $0.041, including any start fee. This is an illustrative record count; set explicit row and total-charge caps for your run. Apify's free plan includes $5 of usage a month, about 6,250 jobs before start fees; the Actor's own compute is included in the per-record price, and records skipped by filters, de-duplication or only-new mode are not charged.
+
+Scheduled change from 2026-12-07: job $0.002 ($2.00 per 1,000), actor start $0.001.
 
 Ready-made example pages
 Saved inputs you can run with one click on Apify (Examples tab); each has its own page:
@@ -3212,6 +3237,9 @@ Extra 10 seconds of run time$0.002$2.00Each started 10 seconds after the first 1
 Actor Start$0.001Charged when the Actor starts running. Number of events charged depends on Actor memory (one event per GB, minimum one event).
 Cost example: 50 code runs with default options cost $0.101, including any start fee. This is an illustrative record count; set explicit row and total-charge caps for your run. Apify's free plan includes $5 of usage a month, about 2,500 code runs before start fees; the Actor's own compute is included in the per-record price, and records skipped by filters, de-duplication or only-new mode are not charged.
 
+What it is not for
+Jobs over 15 minutes, GPU work, code that needs the run's Apify token (it is withheld from the code on purpose). The data belongs to its publisher; the Actor reads public pages and endpoints and leaves out personal contact details.
+
 Questions buyers ask
 Can I run pandas in n8n Cloud?
 n8n Cloud's Code node does not allow importing pandas. Call this Actor from an HTTP Request node with the body above; pandas, numpy and DuckDB are available and the response holds the rows.
@@ -3223,6 +3251,8 @@ Can my code call the internet?
 Yes: requests and httpx are installed. Calls go out from Apify's servers without a proxy.
 Limits
 50,000 inline rows, 200,000 Dataset rows in, 200,000 rows out (8 MB per row), 20 saved files of at most 50 MB each and 100 MB together, 900 seconds of code time. A DataFrame's named index (for example the keys of a groupby) becomes columns; an unnamed index is dropped.
+Related Actors
+Any Dataset works as input. Some from the same maker whose rows are often filtered, counted or joined afterwards:
 Something is wrong or missing
 Open an issue on the Issues tab with the run ID. More data tools from the same maker: Daemon Data on Apify.
 
